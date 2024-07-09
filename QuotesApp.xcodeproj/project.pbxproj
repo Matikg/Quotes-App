@@ -95,7 +95,12 @@
 			isa = PBXGroup;
 			children = (
 				E88FF57F2C35924F00AEA2BE /* QuotesAppApp.swift */,
+				E88FF5AA2C3A876700AEA2BE /* Views */,
+				E88FF5AC2C3A87B100AEA2BE /* WelcomeScreen */,
+				E88FF5A92C3A875C00AEA2BE /* Models */,
 				E88FF5812C35924F00AEA2BE /* ContentView.swift */,
+				E88FF5AE2C3A880000AEA2BE /* Router */,
+				E88FF5AD2C3A87DC00AEA2BE /* Services */,
 				E88FF5832C35925300AEA2BE /* Assets.xcassets */,
 				E88FF5852C35925300AEA2BE /* Preview Content */,
 			);
@@ -125,6 +130,41 @@
 				E88FF59C2C35925300AEA2BE /* QuotesAppUITestsLaunchTests.swift */,
 			);
 			path = QuotesAppUITests;
+			sourceTree = "<group>";
+		};
+		E88FF5A92C3A875C00AEA2BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E88FF5AA2C3A876700AEA2BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E88FF5AC2C3A87B100AEA2BE /* WelcomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		E88FF5AD2C3A87DC00AEA2BE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E88FF5AE2C3A880000AEA2BE /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
