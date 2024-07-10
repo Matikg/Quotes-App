@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		E88FF5802C35924F00AEA2BE /* QuotesAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF57F2C35924F00AEA2BE /* QuotesAppApp.swift */; };
-		E88FF5822C35924F00AEA2BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5812C35924F00AEA2BE /* ContentView.swift */; };
+		E88FF5822C35924F00AEA2BE /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5812C35924F00AEA2BE /* MainScreen.swift */; };
 		E88FF5842C35925300AEA2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E88FF5832C35925300AEA2BE /* Assets.xcassets */; };
 		E88FF5872C35925300AEA2BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E88FF5862C35925300AEA2BE /* Preview Assets.xcassets */; };
 		E88FF5912C35925300AEA2BE /* QuotesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5902C35925300AEA2BE /* QuotesAppTests.swift */; };
 		E88FF59B2C35925300AEA2BE /* QuotesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF59A2C35925300AEA2BE /* QuotesAppUITests.swift */; };
 		E88FF59D2C35925300AEA2BE /* QuotesAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF59C2C35925300AEA2BE /* QuotesAppUITestsLaunchTests.swift */; };
+		E88FF5B02C3DA5C300AEA2BE /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5AF2C3DA5C300AEA2BE /* WelcomeScreen.swift */; };
+		E88FF5B42C3E616F00AEA2BE /* CustomBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5B32C3E616E00AEA2BE /* CustomBackground.swift */; };
+		E88FF5B62C3E6E5000AEA2BE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5B52C3E6E5000AEA2BE /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		E88FF57C2C35924F00AEA2BE /* QuotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88FF57F2C35924F00AEA2BE /* QuotesAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesAppApp.swift; sourceTree = "<group>"; };
-		E88FF5812C35924F00AEA2BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E88FF5812C35924F00AEA2BE /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		E88FF5832C35925300AEA2BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E88FF5862C35925300AEA2BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E88FF58C2C35925300AEA2BE /* QuotesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuotesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +47,9 @@
 		E88FF5962C35925300AEA2BE /* QuotesAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuotesAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88FF59A2C35925300AEA2BE /* QuotesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesAppUITests.swift; sourceTree = "<group>"; };
 		E88FF59C2C35925300AEA2BE /* QuotesAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E88FF5AF2C3DA5C300AEA2BE /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		E88FF5B32C3E616E00AEA2BE /* CustomBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackground.swift; sourceTree = "<group>"; };
+		E88FF5B52C3E6E5000AEA2BE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,12 +101,12 @@
 			isa = PBXGroup;
 			children = (
 				E88FF57F2C35924F00AEA2BE /* QuotesAppApp.swift */,
+				E88FF5B12C3E5ED300AEA2BE /* MainScreen */,
 				E88FF5AA2C3A876700AEA2BE /* Views */,
-				E88FF5AC2C3A87B100AEA2BE /* WelcomeScreen */,
 				E88FF5A92C3A875C00AEA2BE /* Models */,
-				E88FF5812C35924F00AEA2BE /* ContentView.swift */,
 				E88FF5AE2C3A880000AEA2BE /* Router */,
 				E88FF5AD2C3A87DC00AEA2BE /* Services */,
+				E88FF5B22C3E611800AEA2BE /* Extensions */,
 				E88FF5832C35925300AEA2BE /* Assets.xcassets */,
 				E88FF5852C35925300AEA2BE /* Preview Content */,
 			);
@@ -142,15 +148,10 @@
 		E88FF5AA2C3A876700AEA2BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E88FF5AF2C3DA5C300AEA2BE /* WelcomeScreen.swift */,
+				E88FF5B52C3E6E5000AEA2BE /* CustomButton.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		E88FF5AC2C3A87B100AEA2BE /* WelcomeScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WelcomeScreen;
 			sourceTree = "<group>";
 		};
 		E88FF5AD2C3A87DC00AEA2BE /* Services */ = {
@@ -165,6 +166,22 @@
 			children = (
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		E88FF5B12C3E5ED300AEA2BE /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E88FF5812C35924F00AEA2BE /* MainScreen.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		E88FF5B22C3E611800AEA2BE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E88FF5B32C3E616E00AEA2BE /* CustomBackground.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,8 +314,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E88FF5822C35924F00AEA2BE /* ContentView.swift in Sources */,
+				E88FF5B42C3E616F00AEA2BE /* CustomBackground.swift in Sources */,
+				E88FF5B02C3DA5C300AEA2BE /* WelcomeScreen.swift in Sources */,
+				E88FF5822C35924F00AEA2BE /* MainScreen.swift in Sources */,
 				E88FF5802C35924F00AEA2BE /* QuotesAppApp.swift in Sources */,
+				E88FF5B62C3E6E5000AEA2BE /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
