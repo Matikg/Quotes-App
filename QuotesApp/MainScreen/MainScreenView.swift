@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainScreen: View {
+struct MainScreenView: View {
     var body: some View {
         VStack {
             Text("MainScreen")
@@ -16,5 +16,5 @@ struct MainScreen: View {
 }
 
 #Preview {
-    MainScreen()
+    MainScreenView()
 }
