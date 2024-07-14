@@ -1,0 +1,86 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "MainScreen" : {
+
+    },
+    "WelcomeScreen_cta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ready to start your collection of life-changing ideas?"
+          }
+        }
+      }
+    },
+    "WelcomeScreen_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuoteScan turns your camera into a powerful tool for personal development."
+          }
+        }
+      }
+    },
+    "WelcomeScreen_detail1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· Scan and save inspiring quotes"
+          }
+        }
+      }
+    },
+    "WelcomeScreen_detail2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· Organize your personal growth journey"
+          }
+        }
+      }
+    },
+    "WelcomeScreen_detail3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· Transform reading into actionable wisdom"
+          }
+        }
+      }
+    },
+    "WelcomeScreen_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture wisdom, fuel your growth."
+          }
+        }
+      }
+    },
+    "WelcomeScreen_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book Quote Saver"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
