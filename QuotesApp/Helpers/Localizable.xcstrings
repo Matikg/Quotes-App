@@ -1,7 +1,10 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "cta" : {
+    "MainScreen" : {
+
+    },
+    "WelcomeScreen_cta" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -12,7 +15,7 @@
         }
       }
     },
-    "description" : {
+    "WelcomeScreen_description" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -23,7 +26,7 @@
         }
       }
     },
-    "detail1" : {
+    "WelcomeScreen_detail1" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -34,7 +37,7 @@
         }
       }
     },
-    "detail2" : {
+    "WelcomeScreen_detail2" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -45,7 +48,7 @@
         }
       }
     },
-    "detail3" : {
+    "WelcomeScreen_detail3" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -56,10 +59,7 @@
         }
       }
     },
-    "MainScreen" : {
-
-    },
-    "subtitle" : {
+    "WelcomeScreen_subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -70,7 +70,7 @@
         }
       }
     },
-    "title" : {
+    "WelcomeScreen_title" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {

@@ -21,12 +21,15 @@ struct CustomButton: View {
             ZStack {
                 Rectangle()
                     .stroke(Color.accentColor, lineWidth: 3)
-                    .frame(minWidth: 144)
-                    .padding(.horizontal, 8)
-                
+                    .frame(height: 46)
+                    
                 Text(label)
                     .foregroundStyle(Color.accentColor)
+                    .padding(.horizontal, 16)
+                    .fixedSize(horizontal: true, vertical: false)
             }
+            .frame(minWidth: 144)
+            .padding()
         }
     }
 }

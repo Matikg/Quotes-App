@@ -15,11 +15,9 @@ struct QuotesAppApp: App {
         WindowGroup {
             if isFirstLaunch {
                 WelcomeScreenView(viewModel: WelcomeScreenViewModel())
-                    .globalBackground()
             }
             else {
                 MainScreenView()
-                    .globalBackground()
             }
         }
     }
