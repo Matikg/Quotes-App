@@ -22,7 +22,7 @@ struct MainScreenView: View {
                 case .empty:
                     buildEmptyListView()
                     
-                case .loaded(let books):
+                case let .loaded(books):
                     buildLoadedListView(books: books)
                 }
             }
@@ -56,9 +56,7 @@ struct MainScreenView: View {
                 LazyVStack(alignment: .leading) {
                     ForEach(books) { book in
                         BookListRowView(book: book)
-                        
-                        Divider()
-                            .padding(.vertical)
+                            .padding(.horizontal)
                     }
                 }
             }
@@ -70,7 +68,6 @@ struct MainScreenView: View {
         .padding(.top, 40)
     }
 }
-
 
 #Preview {
     MainScreenView(viewModel: MainScreenViewModel())

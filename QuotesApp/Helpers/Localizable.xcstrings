@@ -12,8 +12,16 @@
         }
       }
     },
-    "Quotes" : {
-
+    "MainScreen_quotes_count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quotes"
+          }
+        }
+      }
     },
     "WelcomeScreen_cta" : {
       "extractionState" : "manual",

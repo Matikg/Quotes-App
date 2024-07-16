@@ -5,25 +5,25 @@
 //  Created by Mateusz Grudzień on 14/07/2024.
 //
 
-import Foundation
+import SwiftUI
 
 class MainScreenViewModel: ObservableObject {
-    @Published var state: BookListState = /*.empty*/
-        .loaded([BookItem(title: "Atomic Habits", author: "James Clear", coverImage: nil, numberOfQuotes: 5), BookItem(title: "Mock2", author: "Mock2", coverImage: nil, numberOfQuotes: 10)])
-    
     enum BookListState {
         case empty
         case loaded([BookItem])
     }
     
     struct BookItem: Identifiable {
-        var id = UUID()
-        var title: String
-        var author: String
-        var coverImage: String?
-        var numberOfQuotes: Int
+        let id = UUID()
+        let title: String
+        let author: String
+        let coverImage: Image?
+        let quotesNumber: Int
     }
-        
+    
+    @Published var state: BookListState = /*.empty*/
+        .loaded([BookItem(title: "Atomic Habits", author: "James Clear", coverImage: nil, quotesNumber: 5), BookItem(title: "Mock2", author: "Mock2", coverImage: nil, quotesNumber: 10)])
+    
     //MARK: - Methods
     
     func addQuote() {
