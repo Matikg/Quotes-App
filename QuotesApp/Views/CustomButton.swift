@@ -22,6 +22,7 @@ struct CustomButton: View {
                 Rectangle()
                     .stroke(Color.accentColor, lineWidth: 3)
                     .frame(height: 46)
+                    .padding(.horizontal, 100)
                     
                 Text(label)
                     .foregroundStyle(Color.accentColor)

@@ -38,7 +38,6 @@ struct WelcomeScreenView: View {
                 CustomButton(label: "Let's go!", action: {
                     viewModel.ctaButtonTapped()
                 })
-                .padding(.horizontal, 80)
             }
             .foregroundStyle(Color.accentColor)
             .padding()

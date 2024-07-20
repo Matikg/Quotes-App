@@ -17,7 +17,7 @@ struct QuotesAppApp: App {
                 WelcomeScreenView(viewModel: WelcomeScreenViewModel())
             }
             else {
-                MainScreenView()
+                MainScreenView(viewModel: MainScreenViewModel())
             }
         }
     }
