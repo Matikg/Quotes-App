@@ -23,6 +23,15 @@
 		E88FF5B62C3E6E5000AEA2BE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5B52C3E6E5000AEA2BE /* CustomButton.swift */; };
 		E88FF5B92C3F1F7100AEA2BE /* UserDefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5B82C3F1F7100AEA2BE /* UserDefaultsConstants.swift */; };
 		E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5BC2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift */; };
+		E8D267D22C4D9E7800A19EB6 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D267D12C4D9E7800A19EB6 /* CustomText.swift */; };
+		E8D267DC2C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */; };
+		E8D267DD2C4EE96E00A19EB6 /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */; };
+		E8D267DE2C4EE96E00A19EB6 /* Merriweather-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D62C4EE96E00A19EB6 /* Merriweather-Italic.ttf */; };
+		E8D267DF2C4EE96E00A19EB6 /* Merriweather-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D72C4EE96E00A19EB6 /* Merriweather-BlackItalic.ttf */; };
+		E8D267E02C4EE96E00A19EB6 /* Merriweather-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D82C4EE96E00A19EB6 /* Merriweather-Bold.ttf */; };
+		E8D267E12C4EE96F00A19EB6 /* Merriweather-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D92C4EE96E00A19EB6 /* Merriweather-LightItalic.ttf */; };
+		E8D267E22C4EE96F00A19EB6 /* Merriweather-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267DA2C4EE96E00A19EB6 /* Merriweather-Light.ttf */; };
+		E8D267E32C4EE96F00A19EB6 /* Merriweather-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267DB2C4EE96E00A19EB6 /* Merriweather-Black.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +71,16 @@
 		E88FF5B52C3E6E5000AEA2BE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E88FF5B82C3F1F7100AEA2BE /* UserDefaultsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstants.swift; sourceTree = "<group>"; };
 		E88FF5BC2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModel.swift; sourceTree = "<group>"; };
+		E8D267D12C4D9E7800A19EB6 /* CustomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
+		E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
+		E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
+		E8D267D62C4EE96E00A19EB6 /* Merriweather-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Italic.ttf"; sourceTree = "<group>"; };
+		E8D267D72C4EE96E00A19EB6 /* Merriweather-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BlackItalic.ttf"; sourceTree = "<group>"; };
+		E8D267D82C4EE96E00A19EB6 /* Merriweather-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Bold.ttf"; sourceTree = "<group>"; };
+		E8D267D92C4EE96E00A19EB6 /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
+		E8D267DA2C4EE96E00A19EB6 /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Light.ttf"; sourceTree = "<group>"; };
+		E8D267DB2C4EE96E00A19EB6 /* Merriweather-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Black.ttf"; sourceTree = "<group>"; };
+		E8D267E42C4EEA0A00A19EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +138,9 @@
 				E88FF5A92C3A875C00AEA2BE /* Models */,
 				E88FF5AE2C3A880000AEA2BE /* Router */,
 				E88FF5AD2C3A87DC00AEA2BE /* Services */,
-				E88FF5B22C3E611800AEA2BE /* Extensions */,
 				E88FF5B72C3F1F3D00AEA2BE /* Helpers */,
+				E8D267D32C4EE93200A19EB6 /* Fonts */,
+				E8D267E42C4EEA0A00A19EB6 /* Info.plist */,
 				E88FF5832C35925300AEA2BE /* Assets.xcassets */,
 				E88FF5852C35925300AEA2BE /* Preview Content */,
 			);
@@ -165,6 +185,7 @@
 				E834816F2C43E4C300A74FC4 /* BackgroundStack.swift */,
 				E88FF5B52C3E6E5000AEA2BE /* CustomButton.swift */,
 				E83481692C3FB75D00A74FC4 /* CustomDivider.swift */,
+				E8D267D12C4D9E7800A19EB6 /* CustomText.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,13 +214,6 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		E88FF5B22C3E611800AEA2BE /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		E88FF5B72C3F1F3D00AEA2BE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +230,21 @@
 				E88FF5BC2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift */,
 			);
 			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		E8D267D32C4EE93200A19EB6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E8D267DB2C4EE96E00A19EB6 /* Merriweather-Black.ttf */,
+				E8D267D72C4EE96E00A19EB6 /* Merriweather-BlackItalic.ttf */,
+				E8D267D82C4EE96E00A19EB6 /* Merriweather-Bold.ttf */,
+				E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */,
+				E8D267D62C4EE96E00A19EB6 /* Merriweather-Italic.ttf */,
+				E8D267DA2C4EE96E00A19EB6 /* Merriweather-Light.ttf */,
+				E8D267D92C4EE96E00A19EB6 /* Merriweather-LightItalic.ttf */,
+				E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,9 +351,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8D267E32C4EE96F00A19EB6 /* Merriweather-Black.ttf in Resources */,
 				E88FF5872C35925300AEA2BE /* Preview Assets.xcassets in Resources */,
+				E8D267DE2C4EE96E00A19EB6 /* Merriweather-Italic.ttf in Resources */,
+				E8D267DF2C4EE96E00A19EB6 /* Merriweather-BlackItalic.ttf in Resources */,
 				E88FF5842C35925300AEA2BE /* Assets.xcassets in Resources */,
+				E8D267E22C4EE96F00A19EB6 /* Merriweather-Light.ttf in Resources */,
+				E8D267DC2C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf in Resources */,
+				E8D267E12C4EE96F00A19EB6 /* Merriweather-LightItalic.ttf in Resources */,
 				E834816E2C3FD0BE00A74FC4 /* Localizable.xcstrings in Resources */,
+				E8D267E02C4EE96E00A19EB6 /* Merriweather-Bold.ttf in Resources */,
+				E8D267DD2C4EE96E00A19EB6 /* Merriweather-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +393,7 @@
 				E83481742C45095800A74FC4 /* BookListRowView.swift in Sources */,
 				E83481702C43E4C300A74FC4 /* BackgroundStack.swift in Sources */,
 				E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */,
+				E8D267D22C4D9E7800A19EB6 /* CustomText.swift in Sources */,
 				E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */,
 				E88FF5802C35924F00AEA2BE /* QuotesAppApp.swift in Sources */,
 				E88FF5B62C3E6E5000AEA2BE /* CustomButton.swift in Sources */,
@@ -525,6 +563,7 @@
 				DEVELOPMENT_TEAM = 27552RQYXW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuotesApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -555,6 +594,7 @@
 				DEVELOPMENT_TEAM = 27552RQYXW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuotesApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

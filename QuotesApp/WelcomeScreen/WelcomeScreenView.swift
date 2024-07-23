@@ -15,13 +15,10 @@ struct WelcomeScreenView: View {
             VStack {
                 Image(.book)
                 
-                Text(String(localized: "WelcomeScreen_title"))
-                    .font(.system(size: 32))
-                    .bold()
+                QText("WelcomeScreen_title", type: .bold, size: .large)
                     .padding(.bottom)
                 
-                Text(String(localized: "WelcomeScreen_subtitle"))
-                    .font(.system(size: 18))
+                QText("WelcomeScreen_subtitle", type: .regular, size: .medium)
                 
                 CustomDivider()
                 
@@ -29,11 +26,9 @@ struct WelcomeScreenView: View {
                 
                 Spacer()
                 
-                Text(String(localized: "WelcomeScreen_cta"))
-                    .font(.system(size: 16))
-                    .bold()
+                QText("WelcomeScreen_cta", type: .bold, size: .small)
                     .multilineTextAlignment(.center)
-                    .padding()
+                    .lineSpacing(10)
                 
                 CustomButton(label: "Let's go!", action: {
                     viewModel.ctaButtonTapped()
@@ -46,13 +41,16 @@ struct WelcomeScreenView: View {
     
     private func buildDescriptionView() -> some View {
         VStack(spacing: 30) {
-            Text(String(localized: "WelcomeScreen_description"))
+            QText("WelcomeScreen_description", type: .regular, size: .small)
                 .multilineTextAlignment(.center)
+                .lineSpacing(10)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.horizontal)
             
             VStack(alignment: .leading, spacing: 15) {
-                Text(String(localized: "WelcomeScreen_detail1"))
-                Text(String(localized: "WelcomeScreen_detail2"))
-                Text(String(localized: "WelcomeScreen_detail3"))
+                QText("WelcomeScreen_detail1", type: .regular, size: .small)
+                QText("WelcomeScreen_detail2", type: .regular, size: .small)
+                QText("WelcomeScreen_detail3", type: .regular, size: .small)
             }
         }
     }

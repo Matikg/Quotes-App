@@ -24,7 +24,7 @@ struct CustomButton: View {
                     .frame(height: 46)
                     .padding(.horizontal, 100)
                     
-                Text(label)
+                QText(label, type: .regular, size: .small)
                     .foregroundStyle(Color.accentColor)
                     .padding(.horizontal, 16)
                     .fixedSize(horizontal: true, vertical: false)
