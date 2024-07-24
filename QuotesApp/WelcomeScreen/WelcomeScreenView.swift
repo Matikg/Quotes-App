@@ -20,7 +20,7 @@ struct WelcomeScreenView: View {
                 
                 QText("WelcomeScreen_subtitle", type: .regular, size: .medium)
                 
-                CustomDivider()
+                QDivider()
                 
                 buildDescriptionView()
                 
@@ -30,11 +30,10 @@ struct WelcomeScreenView: View {
                     .multilineTextAlignment(.center)
                     .lineSpacing(10)
                 
-                CustomButton(label: "Let's go!", action: {
+                QButton(label: "Button_let's_go", action: {
                     viewModel.ctaButtonTapped()
                 })
             }
-            .foregroundStyle(Color.accentColor)
             .padding()
         }
     }

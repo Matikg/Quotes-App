@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomButton: View {
+struct QButton: View {
     private let label: String
     private let action: () -> Void
     
@@ -23,9 +23,8 @@ struct CustomButton: View {
                     .stroke(Color.accentColor, lineWidth: 3)
                     .frame(height: 46)
                     .padding(.horizontal, 100)
-                    
+                
                 QText(label, type: .regular, size: .small)
-                    .foregroundStyle(Color.accentColor)
                     .padding(.horizontal, 16)
                     .fixedSize(horizontal: true, vertical: false)
             }
@@ -36,6 +35,6 @@ struct CustomButton: View {
 }
 
 #Preview {
-    CustomButton(label: "Mock") {
+    QButton(label: "Mock") {
     }
 }

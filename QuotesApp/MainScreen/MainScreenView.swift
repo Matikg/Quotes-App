@@ -24,7 +24,6 @@ struct MainScreenView: View {
                     buildLoadedListView(books: books)
                 }
             }
-            .foregroundStyle(Color.accentColor)
         }
     }
     
@@ -38,7 +37,7 @@ struct MainScreenView: View {
             
             QText("MainScreen_empty_quote", type: .bold, size: .medium)
             
-            CustomButton(label: "Add quote") {
+            QButton(label: "Button_add_quote") {
                 viewModel.addQuote()
             }
             
@@ -57,7 +56,7 @@ struct MainScreenView: View {
                 }
             }
             
-            CustomButton(label: "Add quote") {
+            QButton(label: "Button_add_quote") {
                 viewModel.addQuote()
             }
         }

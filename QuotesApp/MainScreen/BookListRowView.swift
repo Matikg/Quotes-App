@@ -39,9 +39,7 @@ struct BookListRowView: View {
     private func buildBookInfoView() -> some View {
         VStack(alignment: .leading, spacing: 5) {
             QText(book.title, type: .bold, size: .medium)
-
             QText(book.author, type: .regular, size: .vsmall)
-                .font(.system(size: 12))
         }
         .lineLimit(1)
     }
@@ -54,7 +52,6 @@ struct BookListRowView: View {
             
             VStack(spacing: 10) {
                 QText("MainScreen_quotes_count", type: .regular, size: .vsmall)
-                
                 QText(String(book.quotesNumber), type: .bold, size: .medium)
             }
         }
