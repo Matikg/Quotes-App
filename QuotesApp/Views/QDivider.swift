@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct CustomDivider: View {
+struct QDivider: View {
     var body: some View {
         Rectangle()
+            .foregroundStyle(Color.accentColor)
             .frame(height: 1)
             .padding()
     }
 }
 
 #Preview {
-    CustomDivider()
+    QDivider()
 }

@@ -13,9 +13,7 @@ struct MainScreenView: View {
     var body: some View {
         BackgroundStack {
             VStack {
-                Text(String(localized: "WelcomeScreen_title"))
-                    .font(.system(size: 32))
-                    .bold()
+                QText("WelcomeScreen_title", type: .bold, size: .large)
                     .padding(.top, 30)
                 
                 switch viewModel.state {
@@ -26,7 +24,6 @@ struct MainScreenView: View {
                     buildLoadedListView(books: books)
                 }
             }
-            .foregroundStyle(Color.accentColor)
         }
     }
     
@@ -38,11 +35,9 @@ struct MainScreenView: View {
             Image(.emptyBox)
                 .padding(.bottom, 30)
             
-            Text(String(localized: "MainScreen_empty_quote"))
-                .font(.system(size: 18))
-                .bold()
+            QText("MainScreen_empty_quote", type: .bold, size: .medium)
             
-            CustomButton(label: "Add quote") {
+            QButton(label: "Button_add_quote") {
                 viewModel.addQuote()
             }
             
@@ -61,7 +56,7 @@ struct MainScreenView: View {
                 }
             }
             
-            CustomButton(label: "Add quote") {
+            QButton(label: "Button_add_quote") {
                 viewModel.addQuote()
             }
         }
