@@ -9,16 +9,9 @@ import SwiftUI
 
 @main
 struct QuotesAppApp: App {
-    @AppStorage(UserDefaultsConstants.FirstLaunchKey) var isFirstLaunch: Bool = true
-    
     var body: some Scene {
         WindowGroup {
-            if isFirstLaunch {
-                WelcomeScreenView(viewModel: WelcomeScreenViewModel())
-            }
-            else {
-                MainScreenView(viewModel: MainScreenViewModel())
-            }
+            RootScreenView(viewModel: RootScreenViewModel())
         }
     }
 }

@@ -23,6 +23,8 @@
 		E88FF5B62C3E6E5000AEA2BE /* QButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5B52C3E6E5000AEA2BE /* QButton.swift */; };
 		E88FF5B92C3F1F7100AEA2BE /* UserDefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5B82C3F1F7100AEA2BE /* UserDefaultsConstants.swift */; };
 		E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5BC2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift */; };
+		E8A9DF202C565D4500C9AB6D /* RootScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */; };
+		E8A9DF222C565D5400C9AB6D /* RootScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */; };
 		E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D267D12C4D9E7800A19EB6 /* QText.swift */; };
 		E8D267DC2C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */; };
 		E8D267DD2C4EE96E00A19EB6 /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */; };
@@ -71,6 +73,8 @@
 		E88FF5B52C3E6E5000AEA2BE /* QButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QButton.swift; sourceTree = "<group>"; };
 		E88FF5B82C3F1F7100AEA2BE /* UserDefaultsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstants.swift; sourceTree = "<group>"; };
 		E88FF5BC2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModel.swift; sourceTree = "<group>"; };
+		E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenView.swift; sourceTree = "<group>"; };
+		E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenViewModel.swift; sourceTree = "<group>"; };
 		E8D267D12C4D9E7800A19EB6 /* QText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QText.swift; sourceTree = "<group>"; };
 		E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
 		E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				E88FF57F2C35924F00AEA2BE /* QuotesAppApp.swift */,
+				E8A9DF1E2C565CFB00C9AB6D /* RootScreen */,
 				E88FF5BB2C3F21CD00AEA2BE /* WelcomeScreen */,
 				E88FF5B12C3E5ED300AEA2BE /* MainScreen */,
 				E88FF5AA2C3A876700AEA2BE /* Views */,
@@ -230,6 +235,15 @@
 				E88FF5BC2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift */,
 			);
 			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		E8A9DF1E2C565CFB00C9AB6D /* RootScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */,
+				E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */,
+			);
+			path = RootScreen;
 			sourceTree = "<group>";
 		};
 		E8D267D32C4EE93200A19EB6 /* Fonts */ = {
@@ -388,6 +402,7 @@
 			files = (
 				E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */,
 				E88FF5B92C3F1F7100AEA2BE /* UserDefaultsConstants.swift in Sources */,
+				E8A9DF202C565D4500C9AB6D /* RootScreenView.swift in Sources */,
 				E88FF5B02C3DA5C300AEA2BE /* WelcomeScreenView.swift in Sources */,
 				E88FF5822C35924F00AEA2BE /* MainScreenView.swift in Sources */,
 				E83481742C45095800A74FC4 /* BookListRowView.swift in Sources */,
@@ -396,6 +411,7 @@
 				E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */,
 				E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */,
 				E88FF5802C35924F00AEA2BE /* QuotesAppApp.swift in Sources */,
+				E8A9DF222C565D5400C9AB6D /* RootScreenViewModel.swift in Sources */,
 				E88FF5B62C3E6E5000AEA2BE /* QButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
