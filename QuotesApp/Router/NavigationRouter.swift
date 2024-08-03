@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class NavigationRouter: RouterInterface {
+final class NavigationRouter: NavigationRouting {
     @Published var path = NavigationPath()
     
     func push(route: Route) {

@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Book View" : {
+
+    },
     "Button_add_quote" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -23,6 +26,9 @@
         }
       }
     },
+    "Details View" : {
+
+    },
     "MainScreen_empty_quote" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -44,6 +50,12 @@
           }
         }
       }
+    },
+    "Quote Edit" : {
+
+    },
+    "Quotes View" : {
+
     },
     "WelcomeScreen_cta" : {
       "extractionState" : "manual",

@@ -26,8 +26,13 @@
 		E8A9DF202C565D4500C9AB6D /* RootScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */; };
 		E8A9DF222C565D5400C9AB6D /* RootScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */; };
 		E8A9DF242C56B9F100C9AB6D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF232C56B9F100C9AB6D /* Route.swift */; };
-		E8A9DF262C56BA6C00C9AB6D /* RouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF252C56BA6C00C9AB6D /* RouterInterface.swift */; };
+		E8A9DF262C56BA6C00C9AB6D /* NavigationRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF252C56BA6C00C9AB6D /* NavigationRouting.swift */; };
 		E8A9DF282C56BAC800C9AB6D /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF272C56BAC800C9AB6D /* NavigationRouter.swift */; };
+		E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF2A2C5E430B00C9AB6D /* QuoteEditView.swift */; };
+		E8A9DF2D2C5E432F00C9AB6D /* QuoteEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF2C2C5E432F00C9AB6D /* QuoteEditViewModel.swift */; };
+		E8A9DF302C5E449400C9AB6D /* InjectionKeyInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF2F2C5E449400C9AB6D /* InjectionKeyInterface.swift */; };
+		E8A9DF322C5E456800C9AB6D /* InjectedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF312C5E456800C9AB6D /* InjectedValues.swift */; };
+		E8A9DF342C5E465100C9AB6D /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF332C5E465100C9AB6D /* Injected.swift */; };
 		E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D267D12C4D9E7800A19EB6 /* QText.swift */; };
 		E8D267DC2C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */; };
 		E8D267DD2C4EE96E00A19EB6 /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */; };
@@ -79,8 +84,13 @@
 		E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenView.swift; sourceTree = "<group>"; };
 		E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenViewModel.swift; sourceTree = "<group>"; };
 		E8A9DF232C56B9F100C9AB6D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		E8A9DF252C56BA6C00C9AB6D /* RouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterInterface.swift; sourceTree = "<group>"; };
+		E8A9DF252C56BA6C00C9AB6D /* NavigationRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouting.swift; sourceTree = "<group>"; };
 		E8A9DF272C56BAC800C9AB6D /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		E8A9DF2A2C5E430B00C9AB6D /* QuoteEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditView.swift; sourceTree = "<group>"; };
+		E8A9DF2C2C5E432F00C9AB6D /* QuoteEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditViewModel.swift; sourceTree = "<group>"; };
+		E8A9DF2F2C5E449400C9AB6D /* InjectionKeyInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionKeyInterface.swift; sourceTree = "<group>"; };
+		E8A9DF312C5E456800C9AB6D /* InjectedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedValues.swift; sourceTree = "<group>"; };
+		E8A9DF332C5E465100C9AB6D /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		E8D267D12C4D9E7800A19EB6 /* QText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QText.swift; sourceTree = "<group>"; };
 		E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
 		E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
@@ -142,15 +152,17 @@
 			isa = PBXGroup;
 			children = (
 				E88FF57F2C35924F00AEA2BE /* QuotesAppApp.swift */,
+				E8A9DF292C5E42C400C9AB6D /* QuoteEditScreen */,
 				E8A9DF1E2C565CFB00C9AB6D /* RootScreen */,
 				E88FF5BB2C3F21CD00AEA2BE /* WelcomeScreen */,
 				E88FF5B12C3E5ED300AEA2BE /* MainScreen */,
-				E88FF5AA2C3A876700AEA2BE /* Views */,
+				E88FF5AA2C3A876700AEA2BE /* Components */,
 				E88FF5A92C3A875C00AEA2BE /* Models */,
 				E88FF5AE2C3A880000AEA2BE /* Router */,
 				E88FF5AD2C3A87DC00AEA2BE /* Services */,
 				E88FF5B72C3F1F3D00AEA2BE /* Helpers */,
 				E8D267D32C4EE93200A19EB6 /* Fonts */,
+				E8A9DF2E2C5E444700C9AB6D /* DependencyInjection */,
 				E8D267E42C4EEA0A00A19EB6 /* Info.plist */,
 				E88FF5832C35925300AEA2BE /* Assets.xcassets */,
 				E88FF5852C35925300AEA2BE /* Preview Content */,
@@ -190,7 +202,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E88FF5AA2C3A876700AEA2BE /* Views */ = {
+		E88FF5AA2C3A876700AEA2BE /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				E834816F2C43E4C300A74FC4 /* BackgroundStack.swift */,
@@ -198,7 +210,7 @@
 				E83481692C3FB75D00A74FC4 /* QDivider.swift */,
 				E8D267D12C4D9E7800A19EB6 /* QText.swift */,
 			);
-			path = Views;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E88FF5AD2C3A87DC00AEA2BE /* Services */ = {
@@ -212,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				E8A9DF232C56B9F100C9AB6D /* Route.swift */,
-				E8A9DF252C56BA6C00C9AB6D /* RouterInterface.swift */,
+				E8A9DF252C56BA6C00C9AB6D /* NavigationRouting.swift */,
 				E8A9DF272C56BAC800C9AB6D /* NavigationRouter.swift */,
 			);
 			path = Router;
@@ -253,6 +265,25 @@
 				E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */,
 			);
 			path = RootScreen;
+			sourceTree = "<group>";
+		};
+		E8A9DF292C5E42C400C9AB6D /* QuoteEditScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8A9DF2A2C5E430B00C9AB6D /* QuoteEditView.swift */,
+				E8A9DF2C2C5E432F00C9AB6D /* QuoteEditViewModel.swift */,
+			);
+			path = QuoteEditScreen;
+			sourceTree = "<group>";
+		};
+		E8A9DF2E2C5E444700C9AB6D /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				E8A9DF2F2C5E449400C9AB6D /* InjectionKeyInterface.swift */,
+				E8A9DF312C5E456800C9AB6D /* InjectedValues.swift */,
+				E8A9DF332C5E465100C9AB6D /* Injected.swift */,
+			);
+			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
 		E8D267D32C4EE93200A19EB6 /* Fonts */ = {
@@ -411,18 +442,23 @@
 			files = (
 				E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */,
 				E88FF5B92C3F1F7100AEA2BE /* UserDefaultsConstants.swift in Sources */,
+				E8A9DF342C5E465100C9AB6D /* Injected.swift in Sources */,
 				E8A9DF282C56BAC800C9AB6D /* NavigationRouter.swift in Sources */,
 				E8A9DF202C565D4500C9AB6D /* RootScreenView.swift in Sources */,
 				E88FF5B02C3DA5C300AEA2BE /* WelcomeScreenView.swift in Sources */,
-				E8A9DF262C56BA6C00C9AB6D /* RouterInterface.swift in Sources */,
+				E8A9DF262C56BA6C00C9AB6D /* NavigationRouting.swift in Sources */,
 				E88FF5822C35924F00AEA2BE /* MainScreenView.swift in Sources */,
 				E8A9DF242C56B9F100C9AB6D /* Route.swift in Sources */,
 				E83481742C45095800A74FC4 /* BookListRowView.swift in Sources */,
 				E83481702C43E4C300A74FC4 /* BackgroundStack.swift in Sources */,
 				E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */,
+				E8A9DF302C5E449400C9AB6D /* InjectionKeyInterface.swift in Sources */,
+				E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */,
 				E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */,
 				E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */,
 				E88FF5802C35924F00AEA2BE /* QuotesAppApp.swift in Sources */,
+				E8A9DF2D2C5E432F00C9AB6D /* QuoteEditViewModel.swift in Sources */,
+				E8A9DF322C5E456800C9AB6D /* InjectedValues.swift in Sources */,
 				E8A9DF222C565D5400C9AB6D /* RootScreenViewModel.swift in Sources */,
 				E88FF5B62C3E6E5000AEA2BE /* QButton.swift in Sources */,
 			);

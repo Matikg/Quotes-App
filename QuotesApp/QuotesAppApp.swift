@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct QuotesAppApp: App {
-    @StateObject var routerManager = NavigationRouter()
+    @Injected(\.navigationRouter) private var navigationRouter: any NavigationRouting
+    //    @StateObject private var navigationRouter = NavigationRouter()
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack(path: $routerManager.path) {
+            NavigationStack(path: $navigationRouter.path) {
                 RootScreenView(viewModel: RootScreenViewModel())
                     .navigationDestination(for: Route.self, destination: { $0 })
             }

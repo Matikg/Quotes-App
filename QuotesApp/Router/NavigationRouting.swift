@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol RouterInterface: AnyObject, ObservableObject {
+protocol NavigationRouting: AnyObject, ObservableObject {
     var path: NavigationPath { get set }
     
     func push(route: Route)

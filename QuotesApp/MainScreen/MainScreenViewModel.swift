@@ -24,9 +24,12 @@ class MainScreenViewModel: ObservableObject {
     @Published var state: BookListState = /*.empty*/
         .loaded([BookItem(title: "Atomic Habits", author: "James Clear", coverImage: nil, quotesNumber: 5), BookItem(title: "Mock2", author: "Mock2", coverImage: nil, quotesNumber: 10)])
     
+    @Injected(\.navigationRouter) var navigationRouter: any NavigationRouting
+    
     //MARK: - Methods
     
     func addQuote() {
         print("Quote has been added")
+        navigationRouter.push(route: .edit)
     }
 }

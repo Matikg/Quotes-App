@@ -7,6 +7,6 @@
 
 import SwiftUI
 
-class RootScreenViewModel: ObservableObject {
+final class RootScreenViewModel: ObservableObject {
     @AppStorage(UserDefaultsConstants.FirstLaunchKey) var isFirstLaunch: Bool = true
 }

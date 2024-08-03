@@ -23,7 +23,7 @@ enum Route: Hashable, Identifiable, View {
         case .details:
             Text("Details View")
         case .edit:
-            Text("Edit View")
+            QuoteEditView()
         case .book:
             Text("Book View")
         }
