@@ -13,4 +13,5 @@ protocol NavigationRouting: AnyObject, ObservableObject {
     func push(route: Route)
     func pop()
     func popAll()
+    func set(navigationStack: NavigationPath)
 }

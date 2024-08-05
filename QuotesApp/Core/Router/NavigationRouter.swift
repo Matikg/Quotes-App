@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class NavigationRouter: NavigationRouting {
+final class NavigationRouter: ObservableObject, NavigationRouting {
     @Published var path = NavigationPath()
     
     func push(route: Route) {
@@ -20,5 +20,9 @@ final class NavigationRouter: NavigationRouting {
     
     func popAll() {
         path = NavigationPath()
+    }
+    
+    func set(navigationStack: NavigationPath) {
+        path = navigationStack
     }
 }

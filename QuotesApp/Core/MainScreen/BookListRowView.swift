@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BookListRowView: View {
-    var book: MainScreenViewModel.BookItem
+    let book: MainScreenViewModel.BookItem
     
     var body: some View {
         VStack {

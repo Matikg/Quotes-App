@@ -11,7 +11,9 @@ struct QuoteEditView: View {
     @ObservedObject var viewModel = QuoteEditViewModel()
     
     var body: some View {
-        Text("Quote Edit")
+        BackgroundStack {
+            Text("Quote Edit")
+        }
     }
 }
 
