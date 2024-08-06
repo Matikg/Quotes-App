@@ -14,6 +14,7 @@
 		E83481742C45095800A74FC4 /* BookListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481732C45095800A74FC4 /* BookListRowView.swift */; };
 		E864364F2C5F930E0029858F /* InjectionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E864364E2C5F930E0029858F /* InjectionKeys.swift */; };
 		E86436542C5FA5E20029858F /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = E86436532C5FA5E20029858F /* DependencyInjection */; };
+		E86436592C625DEF0029858F /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = E86436582C625DEF0029858F /* DependencyInjection */; };
 		E88FF5802C35924F00AEA2BE /* AppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF57F2C35924F00AEA2BE /* AppEntry.swift */; };
 		E88FF5822C35924F00AEA2BE /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5812C35924F00AEA2BE /* MainScreenView.swift */; };
 		E88FF5842C35925300AEA2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E88FF5832C35925300AEA2BE /* Assets.xcassets */; };
@@ -106,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E86436542C5FA5E20029858F /* DependencyInjection in Frameworks */,
+				E86436592C625DEF0029858F /* DependencyInjection in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +333,7 @@
 			name = QuotesApp;
 			packageProductDependencies = (
 				E86436532C5FA5E20029858F /* DependencyInjection */,
+				E86436582C625DEF0029858F /* DependencyInjection */,
 			);
 			productName = QuotesApp;
 			productReference = E88FF57C2C35924F00AEA2BE /* QuotesApp.app */;
@@ -405,7 +408,7 @@
 			);
 			mainGroup = E88FF5732C35924F00AEA2BE;
 			packageReferences = (
-				E86436522C5FA5E20029858F /* XCLocalSwiftPackageReference "../DependencyInjection" */,
+				E86436572C625DEF0029858F /* XCLocalSwiftPackageReference "DependencyInjection" */,
 			);
 			productRefGroup = E88FF57D2C35924F00AEA2BE /* Products */;
 			projectDirPath = "";
@@ -812,14 +815,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		E86436522C5FA5E20029858F /* XCLocalSwiftPackageReference "../DependencyInjection" */ = {
+		E86436572C625DEF0029858F /* XCLocalSwiftPackageReference "DependencyInjection" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../DependencyInjection;
+			relativePath = DependencyInjection;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		E86436532C5FA5E20029858F /* DependencyInjection */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DependencyInjection;
+		};
+		E86436582C625DEF0029858F /* DependencyInjection */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DependencyInjection;
 		};
