@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainScreenView: View {
+    typealias BookItem = MainScreenViewModel.BookItem
     @ObservedObject var viewModel: MainScreenViewModel
     
     var body: some View {
@@ -45,7 +46,7 @@ struct MainScreenView: View {
         }
     }
     
-    private func buildLoadedListView(books: [MainScreenViewModel.BookItem]) -> some View {
+    private func buildLoadedListView(books: [BookItem]) -> some View {
         VStack {
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {

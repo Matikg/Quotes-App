@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BackgroundStack<Content: View>: View {
-    let backgroundColor = Color.background
-    let content: () -> Content
+    private let backgroundColor = Color.background
+    private let content: () -> Content
     
     init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
