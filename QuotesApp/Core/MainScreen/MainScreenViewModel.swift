@@ -30,7 +30,6 @@ final class MainScreenViewModel: ObservableObject {
     //MARK: - Methods
     
     func addQuote() {
-        print("Quote has been added")
         navigationRouter.push(route: .edit)
     }
 }
