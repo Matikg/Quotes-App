@@ -33,8 +33,3 @@ struct QButton: View {
         }
     }
 }
-
-#Preview {
-    QButton(label: "Mock") {
-    }
-}
