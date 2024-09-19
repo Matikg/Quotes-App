@@ -12,59 +12,33 @@ struct QuoteEditView: View {
     
     var body: some View {
         BackgroundStack {
-            VStack(alignment: .leading, spacing: 30) {
-                VStack(alignment: .leading) {
-                    QText("Quote_label", type: .bold, size: .vsmall)
-                    
-                    TextEditor(text: Binding(
-                        get: { viewModel.quoteInput ?? "" },
-                        set: { newValue in viewModel.quoteInput = newValue.isEmpty ? nil : newValue }
-                    ))
-                    .font(.custom("Merriweather-Regular", size: 12))
-                    .frame(height: 162)
-                    .scrollContentBackground(.hidden)
-                    .padding(.leading, 10)
-                    .background(Rectangle().stroke(viewModel.showError ? .red : .accentColor, lineWidth: 1))
-                    
-                    if viewModel.showError {
-                        QText("Quote_empty_dialog", type: .regular, size: .vsmall)
-                            .accentColor(.red)
-                    }
-                }
-                
-                VStack(alignment: .leading) {
-                    QText("Book_label", type: .bold, size: .vsmall)
-                    
-                    HStack {
-                        TextField("", text: $viewModel.bookInput)
-                            .font(.custom("Merriweather-Regular", size: 12))
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 30) {
+                    VStack(alignment: .leading) {
+                        QInput(label: "Quote_label", text: $viewModel.quoteInput, type: .multiLine)
                         
-                        Image(systemName: "chevron.right")
-                            .foregroundStyle(.accent)
-                            .font(.system(size: 22))
+                        if viewModel.showError {
+                            QText("Quote_empty_dialog", type: .regular, size: .vsmall)
+                                .accentColor(.red)
+                        }
                     }
-                    .frame(height: 38)
-                    .padding(.horizontal, 10)
-                    .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
-                }
-                
-                QTextField("Category_label", input: $viewModel.categoryInput)
-                
-                QTextField("Page_label", input: $viewModel.pageInput)
-                    .keyboardType(.numberPad)
-                
-                VStack(alignment: .leading) {
-                    QText("Note_label", type: .bold, size: .vsmall)
                     
-                    TextEditor(text: $viewModel.noteInput)
-                        .font(.custom("Merriweather-Regular", size: 12))
-                        .frame(height: 162)
-                        .scrollContentBackground(.hidden)
-                        .padding(.leading, 10)
-                        .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
+                    buildBookButton()
+                    
+                    QInput(label: "Category_label", text: $viewModel.categoryInput, type: .oneLine)
+                    
+                    QInput(label: "Page_label", text: $viewModel.pageInput, type: .oneLine)
+                        .keyboardType(.numberPad)
+                    
+                    QInput(label: "Note_label", text: $viewModel.noteInput, type: .multiLine)
                 }
+                .padding()
             }
-            .padding()
+            .gesture(
+                DragGesture().onChanged({ _ in
+                    UIApplication.shared.dismissKeyboard()
+                })
+            )
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -79,6 +53,32 @@ struct QuoteEditView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarBackground(Color.background, for: .navigationBar)
+    }
+    
+    //MARK: - View Builders
+    
+    private func buildBookButton() -> some View {
+        VStack(alignment: .leading) {
+            QText("Book_label", type: .bold, size: .vsmall)
+            
+            Button {
+                //TODO: Navigation to child view
+            } label: {
+                HStack {
+                    Text("Test")
+                        .font(.custom("Merriweather-Regular", size: 12))
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(.accent)
+                        .font(.system(size: 22))
+                }
+                .frame(height: 38)
+                .padding(.horizontal, 10)
+                .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
+            }
+        }
     }
 }
 

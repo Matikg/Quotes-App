@@ -144,6 +144,9 @@
         }
       }
     },
+    "Test" : {
+
+    },
     "WelcomeScreen_cta" : {
       "extractionState" : "manual",
       "localizations" : {
