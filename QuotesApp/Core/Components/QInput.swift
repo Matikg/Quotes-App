@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-enum InputType {
-    case oneLine
-    case multiLine
-}
-
 struct QInput: View {
+    enum InputType {
+        case oneLine
+        case multiLine
+    }
+    
     @Binding private var text: String
     private let label: String
     private let inputType: InputType
@@ -27,15 +27,16 @@ struct QInput: View {
         VStack(alignment: .leading) {
             QText(label, type: .bold, size: .vsmall)
             
-            if inputType == .oneLine {
+            switch inputType {
+            case .oneLine:
                 TextField("", text: $text)
                     .font(.custom("Merriweather-Regular", size: 12))
                     .foregroundStyle(.black)
                     .frame(height: 38)
                     .padding(.leading, 10)
                     .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
-            }
-            else {
+                
+            case .multiLine:
                 TextEditor(text: $text)
                     .font(.custom("Merriweather-Regular", size: 12))
                     .foregroundStyle(.black)

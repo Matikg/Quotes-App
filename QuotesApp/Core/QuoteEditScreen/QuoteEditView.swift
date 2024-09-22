@@ -34,11 +34,7 @@ struct QuoteEditView: View {
                 }
                 .padding()
             }
-            .gesture(
-                DragGesture().onChanged({ _ in
-                    UIApplication.shared.dismissKeyboard()
-                })
-            )
+            .scrollDismissesKeyboard(.interactively)
         }
         .toolbar {
             ToolbarItem(placement: .principal) {
@@ -67,8 +63,8 @@ struct QuoteEditView: View {
                 //TODO: Navigation to child view
             } label: {
                 HStack {
-                    Text("Test")
-                        .font(.custom("Merriweather-Regular", size: 12))
+                    QText("Test", type: .regular, size: .vsmall)
+                        .accentColor(.black)
                     Spacer()
                     Image(systemName: "chevron.right")
                         .foregroundStyle(.accent)
