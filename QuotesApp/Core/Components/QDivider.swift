@@ -15,7 +15,3 @@ struct QDivider: View {
             .padding()
     }
 }
-
-#Preview {
-    QDivider()
-}

@@ -12,7 +12,68 @@ struct QuoteEditView: View {
     
     var body: some View {
         BackgroundStack {
-            Text("Quote Edit")
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 30) {
+                    VStack(alignment: .leading) {
+                        QInput(label: "Quote_label", text: $viewModel.quoteInput, type: .multiLine)
+                        
+                        if viewModel.showError {
+                            QText("Quote_empty_dialog", type: .regular, size: .vsmall)
+                                .accentColor(.red)
+                        }
+                    }
+                    
+                    buildBookButton()
+                    
+                    QInput(label: "Category_label", text: $viewModel.categoryInput, type: .oneLine)
+                    
+                    QInput(label: "Page_label", text: $viewModel.pageInput, type: .oneLine)
+                        .keyboardType(.numberPad)
+                    
+                    QInput(label: "Note_label", text: $viewModel.noteInput, type: .multiLine)
+                }
+                .padding()
+            }
+            .scrollDismissesKeyboard(.interactively)
+        }
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                QText("QuoteEdit_title", type: .bold, size: .medium)
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    viewModel.saveQuote()
+                } label: {
+                    Text("Save")
+                }
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarBackground(Color.background, for: .navigationBar)
+    }
+    
+    //MARK: - View Builders
+    
+    private func buildBookButton() -> some View {
+        VStack(alignment: .leading) {
+            QText("Book_label", type: .bold, size: .vsmall)
+            
+            Button {
+                //TODO: Navigation to child view
+            } label: {
+                HStack {
+                    QText("Test", type: .regular, size: .vsmall)
+                        .accentColor(.black)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(.accent)
+                        .font(.system(size: 22))
+                }
+                .frame(height: 38)
+                .padding(.horizontal, 10)
+                .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
+            }
         }
     }
 }
