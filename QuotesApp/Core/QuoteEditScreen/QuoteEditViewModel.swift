@@ -6,8 +6,12 @@
 //
 
 import Foundation
+import DependencyInjection
 
 final class QuoteEditViewModel: ObservableObject {
+    @Injected(\.coreDataManager) var coreDataManager: CoreDataManagerProtocol
+    @Injected(\.navigationRouter) var navigationRouter
+    
     @Published var quoteInput = ""
     @Published var categoryInput = ""
     @Published var pageInput = ""
@@ -16,7 +20,8 @@ final class QuoteEditViewModel: ObservableObject {
     
     func saveQuote() {
         if !quoteInput.isEmpty {
-            print("Quote saved!")
+            coreDataManager.saveQuote(text: quoteInput, category: categoryInput, page: Int(pageInput)!, note: noteInput)
+            navigationRouter.pop()
         }
         else {
             showError = true
