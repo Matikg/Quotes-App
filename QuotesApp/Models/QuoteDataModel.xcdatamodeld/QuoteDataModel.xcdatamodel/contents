@@ -3,9 +3,8 @@
     <entity name="BookEntity" representedClassName="BookEntity" syncable="YES" codeGenerationType="class">
         <attribute name="author" attributeType="String"/>
         <attribute name="coverImage" optional="YES" attributeType="Binary"/>
-        <attribute name="quotesNumber" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
-        <relationship name="quotes" toMany="YES" deletionRule="Nullify" destinationEntity="QuoteEntity" inverseName="book" inverseEntity="QuoteEntity"/>
+        <relationship name="quotes" toMany="YES" deletionRule="Cascade" destinationEntity="QuoteEntity" inverseName="book" inverseEntity="QuoteEntity"/>
     </entity>
     <entity name="QuoteEntity" representedClassName="QuoteEntity" syncable="YES" codeGenerationType="class">
         <attribute name="category" attributeType="String"/>

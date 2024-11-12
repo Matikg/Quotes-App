@@ -9,30 +9,25 @@ import Foundation
 import CoreData
 
 final class CoreDataManager: CoreDataManagerProtocol {
+    private enum Configuration {
+        static let containerName = "QuoteDataModel"
+    }
+    
     private let persistentContainer: NSPersistentContainer
     
     private var viewContext: NSManagedObjectContext {
-        return persistentContainer.viewContext
+        persistentContainer.viewContext
     }
     
-    init() {
-        persistentContainer = NSPersistentContainer(name: "QuoteDataModel")
-        persistentContainer.loadPersistentStores { description, error in
-            if let error {
-                print("Error: \(error.localizedDescription)")
-            }
-        }
+    init(persistentContainer: NSPersistentContainer = .init(name: Configuration.containerName)) {
+        self.persistentContainer = persistentContainer
+        persistentContainer.loadPersistentStores { _, _ in }
     }
     
     func fetchBooks() -> [BookEntity] {
         let request: NSFetchRequest<BookEntity> = BookEntity.fetchRequest()
-        
-        do {
-            return try viewContext.fetch(request)
-        }
-        catch {
-            return []
-        }
+        let fetched = try? viewContext.fetch(request)
+        return fetched ?? []
     }
     
     func saveQuote(/*to book: BookEntity, */text: String, category: String, page: Int, note: String) {
@@ -44,11 +39,9 @@ final class CoreDataManager: CoreDataManagerProtocol {
             quote.category = category
             quote.page = Int64(page)
             quote.note = note
-            book.quotesNumber += 1
             
             try viewContext.save()
-        }
-        catch {
+        } catch {
             viewContext.rollback()
             print(error.localizedDescription)
         }
@@ -64,7 +57,6 @@ final class CoreDataManager: CoreDataManagerProtocol {
             book.author = "Mock Author"
             book.title = "Mock Book Title"
             book.coverImage = nil
-            book.quotesNumber = 0
             mockBookEntity = book
         }
         

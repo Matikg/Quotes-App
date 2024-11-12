@@ -26,10 +26,15 @@ final class MainScreenViewModel: ObservableObject {
         .loaded([BookItem(title: "Atomic Habits", author: "James Clear", coverImage: nil, quotesNumber: 5), BookItem(title: "Mock2", author: "Mock2", coverImage: nil, quotesNumber: 10)])
     
     @Injected(\.navigationRouter) var navigationRouter
+    @Injected(\.coreDataManager) var coreDataManager: CoreDataManagerProtocol
     
     //MARK: - Methods
     
     func addQuote() {
         navigationRouter.push(route: .edit)
+    }
+    
+    func getBooks() {
+        coreDataManager.fetchBooks()
     }
 }
