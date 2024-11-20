@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainScreenView: View {
     typealias BookItem = MainScreenViewModel.BookItem
-    @ObservedObject var viewModel: MainScreenViewModel
+    @StateObject var viewModel: MainScreenViewModel
     
     var body: some View {
         BackgroundStack {
@@ -24,6 +24,9 @@ struct MainScreenView: View {
                 case let .loaded(books):
                     buildLoadedListView(books: books)
                 }
+            }
+            .onAppear {
+                viewModel.getBooks()
             }
         }
     }

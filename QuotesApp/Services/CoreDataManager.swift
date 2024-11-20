@@ -50,16 +50,28 @@ final class CoreDataManager: CoreDataManagerProtocol {
     // BookEntity Mock for testing purposes
     
     private var mockBookEntity:  BookEntity?
-    
+        
     private func getMockBookEntity() -> BookEntity {
-        if mockBookEntity == nil {
-            let book = BookEntity(context: viewContext)
-            book.author = "Mock Author"
-            book.title = "Mock Book Title"
-            book.coverImage = nil
-            mockBookEntity = book
+        if let mockBook = mockBookEntity {
+            return mockBook
         }
         
-        return mockBookEntity!
+        // Check if the mock book already exists in the Core Data store
+        let request: NSFetchRequest<BookEntity> = BookEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "title == %@ AND author == %@", "Mock Book Title", "Mock Author")
+        
+        if let existingBook = try? viewContext.fetch(request).first {
+            mockBookEntity = existingBook
+            return existingBook
+        }
+        
+        // Create the mock book if it doesn't exist
+        let newBook = BookEntity(context: viewContext)
+        newBook.author = "Mock Author"
+        newBook.title = "Mock Book Title"
+        newBook.coverImage = nil
+        
+        mockBookEntity = newBook
+        return newBook
     }
 }

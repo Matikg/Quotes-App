@@ -22,8 +22,7 @@ final class MainScreenViewModel: ObservableObject {
         let quotesNumber: Int
     }
     
-    @Published var state: BookListState = /*.empty*/
-        .loaded([BookItem(title: "Atomic Habits", author: "James Clear", coverImage: nil, quotesNumber: 5), BookItem(title: "Mock2", author: "Mock2", coverImage: nil, quotesNumber: 10)])
+    @Published var state: BookListState = .empty
     
     @Injected(\.navigationRouter) var navigationRouter
     @Injected(\.coreDataManager) var coreDataManager: CoreDataManagerProtocol
@@ -35,6 +34,15 @@ final class MainScreenViewModel: ObservableObject {
     }
     
     func getBooks() {
-        coreDataManager.fetchBooks()
+        let fetchedBooks = coreDataManager.fetchBooks()
+        let bookItems = fetchedBooks.map { bookEntity in
+            BookItem(
+                title: bookEntity.title ?? "",
+                author: bookEntity.author ?? "",
+                coverImage: nil,
+                quotesNumber: bookEntity.quotes?.count ?? 0
+            )
+        }
+        state = bookItems.isEmpty ? .empty : .loaded(bookItems)
     }
 }
