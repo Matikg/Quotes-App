@@ -11,6 +11,7 @@ import DependencyInjection
 @main
 struct AppEntry: App {
     @StateObject private var navigationRouter = InjectedValues[\.navigationRouter]
+    @StateObject private var rootScreenViewModel = RootScreenViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -24,7 +25,7 @@ struct AppEntry: App {
                     }
                 )
             ) {
-                RootScreenView(viewModel: RootScreenViewModel())
+                RootScreenView(viewModel: rootScreenViewModel)
                     .navigationDestination(for: Route.self, destination: { $0 })
             }
         }

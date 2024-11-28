@@ -47,6 +47,10 @@ final class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
+    func deleteBook() {
+        print("Deleted")
+    }
+    
     // BookEntity Mock for testing purposes
     
     private var mockBookEntity:  BookEntity?

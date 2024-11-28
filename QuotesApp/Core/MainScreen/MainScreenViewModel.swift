@@ -25,7 +25,7 @@ final class MainScreenViewModel: ObservableObject {
     @Published var state: BookListState = .empty
     
     @Injected(\.navigationRouter) var navigationRouter
-    @Injected(\.coreDataManager) var coreDataManager: CoreDataManagerProtocol
+    @Injected(\.coreDataManager) var coreDataManager
     
     //MARK: - Methods
     
@@ -35,14 +35,16 @@ final class MainScreenViewModel: ObservableObject {
     
     func getBooks() {
         let fetchedBooks = coreDataManager.fetchBooks()
-        let bookItems = fetchedBooks.map { bookEntity in
-            BookItem(
-                title: bookEntity.title ?? "",
-                author: bookEntity.author ?? "",
-                coverImage: nil,
-                quotesNumber: bookEntity.quotes?.count ?? 0
-            )
-        }
+        let bookItems = fetchedBooks.map(BookItem.init)
         state = bookItems.isEmpty ? .empty : .loaded(bookItems)
+    }
+}
+
+extension MainScreenViewModel.BookItem {
+    init(bookEntity: BookEntity) {
+        self.title = bookEntity.title ?? ""
+        self.author = bookEntity.author ?? ""
+        self.coverImage = nil
+        self.quotesNumber = bookEntity.quotes?.count ?? 0
     }
 }

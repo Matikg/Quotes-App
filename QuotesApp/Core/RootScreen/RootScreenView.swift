@@ -15,7 +15,7 @@ struct RootScreenView: View {
             WelcomeScreenView(viewModel: WelcomeScreenViewModel())
         }
         else {
-            MainScreenView(viewModel: MainScreenViewModel())
+            MainScreenView(viewModel: viewModel.mainScreenViewModel)
         }
     }
 }

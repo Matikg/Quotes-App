@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainScreenView: View {
     typealias BookItem = MainScreenViewModel.BookItem
-    @StateObject var viewModel: MainScreenViewModel
+    @ObservedObject var viewModel: MainScreenViewModel
     
     var body: some View {
         BackgroundStack {

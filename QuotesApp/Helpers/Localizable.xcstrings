@@ -40,6 +40,17 @@
         }
       }
     },
+    "Category_empty_dialog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You must specify the category"
+          }
+        }
+      }
+    },
     "Category_label" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -83,6 +94,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Personal note"
+          }
+        }
+      }
+    },
+    "Page_empty_dialog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page must be a valid number"
           }
         }
       }

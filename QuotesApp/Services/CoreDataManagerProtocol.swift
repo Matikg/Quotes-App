@@ -10,4 +10,5 @@ import Foundation
 protocol CoreDataManagerProtocol {
     func fetchBooks() -> [BookEntity]
     func saveQuote(/*to book: BookEntity,*/ text: String, category: String, page: Int, note: String)
+    func deleteBook()
 }
