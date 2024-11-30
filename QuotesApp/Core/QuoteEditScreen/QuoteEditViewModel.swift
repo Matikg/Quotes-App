@@ -40,24 +40,16 @@ final class QuoteEditViewModel: ObservableObject {
     }
     
     private func validate() {
-        var newErrors = [InputError: String]()
+        self.errors.removeAll()
         
-        for errorCase in InputError.allCases {
-            switch errorCase {
-            case .quote:
-                if quoteInput.isEmpty {
-                    newErrors[.quote] = InputError.quote.rawValue
-                }
-            case .page:
-                if pageInput.isEmpty || Int(pageInput) == nil {
-                    newErrors[.page] = InputError.page.rawValue
-                }
-            case .category:
-                if categoryInput.isEmpty {
-                    newErrors[.category] = InputError.category.rawValue
-                }
-            }
-            errors = newErrors
+        if quoteInput.isEmpty {
+            errors[.quote] = InputError.quote.rawValue
+        }
+        if pageInput.isEmpty || Int(pageInput) == nil {
+            errors[.page] = InputError.page.rawValue
+        }
+        if categoryInput.isEmpty {
+            errors[.category] = InputError.category.rawValue
         }
     }
 }
