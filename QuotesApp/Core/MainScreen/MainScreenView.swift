@@ -25,6 +25,9 @@ struct MainScreenView: View {
                     buildLoadedListView(books: books)
                 }
             }
+            .onAppear {
+                viewModel.getBooks()
+            }
         }
     }
     

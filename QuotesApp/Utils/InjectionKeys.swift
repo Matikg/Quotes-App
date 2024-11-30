@@ -20,3 +20,16 @@ extension InjectedValues {
         set { Self[NavigationRouterKey.self] = newValue }
     }
 }
+
+// MARK: - CoreDataManager Keys
+
+private struct CoreDataManagerKey: InjectionKey {
+    static var currentValue: CoreDataManagerProtocol = CoreDataManager()
+}
+
+extension InjectedValues {
+    var coreDataManager: CoreDataManagerProtocol {
+        get { Self[CoreDataManagerKey.self] }
+        set { Self[CoreDataManagerKey.self] = newValue }
+    }
+}

@@ -22,14 +22,29 @@ final class MainScreenViewModel: ObservableObject {
         let quotesNumber: Int
     }
     
-    @Published var state: BookListState = /*.empty*/
-        .loaded([BookItem(title: "Atomic Habits", author: "James Clear", coverImage: nil, quotesNumber: 5), BookItem(title: "Mock2", author: "Mock2", coverImage: nil, quotesNumber: 10)])
+    @Published var state: BookListState = .empty
     
     @Injected(\.navigationRouter) var navigationRouter
+    @Injected(\.coreDataManager) var coreDataManager
     
     //MARK: - Methods
     
     func addQuote() {
         navigationRouter.push(route: .edit)
+    }
+    
+    func getBooks() {
+        let fetchedBooks = coreDataManager.fetchBooks()
+        let bookItems = fetchedBooks.map(BookItem.init)
+        state = bookItems.isEmpty ? .empty : .loaded(bookItems)
+    }
+}
+
+extension MainScreenViewModel.BookItem {
+    init(bookEntity: BookEntity) {
+        self.title = bookEntity.title ?? ""
+        self.author = bookEntity.author ?? ""
+        self.coverImage = nil
+        self.quotesNumber = bookEntity.quotes?.count ?? 0
     }
 }

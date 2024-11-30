@@ -14,20 +14,13 @@ struct QuoteEditView: View {
         BackgroundStack {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 30) {
-                    VStack(alignment: .leading) {
-                        QInput(label: "Quote_label", text: $viewModel.quoteInput, type: .multiLine)
-                        
-                        if viewModel.showError {
-                            QText("Quote_empty_dialog", type: .regular, size: .vsmall)
-                                .accentColor(.red)
-                        }
-                    }
+                    QInput(label: "Quote_label", text: $viewModel.quoteInput, type: .multiLine, error: viewModel.errors[.quote])
                     
                     buildBookButton()
                     
-                    QInput(label: "Category_label", text: $viewModel.categoryInput, type: .oneLine)
+                    QInput(label: "Category_label", text: $viewModel.categoryInput, type: .oneLine, error: viewModel.errors[.category])
                     
-                    QInput(label: "Page_label", text: $viewModel.pageInput, type: .oneLine)
+                    QInput(label: "Page_label", text: $viewModel.pageInput, type: .oneLine, error: viewModel.errors[.page])
                         .keyboardType(.numberPad)
                     
                     QInput(label: "Note_label", text: $viewModel.noteInput, type: .multiLine)

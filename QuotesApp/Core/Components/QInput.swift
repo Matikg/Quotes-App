@@ -16,11 +16,13 @@ struct QInput: View {
     @Binding private var text: String
     private let label: String
     private let inputType: InputType
+    private let error: String?
     
-    init(label: String, text: Binding<String>, type: InputType ) {
+    init(label: String, text: Binding<String>, type: InputType, error: String? = nil) {
         self.label = label
         self._text = text
         self.inputType = type
+        self.error = error
     }
     
     var body: some View {
@@ -34,7 +36,7 @@ struct QInput: View {
                     .foregroundStyle(.black)
                     .frame(height: 38)
                     .padding(.leading, 10)
-                    .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
+                    .background(Rectangle().stroke(error == nil ? Color.accentColor : .red, lineWidth: 1))
                 
             case .multiLine:
                 TextEditor(text: $text)
@@ -43,7 +45,12 @@ struct QInput: View {
                     .frame(height: 162)
                     .scrollContentBackground(.hidden)
                     .padding(.leading, 5)
-                    .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
+                    .background(Rectangle().stroke(error == nil ? Color.accentColor : .red, lineWidth: 1))
+            }
+            
+            if let error {
+                QText(error, type: .regular, size: .vsmall)
+                    .accentColor(.red)
             }
         }
     }
