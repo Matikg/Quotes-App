@@ -53,7 +53,7 @@ struct QuoteEditView: View {
             QText("Book_label", type: .bold, size: .vsmall)
             
             Button {
-                //TODO: Navigation to child view
+                viewModel.addBook()
             } label: {
                 HStack {
                     QText("Test", type: .regular, size: .vsmall)

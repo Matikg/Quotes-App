@@ -37,6 +37,9 @@
 		E8B21A672CC041D600B589C3 /* QuoteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A652CC041D600B589C3 /* QuoteDataModel.xcdatamodeld */; };
 		E8B21A692CC048F600B589C3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A682CC048F600B589C3 /* CoreDataManager.swift */; };
 		E8B21A6B2CC0495500B589C3 /* CoreDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A6A2CC0495500B589C3 /* CoreDataManagerProtocol.swift */; };
+		E8C3555F2CFCD120001F6065 /* BookScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3555E2CFCD120001F6065 /* BookScreenView.swift */; };
+		E8C355612CFCD147001F6065 /* BookScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C355602CFCD147001F6065 /* BookScreenViewModel.swift */; };
+		E8C355632CFCD16E001F6065 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C355622CFCD16E001F6065 /* ApiService.swift */; };
 		E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D267D12C4D9E7800A19EB6 /* QText.swift */; };
 		E8D267DC2C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */; };
 		E8D267DD2C4EE96E00A19EB6 /* Merriweather-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */; };
@@ -97,6 +100,9 @@
 		E8B21A662CC041D600B589C3 /* QuoteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuoteDataModel.xcdatamodel; sourceTree = "<group>"; };
 		E8B21A682CC048F600B589C3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E8B21A6A2CC0495500B589C3 /* CoreDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerProtocol.swift; sourceTree = "<group>"; };
+		E8C3555E2CFCD120001F6065 /* BookScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScreenView.swift; sourceTree = "<group>"; };
+		E8C355602CFCD147001F6065 /* BookScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScreenViewModel.swift; sourceTree = "<group>"; };
+		E8C355622CFCD16E001F6065 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		E8D267D12C4D9E7800A19EB6 /* QText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QText.swift; sourceTree = "<group>"; };
 		E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
 		E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 				E88FF5B12C3E5ED300AEA2BE /* MainScreen */,
 				E88FF5BB2C3F21CD00AEA2BE /* WelcomeScreen */,
 				E8A9DF292C5E42C400C9AB6D /* QuoteEditScreen */,
+				E8C3555D2CFCA1FC001F6065 /* BookScreen */,
 				E88FF5AA2C3A876700AEA2BE /* Components */,
 				E88FF5AE2C3A880000AEA2BE /* Router */,
 			);
@@ -252,6 +259,7 @@
 			children = (
 				E8B21A682CC048F600B589C3 /* CoreDataManager.swift */,
 				E8B21A6A2CC0495500B589C3 /* CoreDataManagerProtocol.swift */,
+				E8C355622CFCD16E001F6065 /* ApiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -310,6 +318,15 @@
 				E8A9DF2C2C5E432F00C9AB6D /* QuoteEditViewModel.swift */,
 			);
 			path = QuoteEditScreen;
+			sourceTree = "<group>";
+		};
+		E8C3555D2CFCA1FC001F6065 /* BookScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8C3555E2CFCD120001F6065 /* BookScreenView.swift */,
+				E8C355602CFCD147001F6065 /* BookScreenViewModel.swift */,
+			);
+			path = BookScreen;
 			sourceTree = "<group>";
 		};
 		E8D267D32C4EE93200A19EB6 /* Fonts */ = {
@@ -476,6 +493,7 @@
 				E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */,
 				E88FF5B92C3F1F7100AEA2BE /* UserDefaultsConstants.swift in Sources */,
 				E8A9DF282C56BAC800C9AB6D /* NavigationRouter.swift in Sources */,
+				E8C355612CFCD147001F6065 /* BookScreenViewModel.swift in Sources */,
 				E8A9DF202C565D4500C9AB6D /* RootScreenView.swift in Sources */,
 				E8B21A6B2CC0495500B589C3 /* CoreDataManagerProtocol.swift in Sources */,
 				E8B21A672CC041D600B589C3 /* QuoteDataModel.xcdatamodeld in Sources */,
@@ -486,11 +504,13 @@
 				E8A9DF242C56B9F100C9AB6D /* Route.swift in Sources */,
 				E8B21A692CC048F600B589C3 /* CoreDataManager.swift in Sources */,
 				E83481742C45095800A74FC4 /* BookListRowView.swift in Sources */,
+				E8C3555F2CFCD120001F6065 /* BookScreenView.swift in Sources */,
 				E83481702C43E4C300A74FC4 /* BackgroundStack.swift in Sources */,
 				E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */,
 				E864364F2C5F930E0029858F /* InjectionKeys.swift in Sources */,
 				E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */,
 				E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */,
+				E8C355632CFCD16E001F6065 /* ApiService.swift in Sources */,
 				E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */,
 				E88FF5802C35924F00AEA2BE /* AppEntry.swift in Sources */,
 				E8A9DF2D2C5E432F00C9AB6D /* QuoteEditViewModel.swift in Sources */,

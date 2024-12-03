@@ -39,8 +39,12 @@ final class QuoteEditViewModel: ObservableObject {
         navigationRouter.pop()
     }
     
+    func addBook() {
+        navigationRouter.push(route: .book)
+    }
+    
     private func validate() {
-        self.errors.removeAll()
+        errors.removeAll()
         
         if quoteInput.isEmpty {
             errors[.quote] = InputError.quote.rawValue
