@@ -16,9 +16,40 @@ final class BookScreenViewModel: ObservableObject {
     
     @Injected(\.navigationRouter) var navigationRouter
     
+    private let apiService = ApiService()
+    
     @Published var titleInput = ""
     @Published var authorInput = ""
     @Published var errors = [InputError: String]()
+    @Published var foundBooks = [BookDoc]()
+    @Published var coverURL: URL?
+    @Published var didSelectSuggestion: Bool = false
+    
+    @MainActor
+    func searchBooks() async {
+        do {
+            let books = try await apiService.fetchBooks(for: titleInput)
+            foundBooks = books
+        } catch {
+            print("Błąd pobierania książek: \(error)")
+            foundBooks = []
+        }
+    }
+    
+    func selectBook(_ book: BookDoc) {
+        didSelectSuggestion = true
+        titleInput = book.title ?? ""
+        authorInput = book.authorName?.joined(separator: ", ") ?? ""
+        foundBooks = []
+        
+        if let coverEditionKey = book.coverEditionKey {
+            coverURL = URL(string: "https://covers.openlibrary.org/b/olid/\(coverEditionKey)-M.jpg?default=false")
+        } else if let coverKey = book.coverKey {
+            coverURL = URL(string: "https://covers.openlibrary.org/b/id/\(coverKey)-M.jpg?default=false")
+        } else {
+            coverURL = nil
+        }
+    }
     
     func saveBook() {
         validate()
