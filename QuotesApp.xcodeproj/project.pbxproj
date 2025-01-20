@@ -16,6 +16,9 @@
 		E86436542C5FA5E20029858F /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = E86436532C5FA5E20029858F /* DependencyInjection */; };
 		E86436592C625DEF0029858F /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = E86436582C625DEF0029858F /* DependencyInjection */; };
 		E87369E02C9C1EE8000D527C /* QInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87369DF2C9C1EE8000D527C /* QInput.swift */; };
+		E88170932D3D2BC6003F5207 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88170922D3D2BC6003F5207 /* Api.swift */; };
+		E88170962D3D735A003F5207 /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88170952D3D735A003F5207 /* Domain.swift */; };
+		E88170982D3EB497003F5207 /* DefaultBookCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88170972D3EB497003F5207 /* DefaultBookCover.swift */; };
 		E88FF5802C35924F00AEA2BE /* AppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF57F2C35924F00AEA2BE /* AppEntry.swift */; };
 		E88FF5822C35924F00AEA2BE /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5812C35924F00AEA2BE /* MainScreenView.swift */; };
 		E88FF5842C35925300AEA2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E88FF5832C35925300AEA2BE /* Assets.xcassets */; };
@@ -76,6 +79,9 @@
 		E83481732C45095800A74FC4 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
 		E864364E2C5F930E0029858F /* InjectionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionKeys.swift; sourceTree = "<group>"; };
 		E87369DF2C9C1EE8000D527C /* QInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QInput.swift; sourceTree = "<group>"; };
+		E88170922D3D2BC6003F5207 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		E88170952D3D735A003F5207 /* Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
+		E88170972D3EB497003F5207 /* DefaultBookCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBookCover.swift; sourceTree = "<group>"; };
 		E88FF57C2C35924F00AEA2BE /* QuotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88FF57F2C35924F00AEA2BE /* AppEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntry.swift; sourceTree = "<group>"; };
 		E88FF5812C35924F00AEA2BE /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
@@ -172,6 +178,33 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		E881708E2D3D2AD1003F5207 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				E8B21A682CC048F600B589C3 /* CoreDataManager.swift */,
+				E8B21A6A2CC0495500B589C3 /* CoreDataManagerProtocol.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		E881708F2D3D2B37003F5207 /* Book Api */ = {
+			isa = PBXGroup;
+			children = (
+				E8C355622CFCD16E001F6065 /* ApiService.swift */,
+				E88170942D3D7341003F5207 /* Models */,
+			);
+			path = "Book Api";
+			sourceTree = "<group>";
+		};
+		E88170942D3D7341003F5207 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E88170922D3D2BC6003F5207 /* Api.swift */,
+				E88170952D3D735A003F5207 /* Domain.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E88FF5732C35924F00AEA2BE = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				E834816F2C43E4C300A74FC4 /* BackgroundStack.swift */,
+				E88170972D3EB497003F5207 /* DefaultBookCover.swift */,
 				E88FF5B52C3E6E5000AEA2BE /* QButton.swift */,
 				E83481692C3FB75D00A74FC4 /* QDivider.swift */,
 				E8D267D12C4D9E7800A19EB6 /* QText.swift */,
@@ -257,9 +291,8 @@
 		E88FF5AD2C3A87DC00AEA2BE /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E8B21A682CC048F600B589C3 /* CoreDataManager.swift */,
-				E8B21A6A2CC0495500B589C3 /* CoreDataManagerProtocol.swift */,
-				E8C355622CFCD16E001F6065 /* ApiService.swift */,
+				E881708F2D3D2B37003F5207 /* Book Api */,
+				E881708E2D3D2AD1003F5207 /* Core Data */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -491,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */,
+				E88170982D3EB497003F5207 /* DefaultBookCover.swift in Sources */,
 				E88FF5B92C3F1F7100AEA2BE /* UserDefaultsConstants.swift in Sources */,
 				E8A9DF282C56BAC800C9AB6D /* NavigationRouter.swift in Sources */,
 				E8C355612CFCD147001F6065 /* BookScreenViewModel.swift in Sources */,
@@ -511,11 +545,13 @@
 				E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */,
 				E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */,
 				E8C355632CFCD16E001F6065 /* ApiService.swift in Sources */,
+				E88170932D3D2BC6003F5207 /* Api.swift in Sources */,
 				E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */,
 				E88FF5802C35924F00AEA2BE /* AppEntry.swift in Sources */,
 				E8A9DF2D2C5E432F00C9AB6D /* QuoteEditViewModel.swift in Sources */,
 				E8A9DF222C565D5400C9AB6D /* RootScreenViewModel.swift in Sources */,
 				E88FF5B62C3E6E5000AEA2BE /* QButton.swift in Sources */,
+				E88170962D3D735A003F5207 /* Domain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

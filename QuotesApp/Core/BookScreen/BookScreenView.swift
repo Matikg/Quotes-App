@@ -20,23 +20,6 @@ struct BookScreenView: View {
                         VStack(spacing: 0) {
                             QInput(label: "Title_label", text: $viewModel.titleInput, type: .oneLine, error: viewModel.errors[.title])
                                 .autocorrectionDisabled()
-                                .onChange(of: viewModel.titleInput) { newValue in
-                                    guard !newValue.isEmpty else {
-                                        viewModel.foundBooks = []
-                                        viewModel.didSelectSuggestion = false
-                                        return
-                                    }
-                                    if viewModel.didSelectSuggestion {
-                                        viewModel.didSelectSuggestion = false
-                                        return
-                                    }
-                                    Task {
-                                        try? await Task.sleep(nanoseconds: 300_000_000)
-                                        if newValue == viewModel.titleInput {
-                                            await viewModel.searchBooks()
-                                        }
-                                    }
-                                }
                             
                             buildBookHint()
                         }
@@ -70,31 +53,31 @@ struct BookScreenView: View {
     
     @ViewBuilder
     private func buildBookCover() -> some View {
-        if let coverURL = viewModel.coverURL {
-            AsyncImage(url: coverURL) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                        .frame(width: 124, height: 169)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 124, height: 169)
-                case .failure:
-                    Image(.defaultBookCover)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 124, height: 169)
-                @unknown default:
-                    EmptyView()
+        if let book = viewModel.selectedBook {
+            
+            switch book.cover {
+            case .remote(let url):
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                            .frame(width: 124, height: 169)
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 124, height: 169)
+                    case .failure:
+                        DefaultBookCover()
+                    @unknown default:
+                        EmptyView()
+                    }
                 }
+            case .default:
+                DefaultBookCover()
             }
         } else {
-            Image(.defaultBookCover)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 124, height: 169)
+            DefaultBookCover()
         }
     }
     
@@ -102,12 +85,12 @@ struct BookScreenView: View {
     private func buildBookHint() -> some View {
         if !viewModel.foundBooks.isEmpty, !viewModel.titleInput.isEmpty {
             VStack(spacing: 0) {
-                ForEach(viewModel.foundBooks.prefix(3), id: \.title) { book in
-                    QText("\(book.title ?? "No title"), \(book.authorName?.joined(separator: ", ") ?? "")", type: .bold, size: .vsmall)
+                ForEach(viewModel.foundBooks.prefix(3)) { book in
+                    QText("\(book.title), \(book.author)", type: .bold, size: .vsmall)
                         .padding(.leading, 20)
                         .frame(height: 38)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(Color("HintColor"))
+                        .background(.hint)
                         .lineLimit(1)
                         .onTapGesture {
                             viewModel.selectBook(book)

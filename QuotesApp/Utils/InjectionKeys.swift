@@ -33,3 +33,16 @@ extension InjectedValues {
         set { Self[CoreDataManagerKey.self] = newValue }
     }
 }
+
+// MARK: - ApiService Keys
+
+private struct ApiServiceKey: InjectionKey {
+    static var currentValue: ApiService = ApiService()
+}
+
+extension InjectedValues {
+    var apiService: ApiService {
+        get { Self[ApiServiceKey.self] }
+        set { Self[ApiServiceKey.self] = newValue }
+    }
+}

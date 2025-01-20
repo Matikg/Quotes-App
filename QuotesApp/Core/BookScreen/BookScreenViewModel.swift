@@ -7,7 +7,9 @@
 
 import Foundation
 import DependencyInjection
+import Combine
 
+@MainActor
 final class BookScreenViewModel: ObservableObject {
     enum InputError: String, CaseIterable {
         case title = "Title_empty_dialog"
@@ -15,46 +17,57 @@ final class BookScreenViewModel: ObservableObject {
     }
     
     @Injected(\.navigationRouter) var navigationRouter
-    
-    private let apiService = ApiService()
+    @Injected(\.apiService) var apiService
     
     @Published var titleInput = ""
     @Published var authorInput = ""
     @Published var errors = [InputError: String]()
-    @Published var foundBooks = [BookDoc]()
-    @Published var coverURL: URL?
+    @Published var foundBooks = [Domain.Book]()
     @Published var didSelectSuggestion: Bool = false
+    @Published var selectedBook: Domain.Book?
     
-    @MainActor
-    func searchBooks() async {
-        do {
-            let books = try await apiService.fetchBooks(for: titleInput)
-            foundBooks = books
-        } catch {
-            print("Błąd pobierania książek: \(error)")
-            foundBooks = []
-        }
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        $titleInput
+            .debounce(for: .milliseconds(1000), scheduler: RunLoop.main)
+            .sink { [weak self] value in
+                guard let self else { return }
+                
+                guard !value.isEmpty else {
+                    foundBooks = []
+                    didSelectSuggestion = false
+                    return
+                }
+                if didSelectSuggestion {
+                    didSelectSuggestion = false
+                    return
+                }
+                searchBooks()
+            }
+            .store(in: &cancellables)
     }
     
-    func selectBook(_ book: BookDoc) {
+    func selectBook(_ book: Domain.Book) {
         didSelectSuggestion = true
-        titleInput = book.title ?? ""
-        authorInput = book.authorName?.joined(separator: ", ") ?? ""
+        titleInput = book.title
+        authorInput = book.author
+        selectedBook = book
         foundBooks = []
-        
-        if let coverEditionKey = book.coverEditionKey {
-            coverURL = URL(string: "https://covers.openlibrary.org/b/olid/\(coverEditionKey)-M.jpg?default=false")
-        } else if let coverKey = book.coverKey {
-            coverURL = URL(string: "https://covers.openlibrary.org/b/id/\(coverKey)-M.jpg?default=false")
-        } else {
-            coverURL = nil
-        }
     }
     
     func saveBook() {
+        //TODO: Saving to CoreData
         validate()
         
         guard errors.isEmpty else { return }
+    }
+    
+    private func searchBooks() {
+        Task {
+            let books = try await apiService.fetchBooks(for: titleInput)
+            foundBooks = books.compactMap { Domain.Book(model: $0) }
+        }
     }
     
     private func validate() {
