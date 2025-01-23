@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		887181322D429CB900F25668 /* QuoteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 887181302D429CB900F25668 /* QuoteDataModel.xcdatamodeld */; };
+		887181352D42A42D00F25668 /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887181342D42A42D00F25668 /* ApiServiceTests.swift */; };
+		887181382D42A45E00F25668 /* MockNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887181372D42A45E00F25668 /* MockNetworkSession.swift */; };
+		8871813B2D42A55300F25668 /* Models+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871813A2D42A55300F25668 /* Models+Extensions.swift */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
 		E834816E2C3FD0BE00A74FC4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E834816D2C3FD0BE00A74FC4 /* Localizable.xcstrings */; };
 		E83481702C43E4C300A74FC4 /* BackgroundStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* BackgroundStack.swift */; };
@@ -73,6 +76,9 @@
 
 /* Begin PBXFileReference section */
 		887181312D429CB900F25668 /* QuoteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuoteDataModel.xcdatamodel; sourceTree = "<group>"; };
+		887181342D42A42D00F25668 /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
+		887181372D42A45E00F25668 /* MockNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkSession.swift; sourceTree = "<group>"; };
+		8871813A2D42A55300F25668 /* Models+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Extensions.swift"; sourceTree = "<group>"; };
 		E83481692C3FB75D00A74FC4 /* QDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QDivider.swift; sourceTree = "<group>"; };
 		E834816D2C3FD0BE00A74FC4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E834816F2C43E4C300A74FC4 /* BackgroundStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStack.swift; sourceTree = "<group>"; };
@@ -148,6 +154,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		887181332D42A36B00F25668 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				887181342D42A42D00F25668 /* ApiServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		887181362D42A44E00F25668 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				887181372D42A45E00F25668 /* MockNetworkSession.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		887181392D42A54700F25668 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8871813A2D42A55300F25668 /* Models+Extensions.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E864364D2C5F92DF0029858F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,7 +283,10 @@
 		E88FF58F2C35925300AEA2BE /* QuotesAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				887181392D42A54700F25668 /* Models */,
+				887181332D42A36B00F25668 /* Services */,
 				E88FF5902C35925300AEA2BE /* QuotesAppTests.swift */,
+				887181362D42A44E00F25668 /* Mocks */,
 			);
 			path = QuotesAppTests;
 			sourceTree = "<group>";
@@ -559,6 +592,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				887181352D42A42D00F25668 /* ApiServiceTests.swift in Sources */,
+				8871813B2D42A55300F25668 /* Models+Extensions.swift in Sources */,
+				887181382D42A45E00F25668 /* MockNetworkSession.swift in Sources */,
 				E88FF5912C35925300AEA2BE /* QuotesAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,7 +751,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuotesApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 27552RQYXW;
+				DEVELOPMENT_TEAM = K72F7V883D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
@@ -746,7 +782,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuotesApp/Preview Content\"";
-				DEVELOPMENT_TEAM = 27552RQYXW;
+				DEVELOPMENT_TEAM = K72F7V883D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
