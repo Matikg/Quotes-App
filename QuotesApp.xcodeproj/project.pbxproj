@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		887181322D429CB900F25668 /* QuoteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 887181302D429CB900F25668 /* QuoteDataModel.xcdatamodeld */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
 		E834816E2C3FD0BE00A74FC4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E834816D2C3FD0BE00A74FC4 /* Localizable.xcstrings */; };
 		E83481702C43E4C300A74FC4 /* BackgroundStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* BackgroundStack.swift */; };
@@ -37,7 +38,6 @@
 		E8A9DF282C56BAC800C9AB6D /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF272C56BAC800C9AB6D /* NavigationRouter.swift */; };
 		E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF2A2C5E430B00C9AB6D /* QuoteEditView.swift */; };
 		E8A9DF2D2C5E432F00C9AB6D /* QuoteEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF2C2C5E432F00C9AB6D /* QuoteEditViewModel.swift */; };
-		E8B21A672CC041D600B589C3 /* QuoteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A652CC041D600B589C3 /* QuoteDataModel.xcdatamodeld */; };
 		E8B21A692CC048F600B589C3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A682CC048F600B589C3 /* CoreDataManager.swift */; };
 		E8B21A6B2CC0495500B589C3 /* CoreDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A6A2CC0495500B589C3 /* CoreDataManagerProtocol.swift */; };
 		E8C3555F2CFCD120001F6065 /* BookScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3555E2CFCD120001F6065 /* BookScreenView.swift */; };
@@ -72,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		887181312D429CB900F25668 /* QuoteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuoteDataModel.xcdatamodel; sourceTree = "<group>"; };
 		E83481692C3FB75D00A74FC4 /* QDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QDivider.swift; sourceTree = "<group>"; };
 		E834816D2C3FD0BE00A74FC4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E834816F2C43E4C300A74FC4 /* BackgroundStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStack.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		E8A9DF272C56BAC800C9AB6D /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		E8A9DF2A2C5E430B00C9AB6D /* QuoteEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditView.swift; sourceTree = "<group>"; };
 		E8A9DF2C2C5E432F00C9AB6D /* QuoteEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditViewModel.swift; sourceTree = "<group>"; };
-		E8B21A662CC041D600B589C3 /* QuoteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuoteDataModel.xcdatamodel; sourceTree = "<group>"; };
 		E8B21A682CC048F600B589C3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E8B21A6A2CC0495500B589C3 /* CoreDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerProtocol.swift; sourceTree = "<group>"; };
 		E8C3555E2CFCD120001F6065 /* BookScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScreenView.swift; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 		E88FF5A92C3A875C00AEA2BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E8B21A652CC041D600B589C3 /* QuoteDataModel.xcdatamodeld */,
+				887181302D429CB900F25668 /* QuoteDataModel.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -530,9 +530,9 @@
 				E8C355612CFCD147001F6065 /* BookScreenViewModel.swift in Sources */,
 				E8A9DF202C565D4500C9AB6D /* RootScreenView.swift in Sources */,
 				E8B21A6B2CC0495500B589C3 /* CoreDataManagerProtocol.swift in Sources */,
-				E8B21A672CC041D600B589C3 /* QuoteDataModel.xcdatamodeld in Sources */,
 				E88FF5B02C3DA5C300AEA2BE /* WelcomeScreenView.swift in Sources */,
 				E87369E02C9C1EE8000D527C /* QInput.swift in Sources */,
+				887181322D429CB900F25668 /* QuoteDataModel.xcdatamodeld in Sources */,
 				E8A9DF262C56BA6C00C9AB6D /* NavigationRouting.swift in Sources */,
 				E88FF5822C35924F00AEA2BE /* MainScreenView.swift in Sources */,
 				E8A9DF242C56B9F100C9AB6D /* Route.swift in Sources */,
@@ -901,14 +901,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		E8B21A652CC041D600B589C3 /* QuoteDataModel.xcdatamodeld */ = {
+		887181302D429CB900F25668 /* QuoteDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E8B21A662CC041D600B589C3 /* QuoteDataModel.xcdatamodel */,
+				887181312D429CB900F25668 /* QuoteDataModel.xcdatamodel */,
 			);
-			currentVersion = E8B21A662CC041D600B589C3 /* QuoteDataModel.xcdatamodel */;
-			name = QuoteDataModel.xcdatamodeld;
-			path = /Users/matikg/Desktop/QuotesApp/QuotesApp/Models/QuoteDataModel.xcdatamodeld;
+			currentVersion = 887181312D429CB900F25668 /* QuoteDataModel.xcdatamodel */;
+			path = QuoteDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
