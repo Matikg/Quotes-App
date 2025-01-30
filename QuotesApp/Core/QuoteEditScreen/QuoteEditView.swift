@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuoteEditView: View {
-    @ObservedObject var viewModel = QuoteEditViewModel()
+    @StateObject var viewModel = QuoteEditViewModel()
     
     var body: some View {
         BackgroundStack {
@@ -67,6 +67,9 @@ struct QuoteEditView: View {
                 .padding(.horizontal, 10)
                 .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
             }
+        }
+        .onAppear {
+            viewModel.onAppear()
         }
     }
 }

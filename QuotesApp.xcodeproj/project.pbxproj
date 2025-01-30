@@ -11,6 +11,7 @@
 		887181352D42A42D00F25668 /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887181342D42A42D00F25668 /* ApiServiceTests.swift */; };
 		887181382D42A45E00F25668 /* MockNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887181372D42A45E00F25668 /* MockNetworkSession.swift */; };
 		8871813B2D42A55300F25668 /* Models+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871813A2D42A55300F25668 /* Models+Extensions.swift */; };
+		8871813E2D4A9CD900F25668 /* AddBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871813D2D4A9CD900F25668 /* AddBookRepository.swift */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
 		E834816E2C3FD0BE00A74FC4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E834816D2C3FD0BE00A74FC4 /* Localizable.xcstrings */; };
 		E83481702C43E4C300A74FC4 /* BackgroundStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* BackgroundStack.swift */; };
@@ -79,6 +80,7 @@
 		887181342D42A42D00F25668 /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
 		887181372D42A45E00F25668 /* MockNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkSession.swift; sourceTree = "<group>"; };
 		8871813A2D42A55300F25668 /* Models+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Extensions.swift"; sourceTree = "<group>"; };
+		8871813D2D4A9CD900F25668 /* AddBookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookRepository.swift; sourceTree = "<group>"; };
 		E83481692C3FB75D00A74FC4 /* QDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QDivider.swift; sourceTree = "<group>"; };
 		E834816D2C3FD0BE00A74FC4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E834816F2C43E4C300A74FC4 /* BackgroundStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStack.swift; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8871813C2D4A9C9800F25668 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				8871813D2D4A9CD900F25668 /* AddBookRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		E864364D2C5F92DF0029858F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +272,7 @@
 				E86436512C5F9F460029858F /* Core */,
 				E88FF5A92C3A875C00AEA2BE /* Models */,
 				E88FF5AD2C3A87DC00AEA2BE /* Services */,
+				8871813C2D4A9C9800F25668 /* Repositories */,
 				E864364D2C5F92DF0029858F /* Utils */,
 				E88FF5B72C3F1F3D00AEA2BE /* Helpers */,
 				E8D267D32C4EE93200A19EB6 /* Fonts */,
@@ -578,6 +589,7 @@
 				E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */,
 				E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */,
 				E8C355632CFCD16E001F6065 /* ApiService.swift in Sources */,
+				8871813E2D4A9CD900F25668 /* AddBookRepository.swift in Sources */,
 				E88170932D3D2BC6003F5207 /* Api.swift in Sources */,
 				E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */,
 				E88FF5802C35924F00AEA2BE /* AppEntry.swift in Sources */,

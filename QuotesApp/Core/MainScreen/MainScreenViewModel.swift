@@ -24,13 +24,16 @@ final class MainScreenViewModel: ObservableObject {
     
     @Published var state: BookListState = .empty
     
-    @Injected(\.navigationRouter) var navigationRouter
-    @Injected(\.coreDataManager) var coreDataManager
+    @Injected private var navigationRouter: any NavigationRouting
+    @Injected private var coreDataManager: CoreDataManagerProtocol
     
     //MARK: - Methods
     
     func addQuote() {
         navigationRouter.push(route: .edit)
+        DIContainerManager.shared
+            .container(for: .feature("addQuote"))
+            .register(AddBookRepositoryInterface.self, instance: AddBookRepository())
     }
     
     func getBooks() {

@@ -15,14 +15,25 @@ final class QuoteEditViewModel: ObservableObject {
         case category = "Category_empty_dialog"
     }
     
-    @Injected(\.coreDataManager) var coreDataManager
-    @Injected(\.navigationRouter) var navigationRouter
+    @Injected private var coreDataManager: CoreDataManagerProtocol
+    @Injected private var navigationRouter: any NavigationRouting
+    @Injected(scope: .feature("addQuote")) private var addBookRepository: AddBookRepositoryInterface
     
     @Published var quoteInput = ""
     @Published var categoryInput = ""
     @Published var pageInput = ""
     @Published var noteInput = ""
     @Published var errors = [InputError: String]()
+    
+    deinit {
+        print("quoteEdit deinit")
+        DIContainerManager.shared
+            .removeContainer(for: .feature("addQuote"))
+    }
+    
+    func onAppear() {
+        print("addBookRepository.title: \(addBookRepository.savedBookTitle)")
+    }
     
     func saveQuote() {
         validate()

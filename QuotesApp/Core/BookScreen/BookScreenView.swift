@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BookScreenView: View {
-    @ObservedObject var viewModel = BookScreenViewModel()
+    @StateObject var viewModel = BookScreenViewModel()
     
     var body: some View {
         BackgroundStack {

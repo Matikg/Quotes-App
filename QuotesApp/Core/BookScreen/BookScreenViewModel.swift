@@ -9,15 +9,15 @@ import Foundation
 import DependencyInjection
 import Combine
 
-@MainActor
 final class BookScreenViewModel: ObservableObject {
     enum InputError: String, CaseIterable {
         case title = "Title_empty_dialog"
         case author = "Author_empty_dialog"
     }
     
-    @Injected(\.navigationRouter) var navigationRouter
-    @Injected(\.apiService) var apiService
+    @Injected private var navigationRouter: any NavigationRouting
+    @Injected private var apiService: ApiService
+    @Injected(scope: .feature("addQuote")) private var addBookRepository: AddBookRepositoryInterface
     
     @Published var titleInput = ""
     @Published var authorInput = ""
@@ -59,6 +59,7 @@ final class BookScreenViewModel: ObservableObject {
     func saveBook() {
         //TODO: Saving to CoreData
         validate()
+        addBookRepository.saveBook(with: "test :)")
         
         guard errors.isEmpty else { return }
     }
