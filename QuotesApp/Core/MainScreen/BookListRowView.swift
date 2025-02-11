@@ -15,7 +15,7 @@ struct BookListRowView: View {
             HStack(spacing: 20) {
                 coverImage
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .scaledToFill()
                     .frame(width: 76, height: 100)
                 
                 buildBookInfoView()

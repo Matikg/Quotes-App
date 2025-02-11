@@ -13,26 +13,29 @@ final class QuoteEditViewModel: ObservableObject {
         case quote = "Quote_empty_dialog"
         case page = "Page_empty_dialog"
         case category = "Category_empty_dialog"
+        case book = "Book_empty_dialog"
     }
     
     @Injected private var coreDataManager: CoreDataManagerProtocol
     @Injected private var navigationRouter: any NavigationRouting
-    @Injected(scope: .feature("addQuote")) private var addBookRepository: AddBookRepositoryInterface
+    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var addBookRepository: AddBookRepositoryInterface
     
     @Published var quoteInput = ""
     @Published var categoryInput = ""
     @Published var pageInput = ""
     @Published var noteInput = ""
+    @Published var bookButtonLabel = ""
     @Published var errors = [InputError: String]()
     
     deinit {
-        print("quoteEdit deinit")
-        DIContainerManager.shared
-            .removeContainer(for: .feature("addQuote"))
+        ContainerManager.shared
+            .removeContainer(for: .feature(FeatureName.addQuote.rawValue))
     }
     
     func onAppear() {
-        print("addBookRepository.title: \(addBookRepository.savedBookTitle)")
+        if let savedBook = addBookRepository.selectedBook {
+            bookButtonLabel = "\(savedBook.title), \(savedBook.author)"
+        }
     }
     
     func saveQuote() {
@@ -40,8 +43,11 @@ final class QuoteEditViewModel: ObservableObject {
         
         guard errors.isEmpty else { return }
         guard let page = Int(pageInput) else { return }
+        guard let selectedBook = addBookRepository.selectedBook else { return }
+        guard let bookEntity = coreDataManager.fetchBookEntity(for: selectedBook) else { return }
         
         coreDataManager.saveQuote(
+            to: bookEntity,
             text: quoteInput,
             category: categoryInput,
             page: page,
@@ -65,6 +71,9 @@ final class QuoteEditViewModel: ObservableObject {
         }
         if categoryInput.isEmpty {
             errors[.category] = InputError.category.rawValue
+        }
+        if addBookRepository.selectedBook == nil {
+            errors[.book] = InputError.book.rawValue
         }
     }
 }

@@ -17,7 +17,7 @@ extension URLSession: NetworkSession {
     }
 }
 
-final class ApiService {
+final class BookApiService {
     private let baseURL: String
     private let session: NetworkSession
 
@@ -46,5 +46,19 @@ final class ApiService {
         let decodedResponse = try decoder.decode(SearchResponse.self, from: data)
         
         return decodedResponse.docs ?? []
+    }
+    
+    func fetchBookCover(from url: URL) async throws -> Data {
+        var request = URLRequest(url: url)
+        request.setValue("QuoteSaver (grudzien.mateusz00@gmail.com)", forHTTPHeaderField: "User-Agent")
+        
+        let (data, response) = try await session.data(for: request)
+        
+        if let httpResponse = response as? HTTPURLResponse,
+           (200...299).contains(httpResponse.statusCode) {
+            return data
+        } else {
+            throw URLError(.badServerResponse)
+        }
     }
 }

@@ -26,6 +26,17 @@
         }
       }
     },
+    "Book_empty_dialog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book cannot be empty"
+          }
+        }
+      }
+    },
     "Book_label" : {
       "extractionState" : "manual",
       "localizations" : {

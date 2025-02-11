@@ -1,15 +1,22 @@
 import Foundation
+import DependencyInjection
 
 protocol AddBookRepositoryInterface {
-    var savedBookTitle: String? { get }
-    func saveBook(with title: String)
+    var selectedBook: Domain.Book? { get }
+    func selectBook(_ book: Domain.Book)
+    func saveBook(_ book: Domain.Book)
 }
 
 final class AddBookRepository: AddBookRepositoryInterface {
-    // tutaj bedziemy mogli trzymac ID, albo cala wybrana przez uzytkownika ksiazke.
-    var savedBookTitle: String?
+    @Injected private var coreDataManager: CoreDataManagerProtocol
     
-    func saveBook(with title: String) {
-        savedBookTitle = title
+    var selectedBook: Domain.Book?
+    
+    func selectBook(_ book: Domain.Book) {
+        selectedBook = book
+    }
+    
+    func saveBook(_ book: Domain.Book) {
+        coreDataManager.saveBook(for: book)
     }
 }

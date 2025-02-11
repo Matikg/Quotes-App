@@ -20,7 +20,7 @@ final class ApiServiceTests: XCTestCase {
             headerFields: nil
         )
         
-        let apiService = ApiService(session: mockSession)
+        let apiService = BookApiService(session: mockSession)
         
         // When
         let books = try await apiService.fetchBooks(for: "Swift")
@@ -44,7 +44,7 @@ final class ApiServiceTests: XCTestCase {
             headerFields: nil
         )
         
-        let apiService = ApiService(session: mockSession)
+        let apiService = BookApiService(session: mockSession)
         
         // When
         let books = try await apiService.fetchBooks(for: "Invalid")
@@ -58,7 +58,7 @@ final class ApiServiceTests: XCTestCase {
         let mockSession = MockNetworkSession()
         mockSession.error = URLError(.notConnectedToInternet)
         
-        let apiService = ApiService(session: mockSession)
+        let apiService = BookApiService(session: mockSession)
         
         do {
             // When

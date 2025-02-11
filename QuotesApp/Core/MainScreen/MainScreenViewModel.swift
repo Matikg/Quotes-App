@@ -31,8 +31,8 @@ final class MainScreenViewModel: ObservableObject {
     
     func addQuote() {
         navigationRouter.push(route: .edit)
-        DIContainerManager.shared
-            .container(for: .feature("addQuote"))
+        ContainerManager.shared
+            .container(for: .feature(FeatureName.addQuote.rawValue))
             .register(AddBookRepositoryInterface.self, instance: AddBookRepository())
     }
     
@@ -47,7 +47,12 @@ extension MainScreenViewModel.BookItem {
     init(bookEntity: BookEntity) {
         self.title = bookEntity.title ?? ""
         self.author = bookEntity.author ?? ""
-        self.coverImage = nil
         self.quotesNumber = bookEntity.quotes?.count ?? 0
+        
+        if let coverData = bookEntity.coverImage, let uiImage = UIImage(data: coverData) {
+            self.coverImage = Image(uiImage: uiImage)
+        } else {
+            self.coverImage = nil
+        }
     }
 }

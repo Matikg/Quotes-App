@@ -3,13 +3,26 @@ import Foundation
 
 @propertyWrapper
 public struct Injected<T> {
-    private let keyPath: WritableKeyPath<InjectedValues, T>
+    private let scope: Scope
+    private var storage: T?
+    
     public var wrappedValue: T {
-        get { InjectedValues[keyPath] }
-        set { InjectedValues[keyPath] = newValue }
+        mutating get {
+            if let value = storage {
+                return value
+            }
+            guard let resolved = ContainerManager.shared.container(for: scope).resolve(T.self) else {
+                fatalError("Dependency of type \(T.self) not registered in scope: \(scope.identifier)")
+            }
+            storage = resolved
+            return resolved
+        }
+        set {
+            storage = newValue
+        }
     }
     
-    public init(_ keyPath: WritableKeyPath<InjectedValues, T>) {
-        self.keyPath = keyPath
+    public init(scope: Scope = .main) {
+        self.scope = scope
     }
 }

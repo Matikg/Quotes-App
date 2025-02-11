@@ -9,15 +9,22 @@ import Foundation
 import DependencyInjection
 import Combine
 
+@MainActor
 final class BookScreenViewModel: ObservableObject {
     enum InputError: String, CaseIterable {
         case title = "Title_empty_dialog"
         case author = "Author_empty_dialog"
     }
     
+    enum CoverImageState {
+        case `default`
+        case loading
+        case image(Data)
+    }
+    
     @Injected private var navigationRouter: any NavigationRouting
-    @Injected private var apiService: ApiService
-    @Injected(scope: .feature("addQuote")) private var addBookRepository: AddBookRepositoryInterface
+    @Injected private var apiService: BookApiService
+    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var addBookRepository: AddBookRepositoryInterface
     
     @Published var titleInput = ""
     @Published var authorInput = ""
@@ -25,6 +32,7 @@ final class BookScreenViewModel: ObservableObject {
     @Published var foundBooks = [Domain.Book]()
     @Published var didSelectSuggestion: Bool = false
     @Published var selectedBook: Domain.Book?
+    @Published var coverImage: CoverImageState = .default
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -46,6 +54,45 @@ final class BookScreenViewModel: ObservableObject {
                 searchBooks()
             }
             .store(in: &cancellables)
+        
+        $selectedBook
+            .sink { [weak self] selectedBook in
+                guard let self else { return }
+                
+                guard let book = selectedBook else {
+                    coverImage = .default
+                    return
+                }
+                
+                if let data = book.coverImageData {
+                    coverImage = .image(data)
+                    return
+                }
+                
+                switch book.cover {
+                case .remote(let url):
+                    coverImage = .loading
+                    
+                    Task {
+                        do {
+                            let data = try await self.apiService.fetchBookCover(from: url)
+                            await MainActor.run {
+                                var updatedBook = book
+                                updatedBook.coverImageData = data
+                                self.selectedBook = updatedBook
+                                self.coverImage = .image(data)
+                            }
+                        } catch {
+                            await MainActor.run {
+                                self.coverImage = .default
+                            }
+                        }
+                    }
+                case .default:
+                    coverImage = .default
+                }
+            }
+            .store(in: &cancellables)
     }
     
     func selectBook(_ book: Domain.Book) {
@@ -57,11 +104,15 @@ final class BookScreenViewModel: ObservableObject {
     }
     
     func saveBook() {
-        //TODO: Saving to CoreData
         validate()
-        addBookRepository.saveBook(with: "test :)")
         
         guard errors.isEmpty else { return }
+        
+        let book = selectedBook ?? Domain.Book(title: titleInput, author: authorInput, cover: .default)
+        addBookRepository.selectBook(book)
+        addBookRepository.saveBook(book)
+        
+        navigationRouter.pop()
     }
     
     private func searchBooks() {

@@ -13,6 +13,7 @@ struct Domain {
         let title: String
         let author: String
         let cover: Cover
+        var coverImageData: Data?
     }
 }
 
@@ -26,6 +27,7 @@ extension Domain.Book {
         guard let title = model.title else { return nil }
         self.title = title
         self.author = model.authorName?.joined(separator: ", ") ?? ""
+        self.coverImageData = nil
         
         if let editionKey = model.coverEditionKey, let url = URL(string: "https://covers.openlibrary.org/b/olid/\(editionKey)-M.jpg?default=false") {
             self.cover = .remote(url)

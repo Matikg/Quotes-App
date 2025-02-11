@@ -53,27 +53,22 @@ struct BookScreenView: View {
     
     @ViewBuilder
     private func buildBookCover() -> some View {
-        switch viewModel.selectedBook?.cover {
-        case .remote(let url):
-            AsyncImage(url: url) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                        .frame(width: 124, height: 169)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 124, height: 169)
-                case .failure:
-                    DefaultBookCover()
-                @unknown default:
-                    ProgressView()
-                        .frame(width: 124, height: 169)
-                }
-            }
-        case .default, .none:
+        switch viewModel.coverImage {
+        case .default:
             DefaultBookCover()
+        case .loading:
+            ProgressView()
+                .tint(.accent)
+                .frame(width: 124, height: 169)
+        case .image(let data):
+            if let uiImage = UIImage(data: data) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 124, height: 169)
+            } else {
+                DefaultBookCover()
+            }
         }
     }
     

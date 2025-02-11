@@ -14,7 +14,7 @@ struct AppEntry: App {
     @StateObject private var rootScreenViewModel = RootScreenViewModel()
     
     init() {
-        DIContainerManager.shared.registerDefaults()
+        ContainerManager.shared.registerDefaults()
     }
     
     var body: some Scene {
@@ -23,7 +23,7 @@ struct AppEntry: App {
                 RootScreenView(viewModel: rootScreenViewModel)
                     .navigationDestination(for: Route.self, destination: { $0 })
                     .onAppear {
-                        DIContainerManager.shared
+                        ContainerManager.shared
                             .container(for: .main)
                             .register(
                                 (any NavigationRouting).self,
