@@ -10,23 +10,26 @@ import DependencyInjection
 
 @main
 struct AppEntry: App {
-    @StateObject private var navigationRouter = InjectedValues[\.navigationRouter]
+    @StateObject private var navigationRouter = NavigationRouter()
     @StateObject private var rootScreenViewModel = RootScreenViewModel()
+    
+    init() {
+        ContainerManager.shared.registerDefaults()
+    }
     
     var body: some Scene {
         WindowGroup {
-            NavigationStack(
-                path: Binding(
-                    get: {
-                        self.navigationRouter.path
-                    },
-                    set: {
-                        self.navigationRouter.set(navigationStack: $0)
-                    }
-                )
-            ) {
+            NavigationStack(path: $navigationRouter.path) {
                 RootScreenView(viewModel: rootScreenViewModel)
                     .navigationDestination(for: Route.self, destination: { $0 })
+                    .onAppear {
+                        ContainerManager.shared
+                            .container(for: .main)
+                            .register(
+                                (any NavigationRouting).self,
+                                instance: navigationRouter
+                            )
+                    }
             }
         }
     }

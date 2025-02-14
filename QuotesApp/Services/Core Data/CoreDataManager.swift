@@ -30,10 +30,9 @@ final class CoreDataManager: CoreDataManagerProtocol {
         return fetched ?? []
     }
     
-    func saveQuote(/*to book: BookEntity, */text: String, category: String, page: Int, note: String) {
+    func saveQuote(to book: BookEntity, text: String, category: String, page: Int, note: String) {
         do {
             let quote = QuoteEntity(context: viewContext)
-            let book = getMockBookEntity()
             quote.book = book
             quote.text = text
             quote.category = category
@@ -51,31 +50,30 @@ final class CoreDataManager: CoreDataManagerProtocol {
         print("Deleted")
     }
     
-    // BookEntity Mock for testing purposes
+    func saveBook(for book: Domain.Book) {
+        do {
+            let bookEntity = BookEntity(context: viewContext)
+            bookEntity.id = book.id
+            bookEntity.author = book.author
+            bookEntity.title = book.title
+            bookEntity.coverImage = book.coverImageData
+            
+            try viewContext.save()
+        } catch {
+            viewContext.rollback()
+            print(error.localizedDescription)
+        }
+    }
     
-    private var mockBookEntity:  BookEntity?
+    func fetchBookEntity(for domainBook: Domain.Book) -> BookEntity? {
+        let request = BookEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", domainBook.id as CVarArg)
         
-    private func getMockBookEntity() -> BookEntity {
-        if let mockBook = mockBookEntity {
-            return mockBook
+        do {
+            let result = try viewContext.fetch(request)
+            return result.first
+        } catch {
+            return nil
         }
-        
-        // Check if the mock book already exists in the Core Data store
-        let request: NSFetchRequest<BookEntity> = BookEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "title == %@ AND author == %@", "Mock Book Title", "Mock Author")
-        
-        if let existingBook = try? viewContext.fetch(request).first {
-            mockBookEntity = existingBook
-            return existingBook
-        }
-        
-        // Create the mock book if it doesn't exist
-        let newBook = BookEntity(context: viewContext)
-        newBook.author = "Mock Author"
-        newBook.title = "Mock Book Title"
-        newBook.coverImage = nil
-        
-        mockBookEntity = newBook
-        return newBook
     }
 }

@@ -25,7 +25,7 @@ enum Route: Hashable, Identifiable, View {
         case .edit:
             QuoteEditView()
         case .book:
-            Text("Book View")
+            BookScreenView()
         }
     }
 }

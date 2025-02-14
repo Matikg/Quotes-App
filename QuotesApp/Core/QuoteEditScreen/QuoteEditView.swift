@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuoteEditView: View {
-    @ObservedObject var viewModel = QuoteEditViewModel()
+    @StateObject var viewModel = QuoteEditViewModel()
     
     var body: some View {
         BackgroundStack {
@@ -48,15 +48,16 @@ struct QuoteEditView: View {
     
     //MARK: - View Builders
     
+    @ViewBuilder
     private func buildBookButton() -> some View {
         VStack(alignment: .leading) {
             QText("Book_label", type: .bold, size: .vsmall)
             
             Button {
-                //TODO: Navigation to child view
+                viewModel.addBook()
             } label: {
                 HStack {
-                    QText("Test", type: .regular, size: .vsmall)
+                    QText(viewModel.bookButtonLabel, type: .regular, size: .vsmall)
                         .accentColor(.black)
                     Spacer()
                     Image(systemName: "chevron.right")
@@ -65,12 +66,19 @@ struct QuoteEditView: View {
                 }
                 .frame(height: 38)
                 .padding(.horizontal, 10)
-                .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
+                .background(Rectangle().stroke(viewModel.errors[.book] == nil ? Color.accentColor : .red, lineWidth: 1))
             }
+            if let error = viewModel.errors[.book] {
+                QText(error, type: .regular, size: .vsmall)
+                    .accentColor(.red)
+            }
+        }
+        .onAppear {
+            viewModel.onAppear()
         }
     }
 }
 
-#Preview {
-    QuoteEditView()
-}
+//#Preview {
+//    QuoteEditView()
+//}

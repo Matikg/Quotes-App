@@ -59,12 +59,14 @@ struct MainScreenView: View {
                     }
                 }
             }
+            .safeAreaInset(edge: .top) {
+                Color.clear.frame(height: 30)
+            }
             
             QButton(label: "Button_add_quote") {
                 viewModel.addQuote()
             }
         }
-        .padding(.top, 40)
     }
 }
 
