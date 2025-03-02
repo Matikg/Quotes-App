@@ -11,15 +11,7 @@ import DependencyInjection
 final class MainScreenViewModel: ObservableObject {
     enum BookListState {
         case empty
-        case loaded([BookItem])
-    }
-    
-    struct BookItem: Identifiable {
-        let id = UUID()
-        let title: String
-        let author: String
-        let coverImage: Image?
-        let quotesNumber: Int
+        case loaded([Domain.BookItem])
     }
     
     @Published var state: BookListState = .empty
@@ -38,21 +30,7 @@ final class MainScreenViewModel: ObservableObject {
     
     func getBooks() {
         let fetchedBooks = coreDataManager.fetchBooks()
-        let bookItems = fetchedBooks.map(BookItem.init)
+        let bookItems = fetchedBooks.compactMap(Domain.BookItem.init)
         state = bookItems.isEmpty ? .empty : .loaded(bookItems)
-    }
-}
-
-extension MainScreenViewModel.BookItem {
-    init(bookEntity: BookEntity) {
-        self.title = bookEntity.title ?? ""
-        self.author = bookEntity.author ?? ""
-        self.quotesNumber = bookEntity.quotes?.count ?? 0
-        
-        if let coverData = bookEntity.coverImage, let uiImage = UIImage(data: coverData) {
-            self.coverImage = Image(uiImage: uiImage)
-        } else {
-            self.coverImage = nil
-        }
     }
 }

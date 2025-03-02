@@ -2,21 +2,21 @@ import Foundation
 import DependencyInjection
 
 protocol AddBookRepositoryInterface {
-    var selectedBook: Domain.Book? { get }
-    func selectBook(_ book: Domain.Book)
-    func saveBook(_ book: Domain.Book)
+    var selectedBook: Domain.BookItem? { get }
+    func selectBook(_ book: Domain.BookItem)
+    func saveBook(_ book: Domain.BookItem)
 }
 
 final class AddBookRepository: AddBookRepositoryInterface {
     @Injected private var coreDataManager: CoreDataManagerProtocol
     
-    var selectedBook: Domain.Book?
+    var selectedBook: Domain.BookItem?
     
-    func selectBook(_ book: Domain.Book) {
+    func selectBook(_ book: Domain.BookItem) {
         selectedBook = book
     }
     
-    func saveBook(_ book: Domain.Book) {
+    func saveBook(_ book: Domain.BookItem) {
         coreDataManager.saveBook(for: book)
     }
 }

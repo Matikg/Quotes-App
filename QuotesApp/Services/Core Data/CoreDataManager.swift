@@ -50,7 +50,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
         print("Deleted")
     }
     
-    func saveBook(for book: Domain.Book) {
+    func saveBook(for book: Domain.BookItem) {
         do {
             let bookEntity = BookEntity(context: viewContext)
             bookEntity.id = book.id
@@ -65,7 +65,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
-    func fetchBookEntity(for domainBook: Domain.Book) -> BookEntity? {
+    func fetchBookEntity(for domainBook: Domain.BookItem) -> BookEntity? {
         let request = BookEntity.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", domainBook.id as CVarArg)
         
