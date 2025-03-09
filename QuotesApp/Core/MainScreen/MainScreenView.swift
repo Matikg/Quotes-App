@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainScreenView: View {
-    typealias BookItem = MainScreenViewModel.BookItem
     @ObservedObject var viewModel: MainScreenViewModel
     
     var body: some View {
@@ -49,18 +48,10 @@ struct MainScreenView: View {
         }
     }
     
-    private func buildLoadedListView(books: [BookItem]) -> some View {
+    private func buildLoadedListView(books: [Domain.BookItem]) -> some View {
         VStack {
-            ScrollView(showsIndicators: false) {
-                LazyVStack(alignment: .leading) {
-                    ForEach(books) { book in
-                        BookListRowView(book: book)
-                            .padding(.horizontal)
-                    }
-                }
-            }
-            .safeAreaInset(edge: .top) {
-                Color.clear.frame(height: 30)
+            BookListView(books: books, showQuotesNumber: true) { _ in 
+                
             }
             
             QButton(label: "Button_add_quote") {

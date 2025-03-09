@@ -29,9 +29,9 @@ final class BookScreenViewModel: ObservableObject {
     @Published var titleInput = ""
     @Published var authorInput = ""
     @Published var errors = [InputError: String]()
-    @Published var foundBooks = [Domain.Book]()
+    @Published var foundBooks = [Domain.SuggestedBookItem]()
     @Published var didSelectSuggestion: Bool = false
-    @Published var selectedBook: Domain.Book?
+    @Published var selectedBook: Domain.SuggestedBookItem?
     @Published var coverImage: CoverImageState = .default
     
     private var cancellables = Set<AnyCancellable>()
@@ -95,7 +95,7 @@ final class BookScreenViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func selectBook(_ book: Domain.Book) {
+    func selectBook(_ book: Domain.SuggestedBookItem) {
         didSelectSuggestion = true
         titleInput = book.title
         authorInput = book.author
@@ -108,7 +108,8 @@ final class BookScreenViewModel: ObservableObject {
         
         guard errors.isEmpty else { return }
         
-        let book = selectedBook ?? Domain.Book(title: titleInput, author: authorInput, cover: .default)
+        let book = selectedBook.map(Domain.BookItem.init) ?? Domain.BookItem(from: Domain.SuggestedBookItem(title: titleInput, author: authorInput, cover: .default))
+        
         addBookRepository.selectBook(book)
         addBookRepository.saveBook(book)
         
@@ -118,7 +119,7 @@ final class BookScreenViewModel: ObservableObject {
     private func searchBooks() {
         Task {
             let books = try await apiService.fetchBooks(for: titleInput)
-            foundBooks = books.compactMap { Domain.Book(model: $0) }
+            foundBooks = books.compactMap { Domain.SuggestedBookItem(model: $0) }
         }
     }
     

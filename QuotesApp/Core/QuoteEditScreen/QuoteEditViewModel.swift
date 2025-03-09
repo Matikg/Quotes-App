@@ -57,7 +57,8 @@ final class QuoteEditViewModel: ObservableObject {
     }
     
     func addBook() {
-        navigationRouter.push(route: .book)
+        let route: Route = coreDataManager.fetchBooks().isEmpty ? .book : .select
+        navigationRouter.push(route: route)
     }
     
     private func validate() {

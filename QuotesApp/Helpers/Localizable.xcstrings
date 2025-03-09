@@ -59,6 +59,17 @@
         }
       }
     },
+    "BookSelect_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Book"
+          }
+        }
+      }
+    },
     "Button_add_quote" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -99,6 +110,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Category"
+          }
+        }
+      }
+    },
+    "Create" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create"
           }
         }
       }

@@ -20,7 +20,7 @@
 		E86436542C5FA5E20029858F /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = E86436532C5FA5E20029858F /* DependencyInjection */; };
 		E86436592C625DEF0029858F /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = E86436582C625DEF0029858F /* DependencyInjection */; };
 		E87369E02C9C1EE8000D527C /* QInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87369DF2C9C1EE8000D527C /* QInput.swift */; };
-		E88170932D3D2BC6003F5207 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88170922D3D2BC6003F5207 /* Api.swift */; };
+		E88170932D3D2BC6003F5207 /* BookDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88170922D3D2BC6003F5207 /* BookDoc.swift */; };
 		E88170962D3D735A003F5207 /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88170952D3D735A003F5207 /* Domain.swift */; };
 		E88170982D3EB497003F5207 /* DefaultBookCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88170972D3EB497003F5207 /* DefaultBookCover.swift */; };
 		E88170A62D5805E5003F5207 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88170A52D5805C7003F5207 /* DI.swift */; };
@@ -35,6 +35,9 @@
 		E88FF5B62C3E6E5000AEA2BE /* QButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5B52C3E6E5000AEA2BE /* QButton.swift */; };
 		E88FF5B92C3F1F7100AEA2BE /* UserDefaultsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5B82C3F1F7100AEA2BE /* UserDefaultsConstants.swift */; };
 		E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5BC2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift */; };
+		E89242CD2D5FB24B00F8A420 /* SelectBookScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89242CC2D5FB24B00F8A420 /* SelectBookScreenView.swift */; };
+		E89242CF2D5FB2B800F8A420 /* SelectBookScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89242CE2D5FB2B800F8A420 /* SelectBookScreenViewModel.swift */; };
+		E89242D52D6289A600F8A420 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89242D42D6289A600F8A420 /* BookListView.swift */; };
 		E8A9DF202C565D4500C9AB6D /* RootScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */; };
 		E8A9DF222C565D5400C9AB6D /* RootScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */; };
 		E8A9DF242C56B9F100C9AB6D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF232C56B9F100C9AB6D /* Route.swift */; };
@@ -87,7 +90,7 @@
 		E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		E83481732C45095800A74FC4 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
 		E87369DF2C9C1EE8000D527C /* QInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QInput.swift; sourceTree = "<group>"; };
-		E88170922D3D2BC6003F5207 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		E88170922D3D2BC6003F5207 /* BookDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDoc.swift; sourceTree = "<group>"; };
 		E88170952D3D735A003F5207 /* Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
 		E88170972D3EB497003F5207 /* DefaultBookCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBookCover.swift; sourceTree = "<group>"; };
 		E88170A52D5805C7003F5207 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
@@ -105,6 +108,9 @@
 		E88FF5B52C3E6E5000AEA2BE /* QButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QButton.swift; sourceTree = "<group>"; };
 		E88FF5B82C3F1F7100AEA2BE /* UserDefaultsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConstants.swift; sourceTree = "<group>"; };
 		E88FF5BC2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewModel.swift; sourceTree = "<group>"; };
+		E89242CC2D5FB24B00F8A420 /* SelectBookScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBookScreenView.swift; sourceTree = "<group>"; };
+		E89242CE2D5FB2B800F8A420 /* SelectBookScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBookScreenViewModel.swift; sourceTree = "<group>"; };
+		E89242D42D6289A600F8A420 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenView.swift; sourceTree = "<group>"; };
 		E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenViewModel.swift; sourceTree = "<group>"; };
 		E8A9DF232C56B9F100C9AB6D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -200,10 +206,11 @@
 			isa = PBXGroup;
 			children = (
 				E8A9DF1E2C565CFB00C9AB6D /* RootScreen */,
-				E88FF5B12C3E5ED300AEA2BE /* MainScreen */,
 				E88FF5BB2C3F21CD00AEA2BE /* WelcomeScreen */,
+				E88FF5B12C3E5ED300AEA2BE /* MainScreen */,
 				E8A9DF292C5E42C400C9AB6D /* QuoteEditScreen */,
 				E8C3555D2CFCA1FC001F6065 /* BookScreen */,
+				E89242CB2D5FB1DC00F8A420 /* SelectBookScreen */,
 				E88FF5AA2C3A876700AEA2BE /* Components */,
 				E88FF5AE2C3A880000AEA2BE /* Router */,
 			);
@@ -231,8 +238,7 @@
 		E88170942D3D7341003F5207 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E88170922D3D2BC6003F5207 /* Api.swift */,
-				E88170952D3D735A003F5207 /* Domain.swift */,
+				E88170922D3D2BC6003F5207 /* BookDoc.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				887181302D429CB900F25668 /* QuoteDataModel.xcdatamodeld */,
+				E88170952D3D735A003F5207 /* Domain.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +335,8 @@
 				E83481692C3FB75D00A74FC4 /* QDivider.swift */,
 				E8D267D12C4D9E7800A19EB6 /* QText.swift */,
 				E87369DF2C9C1EE8000D527C /* QInput.swift */,
+				E89242D42D6289A600F8A420 /* BookListView.swift */,
+				E83481732C45095800A74FC4 /* BookListRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -355,7 +364,6 @@
 			isa = PBXGroup;
 			children = (
 				E88FF5812C35924F00AEA2BE /* MainScreenView.swift */,
-				E83481732C45095800A74FC4 /* BookListRowView.swift */,
 				E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */,
 			);
 			path = MainScreen;
@@ -377,6 +385,15 @@
 				E88FF5BC2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift */,
 			);
 			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
+		E89242CB2D5FB1DC00F8A420 /* SelectBookScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E89242CC2D5FB24B00F8A420 /* SelectBookScreenView.swift */,
+				E89242CE2D5FB2B800F8A420 /* SelectBookScreenViewModel.swift */,
+			);
+			path = SelectBookScreen;
 			sourceTree = "<group>";
 		};
 		E8A9DF1E2C565CFB00C9AB6D /* RootScreen */ = {
@@ -568,6 +585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */,
+				E89242CD2D5FB24B00F8A420 /* SelectBookScreenView.swift in Sources */,
 				E88170982D3EB497003F5207 /* DefaultBookCover.swift in Sources */,
 				E88FF5B92C3F1F7100AEA2BE /* UserDefaultsConstants.swift in Sources */,
 				E8A9DF282C56BAC800C9AB6D /* NavigationRouter.swift in Sources */,
@@ -583,6 +601,8 @@
 				E8A9DF242C56B9F100C9AB6D /* Route.swift in Sources */,
 				E8B21A692CC048F600B589C3 /* CoreDataManager.swift in Sources */,
 				E83481742C45095800A74FC4 /* BookListRowView.swift in Sources */,
+				E89242D52D6289A600F8A420 /* BookListView.swift in Sources */,
+				E89242CF2D5FB2B800F8A420 /* SelectBookScreenViewModel.swift in Sources */,
 				E8C3555F2CFCD120001F6065 /* BookScreenView.swift in Sources */,
 				E83481702C43E4C300A74FC4 /* BackgroundStack.swift in Sources */,
 				E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */,
@@ -590,7 +610,7 @@
 				E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */,
 				E8C355632CFCD16E001F6065 /* BookApiService.swift in Sources */,
 				8871813E2D4A9CD900F25668 /* AddBookRepository.swift in Sources */,
-				E88170932D3D2BC6003F5207 /* Api.swift in Sources */,
+				E88170932D3D2BC6003F5207 /* BookDoc.swift in Sources */,
 				E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */,
 				E88FF5802C35924F00AEA2BE /* AppEntry.swift in Sources */,
 				E8A9DF2D2C5E432F00C9AB6D /* QuoteEditViewModel.swift in Sources */,

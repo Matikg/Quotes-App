@@ -12,6 +12,7 @@ enum Route: Hashable, Identifiable, View {
     case details
     case edit
     case book
+    case select
     
     var id: Int { hashValue }
     
@@ -26,6 +27,8 @@ enum Route: Hashable, Identifiable, View {
             QuoteEditView()
         case .book:
             BookScreenView()
+        case .select:
+            SelectBookScreenView()
         }
     }
 }
