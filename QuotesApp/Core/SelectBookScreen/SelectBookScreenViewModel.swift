@@ -15,18 +15,21 @@ final class SelectBookScreenViewModel: ObservableObject {
     
     @Published var books = [Domain.BookItem]()
     
-    func createBook() {
-        navigationRouter.push(route: .book)
+    init() {
+        getBooks()
     }
     
-    func getBooks() {
-        let fetchedBooks = coreDataManager.fetchBooks()
-        let bookItems = fetchedBooks.compactMap(Domain.BookItem.init)
-        books = bookItems.isEmpty ? [] : bookItems
+    func createBook() {
+        navigationRouter.push(route: .book)
     }
     
     func selectBook(book: Domain.BookItem) {
         addBookRepository.selectBook(book)
         navigationRouter.pop()
+    }
+    
+    private func getBooks() {
+        let fetchedBooks = coreDataManager.fetchBooks()
+        books = fetchedBooks.compactMap(Domain.BookItem.init)
     }
 }

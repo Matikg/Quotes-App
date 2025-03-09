@@ -38,13 +38,17 @@ struct BookListRowView: View {
             Divider()
                 .padding(.vertical)
         }
-        .contentShape(Rectangle())
+        .contentShape(.rect)
         .onTapGesture {
             action()
         }
     }
     
     //MARK: - View Builders
+    
+    private var coverImage: Image {
+        book.coverImage ?? Image(.defaultBookCover)
+    }
     
     private func buildQuotesNumberView() -> some View {
         ZStack {
@@ -57,10 +61,6 @@ struct BookListRowView: View {
                 QText(String(book.quotesNumber), type: .bold, size: .medium)
             }
         }
-    }
-    
-    private var coverImage: Image {
-        book.coverImage ?? Image(.defaultBookCover)
     }
     
     private func buildBookInfoView() -> some View {

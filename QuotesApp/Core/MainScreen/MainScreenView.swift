@@ -50,7 +50,7 @@ struct MainScreenView: View {
     
     private func buildLoadedListView(books: [Domain.BookItem]) -> some View {
         VStack {
-            BookListView(books: books, showQuotesNumber: true) {_ in 
+            BookListView(books: books, showQuotesNumber: true) { _ in 
                 
             }
             

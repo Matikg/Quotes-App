@@ -16,9 +16,6 @@ struct SelectBookScreenView: View {
                 viewModel.selectBook(book: book)
             }
         }
-        .onAppear {
-            viewModel.getBooks()
-        }
         .toolbar {
             ToolbarItem(placement: .principal) {
                 QText("BookSelect_title", type: .bold, size: .medium)
