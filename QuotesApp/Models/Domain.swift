@@ -21,7 +21,7 @@ struct Domain {
         var coverImageData: Data?
     }
     
-    struct BookItem: Identifiable {
+    struct BookItem: Identifiable, Equatable, Hashable {
         let id: UUID
         let title: String
         let author: String
@@ -34,6 +34,15 @@ struct Domain {
             }
             return nil
         }
+    }
+    
+    struct QuoteItem: Identifiable {
+        let id: UUID
+        let text: String
+        let page: Int64
+        let category: String
+        let date: Date
+        let note: String
     }
 }
 
@@ -76,5 +85,18 @@ extension Domain.BookItem {
         self.author = suggestedBook.author
         self.quotesNumber = 0
         self.coverImageData = suggestedBook.coverImageData
+    }
+}
+
+extension Domain.QuoteItem {
+    init?(quoteEntity: QuoteEntity) {
+        guard let id = quoteEntity.id, let text = quoteEntity.text, let category = quoteEntity.category, let date = quoteEntity.date else { return nil }
+            
+        self.id = id
+        self.text = text
+        self.page = quoteEntity.page
+        self.category = category
+        self.date = date
+        self.note = quoteEntity.note ?? ""
     }
 }

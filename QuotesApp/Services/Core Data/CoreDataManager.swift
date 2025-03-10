@@ -33,6 +33,8 @@ final class CoreDataManager: CoreDataManagerProtocol {
     func saveQuote(to book: BookEntity, text: String, category: String, page: Int, note: String) {
         do {
             let quote = QuoteEntity(context: viewContext)
+            quote.id = UUID()
+            quote.date = .now
             quote.book = book
             quote.text = text
             quote.category = category
@@ -74,6 +76,18 @@ final class CoreDataManager: CoreDataManagerProtocol {
             return result.first
         } catch {
             return nil
+        }
+    }
+    
+    func fetchQuotes(for selectedBook: Domain.BookItem) -> [QuoteEntity] {
+        let request = QuoteEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "book.id == %@", selectedBook.id as CVarArg)
+        
+        do {
+            let quotes = try viewContext.fetch(request)
+            return quotes
+        } catch {
+            return []
         }
     }
 }

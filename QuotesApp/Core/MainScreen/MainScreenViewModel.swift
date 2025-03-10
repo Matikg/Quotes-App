@@ -33,4 +33,8 @@ final class MainScreenViewModel: ObservableObject {
         let bookItems = fetchedBooks.compactMap(Domain.BookItem.init)
         state = bookItems.isEmpty ? .empty : .loaded(bookItems)
     }
+    
+    func selectBook(_ book: Domain.BookItem) {
+        navigationRouter.push(route: .quotes(book: book))
+    }
 }

@@ -205,6 +205,17 @@
         }
       }
     },
+    "Quote_page_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "page"
+          }
+        }
+      }
+    },
     "QuoteEdit_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -215,9 +226,6 @@
           }
         }
       }
-    },
-    "Quotes View" : {
-
     },
     "Save" : {
       "localizations" : {
