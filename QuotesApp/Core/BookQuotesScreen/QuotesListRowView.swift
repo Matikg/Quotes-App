@@ -34,19 +34,22 @@ struct QuotesListRowView: View {
                 .truncationMode(.tail)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            HStack() {
-                Spacer()
-                
-                HStack(spacing: 5) {
+            ZStack {
+                HStack {
                     QText("Quote_page_label", type: .italic, size: .vsmall)
                     QText(String(quote.page), type: .italic, size: .vsmall)
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.leading)
                 
-                QText(quote.date.formatted(.dateTime.day().month(.twoDigits).year()), type: .italic, size: .vsmall)
+                HStack {
+                    Spacer()
+                    QText(
+                        quote.date.formatted(.dateTime.day().month(.twoDigits).year()),
+                        type: .italic,
+                        size: .vsmall
+                    )
+                }
             }
-            .accentColor(.black)
             
             Divider()
         }

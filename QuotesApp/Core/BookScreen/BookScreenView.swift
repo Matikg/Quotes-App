@@ -11,7 +11,7 @@ struct BookScreenView: View {
     @StateObject var viewModel = BookScreenViewModel()
     
     var body: some View {
-        BackgroundStack {
+        ScreenView {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
                     buildBookCover()
@@ -32,21 +32,15 @@ struct BookScreenView: View {
             }
             .scrollDismissesKeyboard(.interactively)
         }
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                QText("BookScreen_title", type: .bold, size: .medium)
+        .navBar(center: {
+            QText("BookScreen_title", type: .bold, size: .medium)
+        }, trailing: {
+            Button {
+                viewModel.saveBook()
+            } label: {
+                QText("Save", type: .regular, size: .small)
             }
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    viewModel.saveBook()
-                } label: {
-                    Text("Save")
-                }
-            }
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .toolbarBackground(Color.background, for: .navigationBar)
+        })
     }
     
     //MARK: - View Builders
