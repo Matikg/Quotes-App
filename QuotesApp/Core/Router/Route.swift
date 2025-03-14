@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum Route: Hashable, Identifiable, View {
-    case quotes
+    case quotes(book: Domain.BookItem)
     case details
     case edit
     case book
@@ -19,8 +19,8 @@ enum Route: Hashable, Identifiable, View {
     @ViewBuilder
     var body: some View {
         switch self {
-        case .quotes:
-            Text("Quotes View")
+        case .quotes(let book):
+            BookQuotesView(viewModel: BookQuotesViewModel(book: book))
         case .details:
             Text("Details View")
         case .edit:

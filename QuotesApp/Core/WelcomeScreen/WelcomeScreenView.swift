@@ -11,7 +11,7 @@ struct WelcomeScreenView: View {
     @ObservedObject var viewModel: WelcomeScreenViewModel
     
     var body: some View {
-        BackgroundStack {
+        ScreenView {
             VStack {
                 Image(.book)
                 

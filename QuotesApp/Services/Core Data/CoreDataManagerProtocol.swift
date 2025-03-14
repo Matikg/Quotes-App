@@ -13,4 +13,5 @@ protocol CoreDataManagerProtocol {
     func saveQuote(to book: BookEntity, text: String, category: String, page: Int, note: String)
     func deleteBook()
     func saveBook(for book: Domain.BookItem)
+    func fetchQuotes(for selectedBook: Domain.BookItem) -> [QuoteEntity]
 }

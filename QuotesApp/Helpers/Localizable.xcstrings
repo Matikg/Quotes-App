@@ -26,6 +26,17 @@
         }
       }
     },
+    "Back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
     "Book_empty_dialog" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -205,6 +216,17 @@
         }
       }
     },
+    "Quote_page_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "page"
+          }
+        }
+      }
+    },
     "QuoteEdit_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -216,10 +238,8 @@
         }
       }
     },
-    "Quotes View" : {
-
-    },
     "Save" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

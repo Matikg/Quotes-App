@@ -11,7 +11,7 @@ struct MainScreenView: View {
     @ObservedObject var viewModel: MainScreenViewModel
     
     var body: some View {
-        BackgroundStack {
+        ScreenView {
             VStack {
                 QText("WelcomeScreen_title", type: .bold, size: .large)
                     .padding(.top, 30)
@@ -50,8 +50,8 @@ struct MainScreenView: View {
     
     private func buildLoadedListView(books: [Domain.BookItem]) -> some View {
         VStack {
-            BookListView(books: books, showQuotesNumber: true) { _ in 
-                
+            BookListView(books: books, showQuotesNumber: true) { selectedBook in
+                viewModel.selectBook(selectedBook)
             }
             
             QButton(label: "Button_add_quote") {
