@@ -11,35 +11,29 @@ struct BookQuotesView: View {
     @ObservedObject var viewModel: BookQuotesViewModel
     
     var body: some View {
-        BackgroundStack {
-            VStack {
-                QText(viewModel.book.author, type: .regular, size: .vsmall)
-                
-                ScrollView(showsIndicators: false) {
-                    LazyVStack(spacing: 20) {
-                        ForEach(viewModel.quotes) { quote in
-                            QuotesListRowView(quote: quote)
-                                .padding(.horizontal)
-                        }
+        ScreenView {
+            ScrollView(showsIndicators: false) {
+                LazyVStack {
+                    ForEach(viewModel.quotes) { quote in
+                        QuotesListRowView(quote: quote)
+                            .padding(.horizontal)
                     }
                 }
-                .safeAreaInset(edge: .top) {
-                    Color.clear.frame(height: 50)
-                }
+            }
+            
+            Spacer()
+            
+            QButton(label: "Button_add_quote") {
                 
-                QButton(label: "Button_add_quote") {
-                    
-                }
             }
         }
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                QText(String(viewModel.book.title.prefix(20)), type: .bold, size: .medium)
+        .navBar {
+            VStack(spacing: 8) {
+                QText(viewModel.book.title, type: .bold, size: .medium)
+                    .lineLimit(1)
+                QText(viewModel.book.author, type: .regular, size: .vsmall)
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .toolbarBackground(Color.background, for: .navigationBar)
     }
 }
 

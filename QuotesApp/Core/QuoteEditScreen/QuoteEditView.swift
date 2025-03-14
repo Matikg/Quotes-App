@@ -11,7 +11,7 @@ struct QuoteEditView: View {
     @StateObject var viewModel = QuoteEditViewModel()
     
     var body: some View {
-        BackgroundStack {
+        ScreenView {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 30) {
                     QInput(label: "Quote_label", text: $viewModel.quoteInput, type: .multiLine, error: viewModel.errors[.quote])
@@ -29,21 +29,18 @@ struct QuoteEditView: View {
             }
             .scrollDismissesKeyboard(.interactively)
         }
-        .toolbar {
-            ToolbarItem(placement: .principal) {
+        .navBar(
+            center: {
                 QText("QuoteEdit_title", type: .bold, size: .medium)
-            }
-            ToolbarItem(placement: .topBarTrailing) {
+            },
+            trailing: {
                 Button {
                     viewModel.saveQuote()
                 } label: {
-                    Text("Save")
+                    QText("Save", type: .regular, size: .small)
                 }
             }
-        }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .toolbarBackground(Color.background, for: .navigationBar)
+        )
     }
     
     //MARK: - View Builders
