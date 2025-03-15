@@ -30,11 +30,29 @@ final class CoreDataManager: CoreDataManagerProtocol {
         return fetched ?? []
     }
     
-    func saveQuote(to book: BookEntity, text: String, category: String, page: Int, note: String) {
+    func saveQuote(to book: BookEntity, text: String, category: String, page: Int, note: String, quoteId: UUID? = nil) {
         do {
-            let quote = QuoteEntity(context: viewContext)
-            quote.id = UUID()
-            quote.date = .now
+            let quote: QuoteEntity
+            if let id = quoteId {
+                let request = QuoteEntity.fetchRequest()
+                request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+                if let existingQuote = try viewContext.fetch(request).first {
+                    quote = existingQuote
+                } else {
+                    quote = QuoteEntity(context: viewContext)
+                    quote.id = id
+                    quote.date = Date()
+                }
+            } else {
+                quote = QuoteEntity(context: viewContext)
+                quote.id = UUID()
+                quote.date = Date()
+            }
+            
+            if let currentBook = quote.book, currentBook.objectID != book.objectID {
+                currentBook.removeFromQuotes(quote)
+            }
+            
             quote.book = book
             quote.text = text
             quote.category = category
@@ -88,6 +106,19 @@ final class CoreDataManager: CoreDataManagerProtocol {
             return quotes
         } catch {
             return []
+        }
+    }
+    
+    func fetchBook(for quote: Domain.QuoteItem) -> BookEntity? {
+        let request = QuoteEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", quote.id as CVarArg)
+        do {
+            let quotes = try viewContext.fetch(request)
+            guard let quoteEntity = quotes.first else { return nil }
+            
+            return quoteEntity.book
+        } catch {
+            return nil
         }
     }
 }

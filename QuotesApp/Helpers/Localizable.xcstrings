@@ -136,8 +136,16 @@
         }
       }
     },
-    "Details View" : {
-
+    "Edit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        }
+      }
     },
     "MainScreen_empty_quote" : {
       "extractionState" : "manual",
@@ -239,7 +247,7 @@
       }
     },
     "Save" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {

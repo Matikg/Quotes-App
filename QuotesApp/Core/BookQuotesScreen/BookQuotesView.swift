@@ -15,10 +15,15 @@ struct BookQuotesView: View {
             ScrollView(showsIndicators: false) {
                 LazyVStack {
                     ForEach(viewModel.quotes) { quote in
-                        QuotesListRowView(quote: quote)
+                        QuotesListRowView(quote: quote) {
+                            viewModel.selectQuote(quote)
+                        }
                             .padding(.horizontal)
                     }
                 }
+            }
+            .safeAreaInset(edge: .top) {
+                Color.clear.frame(height: 30)
             }
             
             Spacer()

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct QuoteEditView: View {
-    @StateObject var viewModel = QuoteEditViewModel()
+    @ObservedObject var viewModel: QuoteEditViewModel
     
     var body: some View {
         ScreenView {

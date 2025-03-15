@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct QuotesListRowView: View {
-    let quote: Domain.QuoteItem
+    private let quote: Domain.QuoteItem
+    private let action: () -> Void
+    
+    init(quote: Domain.QuoteItem, action: @escaping () -> Void) {
+        self.quote = quote
+        self.action = action
+    }
     
     var body: some View {
         VStack(spacing: 20) {
@@ -53,9 +59,13 @@ struct QuotesListRowView: View {
             
             Divider()
         }
+        .contentShape(.rect)
+        .onTapGesture {
+            action()
+        }
     }
 }
 
 #Preview {
-    QuotesListRowView(quote: Domain.QuoteItem(id: UUID(), text: "The work that hurts you less than it hurts others is the work you were made to do.", page: 21, category: "productivity", date: .now, note: ""))
+    QuotesListRowView(quote: Domain.QuoteItem(id: UUID(), text: "The work that hurts you less than it hurts others is the work you were made to do.", page: 21, category: "productivity", date: .now, note: ""), action: { })
 }

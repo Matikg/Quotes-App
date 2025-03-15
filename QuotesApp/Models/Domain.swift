@@ -36,7 +36,7 @@ struct Domain {
         }
     }
     
-    struct QuoteItem: Identifiable {
+    struct QuoteItem: Identifiable, Equatable, Hashable {
         let id: UUID
         let text: String
         let page: Int64

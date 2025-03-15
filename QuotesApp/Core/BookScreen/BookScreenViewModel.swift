@@ -24,7 +24,7 @@ final class BookScreenViewModel: ObservableObject {
     
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var apiService: BookApiService
-    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var addBookRepository: AddBookRepositoryInterface
+    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var addBookRepository: SaveQuoteRepositoryInterface
     
     @Published var titleInput = ""
     @Published var authorInput = ""
@@ -94,6 +94,8 @@ final class BookScreenViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
+    
+    //MARK: - Methods
     
     func selectBook(_ book: Domain.SuggestedBookItem) {
         didSelectSuggestion = true

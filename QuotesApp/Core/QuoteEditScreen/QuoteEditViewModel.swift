@@ -18,7 +18,7 @@ final class QuoteEditViewModel: ObservableObject {
     
     @Injected private var coreDataManager: CoreDataManagerProtocol
     @Injected private var navigationRouter: any NavigationRouting
-    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var addBookRepository: AddBookRepositoryInterface
+    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var addBookRepository: SaveQuoteRepositoryInterface
     
     @Published var quoteInput = ""
     @Published var categoryInput = ""
@@ -27,10 +27,24 @@ final class QuoteEditViewModel: ObservableObject {
     @Published var bookButtonLabel = ""
     @Published var errors = [InputError: String]()
     
+    private let existingQuote: Domain.QuoteItem?
+    
+    init(existingQuote: Domain.QuoteItem? = nil) {
+        self.existingQuote = existingQuote
+        if let quote = existingQuote {
+            self.quoteInput = quote.text
+            self.categoryInput = quote.category
+            self.pageInput = String(quote.page)
+            self.noteInput = quote.note
+        }
+    }
+    
     deinit {
         ContainerManager.shared
             .removeContainer(for: .feature(FeatureName.addQuote.rawValue))
     }
+    
+    //MARK: - Methods
     
     func onAppear() {
         if let savedBook = addBookRepository.selectedBook {
@@ -51,9 +65,10 @@ final class QuoteEditViewModel: ObservableObject {
             text: quoteInput,
             category: categoryInput,
             page: page,
-            note: noteInput
+            note: noteInput,
+            quoteId: existingQuote?.id
         )
-        navigationRouter.pop()
+        navigationRouter.popAll()
     }
     
     func addBook() {

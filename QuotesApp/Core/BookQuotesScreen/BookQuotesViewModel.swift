@@ -21,6 +21,12 @@ final class BookQuotesViewModel: ObservableObject {
         getQuotes()
     }
     
+    //MARK: - Methods
+    
+    func selectQuote(_ quote: Domain.QuoteItem) {
+        navigationRouter.push(route: .details(quote: quote))
+    }
+    
     private func getQuotes() {
         let fetchedQuotes = coreDataManager.fetchQuotes(for: book)
         quotes = fetchedQuotes.compactMap(Domain.QuoteItem.init)
