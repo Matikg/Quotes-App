@@ -15,53 +15,25 @@ struct QuoteDetailsView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
                     HStack(alignment: .top) {
-                        Image(.quotationMark)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 32, height: 24)
+                        quotationMark
                         
                         Spacer()
                         
-                        QText(viewModel.quote.category, type: .regular, size: .vsmall)
-                            .accentColor(.black)
-                            .padding(5)
-                            .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
+                        quoteCategory
                     }
                     
-                    QText(viewModel.quote.text, type: .regular, size: .vsmall)
-                        .accentColor(.black)
-                        .lineSpacing(10)
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    quoteText
                     
                     ZStack {
-                        HStack {
-                            QText("Quote_page_label", type: .italic, size: .vsmall)
-                            QText(String(viewModel.quote.page), type: .italic, size: .vsmall)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .center)
+                        quotePage
                         
                         HStack {
                             Spacer()
-                            QText(
-                                viewModel.quote.date.formatted(.dateTime.day().month(.twoDigits).year()),
-                                type: .italic,
-                                size: .vsmall
-                            )
+                            quoteDate
                         }
                     }
                     
-                    if !viewModel.quote.note.isEmpty {
-                        VStack(alignment: .leading, spacing: 15) {
-                            QText("Note_label", type: .bold, size: .vsmall)
-                            
-                            QText(viewModel.quote.note, type: .regular, size: .vsmall)
-                                .accentColor(.black)
-                                .lineSpacing(10)
-                                .multilineTextAlignment(.leading)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                    }
+                    personalNote
                 }
                 .padding(.horizontal)
             }
@@ -82,6 +54,61 @@ struct QuoteDetailsView: View {
                 QText("Edit", type: .regular, size: .small)
             }
         })
+    }
+    
+    //MARK: - View Builders
+    
+    private var quotationMark: some View {
+        Image(.quotationMark)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 32, height: 24)
+    }
+    
+    private var quoteCategory: some View {
+        QText(viewModel.quote.category, type: .regular, size: .vsmall)
+            .accentColor(.black)
+            .padding(5)
+            .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
+    }
+    
+    private var quoteText: some View {
+        QText(viewModel.quote.text, type: .regular, size: .vsmall)
+            .accentColor(.black)
+            .lineSpacing(10)
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    private var quotePage: some View {
+        HStack {
+            QText("Quote_page_label", type: .italic, size: .vsmall)
+            QText(String(viewModel.quote.page), type: .italic, size: .vsmall)
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+    }
+    
+    private var quoteDate: some View {
+        QText(
+            viewModel.quote.date.formatted(.dateTime.day().month(.twoDigits).year()),
+            type: .italic,
+            size: .vsmall
+        )
+    }
+    
+    @ViewBuilder
+    private var personalNote: some View {
+        if !viewModel.quote.note.isEmpty {
+            VStack(alignment: .leading, spacing: 15) {
+                QText("Note_label", type: .bold, size: .vsmall)
+                
+                QText(viewModel.quote.note, type: .regular, size: .vsmall)
+                    .accentColor(.black)
+                    .lineSpacing(10)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
     }
 }
 

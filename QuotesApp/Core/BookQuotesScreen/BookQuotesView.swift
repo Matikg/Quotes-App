@@ -29,7 +29,7 @@ struct BookQuotesView: View {
             Spacer()
             
             QButton(label: "Button_add_quote") {
-                
+                viewModel.addQuote()
             }
         }
         .navBar {

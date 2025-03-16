@@ -24,7 +24,7 @@ final class BookScreenViewModel: ObservableObject {
     
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var apiService: BookApiService
-    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var addBookRepository: SaveQuoteRepositoryInterface
+    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var saveQuoteRepository: SaveQuoteRepositoryInterface
     
     @Published var titleInput = ""
     @Published var authorInput = ""
@@ -112,8 +112,8 @@ final class BookScreenViewModel: ObservableObject {
         
         let book = selectedBook.map(Domain.BookItem.init) ?? Domain.BookItem(from: Domain.SuggestedBookItem(title: titleInput, author: authorInput, cover: .default))
         
-        addBookRepository.selectBook(book)
-        addBookRepository.saveBook(book)
+        saveQuoteRepository.selectBook(book)
+        saveQuoteRepository.saveBook(book)
         
         navigationRouter.pop()
     }

@@ -15,7 +15,7 @@ struct SelectBookScreenView: View {
             BookListView(books: viewModel.books, showQuotesNumber: false) { book in
                 viewModel.selectBook(book: book)
             }
-            .onAppear { viewModel.getBooks() }
+            .onAppear { viewModel.onAppear() }
         }
         .navBar(center: {
             QText("BookSelect_title", type: .bold, size: .medium)

@@ -18,7 +18,7 @@ final class QuoteEditViewModel: ObservableObject {
     
     @Injected private var coreDataManager: CoreDataManagerProtocol
     @Injected private var navigationRouter: any NavigationRouting
-    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var addBookRepository: SaveQuoteRepositoryInterface
+    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var saveQuoteRepository: SaveQuoteRepositoryInterface
     
     @Published var quoteInput = ""
     @Published var categoryInput = ""
@@ -27,15 +27,15 @@ final class QuoteEditViewModel: ObservableObject {
     @Published var bookButtonLabel = ""
     @Published var errors = [InputError: String]()
     
-    private let existingQuote: Domain.QuoteItem?
+    private let quoteId: UUID?
     
     init(existingQuote: Domain.QuoteItem? = nil) {
-        self.existingQuote = existingQuote
-        if let quote = existingQuote {
-            self.quoteInput = quote.text
-            self.categoryInput = quote.category
-            self.pageInput = String(quote.page)
-            self.noteInput = quote.note
+        self.quoteInput = existingQuote?.text ?? ""
+        self.categoryInput = existingQuote?.category ?? ""
+        self.noteInput = existingQuote?.note ?? ""
+        self.quoteId = existingQuote?.id
+        if let page = existingQuote?.page {
+            self.pageInput = String(page)
         }
     }
     
@@ -47,7 +47,7 @@ final class QuoteEditViewModel: ObservableObject {
     //MARK: - Methods
     
     func onAppear() {
-        if let savedBook = addBookRepository.selectedBook {
+        if let savedBook = saveQuoteRepository.selectedBook {
             bookButtonLabel = "\(savedBook.title), \(savedBook.author)"
         }
     }
@@ -57,7 +57,7 @@ final class QuoteEditViewModel: ObservableObject {
         
         guard errors.isEmpty else { return }
         guard let page = Int(pageInput) else { return }
-        guard let selectedBook = addBookRepository.selectedBook else { return }
+        guard let selectedBook = saveQuoteRepository.selectedBook else { return }
         guard let bookEntity = coreDataManager.fetchBookEntity(for: selectedBook) else { return }
         
         coreDataManager.saveQuote(
@@ -66,7 +66,7 @@ final class QuoteEditViewModel: ObservableObject {
             category: categoryInput,
             page: page,
             note: noteInput,
-            quoteId: existingQuote?.id
+            quoteId: quoteId
         )
         navigationRouter.popAll()
     }
@@ -88,7 +88,7 @@ final class QuoteEditViewModel: ObservableObject {
         if categoryInput.isEmpty {
             errors[.category] = InputError.category.rawValue
         }
-        if addBookRepository.selectedBook == nil {
+        if saveQuoteRepository.selectedBook == nil {
             errors[.book] = InputError.book.rawValue
         }
     }

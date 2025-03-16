@@ -11,7 +11,7 @@ import DependencyInjection
 final class SelectBookScreenViewModel: ObservableObject {
     @Injected private var coreDataManager: CoreDataManagerProtocol
     @Injected private var navigationRouter: any NavigationRouting
-    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var addBookRepository: SaveQuoteRepositoryInterface
+    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var saveQuoteRepository: SaveQuoteRepositoryInterface
     
     @Published var books = [Domain.BookItem]()
     
@@ -22,11 +22,15 @@ final class SelectBookScreenViewModel: ObservableObject {
     }
     
     func selectBook(book: Domain.BookItem) {
-        addBookRepository.selectBook(book)
+        saveQuoteRepository.selectBook(book)
         navigationRouter.pop()
     }
     
-    func getBooks() {
+    func onAppear() {
+        getBooks()
+    }
+    
+    private func getBooks() {
         let fetchedBooks = coreDataManager.fetchBooks()
         books = fetchedBooks.compactMap(Domain.BookItem.init)
     }
