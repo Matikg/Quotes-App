@@ -21,10 +21,14 @@ final class QuoteDetailsViewModel: ObservableObject {
         getBook()
     }
     
+    deinit {
+        ContainerManager.shared
+            .removeContainer(for: .feature(FeatureName.addQuote.rawValue))
+    }
+    
     //MARK: - Methods
     
     func editQuote() {
-        // W tym miejscu jest problem z książką
         navigationRouter.push(route: .edit(existingQuote: quote))
         ContainerManager.shared
             .container(for: .feature(FeatureName.addQuote.rawValue))

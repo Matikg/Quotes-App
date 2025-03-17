@@ -39,11 +39,6 @@ final class QuoteEditViewModel: ObservableObject {
         }
     }
     
-    deinit {
-        ContainerManager.shared
-            .removeContainer(for: .feature(FeatureName.addQuote.rawValue))
-    }
-    
     //MARK: - Methods
     
     func onAppear() {
