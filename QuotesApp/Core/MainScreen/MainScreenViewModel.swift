@@ -22,10 +22,10 @@ final class MainScreenViewModel: ObservableObject {
     //MARK: - Methods
     
     func addQuote() {
-        navigationRouter.push(route: .edit)
+        navigationRouter.push(route: .edit(existingQuote: nil))
         ContainerManager.shared
             .container(for: .feature(FeatureName.addQuote.rawValue))
-            .register(AddBookRepositoryInterface.self, instance: AddBookRepository())
+            .register(SaveQuoteRepositoryInterface.self, instance: SaveQuoteRepository())
     }
     
     func getBooks() {

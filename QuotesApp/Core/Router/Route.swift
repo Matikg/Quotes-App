@@ -9,8 +9,8 @@ import SwiftUI
 
 enum Route: Hashable, Identifiable, View {
     case quotes(book: Domain.BookItem)
-    case details
-    case edit
+    case details(quote: Domain.QuoteItem)
+    case edit(existingQuote: Domain.QuoteItem?)
     case book
     case select
     
@@ -21,10 +21,10 @@ enum Route: Hashable, Identifiable, View {
         switch self {
         case .quotes(let book):
             BookQuotesView(viewModel: BookQuotesViewModel(book: book))
-        case .details:
-            Text("Details View")
-        case .edit:
-            QuoteEditView()
+        case .details(let quote):
+            QuoteDetailsView(viewModel: QuoteDetailsViewModel(quote: quote))
+        case .edit(let existingQuote):
+            QuoteEditView(viewModel: QuoteEditViewModel(existingQuote: existingQuote))
         case .book:
             BookScreenView()
         case .select:

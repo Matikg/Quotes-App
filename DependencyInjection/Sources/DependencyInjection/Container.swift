@@ -8,6 +8,7 @@ public final class Container: ContainerInterface {
     
     public func register<T>(_ type: T.Type, instance: T) {
         let key = String(describing: type)
+        guard dependencies[key] == nil else { return }
         dependencies[key] = instance
     }
     

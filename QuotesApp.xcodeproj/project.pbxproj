@@ -11,7 +11,7 @@
 		887181352D42A42D00F25668 /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887181342D42A42D00F25668 /* ApiServiceTests.swift */; };
 		887181382D42A45E00F25668 /* MockNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887181372D42A45E00F25668 /* MockNetworkSession.swift */; };
 		8871813B2D42A55300F25668 /* Models+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871813A2D42A55300F25668 /* Models+Extensions.swift */; };
-		8871813E2D4A9CD900F25668 /* AddBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871813D2D4A9CD900F25668 /* AddBookRepository.swift */; };
+		8871813E2D4A9CD900F25668 /* SaveQuoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871813D2D4A9CD900F25668 /* SaveQuoteRepository.swift */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
 		E834816E2C3FD0BE00A74FC4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E834816D2C3FD0BE00A74FC4 /* Localizable.xcstrings */; };
 		E83481702C43E4C300A74FC4 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* ScreenView.swift */; };
@@ -62,6 +62,8 @@
 		E8D267E12C4EE96F00A19EB6 /* Merriweather-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D92C4EE96E00A19EB6 /* Merriweather-LightItalic.ttf */; };
 		E8D267E22C4EE96F00A19EB6 /* Merriweather-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267DA2C4EE96E00A19EB6 /* Merriweather-Light.ttf */; };
 		E8D267E32C4EE96F00A19EB6 /* Merriweather-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267DB2C4EE96E00A19EB6 /* Merriweather-Black.ttf */; };
+		E8E3CCC62D84B5B500406F89 /* QuoteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC52D84B5B500406F89 /* QuoteDetailsView.swift */; };
+		E8E3CCC82D84B5D200406F89 /* QuoteDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +88,7 @@
 		887181342D42A42D00F25668 /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
 		887181372D42A45E00F25668 /* MockNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkSession.swift; sourceTree = "<group>"; };
 		8871813A2D42A55300F25668 /* Models+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models+Extensions.swift"; sourceTree = "<group>"; };
-		8871813D2D4A9CD900F25668 /* AddBookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookRepository.swift; sourceTree = "<group>"; };
+		8871813D2D4A9CD900F25668 /* SaveQuoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveQuoteRepository.swift; sourceTree = "<group>"; };
 		E83481692C3FB75D00A74FC4 /* QDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QDivider.swift; sourceTree = "<group>"; };
 		E834816D2C3FD0BE00A74FC4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E834816F2C43E4C300A74FC4 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,8 @@
 		E8D267DA2C4EE96E00A19EB6 /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Light.ttf"; sourceTree = "<group>"; };
 		E8D267DB2C4EE96E00A19EB6 /* Merriweather-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Black.ttf"; sourceTree = "<group>"; };
 		E8D267E42C4EEA0A00A19EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8E3CCC52D84B5B500406F89 /* QuoteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsView.swift; sourceTree = "<group>"; };
+		E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +199,7 @@
 		8871813C2D4A9C9800F25668 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				8871813D2D4A9CD900F25668 /* AddBookRepository.swift */,
+				8871813D2D4A9CD900F25668 /* SaveQuoteRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -218,6 +222,7 @@
 				E8C3555D2CFCA1FC001F6065 /* BookScreen */,
 				E89242CB2D5FB1DC00F8A420 /* SelectBookScreen */,
 				E8C90A352D78C61E0048265A /* BookQuotesScreen */,
+				E8E3CCC42D84B57300406F89 /* QuoteDetailsScreen */,
 				E88FF5AA2C3A876700AEA2BE /* Components */,
 				E88FF5AE2C3A880000AEA2BE /* Router */,
 			);
@@ -455,6 +460,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		E8E3CCC42D84B57300406F89 /* QuoteDetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8E3CCC52D84B5B500406F89 /* QuoteDetailsView.swift */,
+				E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */,
+			);
+			path = QuoteDetailsScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -602,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8C90A372D7D0F560048265A /* BookQuotesView.swift in Sources */,
+				E8E3CCC62D84B5B500406F89 /* QuoteDetailsView.swift in Sources */,
 				E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */,
 				E89242CD2D5FB24B00F8A420 /* SelectBookScreenView.swift in Sources */,
 				E88170982D3EB497003F5207 /* DefaultBookCover.swift in Sources */,
@@ -614,6 +629,7 @@
 				E87369E02C9C1EE8000D527C /* QInput.swift in Sources */,
 				887181322D429CB900F25668 /* QuoteDataModel.xcdatamodeld in Sources */,
 				E88170A62D5805E5003F5207 /* DI.swift in Sources */,
+				E8E3CCC82D84B5D200406F89 /* QuoteDetailsViewModel.swift in Sources */,
 				E8A9DF262C56BA6C00C9AB6D /* NavigationRouting.swift in Sources */,
 				E88FF5822C35924F00AEA2BE /* MainScreenView.swift in Sources */,
 				E8A9DF242C56B9F100C9AB6D /* Route.swift in Sources */,
@@ -629,7 +645,7 @@
 				E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */,
 				E8CC9BB92D7E2F0C00835FBA /* QuotesListRowView.swift in Sources */,
 				E8C355632CFCD16E001F6065 /* BookApiService.swift in Sources */,
-				8871813E2D4A9CD900F25668 /* AddBookRepository.swift in Sources */,
+				8871813E2D4A9CD900F25668 /* SaveQuoteRepository.swift in Sources */,
 				E88170932D3D2BC6003F5207 /* BookDoc.swift in Sources */,
 				E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */,
 				E88FF5802C35924F00AEA2BE /* AppEntry.swift in Sources */,

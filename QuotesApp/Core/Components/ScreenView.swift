@@ -5,20 +5,20 @@ struct ScreenView<Content: View>: View {
     private let content: () -> Content
     private var navbar: AnyView? = nil
     private var navbarTrailing: AnyView? = nil
-
+    
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) private var presentationMode
-
+    
     private var showBackButton: Bool {
         presentationMode.wrappedValue.isPresented
     }
-
+    
     init(
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.content = content
     }
-
+    
     private init(
         navbar: AnyView?,
         navbarTrailing: AnyView?,
@@ -28,12 +28,12 @@ struct ScreenView<Content: View>: View {
         self.navbarTrailing = navbarTrailing
         self.content = content
     }
-
+    
     var body: some View {
         ZStack {
             backgroundColor
                 .ignoresSafeArea()
-
+            
             VStack(spacing: 0) {
                 if let navbar {
                     ZStack(alignment: .top) {
@@ -52,11 +52,11 @@ struct ScreenView<Content: View>: View {
                             }
                             
                             Spacer()
-
+                            
                             navbarTrailing
                                 .padding(.trailing, 16)
                         }
-
+                        
                         navbar
                             .frame(maxWidth: .infinity, alignment: .center)
                             .padding(.horizontal, 100)
@@ -64,8 +64,10 @@ struct ScreenView<Content: View>: View {
                     .background(Color.background)
                     .padding(.vertical, 8)
                 }
-
+                
                 content()
+                
+                Spacer()
             }
         }
         .toolbar(.hidden)

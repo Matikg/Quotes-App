@@ -11,21 +11,23 @@ import DependencyInjection
 final class SelectBookScreenViewModel: ObservableObject {
     @Injected private var coreDataManager: CoreDataManagerProtocol
     @Injected private var navigationRouter: any NavigationRouting
-    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var addBookRepository: AddBookRepositoryInterface
+    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var saveQuoteRepository: SaveQuoteRepositoryInterface
     
     @Published var books = [Domain.BookItem]()
     
-    init() {
-        getBooks()
-    }
+    //MARK: - Methods
     
     func createBook() {
         navigationRouter.push(route: .book)
     }
     
     func selectBook(book: Domain.BookItem) {
-        addBookRepository.selectBook(book)
+        saveQuoteRepository.selectBook(book)
         navigationRouter.pop()
+    }
+    
+    func onAppear() {
+        getBooks()
     }
     
     private func getBooks() {

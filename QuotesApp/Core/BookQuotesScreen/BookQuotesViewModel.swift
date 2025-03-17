@@ -11,6 +11,7 @@ import DependencyInjection
 final class BookQuotesViewModel: ObservableObject {
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var coreDataManager: CoreDataManagerProtocol
+    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var saveQuoteRepository: SaveQuoteRepositoryInterface
     
     @Published var quotes = [Domain.QuoteItem]()
     
@@ -19,6 +20,26 @@ final class BookQuotesViewModel: ObservableObject {
     init(book: Domain.BookItem) {
         self.book = book
         getQuotes()
+    }
+    
+    deinit {
+        ContainerManager.shared
+            .removeContainer(for: .feature(FeatureName.addQuote.rawValue))
+    }
+    
+    //MARK: - Methods
+    
+    func selectQuote(_ quote: Domain.QuoteItem) {
+        navigationRouter.push(route: .details(quote: quote))
+    }
+    
+    func addQuote() {
+        navigationRouter.push(route: .edit(existingQuote: nil))
+        ContainerManager.shared
+            .container(for: .feature(FeatureName.addQuote.rawValue))
+            .register(SaveQuoteRepositoryInterface.self, instance: SaveQuoteRepository())
+        
+        saveQuoteRepository.selectBook(book)
     }
     
     private func getQuotes() {
