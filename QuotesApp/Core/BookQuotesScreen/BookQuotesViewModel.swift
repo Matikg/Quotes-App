@@ -22,6 +22,11 @@ final class BookQuotesViewModel: ObservableObject {
         getQuotes()
     }
     
+    deinit {
+        ContainerManager.shared
+            .removeContainer(for: .feature(FeatureName.addQuote.rawValue))
+    }
+    
     //MARK: - Methods
     
     func selectQuote(_ quote: Domain.QuoteItem) {
@@ -29,7 +34,6 @@ final class BookQuotesViewModel: ObservableObject {
     }
     
     func addQuote() {
-        // W tym miejscu jest problem z książką
         navigationRouter.push(route: .edit(existingQuote: nil))
         ContainerManager.shared
             .container(for: .feature(FeatureName.addQuote.rawValue))
