@@ -9,16 +9,23 @@ import SwiftUI
 
 struct BookQuotesView: View {
     @ObservedObject var viewModel: BookQuotesViewModel
+    @State private var activeRow: UUID? = nil
     
     var body: some View {
         ScreenView {
             ScrollView(showsIndicators: false) {
-                LazyVStack {
+                LazyVStack(spacing: 20) {
                     ForEach(viewModel.quotes) { quote in
-                        QuotesListRowView(quote: quote) {
-                            viewModel.selectQuote(quote)
-                        }
-                            .padding(.horizontal)
+                        QuotesListRowView(
+                            quote: quote,
+                            activeRow: $activeRow,
+                            action: {
+                                viewModel.selectQuote(quote)
+                            },
+                            onDelete: {
+                                viewModel.deleteQuote(quote)
+                            }
+                        )
                     }
                 }
             }

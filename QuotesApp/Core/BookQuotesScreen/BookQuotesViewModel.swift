@@ -42,6 +42,13 @@ final class BookQuotesViewModel: ObservableObject {
         saveQuoteRepository.selectBook(book)
     }
     
+    func deleteQuote(_ quote: Domain.QuoteItem) {
+        coreDataManager.deleteQuote(quote: quote)
+        if let index = quotes.firstIndex(where: { $0.id == quote.id }) {
+            quotes.remove(at: index)
+        }
+    }
+    
     private func getQuotes() {
         let fetchedQuotes = coreDataManager.fetchQuotes(for: book)
         quotes = fetchedQuotes.compactMap(Domain.QuoteItem.init)

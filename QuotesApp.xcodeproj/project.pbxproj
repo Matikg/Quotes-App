@@ -64,6 +64,7 @@
 		E8D267E32C4EE96F00A19EB6 /* Merriweather-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267DB2C4EE96E00A19EB6 /* Merriweather-Black.ttf */; };
 		E8E3CCC62D84B5B500406F89 /* QuoteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC52D84B5B500406F89 /* QuoteDetailsView.swift */; };
 		E8E3CCC82D84B5D200406F89 /* QuoteDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */; };
+		E8E3CCCA2D8B721A00406F89 /* SwipeableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,7 @@
 		E8D267E42C4EEA0A00A19EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8E3CCC52D84B5B500406F89 /* QuoteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsView.swift; sourceTree = "<group>"; };
 		E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsViewModel.swift; sourceTree = "<group>"; };
+		E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				E834816F2C43E4C300A74FC4 /* ScreenView.swift */,
+				E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */,
 				E88170972D3EB497003F5207 /* DefaultBookCover.swift */,
 				E88FF5B52C3E6E5000AEA2BE /* QButton.swift */,
 				E83481692C3FB75D00A74FC4 /* QDivider.swift */,
@@ -637,6 +640,7 @@
 				E83481742C45095800A74FC4 /* BookListRowView.swift in Sources */,
 				E89242D52D6289A600F8A420 /* BookListView.swift in Sources */,
 				E89242CF2D5FB2B800F8A420 /* SelectBookScreenViewModel.swift in Sources */,
+				E8E3CCCA2D8B721A00406F89 /* SwipeableRow.swift in Sources */,
 				E8C3555F2CFCD120001F6065 /* BookScreenView.swift in Sources */,
 				E83481702C43E4C300A74FC4 /* ScreenView.swift in Sources */,
 				E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */,

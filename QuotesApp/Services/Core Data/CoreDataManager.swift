@@ -66,6 +66,21 @@ final class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
+    func deleteQuote(quote: Domain.QuoteItem) {
+        let request = QuoteEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", quote.id as CVarArg)
+        
+        do {
+            if let quoteEntity = try viewContext.fetch(request).first {
+                viewContext.delete(quoteEntity)
+                try viewContext.save()
+            }
+        } catch {
+            viewContext.rollback()
+            print(error.localizedDescription)
+        }
+    }
+    
     func deleteBook() {
         print("Deleted")
     }
