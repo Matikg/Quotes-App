@@ -5,6 +5,7 @@ protocol SaveQuoteRepositoryInterface {
     var selectedBook: Domain.BookItem? { get }
     func selectBook(_ book: Domain.BookItem)
     func saveBook(_ book: Domain.BookItem)
+    func resetBook()
 }
 
 final class SaveQuoteRepository: SaveQuoteRepositoryInterface {
@@ -18,5 +19,9 @@ final class SaveQuoteRepository: SaveQuoteRepositoryInterface {
     
     func saveBook(_ book: Domain.BookItem) {
         coreDataManager.saveBook(for: book)
+    }
+    
+    func resetBook() {
+        selectedBook = nil
     }
 }

@@ -13,9 +13,10 @@ extension ContainerManager {
         let container = container(for: .main)
         container.register(CoreDataManagerProtocol.self, instance: CoreDataManager())
         container.register(BookApiService.self, instance: BookApiService())
+        container.register(SaveQuoteRepositoryInterface.self, instance: SaveQuoteRepository())
     }
 }
 
 enum FeatureName: String {
-    case addQuote
+    case `default`
 }

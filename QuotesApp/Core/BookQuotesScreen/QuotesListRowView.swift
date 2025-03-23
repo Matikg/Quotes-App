@@ -13,10 +13,12 @@ struct QuotesListRowView: View {
     private let onDelete: () -> Void
     @Binding private var activeRow: UUID?
     
-    init(quote: Domain.QuoteItem,
-         activeRow: Binding<UUID?>,
-         action: @escaping () -> Void,
-         onDelete: @escaping () -> Void) {
+    init(
+        quote: Domain.QuoteItem,
+        activeRow: Binding<UUID?>,
+        action: @escaping () -> Void,
+        onDelete: @escaping () -> Void
+    ) {
         self.quote = quote
         self._activeRow = activeRow
         self.action = action

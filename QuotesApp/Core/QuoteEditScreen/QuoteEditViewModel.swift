@@ -18,7 +18,7 @@ final class QuoteEditViewModel: ObservableObject {
     
     @Injected private var coreDataManager: CoreDataManagerProtocol
     @Injected private var navigationRouter: any NavigationRouting
-    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var saveQuoteRepository: SaveQuoteRepositoryInterface
+    @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     
     @Published var quoteInput = ""
     @Published var categoryInput = ""
@@ -37,6 +37,10 @@ final class QuoteEditViewModel: ObservableObject {
         if let page = existingQuote?.page {
             self.pageInput = String(page)
         }
+    }
+    
+    deinit {
+        saveQuoteRepository.resetBook()
     }
     
     //MARK: - Methods

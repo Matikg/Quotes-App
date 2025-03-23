@@ -24,7 +24,7 @@ final class BookScreenViewModel: ObservableObject {
     
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var apiService: BookApiService
-    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var saveQuoteRepository: SaveQuoteRepositoryInterface
+    @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     
     @Published var titleInput = ""
     @Published var authorInput = ""

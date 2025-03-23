@@ -14,18 +14,15 @@ final class MainScreenViewModel: ObservableObject {
         case loaded([Domain.BookItem])
     }
     
-    @Published var state: BookListState = .empty
-    
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var coreDataManager: CoreDataManagerProtocol
+    
+    @Published var state: BookListState = .empty
     
     //MARK: - Methods
     
     func addQuote() {
         navigationRouter.push(route: .edit(existingQuote: nil))
-        ContainerManager.shared
-            .container(for: .feature(FeatureName.addQuote.rawValue))
-            .register(SaveQuoteRepositoryInterface.self, instance: SaveQuoteRepository())
     }
     
     func getBooks() {

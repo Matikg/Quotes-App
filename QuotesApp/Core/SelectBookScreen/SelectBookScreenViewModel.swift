@@ -11,7 +11,7 @@ import DependencyInjection
 final class SelectBookScreenViewModel: ObservableObject {
     @Injected private var coreDataManager: CoreDataManagerProtocol
     @Injected private var navigationRouter: any NavigationRouting
-    @Injected(scope: .feature(FeatureName.addQuote.rawValue)) private var saveQuoteRepository: SaveQuoteRepositoryInterface
+    @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     
     @Published var books = [Domain.BookItem]()
     
