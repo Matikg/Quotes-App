@@ -11,14 +11,44 @@ struct BookListRowView: View {
     private let book: Domain.BookItem
     private let showQuotesNumber: Bool
     private let action: () -> Void
+    private let onDelete: () -> Void
     
-    init(book: Domain.BookItem, showQuotesNumber: Bool, action: @escaping () -> Void) {
+    @Binding private var activeRow: UUID?
+    
+    init(
+        book: Domain.BookItem,
+        showQuotesNumber: Bool,
+        activeRow: Binding<UUID?>,
+        action: @escaping () -> Void,
+        onDelete: @escaping () -> Void
+    ) {
         self.book = book
         self.showQuotesNumber = showQuotesNumber
+        self._activeRow = activeRow
         self.action = action
+        self.onDelete = onDelete
     }
     
     var body: some View {
+        if showQuotesNumber {
+            SwipeableRow(rowId: book.id, activeRow: $activeRow) {
+                bookRowView
+            } onDelete: {
+                onDelete()
+            }
+        } else {
+            bookRowView
+        }
+    }
+    
+    //MARK: - View Builders
+    
+    private var coverImage: Image {
+        book.coverImage ?? Image(.defaultBookCover)
+    }
+    
+    @ViewBuilder
+    private var bookRowView: some View {
         VStack {
             HStack {
                 HStack(spacing: 20) {
@@ -36,18 +66,12 @@ struct BookListRowView: View {
                 }
             }
             Divider()
-                .padding(.vertical)
+                .padding(.top)
         }
         .contentShape(.rect)
         .onTapGesture {
             action()
         }
-    }
-    
-    //MARK: - View Builders
-    
-    private var coverImage: Image {
-        book.coverImage ?? Image(.defaultBookCover)
     }
     
     private func buildQuotesNumberView() -> some View {
@@ -73,5 +97,5 @@ struct BookListRowView: View {
 }
 
 #Preview {
-    BookListRowView(book: Domain.BookItem(id: UUID(), title: "Title", author: "Author", quotesNumber: 5, coverImageData: nil), showQuotesNumber: true, action: { })
+    BookListRowView(book: Domain.BookItem(id: UUID(), title: "Title", author: "Author", quotesNumber: 5, coverImageData: nil), showQuotesNumber: true, activeRow: .constant(nil), action: { }, onDelete: { })
 }

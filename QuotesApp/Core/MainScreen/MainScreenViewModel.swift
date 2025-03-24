@@ -18,6 +18,7 @@ final class MainScreenViewModel: ObservableObject {
     @Injected private var coreDataManager: CoreDataManagerProtocol
     
     @Published var state: BookListState = .empty
+    @Published var bookToDelete: Domain.BookItem? 
     
     //MARK: - Methods
     
@@ -33,5 +34,23 @@ final class MainScreenViewModel: ObservableObject {
     
     func selectBook(_ book: Domain.BookItem) {
         navigationRouter.push(route: .quotes(book: book))
+    }
+    
+    func deleteBook(_ book: Domain.BookItem) {
+        coreDataManager.deleteBook(book: book)
+        
+        switch state {
+        case .empty:
+            break
+        case .loaded(let books):
+            let updatedBooks = books.filter { $0.id != book.id }
+            state = updatedBooks.isEmpty ? .empty : .loaded(updatedBooks)
+        }
+        
+        cancelDeleteBook()
+    }
+    
+    func cancelDeleteBook() {
+        bookToDelete = nil
     }
 }

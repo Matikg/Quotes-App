@@ -103,6 +103,17 @@
         }
       }
     },
+    "Cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
     "Category_empty_dialog" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -132,6 +143,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Create"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "Delete_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deleting the book will remove all quotes assigned to it."
           }
         }
       }

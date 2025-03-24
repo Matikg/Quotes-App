@@ -50,13 +50,30 @@ struct MainScreenView: View {
     
     private func buildLoadedListView(books: [Domain.BookItem]) -> some View {
         VStack {
-            BookListView(books: books, showQuotesNumber: true) { selectedBook in
+            BookListView(
+                books: books,
+                showQuotesNumber: true
+            ) { selectedBook in
                 viewModel.selectBook(selectedBook)
+            } onBookDeleted: { book in
+                viewModel.bookToDelete = book
             }
             
             QButton(label: "Button_add_quote") {
                 viewModel.addQuote()
             }
+        }
+        .alert(item: $viewModel.bookToDelete) { book in
+            Alert(
+                title: Text("Delete"),
+                message: Text("Delete_message"),
+                primaryButton: .destructive(Text("Delete"), action: {
+                    viewModel.deleteBook(book)
+                }),
+                secondaryButton: .cancel({
+                    viewModel.cancelDeleteBook()
+                })
+            )
         }
     }
 }

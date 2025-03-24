@@ -81,8 +81,19 @@ final class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
-    func deleteBook() {
-        print("Deleted")
+    func deleteBook(book: Domain.BookItem) {
+        let request = BookEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", book.id as CVarArg)
+        
+        do {
+            if let bookEntity = try viewContext.fetch(request).first {
+                viewContext.delete(bookEntity)
+                try viewContext.save()
+            }
+        } catch {
+            viewContext.rollback()
+            print(error.localizedDescription)
+        }
     }
     
     func saveBook(for book: Domain.BookItem) {
