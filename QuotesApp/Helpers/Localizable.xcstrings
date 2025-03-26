@@ -37,6 +37,28 @@
         }
       }
     },
+    "Book_delete_alert" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        }
+      }
+    },
+    "Book_delete_message_alert" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deleting the book will remove all quotes assigned to it."
+          }
+        }
+      }
+    },
     "Book_empty_dialog" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -143,28 +165,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Create"
-          }
-        }
-      }
-    },
-    "Delete" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete"
-          }
-        }
-      }
-    },
-    "Delete_message" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deleting the book will remove all quotes assigned to it."
           }
         }
       }

@@ -65,9 +65,9 @@ struct MainScreenView: View {
         }
         .alert(item: $viewModel.bookToDelete) { book in
             Alert(
-                title: Text("Delete"),
-                message: Text("Delete_message"),
-                primaryButton: .destructive(Text("Delete"), action: {
+                title: Text("Book_delete_alert"),
+                message: Text("Book_delete_message_alert"),
+                primaryButton: .destructive(Text("Book_delete_alert"), action: {
                     viewModel.deleteBook(book)
                 }),
                 secondaryButton: .cancel({
