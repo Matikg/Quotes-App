@@ -14,7 +14,7 @@ struct BookQuotesView: View {
     var body: some View {
         ScreenView {
             ScrollView(showsIndicators: false) {
-                LazyVStack(spacing: 20) {
+                LazyVStack(spacing: 30) {
                     ForEach(viewModel.quotes) { quote in
                         QuotesListRowView(
                             quote: quote,
