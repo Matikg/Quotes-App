@@ -1,15 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "book-no-bg-title 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "book@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "book@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

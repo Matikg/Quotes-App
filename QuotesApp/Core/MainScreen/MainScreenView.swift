@@ -35,7 +35,7 @@ struct MainScreenView: View {
     private func buildEmptyListView() -> some View {
         VStack {
             Spacer()
-            Image(.emptyBox)
+            Image(.bookshelf)
                 .padding(.bottom, 30)
             
             QText("MainScreen_empty_quote", type: .bold, size: .medium)

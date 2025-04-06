@@ -1,15 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "Empty box.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "bookshelf@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "bookshelf@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
