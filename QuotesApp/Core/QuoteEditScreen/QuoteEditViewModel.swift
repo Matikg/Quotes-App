@@ -70,6 +70,10 @@ final class QuoteEditViewModel: ObservableObject {
         navigationRouter.popAll()
     }
     
+    func scanQuote() {
+        navigationRouter.push(route: .scan)
+    }
+    
     func addBook() {
         let route: Route = coreDataManager.fetchBooks().isEmpty ? .book : .select
         navigationRouter.push(route: route)

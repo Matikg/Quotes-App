@@ -14,7 +14,18 @@ struct QuoteEditView: View {
         ScreenView {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 30) {
-                    QInput(label: "Quote_label", text: $viewModel.quoteInput, type: .multiLine, error: viewModel.errors[.quote])
+                    ZStack(alignment: .topTrailing) {
+                        Button {
+                            viewModel.scanQuote()
+                        } label: {
+                            HStack {
+                                Image(systemName: "text.viewfinder")
+                                QText("Scan_button_label", type: .regular, size: .vsmall)
+                            }
+                        }
+                        
+                        QInput(label: "Quote_label", text: $viewModel.quoteInput, type: .multiLine, error: viewModel.errors[.quote])
+                    }
                     
                     buildBookButton()
                     

@@ -65,6 +65,10 @@
 		E8E3CCC62D84B5B500406F89 /* QuoteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC52D84B5B500406F89 /* QuoteDetailsView.swift */; };
 		E8E3CCC82D84B5D200406F89 /* QuoteDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */; };
 		E8E3CCCA2D8B721A00406F89 /* SwipeableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */; };
+		E8E3CCCD2DA4F8D500406F89 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCCC2DA4F8D500406F89 /* UINavigationController+Extensions.swift */; };
+		E8E3CCD02DADB98200406F89 /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCCF2DADB98200406F89 /* ScannerViewModel.swift */; };
+		E8E3CCD22DADB99E00406F89 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCD12DADB99E00406F89 /* ScannerView.swift */; };
+		E8E3CCD42DADBA2E00406F89 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCD32DADBA2E00406F89 /* CameraView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +149,10 @@
 		E8E3CCC52D84B5B500406F89 /* QuoteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsView.swift; sourceTree = "<group>"; };
 		E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsViewModel.swift; sourceTree = "<group>"; };
 		E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableRow.swift; sourceTree = "<group>"; };
+		E8E3CCCC2DA4F8D500406F89 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		E8E3CCCF2DADB98200406F89 /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		E8E3CCD12DADB99E00406F89 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		E8E3CCD32DADBA2E00406F89 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +234,7 @@
 				E8C90A352D78C61E0048265A /* BookQuotesScreen */,
 				E8E3CCC42D84B57300406F89 /* QuoteDetailsScreen */,
 				E88FF5AA2C3A876700AEA2BE /* Components */,
+				E8E3CCCE2DADADCD00406F89 /* QuoteScanScreen */,
 				E88FF5AE2C3A880000AEA2BE /* Router */,
 			);
 			path = Core;
@@ -295,6 +304,7 @@
 				8871813C2D4A9C9800F25668 /* Repositories */,
 				E88170A42D5805B2003F5207 /* Utils */,
 				E88FF5B72C3F1F3D00AEA2BE /* Helpers */,
+				E8E3CCCB2DA4F8AC00406F89 /* Extensions */,
 				E8D267D32C4EE93200A19EB6 /* Fonts */,
 				E8D267E42C4EEA0A00A19EB6 /* Info.plist */,
 				E88FF5832C35925300AEA2BE /* Assets.xcassets */,
@@ -472,6 +482,24 @@
 			path = QuoteDetailsScreen;
 			sourceTree = "<group>";
 		};
+		E8E3CCCB2DA4F8AC00406F89 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E8E3CCCC2DA4F8D500406F89 /* UINavigationController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E8E3CCCE2DADADCD00406F89 /* QuoteScanScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8E3CCCF2DADB98200406F89 /* ScannerViewModel.swift */,
+				E8E3CCD12DADB99E00406F89 /* ScannerView.swift */,
+				E8E3CCD32DADBA2E00406F89 /* CameraView.swift */,
+			);
+			path = QuoteScanScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -641,16 +669,20 @@
 				E89242D52D6289A600F8A420 /* BookListView.swift in Sources */,
 				E89242CF2D5FB2B800F8A420 /* SelectBookScreenViewModel.swift in Sources */,
 				E8E3CCCA2D8B721A00406F89 /* SwipeableRow.swift in Sources */,
+				E8E3CCCD2DA4F8D500406F89 /* UINavigationController+Extensions.swift in Sources */,
 				E8C3555F2CFCD120001F6065 /* BookScreenView.swift in Sources */,
 				E83481702C43E4C300A74FC4 /* ScreenView.swift in Sources */,
 				E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */,
 				E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */,
+				E8E3CCD42DADBA2E00406F89 /* CameraView.swift in Sources */,
 				E8C90A392D7D0F920048265A /* BookQuotesViewModel.swift in Sources */,
 				E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */,
 				E8CC9BB92D7E2F0C00835FBA /* QuotesListRowView.swift in Sources */,
 				E8C355632CFCD16E001F6065 /* BookApiService.swift in Sources */,
 				8871813E2D4A9CD900F25668 /* SaveQuoteRepository.swift in Sources */,
+				E8E3CCD22DADB99E00406F89 /* ScannerView.swift in Sources */,
 				E88170932D3D2BC6003F5207 /* BookDoc.swift in Sources */,
+				E8E3CCD02DADB98200406F89 /* ScannerViewModel.swift in Sources */,
 				E88FF5BD2C3F235F00AEA2BE /* WelcomeScreenViewModel.swift in Sources */,
 				E88FF5802C35924F00AEA2BE /* AppEntry.swift in Sources */,
 				E8A9DF2D2C5E432F00C9AB6D /* QuoteEditViewModel.swift in Sources */,
@@ -827,6 +859,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app needs camera access to scan text from books.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -858,6 +892,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app needs camera access to scan text from books.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

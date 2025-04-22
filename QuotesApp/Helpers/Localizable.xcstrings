@@ -290,6 +290,17 @@
         }
       }
     },
+    "Scan_button_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan quote"
+          }
+        }
+      }
+    },
     "Title_empty_dialog" : {
       "extractionState" : "manual",
       "localizations" : {
