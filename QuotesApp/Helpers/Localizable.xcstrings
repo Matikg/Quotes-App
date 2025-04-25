@@ -4,6 +4,9 @@
     "" : {
 
     },
+    "%@" : {
+
+    },
     "Author_empty_dialog" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -158,6 +161,9 @@
         }
       }
     },
+    "Copied" : {
+
+    },
     "Create" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -168,6 +174,9 @@
           }
         }
       }
+    },
+    "Done" : {
+
     },
     "Edit" : {
       "extractionState" : "manual",
@@ -212,6 +221,9 @@
           }
         }
       }
+    },
+    "OK" : {
+
     },
     "Page_empty_dialog" : {
       "extractionState" : "manual",
@@ -278,6 +290,9 @@
           }
         }
       }
+    },
+    "Retake" : {
+
     },
     "Save" : {
       "extractionState" : "manual",

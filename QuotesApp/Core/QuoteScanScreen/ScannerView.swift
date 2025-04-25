@@ -11,7 +11,7 @@ struct ScannerView: View {
     @StateObject private var viewModel = ScannerViewModel()
     
     var body: some View {
-        CameraView()
+        CameraScannerView()
     }
 }
 
