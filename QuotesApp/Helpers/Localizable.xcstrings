@@ -4,9 +4,6 @@
     "" : {
 
     },
-    "%@" : {
-
-    },
     "Author_empty_dialog" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -161,9 +158,6 @@
         }
       }
     },
-    "Copied" : {
-
-    },
     "Create" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -175,8 +169,16 @@
         }
       }
     },
-    "Done" : {
-
+    "Done_button_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
     },
     "Edit" : {
       "extractionState" : "manual",
@@ -221,9 +223,6 @@
           }
         }
       }
-    },
-    "OK" : {
-
     },
     "Page_empty_dialog" : {
       "extractionState" : "manual",
@@ -291,8 +290,16 @@
         }
       }
     },
-    "Retake" : {
-
+    "Retake_button_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retake"
+          }
+        }
+      }
     },
     "Save" : {
       "extractionState" : "manual",

@@ -14,6 +14,7 @@ extension ContainerManager {
         container.register(CoreDataManagerProtocol.self, instance: CoreDataManager())
         container.register(BookApiService.self, instance: BookApiService())
         container.register(SaveQuoteRepositoryInterface.self, instance: SaveQuoteRepository())
+        container.register(SaveScannedQuoteRepositoryInterface.self, instance: SaveScannedQuoteRepository())
     }
 }
 
