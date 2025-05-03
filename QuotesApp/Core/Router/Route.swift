@@ -32,7 +32,8 @@ enum Route: Hashable, Identifiable, View {
         case .select:
             SelectBookScreenView()
         case .scan:
-            CameraScannerView()
+            LiveScannerView()
+                .ignoresSafeArea()
         case let .review(image, items):
             ReviewView(viewModel: ReviewViewModel(image: image, items: items))
         }
