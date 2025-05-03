@@ -19,6 +19,7 @@ final class QuoteEditViewModel: ObservableObject {
     @Injected private var coreDataManager: CoreDataManagerProtocol
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
+    @Injected private var saveScannedQuoteRepository: SaveScannedQuoteRepositoryInterface
     
     @Published var quoteInput = ""
     @Published var categoryInput = ""
@@ -41,6 +42,7 @@ final class QuoteEditViewModel: ObservableObject {
     
     deinit {
         saveQuoteRepository.resetBook()
+        saveScannedQuoteRepository.resetScannedQuote()
     }
     
     //MARK: - Methods
@@ -48,6 +50,10 @@ final class QuoteEditViewModel: ObservableObject {
     func onAppear() {
         if let savedBook = saveQuoteRepository.selectedBook {
             bookButtonLabel = "\(savedBook.title), \(savedBook.author)"
+        }
+        
+        if let scannedQuote = saveScannedQuoteRepository.scannedQuote {
+            quoteInput = scannedQuote
         }
     }
     
@@ -68,6 +74,10 @@ final class QuoteEditViewModel: ObservableObject {
             quoteId: quoteId
         )
         navigationRouter.popAll()
+    }
+    
+    func scanQuote() {
+        navigationRouter.push(route: .scan)
     }
     
     func addBook() {

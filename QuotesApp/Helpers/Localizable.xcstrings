@@ -169,6 +169,17 @@
         }
       }
     },
+    "Done_button_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
     "Edit" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -279,6 +290,17 @@
         }
       }
     },
+    "Retake_button_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retake"
+          }
+        }
+      }
+    },
     "Save" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -286,6 +308,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Save"
+          }
+        }
+      }
+    },
+    "Scan_button_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan quote"
           }
         }
       }
