@@ -185,7 +185,7 @@ struct CropOverlay: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .stroke(Color.red, lineWidth: 2)
+                .stroke(Color.accentColor, lineWidth: 2)
                 .frame(width: rect.width, height: rect.height)
                 .position(x: rect.midX, y: rect.midY)
 
