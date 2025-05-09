@@ -169,6 +169,9 @@
         }
       }
     },
+    "Done" : {
+
+    },
     "Done_button_label" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -190,6 +193,9 @@
           }
         }
       }
+    },
+    "Find" : {
+
     },
     "MainScreen_empty_quote" : {
       "extractionState" : "manual",
@@ -289,6 +295,9 @@
           }
         }
       }
+    },
+    "Retake" : {
+
     },
     "Retake_button_label" : {
       "extractionState" : "manual",

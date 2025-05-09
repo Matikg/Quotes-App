@@ -14,7 +14,7 @@ enum Route: Hashable, Identifiable, View {
     case book
     case select
     case scan
-    case review(image: UIImage, items: [Domain.RecognizedTextItem])
+    case review(image: UIImage)
     
     var id: Int { hashValue }
     
@@ -34,8 +34,8 @@ enum Route: Hashable, Identifiable, View {
         case .scan:
             LiveScannerView()
                 .ignoresSafeArea()
-        case let .review(image, items):
-            ReviewView(viewModel: ReviewViewModel(image: image, items: items))
+        case let .review(image):
+            ReviewView(viewModel: ReviewViewModel(image: image))
         }
     }
 }
