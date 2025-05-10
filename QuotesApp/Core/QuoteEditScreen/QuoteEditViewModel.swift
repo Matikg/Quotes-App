@@ -16,10 +16,11 @@ final class QuoteEditViewModel: ObservableObject {
         case book = "Book_empty_dialog"
     }
     
-    @Injected private var coreDataManager: CoreDataManagerProtocol
+    @Injected private var coreDataManager: CoreDataManagerInterface
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     @Injected private var saveScannedQuoteRepository: SaveScannedQuoteRepositoryInterface
+    @Injected private var crashlyticsManager: CrashlyticsManagerInterface
     
     @Published var quoteInput = ""
     @Published var categoryInput = ""
@@ -61,9 +62,19 @@ final class QuoteEditViewModel: ObservableObject {
         validate()
         
         guard errors.isEmpty else { return }
-        guard let page = Int(pageInput) else { return }
-        guard let selectedBook = saveQuoteRepository.selectedBook else { return }
-        guard let bookEntity = coreDataManager.fetchBookEntity(for: selectedBook) else { return }
+        
+        guard let page = Int(pageInput) else {
+            crashlyticsManager.log("Invalid page input")
+            return
+        }
+        guard let selectedBook = saveQuoteRepository.selectedBook else {
+            crashlyticsManager.log("No book selected")
+            return
+        }
+        guard let bookEntity = coreDataManager.fetchBookEntity(for: selectedBook) else {
+            crashlyticsManager.log("Failed to fetch book entity")
+            return
+        }
         
         coreDataManager.saveQuote(
             to: bookEntity,

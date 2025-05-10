@@ -49,6 +49,8 @@ struct LiveScannerView: UIViewControllerRepresentable {
 
     class Coordinator: NSObject, DataScannerViewControllerDelegate {
         @Injected private var navigationRouter: any NavigationRouting
+        @Injected private var crashlyticsManager: CrashlyticsManagerInterface
+        
         var parent: LiveScannerView
         var scanner: DataScannerViewController?
 
@@ -67,7 +69,7 @@ struct LiveScannerView: UIViewControllerRepresentable {
                         self?.navigationRouter.push(route: .review(image: uiImage))
                     }
                 } catch {
-                    print("Capture error:", error)
+                    crashlyticsManager.record(error)
                 }
             }
         }

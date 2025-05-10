@@ -21,6 +21,9 @@
 		E80DAA8D2DBE7BC500AD2C19 /* SuggestedBookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA8C2DBE7BC500AD2C19 /* SuggestedBookItem.swift */; };
 		E80DAA8F2DBE7C3400AD2C19 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA8E2DBE7C3400AD2C19 /* BookItem.swift */; };
 		E80DAA912DBE7C9F00AD2C19 /* QuoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA902DBE7C9F00AD2C19 /* QuoteItem.swift */; };
+		E80DAA942DCD41DD00AD2C19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E80DAA932DCD41DD00AD2C19 /* GoogleService-Info.plist */; };
+		E80DAA972DCD433F00AD2C19 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = E80DAA962DCD433F00AD2C19 /* FirebaseCrashlytics */; };
+		E80DAA992DCD437400AD2C19 /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA982DCD437400AD2C19 /* CrashlyticsManager.swift */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
 		E83481702C43E4C300A74FC4 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* ScreenView.swift */; };
 		E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */; };
@@ -54,7 +57,7 @@
 		E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF2A2C5E430B00C9AB6D /* QuoteEditView.swift */; };
 		E8A9DF2D2C5E432F00C9AB6D /* QuoteEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF2C2C5E432F00C9AB6D /* QuoteEditViewModel.swift */; };
 		E8B21A692CC048F600B589C3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A682CC048F600B589C3 /* CoreDataManager.swift */; };
-		E8B21A6B2CC0495500B589C3 /* CoreDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A6A2CC0495500B589C3 /* CoreDataManagerProtocol.swift */; };
+		E8B21A6B2CC0495500B589C3 /* CoreDataManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A6A2CC0495500B589C3 /* CoreDataManagerInterface.swift */; };
 		E8C3555F2CFCD120001F6065 /* BookScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3555E2CFCD120001F6065 /* BookScreenView.swift */; };
 		E8C355612CFCD147001F6065 /* BookScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C355602CFCD147001F6065 /* BookScreenViewModel.swift */; };
 		E8C355632CFCD16E001F6065 /* BookApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C355622CFCD16E001F6065 /* BookApiService.swift */; };
@@ -108,6 +111,8 @@
 		E80DAA8C2DBE7BC500AD2C19 /* SuggestedBookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedBookItem.swift; sourceTree = "<group>"; };
 		E80DAA8E2DBE7C3400AD2C19 /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
 		E80DAA902DBE7C9F00AD2C19 /* QuoteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteItem.swift; sourceTree = "<group>"; };
+		E80DAA932DCD41DD00AD2C19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E80DAA982DCD437400AD2C19 /* CrashlyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
 		E83481692C3FB75D00A74FC4 /* QDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QDivider.swift; sourceTree = "<group>"; };
 		E834816F2C43E4C300A74FC4 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
@@ -142,7 +147,7 @@
 		E8A9DF2A2C5E430B00C9AB6D /* QuoteEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditView.swift; sourceTree = "<group>"; };
 		E8A9DF2C2C5E432F00C9AB6D /* QuoteEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditViewModel.swift; sourceTree = "<group>"; };
 		E8B21A682CC048F600B589C3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		E8B21A6A2CC0495500B589C3 /* CoreDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerProtocol.swift; sourceTree = "<group>"; };
+		E8B21A6A2CC0495500B589C3 /* CoreDataManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerInterface.swift; sourceTree = "<group>"; };
 		E8C3555E2CFCD120001F6065 /* BookScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScreenView.swift; sourceTree = "<group>"; };
 		E8C355602CFCD147001F6065 /* BookScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScreenViewModel.swift; sourceTree = "<group>"; };
 		E8C355622CFCD16E001F6065 /* BookApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApiService.swift; sourceTree = "<group>"; };
@@ -170,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E80DAA972DCD433F00AD2C19 /* FirebaseCrashlytics in Frameworks */,
 				E86436542C5FA5E20029858F /* DependencyInjection in Frameworks */,
 				E86436592C625DEF0029858F /* DependencyInjection in Frameworks */,
 			);
@@ -225,6 +231,15 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		E80DAA922DCD41B500AD2C19 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E80DAA932DCD41DD00AD2C19 /* GoogleService-Info.plist */,
+				E80DAA982DCD437400AD2C19 /* CrashlyticsManager.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		E86436502C5F9EC50029858F /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,7 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				E8B21A682CC048F600B589C3 /* CoreDataManager.swift */,
-				E8B21A6A2CC0495500B589C3 /* CoreDataManagerProtocol.swift */,
+				E8B21A6A2CC0495500B589C3 /* CoreDataManagerInterface.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -386,6 +401,7 @@
 			children = (
 				E881708F2D3D2B37003F5207 /* Book Api */,
 				E881708E2D3D2AD1003F5207 /* Core Data */,
+				E80DAA922DCD41B500AD2C19 /* Firebase */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -525,6 +541,7 @@
 				E88FF5782C35924F00AEA2BE /* Sources */,
 				E88FF5792C35924F00AEA2BE /* Frameworks */,
 				E88FF57A2C35924F00AEA2BE /* Resources */,
+				E80DAA9A2DCD45DF00AD2C19 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -534,6 +551,7 @@
 			packageProductDependencies = (
 				E86436532C5FA5E20029858F /* DependencyInjection */,
 				E86436582C625DEF0029858F /* DependencyInjection */,
+				E80DAA962DCD433F00AD2C19 /* FirebaseCrashlytics */,
 			);
 			productName = QuotesApp;
 			productReference = E88FF57C2C35924F00AEA2BE /* QuotesApp.app */;
@@ -609,6 +627,7 @@
 			mainGroup = E88FF5732C35924F00AEA2BE;
 			packageReferences = (
 				E86436572C625DEF0029858F /* XCLocalSwiftPackageReference "DependencyInjection" */,
+				E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = E88FF57D2C35924F00AEA2BE /* Products */;
 			projectDirPath = "";
@@ -631,6 +650,7 @@
 				E8D267DE2C4EE96E00A19EB6 /* Merriweather-Italic.ttf in Resources */,
 				E8D267DF2C4EE96E00A19EB6 /* Merriweather-BlackItalic.ttf in Resources */,
 				E88FF5842C35925300AEA2BE /* Assets.xcassets in Resources */,
+				E80DAA942DCD41DD00AD2C19 /* GoogleService-Info.plist in Resources */,
 				E80DAA8B2DBE79E900AD2C19 /* Localizable.xcstrings in Resources */,
 				E8D267E22C4EE96F00A19EB6 /* Merriweather-Light.ttf in Resources */,
 				E8D267DC2C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf in Resources */,
@@ -656,6 +676,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E80DAA9A2DCD45DF00AD2C19 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}.debug.dylib",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E88FF5782C35924F00AEA2BE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -672,7 +718,7 @@
 				E8A9DF282C56BAC800C9AB6D /* NavigationRouter.swift in Sources */,
 				E8C355612CFCD147001F6065 /* BookScreenViewModel.swift in Sources */,
 				E8A9DF202C565D4500C9AB6D /* RootScreenView.swift in Sources */,
-				E8B21A6B2CC0495500B589C3 /* CoreDataManagerProtocol.swift in Sources */,
+				E8B21A6B2CC0495500B589C3 /* CoreDataManagerInterface.swift in Sources */,
 				E88FF5B02C3DA5C300AEA2BE /* WelcomeScreenView.swift in Sources */,
 				E87369E02C9C1EE8000D527C /* QInput.swift in Sources */,
 				887181322D429CB900F25668 /* QuoteDataModel.xcdatamodeld in Sources */,
@@ -699,6 +745,7 @@
 				E80DAA742DBDACD700AD2C19 /* ReviewView.swift in Sources */,
 				E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */,
 				E8CC9BB92D7E2F0C00835FBA /* QuotesListRowView.swift in Sources */,
+				E80DAA992DCD437400AD2C19 /* CrashlyticsManager.swift in Sources */,
 				E8C355632CFCD16E001F6065 /* BookApiService.swift in Sources */,
 				8871813E2D4A9CD900F25668 /* SaveQuoteRepository.swift in Sources */,
 				E88170932D3D2BC6003F5207 /* BookDoc.swift in Sources */,
@@ -874,9 +921,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"QuotesApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K72F7V883D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
@@ -893,8 +945,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MateuszGrudzien.QuotesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -906,9 +960,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"QuotesApp/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K72F7V883D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
@@ -925,8 +983,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MateuszGrudzien.QuotesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -937,13 +997,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K72F7V883D;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = K72F7V883D;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MateuszGrudzien.QuotesAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Asthc Phones";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -955,13 +1022,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K72F7V883D;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = K72F7V883D;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MateuszGrudzien.QuotesAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Asthc Phones";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -972,12 +1046,19 @@
 		E88FF5A72C35925300AEA2BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K72F7V883D;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = K72F7V883D;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MateuszGrudzien.QuotesAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Asthc Phones";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -988,12 +1069,19 @@
 		E88FF5A82C35925300AEA2BE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K72F7V883D;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = K72F7V883D;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MateuszGrudzien.QuotesAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Asthc Phones";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1049,7 +1137,23 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		E80DAA962DCD433F00AD2C19 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		E86436532C5FA5E20029858F /* DependencyInjection */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DependencyInjection;

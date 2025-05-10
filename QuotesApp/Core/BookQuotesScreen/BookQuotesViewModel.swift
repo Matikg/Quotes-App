@@ -10,7 +10,7 @@ import DependencyInjection
 
 final class BookQuotesViewModel: ObservableObject {
     @Injected private var navigationRouter: any NavigationRouting
-    @Injected private var coreDataManager: CoreDataManagerProtocol
+    @Injected private var coreDataManager: CoreDataManagerInterface
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     
     @Published var quotes = [Domain.QuoteItem]()

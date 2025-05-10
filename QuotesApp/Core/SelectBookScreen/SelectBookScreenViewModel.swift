@@ -9,7 +9,7 @@ import SwiftUI
 import DependencyInjection
 
 final class SelectBookScreenViewModel: ObservableObject {
-    @Injected private var coreDataManager: CoreDataManagerProtocol
+    @Injected private var coreDataManager: CoreDataManagerInterface
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     

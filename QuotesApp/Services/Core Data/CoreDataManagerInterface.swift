@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CoreDataManagerProtocol {
+protocol CoreDataManagerInterface {
     func fetchBooks() -> [BookEntity]
     func fetchBookEntity(for domainBook: Domain.BookItem) -> BookEntity?
     func saveQuote(to book: BookEntity, text: String, category: String, page: Int, note: String, quoteId: UUID?)

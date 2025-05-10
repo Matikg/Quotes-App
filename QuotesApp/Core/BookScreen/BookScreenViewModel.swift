@@ -25,6 +25,7 @@ final class BookScreenViewModel: ObservableObject {
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var apiService: BookApiService
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
+    @Injected private var crashlyticsManager: CrashlyticsManagerInterface
     
     @Published var titleInput = ""
     @Published var authorInput = ""
@@ -83,6 +84,7 @@ final class BookScreenViewModel: ObservableObject {
                                 self.coverImage = .image(data)
                             }
                         } catch {
+                            self.crashlyticsManager.record(error)
                             await MainActor.run {
                                 self.coverImage = .default
                             }
@@ -120,8 +122,12 @@ final class BookScreenViewModel: ObservableObject {
     
     private func searchBooks() {
         Task {
-            let books = try await apiService.fetchBooks(for: titleInput)
-            foundBooks = books.compactMap { Domain.SuggestedBookItem(model: $0) }
+            do {
+                let books = try await apiService.fetchBooks(for: titleInput)
+                foundBooks = books.compactMap { Domain.SuggestedBookItem(model: $0) }
+            } catch {
+                crashlyticsManager.record(error)
+            }
         }
     }
     
