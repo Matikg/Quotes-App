@@ -64,17 +64,14 @@ final class QuoteEditViewModel: ObservableObject {
         guard errors.isEmpty else { return }
         
         guard let page = Int(pageInput) else {
-            crashlyticsManager.log("Invalid page input")
+            crashlyticsManager.log(CrashReason.QuoteEdit.invalidInput)
             return
         }
         guard let selectedBook = saveQuoteRepository.selectedBook else {
-            crashlyticsManager.log("No book selected")
+            crashlyticsManager.log(CrashReason.QuoteEdit.noBookSelected)
             return
         }
-        guard let bookEntity = coreDataManager.fetchBookEntity(for: selectedBook) else {
-            crashlyticsManager.log("Failed to fetch book entity")
-            return
-        }
+        guard let bookEntity = coreDataManager.fetchBookEntity(for: selectedBook) else { return }
         
         coreDataManager.saveQuote(
             to: bookEntity,

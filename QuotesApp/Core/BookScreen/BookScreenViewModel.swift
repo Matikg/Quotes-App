@@ -25,7 +25,6 @@ final class BookScreenViewModel: ObservableObject {
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var apiService: BookApiService
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
-    @Injected private var crashlyticsManager: CrashlyticsManagerInterface
     
     @Published var titleInput = ""
     @Published var authorInput = ""

@@ -24,6 +24,7 @@
 		E80DAA942DCD41DD00AD2C19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E80DAA932DCD41DD00AD2C19 /* GoogleService-Info.plist */; };
 		E80DAA972DCD433F00AD2C19 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = E80DAA962DCD433F00AD2C19 /* FirebaseCrashlytics */; };
 		E80DAA992DCD437400AD2C19 /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA982DCD437400AD2C19 /* CrashlyticsManager.swift */; };
+		E80DAA9C2DD12B1A00AD2C19 /* CrashReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA9B2DD12B1A00AD2C19 /* CrashReason.swift */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
 		E83481702C43E4C300A74FC4 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* ScreenView.swift */; };
 		E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */; };
@@ -113,6 +114,7 @@
 		E80DAA902DBE7C9F00AD2C19 /* QuoteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteItem.swift; sourceTree = "<group>"; };
 		E80DAA932DCD41DD00AD2C19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E80DAA982DCD437400AD2C19 /* CrashlyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
+		E80DAA9B2DD12B1A00AD2C19 /* CrashReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashReason.swift; sourceTree = "<group>"; };
 		E83481692C3FB75D00A74FC4 /* QDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QDivider.swift; sourceTree = "<group>"; };
 		E834816F2C43E4C300A74FC4 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				E80DAA932DCD41DD00AD2C19 /* GoogleService-Info.plist */,
 				E80DAA982DCD437400AD2C19 /* CrashlyticsManager.swift */,
+				E80DAA9B2DD12B1A00AD2C19 /* CrashReason.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				E8A9DF242C56B9F100C9AB6D /* Route.swift in Sources */,
 				E8B21A692CC048F600B589C3 /* CoreDataManager.swift in Sources */,
 				E83481742C45095800A74FC4 /* BookListRowView.swift in Sources */,
+				E80DAA9C2DD12B1A00AD2C19 /* CrashReason.swift in Sources */,
 				E89242D52D6289A600F8A420 /* BookListView.swift in Sources */,
 				E89242CF2D5FB2B800F8A420 /* SelectBookScreenViewModel.swift in Sources */,
 				E8E3CCCA2D8B721A00406F89 /* SwipeableRow.swift in Sources */,
