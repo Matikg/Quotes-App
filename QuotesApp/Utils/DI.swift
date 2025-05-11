@@ -11,10 +11,11 @@ import DependencyInjection
 extension ContainerManager {
     func registerDefaults() {
         let container = container(for: .main)
-        container.register(CoreDataManagerProtocol.self, instance: CoreDataManager())
+        container.register(CoreDataManagerInterface.self, instance: CoreDataManager())
         container.register(BookApiService.self, instance: BookApiService())
         container.register(SaveQuoteRepositoryInterface.self, instance: SaveQuoteRepository())
         container.register(SaveScannedQuoteRepositoryInterface.self, instance: SaveScannedQuoteRepository())
+        container.register(CrashlyticsManagerInterface.self, instance: CrashlyticsManager())
     }
 }
 

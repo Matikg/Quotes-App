@@ -37,6 +37,8 @@ struct LiveScannerView: UIViewControllerRepresentable {
             button.bottomAnchor.constraint(equalTo: scanner.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             button.centerXAnchor.constraint(equalTo: scanner.view.centerXAnchor)
         ])
+        
+        //TODO: ViewModel tutaj
 
         DispatchQueue.main.async {
             do { try scanner.startScanning() }
@@ -49,6 +51,8 @@ struct LiveScannerView: UIViewControllerRepresentable {
 
     class Coordinator: NSObject, DataScannerViewControllerDelegate {
         @Injected private var navigationRouter: any NavigationRouting
+        @Injected private var crashlyticsManager: CrashlyticsManagerInterface
+        
         var parent: LiveScannerView
         var scanner: DataScannerViewController?
 
@@ -67,7 +71,7 @@ struct LiveScannerView: UIViewControllerRepresentable {
                         self?.navigationRouter.push(route: .review(image: uiImage))
                     }
                 } catch {
-                    print("Capture error:", error)
+                    crashlyticsManager.record(error)
                 }
             }
         }

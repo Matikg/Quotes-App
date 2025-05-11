@@ -15,7 +15,7 @@ final class MainScreenViewModel: ObservableObject {
     }
     
     @Injected private var navigationRouter: any NavigationRouting
-    @Injected private var coreDataManager: CoreDataManagerProtocol
+    @Injected private var coreDataManager: CoreDataManagerInterface
     
     @Published var state: BookListState = .empty
     @Published var bookToDelete: Domain.BookItem? 

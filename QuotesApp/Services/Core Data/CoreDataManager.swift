@@ -7,8 +7,11 @@
 
 import Foundation
 import CoreData
+import DependencyInjection
 
-final class CoreDataManager: CoreDataManagerProtocol {
+final class CoreDataManager: CoreDataManagerInterface {
+    @Injected private var crashlyticsManager: CrashlyticsManagerInterface
+    
     private enum Configuration {
         static let containerName = "QuoteDataModel"
     }
@@ -26,8 +29,13 @@ final class CoreDataManager: CoreDataManagerProtocol {
     
     func fetchBooks() -> [BookEntity] {
         let request: NSFetchRequest<BookEntity> = BookEntity.fetchRequest()
-        let fetched = try? viewContext.fetch(request)
-        return fetched ?? []
+        
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            crashlyticsManager.record(error)
+            return []
+        }
     }
     
     func saveQuote(to book: BookEntity, text: String, category: String, page: Int, note: String, quoteId: UUID? = nil) {
@@ -62,7 +70,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
             try viewContext.save()
         } catch {
             viewContext.rollback()
-            print(error.localizedDescription)
+            crashlyticsManager.record(error)
         }
     }
     
@@ -77,7 +85,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
             }
         } catch {
             viewContext.rollback()
-            print(error.localizedDescription)
+            crashlyticsManager.record(error)
         }
     }
     
@@ -92,7 +100,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
             }
         } catch {
             viewContext.rollback()
-            print(error.localizedDescription)
+            crashlyticsManager.record(error)
         }
     }
     
@@ -107,7 +115,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
             try viewContext.save()
         } catch {
             viewContext.rollback()
-            print(error.localizedDescription)
+            crashlyticsManager.record(error)
         }
     }
     
@@ -119,6 +127,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
             let result = try viewContext.fetch(request)
             return result.first
         } catch {
+            crashlyticsManager.record(error)
             return nil
         }
     }
@@ -131,6 +140,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
             let quotes = try viewContext.fetch(request)
             return quotes
         } catch {
+            crashlyticsManager.record(error)
             return []
         }
     }
@@ -144,6 +154,7 @@ final class CoreDataManager: CoreDataManagerProtocol {
             
             return quoteEntity.book
         } catch {
+            crashlyticsManager.record(error)
             return nil
         }
     }

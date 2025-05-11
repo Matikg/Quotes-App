@@ -9,7 +9,7 @@ protocol SaveQuoteRepositoryInterface {
 }
 
 final class SaveQuoteRepository: SaveQuoteRepositoryInterface {
-    @Injected private var coreDataManager: CoreDataManagerProtocol
+    @Injected private var coreDataManager: CoreDataManagerInterface
     
     var selectedBook: Domain.BookItem?
     
