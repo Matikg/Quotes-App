@@ -122,6 +122,7 @@ struct ReviewView: View {
                     .padding()
             }
         }
+        .background(Color.background)
     }
 
     // MARK: - Helpers
