@@ -20,7 +20,6 @@ struct ReviewView: View {
     @State private var isCropVisible: Bool = false
     @State private var cropRect: CGRect = .zero
     @State private var activeHandle: Handle? = nil
-    @State private var showBoxes: Bool = true
 
     enum Handle { case top, bottom, left, right }
     
@@ -45,7 +44,10 @@ struct ReviewView: View {
                                         height: displaySize.height)
 
                 ZStack(alignment: .topLeading) {
-                    imageOverlay(in: displaySize)
+                    Image(uiImage: viewModel.image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: displaySize.width, height: displaySize.height)
                         .offset(x: xOffset, y: yOffset)
 
                     if isCropVisible {
@@ -84,7 +86,6 @@ struct ReviewView: View {
                     if isCropVisible {
                         Button(action: {
                             let region = normalized(rect: cropRect, in: size)
-                            showBoxes = false
                             viewModel.recognizeText(in: region)
                             isCropVisible = false
                         }) {
@@ -99,7 +100,6 @@ struct ReviewView: View {
                 }
                 .onAppear {
                     cropRect = imageFrame
-                    showBoxes = true
                 }
             }
             .frame(height: 400)
@@ -128,7 +128,6 @@ struct ReviewView: View {
 
     private func toggleCrop() {
         isCropVisible.toggle()
-        showBoxes = true
     }
 
     private func normalized(rect: CGRect, in containerSize: CGSize) -> CGRect {
@@ -149,31 +148,6 @@ struct ReviewView: View {
         let h = relativeRect.height / displaySize.height
 
         return CGRect(x: x, y: y, width: w, height: h)
-    }
-
-    @ViewBuilder
-    private func imageOverlay(in displaySize: CGSize) -> some View {
-        ZStack(alignment: .topLeading) {
-            Image(uiImage: viewModel.image)
-                .resizable()
-                .scaledToFit()
-                .frame(width: displaySize.width,
-                       height: displaySize.height)
-
-            if showBoxes {
-                ForEach(viewModel.items) { item in
-                    let box = item.boundingBox
-                    Rectangle()
-                        .stroke(Color.blue, lineWidth: 2)
-                        .frame(width: box.width * displaySize.width,
-                               height: box.height * displaySize.height)
-                        .position(
-                            x: (box.minX + box.width / 2) * displaySize.width,
-                            y: (1 - (box.minY + box.height / 2)) * displaySize.height
-                        )
-                }
-            }
-        }
     }
 }
 

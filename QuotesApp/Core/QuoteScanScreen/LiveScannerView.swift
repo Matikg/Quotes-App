@@ -14,7 +14,7 @@ struct LiveScannerView: UIViewControllerRepresentable {
             isHighFrameRateTrackingEnabled: true,
             isPinchToZoomEnabled: true,
             isGuidanceEnabled: true,
-            isHighlightingEnabled: true
+            isHighlightingEnabled: false
         )
         scanner.delegate = context.coordinator
         context.coordinator.scanner = scanner
