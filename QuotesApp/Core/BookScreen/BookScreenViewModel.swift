@@ -84,7 +84,6 @@ final class BookScreenViewModel: ObservableObject {
                                 self.coverImage = .image(data)
                             }
                         } catch {
-                            self.crashlyticsManager.record(error)
                             await MainActor.run {
                                 self.coverImage = .default
                             }
@@ -122,12 +121,8 @@ final class BookScreenViewModel: ObservableObject {
     
     private func searchBooks() {
         Task {
-            do {
-                let books = try await apiService.fetchBooks(for: titleInput)
-                foundBooks = books.compactMap { Domain.SuggestedBookItem(model: $0) }
-            } catch {
-                crashlyticsManager.record(error)
-            }
+            let books = try await apiService.fetchBooks(for: titleInput)
+            foundBooks = books.compactMap { Domain.SuggestedBookItem(model: $0) }
         }
     }
     

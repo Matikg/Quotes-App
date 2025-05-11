@@ -37,6 +37,8 @@ struct LiveScannerView: UIViewControllerRepresentable {
             button.bottomAnchor.constraint(equalTo: scanner.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             button.centerXAnchor.constraint(equalTo: scanner.view.centerXAnchor)
         ])
+        
+        //TODO: ViewModel tutaj
 
         DispatchQueue.main.async {
             do { try scanner.startScanning() }
