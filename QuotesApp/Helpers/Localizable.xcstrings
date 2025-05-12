@@ -2,7 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "shouldTranslate" : false
     },
     "Author_empty_dialog" : {
       "extractionState" : "manual",
@@ -11,6 +11,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Author name cannot be empty"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pole autor nie może być puste"
           }
         }
       }
@@ -23,6 +29,12 @@
             "state" : "translated",
             "value" : "Author"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autor"
+          }
         }
       }
     },
@@ -33,6 +45,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Back"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wróć"
           }
         }
       }
@@ -45,6 +63,12 @@
             "state" : "translated",
             "value" : "Delete"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usuń"
+          }
         }
       }
     },
@@ -55,6 +79,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Deleting the book will remove all quotes assigned to it."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usunięcie książki spowoduje usunięcie wszystkich przypisanych do niej cytatów."
           }
         }
       }
@@ -67,6 +97,12 @@
             "state" : "translated",
             "value" : "Book cannot be empty"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pole książki nie może być puste"
+          }
         }
       }
     },
@@ -77,6 +113,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Book"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Książka"
           }
         }
       }
@@ -89,6 +131,12 @@
             "state" : "translated",
             "value" : "Book"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Książka"
+          }
         }
       }
     },
@@ -99,6 +147,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Select Book"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybierz Książkę"
           }
         }
       }
@@ -111,6 +165,12 @@
             "state" : "translated",
             "value" : "Add quote"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dodaj cytat"
+          }
         }
       }
     },
@@ -121,6 +181,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Let's go!"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaczynamy!"
           }
         }
       }
@@ -133,6 +199,12 @@
             "state" : "translated",
             "value" : "Cancel"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anuluj"
+          }
         }
       }
     },
@@ -143,6 +215,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You must specify the category"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Musisz podać kategorię"
           }
         }
       }
@@ -155,6 +233,12 @@
             "state" : "translated",
             "value" : "Category"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kategoria"
+          }
         }
       }
     },
@@ -166,11 +250,14 @@
             "state" : "translated",
             "value" : "Create"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utwórz"
+          }
         }
       }
-    },
-    "Done" : {
-
     },
     "Done_button_label" : {
       "extractionState" : "manual",
@@ -179,6 +266,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Done"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gotowe"
           }
         }
       }
@@ -191,11 +284,31 @@
             "state" : "translated",
             "value" : "Edit"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edytuj"
+          }
         }
       }
     },
-    "Find" : {
-
+    "Find_button_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Znajdź"
+          }
+        }
+      }
     },
     "MainScreen_empty_quote" : {
       "extractionState" : "manual",
@@ -204,6 +317,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You don't have any quotes yet"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie masz jeszcze żadnych cytatów"
           }
         }
       }
@@ -216,6 +335,12 @@
             "state" : "translated",
             "value" : "Quotes"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cytaty"
+          }
         }
       }
     },
@@ -226,6 +351,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Personal note"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notatka osobista"
           }
         }
       }
@@ -238,6 +369,12 @@
             "state" : "translated",
             "value" : "Page must be a valid number"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strona musi być liczbą"
+          }
         }
       }
     },
@@ -248,6 +385,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Page"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strona"
           }
         }
       }
@@ -260,6 +403,12 @@
             "state" : "translated",
             "value" : "Quote cannot be empty"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pole cytatu nie może być puste"
+          }
         }
       }
     },
@@ -270,6 +419,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Quote"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cytat"
           }
         }
       }
@@ -282,6 +437,12 @@
             "state" : "translated",
             "value" : "page"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "strona"
+          }
         }
       }
     },
@@ -293,11 +454,14 @@
             "state" : "translated",
             "value" : "Quote"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cytat"
+          }
         }
       }
-    },
-    "Retake" : {
-
     },
     "Retake_button_label" : {
       "extractionState" : "manual",
@@ -306,6 +470,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Retake"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powtórz"
           }
         }
       }
@@ -318,6 +488,12 @@
             "state" : "translated",
             "value" : "Save"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisz"
+          }
         }
       }
     },
@@ -328,6 +504,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan quote"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeskanuj cytat"
           }
         }
       }
@@ -340,6 +522,12 @@
             "state" : "translated",
             "value" : "Title cannot be empty"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tytuł nie może być pusty"
+          }
         }
       }
     },
@@ -350,6 +538,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Title"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tytuł"
           }
         }
       }
@@ -362,6 +556,12 @@
             "state" : "translated",
             "value" : "Ready to start your collection of life-changing ideas?"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gotowy, by zacząć kolekcjonować przełomowe myśli?"
+          }
         }
       }
     },
@@ -372,6 +572,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "QuoteScan turns your camera into a powerful tool for personal development."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QuoteScan zamienia aparat w potężne narzędzie rozwoju osobistego."
           }
         }
       }
@@ -384,6 +590,12 @@
             "state" : "translated",
             "value" : "· Scan and save inspiring quotes"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· Skanuj i zapisuj inspirujące cytaty"
+          }
         }
       }
     },
@@ -394,6 +606,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "· Organize your personal growth journey"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· Organizuj swoją ścieżkę rozwoju"
           }
         }
       }
@@ -406,6 +624,12 @@
             "state" : "translated",
             "value" : "· Transform reading into actionable wisdom"
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· Zamień czytanie w praktyczną mądrość"
+          }
         }
       }
     },
@@ -417,6 +641,12 @@
             "state" : "translated",
             "value" : "Capture wisdom, fuel your growth."
           }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uchwyć mądrość, napędzaj swój rozwój."
+          }
         }
       }
     },
@@ -424,6 +654,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book Quote Saver"
+          }
+        },
+        "pl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Book Quote Saver"
