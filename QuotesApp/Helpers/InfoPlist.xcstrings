@@ -20,12 +20,11 @@
       }
     },
     "NSCameraUsageDescription" : {
-      "comment" : "Privacy - Camera Usage Description",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "The app needs camera access to scan text from books."
           }
         },
