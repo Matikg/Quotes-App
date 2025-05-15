@@ -89,7 +89,7 @@ struct ReviewView: View {
                             viewModel.recognizeText(in: region)
                             isCropVisible = false
                         }) {
-                            Text("Find")
+                            Text("Find_button_label")
                                 .padding(8)
                                 .background(Color.accentColor)
                                 .foregroundColor(.white)
@@ -108,6 +108,7 @@ struct ReviewView: View {
 
             ScrollView {
                 Text(viewModel.items.map(\.string).joined(separator: " "))
+                    .foregroundStyle(Color.accentColor)
                     .padding()
                     .textSelection(.enabled)
             }
@@ -115,10 +116,10 @@ struct ReviewView: View {
 
             Divider()
             HStack {
-                Button("Retake") { viewModel.retakePhoto() }
+                Button("Retake_button_label") { viewModel.retakePhoto() }
                     .padding()
                 Spacer()
-                Button("Done") { viewModel.acceptPhoto() }
+                Button("Done_button_label") { viewModel.acceptPhoto() }
                     .padding()
             }
         }

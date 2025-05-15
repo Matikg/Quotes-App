@@ -25,6 +25,7 @@
 		E80DAA972DCD433F00AD2C19 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = E80DAA962DCD433F00AD2C19 /* FirebaseCrashlytics */; };
 		E80DAA992DCD437400AD2C19 /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA982DCD437400AD2C19 /* CrashlyticsManager.swift */; };
 		E80DAA9C2DD12B1A00AD2C19 /* CrashReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA9B2DD12B1A00AD2C19 /* CrashReason.swift */; };
+		E80DAAA52DD3D04400AD2C19 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E80DAAA42DD3D04400AD2C19 /* InfoPlist.xcstrings */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
 		E83481702C43E4C300A74FC4 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* ScreenView.swift */; };
 		E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */; };
@@ -115,6 +116,7 @@
 		E80DAA932DCD41DD00AD2C19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E80DAA982DCD437400AD2C19 /* CrashlyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
 		E80DAA9B2DD12B1A00AD2C19 /* CrashReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashReason.swift; sourceTree = "<group>"; };
+		E80DAAA42DD3D04400AD2C19 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		E83481692C3FB75D00A74FC4 /* QDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QDivider.swift; sourceTree = "<group>"; };
 		E834816F2C43E4C300A74FC4 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 			children = (
 				E88FF5B82C3F1F7100AEA2BE /* UserDefaultsConstants.swift */,
 				E80DAA8A2DBE79E900AD2C19 /* Localizable.xcstrings */,
+				E80DAAA42DD3D04400AD2C19 /* InfoPlist.xcstrings */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = E88FF5732C35924F00AEA2BE;
 			packageReferences = (
@@ -648,6 +652,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E80DAAA52DD3D04400AD2C19 /* InfoPlist.xcstrings in Resources */,
 				E8D267E32C4EE96F00A19EB6 /* Merriweather-Black.ttf in Resources */,
 				E88FF5872C35925300AEA2BE /* Preview Assets.xcassets in Resources */,
 				E8D267DE2C4EE96E00A19EB6 /* Merriweather-Italic.ttf in Resources */,
@@ -859,6 +864,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -916,6 +922,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
