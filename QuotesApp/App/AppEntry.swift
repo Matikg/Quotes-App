@@ -22,6 +22,7 @@ struct AppEntry: App {
             NavigationStack(path: $navigationRouter.path) {
                 RootScreenView(viewModel: rootScreenViewModel)
                     .navigationDestination(for: Route.self, destination: { $0 })
+                    .sheet(item: $navigationRouter.presentedSheet, content: { $0 })
                     .onAppear {
                         ContainerManager.shared
                             .container(for: .main)

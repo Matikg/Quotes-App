@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RevenueCatUI
 
 enum Route: Hashable, Identifiable, View {
     case quotes(book: Domain.BookItem)
@@ -15,6 +16,7 @@ enum Route: Hashable, Identifiable, View {
     case select
     case scan
     case review(image: UIImage)
+    case paywall
     
     var id: Int { hashValue }
     
@@ -36,6 +38,8 @@ enum Route: Hashable, Identifiable, View {
                 .ignoresSafeArea()
         case let .review(image):
             ReviewView(viewModel: ReviewViewModel(image: image))
+        case .paywall:
+            PaywallView()
         }
     }
 }

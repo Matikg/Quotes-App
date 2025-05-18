@@ -40,7 +40,7 @@ struct MainScreenView: View {
             
             QText("MainScreen_empty_quote", type: .bold, size: .medium)
             
-            QButton(label: "Button_add_quote") {
+            QButton(label: "Button_add_quote", state: viewModel.buttonState) {
                 viewModel.addQuote()
             }
             
@@ -59,7 +59,7 @@ struct MainScreenView: View {
                 viewModel.bookToDelete = book
             }
             
-            QButton(label: "Button_add_quote") {
+            QButton(label: "Button_add_quote", state: viewModel.buttonState) {
                 viewModel.addQuote()
             }
         }

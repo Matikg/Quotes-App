@@ -35,7 +35,7 @@ struct BookQuotesView: View {
             
             Spacer()
             
-            QButton(label: "Button_add_quote") {
+            QButton(label: "Button_add_quote", state: viewModel.buttonState) {
                 viewModel.addQuote()
             }
         }

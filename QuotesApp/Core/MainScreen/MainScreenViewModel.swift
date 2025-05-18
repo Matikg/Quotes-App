@@ -16,14 +16,27 @@ final class MainScreenViewModel: ObservableObject {
     
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var coreDataManager: CoreDataManagerInterface
+    @Injected private var purchaseManager: PurchaseManagerInterface
     
     @Published var state: BookListState = .empty
-    @Published var bookToDelete: Domain.BookItem? 
+    @Published var bookToDelete: Domain.BookItem?
+    @Published var buttonState: QButton.ButtonState = .idle
     
     //MARK: - Methods
     
+    @MainActor
     func addQuote() {
-        navigationRouter.push(route: .edit(existingQuote: nil))
+        Task {
+            buttonState = .loading
+            let canAddQuote = await purchaseManager.checkPremiumAction()
+            buttonState = .idle
+            
+            if canAddQuote {
+                navigationRouter.push(route: .edit(existingQuote: nil))
+            } else {
+                navigationRouter.present(sheet: .paywall)
+            }
+        }
     }
     
     func getBooks() {
