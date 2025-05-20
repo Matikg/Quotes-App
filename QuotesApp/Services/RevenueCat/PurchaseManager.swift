@@ -21,7 +21,9 @@ final class PurchaseManager: PurchaseManagerInterface {
     }
     
     init() {
+        #if DEBUG
         Purchases.logLevel = .debug
+        #endif
         Purchases.configure(withAPIKey: Constants.paywallConfigurationKey)
     }
     
