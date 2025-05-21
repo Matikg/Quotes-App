@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct QButton: View {
+    enum ButtonState {
+        case idle
+        case loading
+    }
+    
     private let label: String
     private let action: () -> Void
+    private let state: ButtonState
     
-    init(label: String, action: @escaping () -> Void) {
+    init(label: String, state: ButtonState = .idle, action: @escaping () -> Void) {
         self.label = label
+        self.state = state
         self.action = action
     }
     
@@ -24,12 +31,19 @@ struct QButton: View {
                     .frame(height: 46)
                     .padding(.horizontal, 100)
                 
-                QText(label, type: .regular, size: .small)
-                    .padding(.horizontal, 16)
-                    .fixedSize(horizontal: true, vertical: false)
+                switch state {
+                case .idle:
+                    QText(label, type: .regular, size: .small)
+                        .padding(.horizontal, 16)
+                        .fixedSize(horizontal: true, vertical: false)
+                case .loading:
+                    ProgressView()
+                        .tint(.accent)
+                }
             }
             .frame(minWidth: 144)
             .padding()
         }
+        .disabled(state == .loading)
     }
 }

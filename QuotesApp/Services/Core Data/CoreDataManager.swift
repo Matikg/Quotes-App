@@ -158,4 +158,16 @@ final class CoreDataManager: CoreDataManagerInterface {
             return nil
         }
     }
+    
+    func fetchAllQuotes() -> [QuoteEntity] {
+        let request = QuoteEntity.fetchRequest()
+        
+        do {
+            let quotes = try viewContext.fetch(request)
+            return quotes
+        } catch {
+            crashlyticsManager.record(error)
+            return []
+        }
+    }
 }

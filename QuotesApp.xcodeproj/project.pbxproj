@@ -26,6 +26,11 @@
 		E80DAA992DCD437400AD2C19 /* CrashlyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA982DCD437400AD2C19 /* CrashlyticsManager.swift */; };
 		E80DAA9C2DD12B1A00AD2C19 /* CrashReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA9B2DD12B1A00AD2C19 /* CrashReason.swift */; };
 		E80DAAA52DD3D04400AD2C19 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E80DAAA42DD3D04400AD2C19 /* InfoPlist.xcstrings */; };
+		E80DAAA82DD950A400AD2C19 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = E80DAAA72DD950A400AD2C19 /* RevenueCat */; };
+		E80DAAAA2DD950A400AD2C19 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = E80DAAA92DD950A400AD2C19 /* RevenueCatUI */; };
+		E80DAAAD2DD9558200AD2C19 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E80DAAAC2DD9558100AD2C19 /* StoreKit.framework */; };
+		E80DAAAF2DD9730A00AD2C19 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAAAE2DD9730A00AD2C19 /* Constants.swift */; };
+		E80DAAB12DD9D1C700AD2C19 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAAB02DD9D1C700AD2C19 /* PurchaseManager.swift */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
 		E83481702C43E4C300A74FC4 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* ScreenView.swift */; };
 		E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */; };
@@ -117,6 +122,9 @@
 		E80DAA982DCD437400AD2C19 /* CrashlyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsManager.swift; sourceTree = "<group>"; };
 		E80DAA9B2DD12B1A00AD2C19 /* CrashReason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashReason.swift; sourceTree = "<group>"; };
 		E80DAAA42DD3D04400AD2C19 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		E80DAAAC2DD9558100AD2C19 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E80DAAAE2DD9730A00AD2C19 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E80DAAB02DD9D1C700AD2C19 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		E83481692C3FB75D00A74FC4 /* QDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QDivider.swift; sourceTree = "<group>"; };
 		E834816F2C43E4C300A74FC4 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
@@ -179,8 +187,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E80DAAA82DD950A400AD2C19 /* RevenueCat in Frameworks */,
 				E80DAA972DCD433F00AD2C19 /* FirebaseCrashlytics in Frameworks */,
 				E86436542C5FA5E20029858F /* DependencyInjection in Frameworks */,
+				E80DAAAD2DD9558200AD2C19 /* StoreKit.framework in Frameworks */,
+				E80DAAAA2DD950A400AD2C19 /* RevenueCatUI in Frameworks */,
 				E86436592C625DEF0029858F /* DependencyInjection in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +254,22 @@
 				E80DAA9B2DD12B1A00AD2C19 /* CrashReason.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		E80DAAAB2DD9558100AD2C19 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E80DAAAC2DD9558100AD2C19 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E80DAAB22DD9E2EE00AD2C19 /* RevenueCat */ = {
+			isa = PBXGroup;
+			children = (
+				E80DAAB02DD9D1C700AD2C19 /* PurchaseManager.swift */,
+			);
+			path = RevenueCat;
 			sourceTree = "<group>";
 		};
 		E86436502C5F9EC50029858F /* App */ = {
@@ -311,6 +338,7 @@
 				E88FF57E2C35924F00AEA2BE /* QuotesApp */,
 				E88FF58F2C35925300AEA2BE /* QuotesAppTests */,
 				E88FF5992C35925300AEA2BE /* QuotesAppUITests */,
+				E80DAAAB2DD9558100AD2C19 /* Frameworks */,
 				E88FF57D2C35924F00AEA2BE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -407,6 +435,7 @@
 				E881708F2D3D2B37003F5207 /* Book Api */,
 				E881708E2D3D2AD1003F5207 /* Core Data */,
 				E80DAA922DCD41B500AD2C19 /* Firebase */,
+				E80DAAB22DD9E2EE00AD2C19 /* RevenueCat */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -434,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				E88FF5B82C3F1F7100AEA2BE /* UserDefaultsConstants.swift */,
+				E80DAAAE2DD9730A00AD2C19 /* Constants.swift */,
 				E80DAA8A2DBE79E900AD2C19 /* Localizable.xcstrings */,
 				E80DAAA42DD3D04400AD2C19 /* InfoPlist.xcstrings */,
 			);
@@ -558,6 +588,8 @@
 				E86436532C5FA5E20029858F /* DependencyInjection */,
 				E86436582C625DEF0029858F /* DependencyInjection */,
 				E80DAA962DCD433F00AD2C19 /* FirebaseCrashlytics */,
+				E80DAAA72DD950A400AD2C19 /* RevenueCat */,
+				E80DAAA92DD950A400AD2C19 /* RevenueCatUI */,
 			);
 			productName = QuotesApp;
 			productReference = E88FF57C2C35924F00AEA2BE /* QuotesApp.app */;
@@ -635,6 +667,7 @@
 			packageReferences = (
 				E86436572C625DEF0029858F /* XCLocalSwiftPackageReference "DependencyInjection" */,
 				E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E80DAAA62DD950A400AD2C19 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
 			);
 			productRefGroup = E88FF57D2C35924F00AEA2BE /* Products */;
 			projectDirPath = "";
@@ -717,6 +750,7 @@
 			files = (
 				E8C90A372D7D0F560048265A /* BookQuotesView.swift in Sources */,
 				E80DAA6E2DBDAC0200AD2C19 /* RecognizedTextItem.swift in Sources */,
+				E80DAAB12DD9D1C700AD2C19 /* PurchaseManager.swift in Sources */,
 				E8E3CCC62D84B5B500406F89 /* QuoteDetailsView.swift in Sources */,
 				E80DAA872DBE1A8400AD2C19 /* SaveScannedQuoteRepository.swift in Sources */,
 				E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */,
@@ -750,6 +784,7 @@
 				E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */,
 				E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */,
 				E80DAA722DBDAC8900AD2C19 /* LiveScannerView.swift in Sources */,
+				E80DAAAF2DD9730A00AD2C19 /* Constants.swift in Sources */,
 				E8C90A392D7D0F920048265A /* BookQuotesViewModel.swift in Sources */,
 				E80DAA742DBDACD700AD2C19 /* ReviewView.swift in Sources */,
 				E8D267D22C4D9E7800A19EB6 /* QText.swift in Sources */,
@@ -1157,6 +1192,14 @@
 				minimumVersion = 11.12.0;
 			};
 		};
+		E80DAAA62DD950A400AD2C19 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.24.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1164,6 +1207,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		E80DAAA72DD950A400AD2C19 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E80DAAA62DD950A400AD2C19 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		E80DAAA92DD950A400AD2C19 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E80DAAA62DD950A400AD2C19 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
 		};
 		E86436532C5FA5E20029858F /* DependencyInjection */ = {
 			isa = XCSwiftPackageProductDependency;
