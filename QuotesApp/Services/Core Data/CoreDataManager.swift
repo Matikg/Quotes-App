@@ -24,7 +24,11 @@ final class CoreDataManager: CoreDataManagerInterface {
     
     init(persistentContainer: NSPersistentCloudKitContainer = .init(name: Configuration.containerName)) {
         self.persistentContainer = persistentContainer
-        persistentContainer.loadPersistentStores { _, _ in }
+        persistentContainer.loadPersistentStores { _, error in
+            if let error {
+                self.crashlyticsManager.record(error)
+            }
+        }
         viewContext.automaticallyMergesChangesFromParent = true
     }
     

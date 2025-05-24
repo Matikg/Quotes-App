@@ -58,6 +58,9 @@ struct MainScreenView: View {
             } onBookDeleted: { book in
                 viewModel.bookToDelete = book
             }
+            .refreshable {
+                viewModel.getBooks()
+            }
             
             QButton(label: "Button_add_quote", state: viewModel.buttonState) {
                 viewModel.addQuote()
