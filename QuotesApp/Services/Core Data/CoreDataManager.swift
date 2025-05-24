@@ -16,15 +16,16 @@ final class CoreDataManager: CoreDataManagerInterface {
         static let containerName = "QuoteDataModel"
     }
     
-    private let persistentContainer: NSPersistentContainer
+    private let persistentContainer: NSPersistentCloudKitContainer
     
     private var viewContext: NSManagedObjectContext {
         persistentContainer.viewContext
     }
     
-    init(persistentContainer: NSPersistentContainer = .init(name: Configuration.containerName)) {
+    init(persistentContainer: NSPersistentCloudKitContainer = .init(name: Configuration.containerName)) {
         self.persistentContainer = persistentContainer
         persistentContainer.loadPersistentStores { _, _ in }
+        viewContext.automaticallyMergesChangesFromParent = true
     }
     
     func fetchBooks() -> [BookEntity] {
