@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23605" systemVersion="24D70" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788" systemVersion="24F74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="BookEntity" representedClassName="BookEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="author" attributeType="String"/>
+        <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="coverImage" optional="YES" attributeType="Binary"/>
-        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="title" attributeType="String"/>
-        <relationship name="quotes" toMany="YES" deletionRule="Cascade" destinationEntity="QuoteEntity" inverseName="book" inverseEntity="QuoteEntity"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="quotes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="QuoteEntity" inverseName="book" inverseEntity="QuoteEntity"/>
     </entity>
     <entity name="QuoteEntity" representedClassName="QuoteEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="category" attributeType="String"/>
-        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="note" optional="YES" attributeType="String"/>
-        <attribute name="page" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="text" attributeType="String"/>
-        <relationship name="book" maxCount="1" deletionRule="Nullify" destinationEntity="BookEntity" inverseName="quotes" inverseEntity="BookEntity"/>
+        <attribute name="page" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BookEntity" inverseName="quotes" inverseEntity="BookEntity"/>
     </entity>
 </model>

@@ -16,7 +16,7 @@ protocol PurchaseManagerInterface {
 final class PurchaseManager: PurchaseManagerInterface {
     @Injected private var coreDataManager: CoreDataManagerInterface
     
-    enum Configuration {
+    private enum Configuration {
         static let quoteLimit = 3
     }
     

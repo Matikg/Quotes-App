@@ -131,6 +131,7 @@
 		E834816F2C43E4C300A74FC4 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
 		E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		E83481732C45095800A74FC4 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
+		E836D5D92DE0FC1C0010393A /* QuotesApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesApp.entitlements; sourceTree = "<group>"; };
 		E87369DF2C9C1EE8000D527C /* QInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QInput.swift; sourceTree = "<group>"; };
 		E88170922D3D2BC6003F5207 /* BookDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDoc.swift; sourceTree = "<group>"; };
 		E88170952D3D735A003F5207 /* Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
@@ -367,6 +368,7 @@
 		E88FF57E2C35924F00AEA2BE /* QuotesApp */ = {
 			isa = PBXGroup;
 			children = (
+				E836D5D92DE0FC1C0010393A /* QuotesApp.entitlements */,
 				E86436502C5F9EC50029858F /* App */,
 				E86436512C5F9F460029858F /* Core */,
 				E88FF5A92C3A875C00AEA2BE /* Models */,
@@ -732,6 +734,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		E80DAA9A2DCD45DF00AD2C19 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -979,6 +982,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuotesApp/QuotesApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -1007,7 +1011,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Book Quote Saver Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1019,6 +1023,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuotesApp/QuotesApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -1046,7 +1051,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Book Quote Saver Dev";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1069,7 +1074,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Book Quote Saver Dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Asthc Phones";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1094,7 +1099,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Book Quote Saver Dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Asthc Phones";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1117,7 +1122,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Book Quote Saver Dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Asthc Phones";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1140,7 +1145,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Asthc Phones";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Book Quote Saver Dev";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Asthc Phones";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
