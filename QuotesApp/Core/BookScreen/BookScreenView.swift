@@ -11,7 +11,7 @@ struct BookScreenView: View {
     @StateObject var viewModel = BookScreenViewModel()
     
     var body: some View {
-        ScreenView {
+        BaseView {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
                     buildBookCover()

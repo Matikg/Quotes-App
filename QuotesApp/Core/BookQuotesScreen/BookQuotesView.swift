@@ -12,7 +12,7 @@ struct BookQuotesView: View {
     @State private var activeRow: UUID? = nil
     
     var body: some View {
-        ScreenView {
+        BaseView {
             ScrollView(showsIndicators: false) {
                 LazyVStack(spacing: 30) {
                     ForEach(viewModel.quotes) { quote in
