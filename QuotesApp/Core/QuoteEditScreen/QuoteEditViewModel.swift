@@ -7,7 +7,6 @@
 
 import Foundation
 import DependencyInjection
-import AVFoundation
 import SwiftUI
 
 final class QuoteEditViewModel: ObservableObject {
