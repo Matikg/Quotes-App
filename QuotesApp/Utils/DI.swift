@@ -17,6 +17,7 @@ extension ContainerManager {
         container.register(SaveScannedQuoteRepositoryInterface.self, instance: SaveScannedQuoteRepository())
         container.register(CrashlyticsManagerInterface.self, instance: CrashlyticsManager())
         container.register(PurchaseManagerInterface.self, instance: PurchaseManager())
+        container.register(CameraAccessManagerInterface.self, instance: CameraAccessManager())
     }
 }
 
