@@ -17,6 +17,7 @@ final class MainScreenViewModel: ObservableObject {
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var coreDataManager: CoreDataManagerInterface
     @Injected private var purchaseManager: PurchaseManagerInterface
+    @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     
     @Published var state: BookListState = .empty
     @Published var bookToDelete: Domain.BookItem?
@@ -46,7 +47,11 @@ final class MainScreenViewModel: ObservableObject {
     }
     
     func selectBook(_ book: Domain.BookItem) {
-        navigationRouter.push(route: .quotes(book: book))
+        saveQuoteRepository.selectBook(book)
+        
+        let route: Route = book.quotesNumber == 0 ? .edit(existingQuote: nil) : .quotes(book: book)
+        
+        navigationRouter.push(route: route)
     }
     
     func deleteBook(_ book: Domain.BookItem) {

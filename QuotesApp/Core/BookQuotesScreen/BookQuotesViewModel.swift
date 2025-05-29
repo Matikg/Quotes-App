@@ -24,6 +24,10 @@ final class BookQuotesViewModel: ObservableObject {
         getQuotes()
     }
     
+    deinit {
+        saveQuoteRepository.resetBook()
+    }
+    
     //MARK: - Methods
     
     func selectQuote(_ quote: Domain.QuoteItem) {
@@ -50,6 +54,9 @@ final class BookQuotesViewModel: ObservableObject {
         coreDataManager.deleteQuote(quote: quote)
         if let index = quotes.firstIndex(where: { $0.id == quote.id }) {
             quotes.remove(at: index)
+        }
+        if quotes.isEmpty {
+            navigationRouter.pop()
         }
     }
     
