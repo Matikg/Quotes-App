@@ -55,7 +55,8 @@ struct BookListRowView: View {
                     coverImage
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 76, height: 100)
+                        .frame(width: 85, height: 135)
+                        .clipped()
                     
                     buildBookInfoView()
                 }
