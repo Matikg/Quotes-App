@@ -11,7 +11,7 @@ struct MainScreenView: View {
     @ObservedObject var viewModel: MainScreenViewModel
     
     var body: some View {
-        ScreenView {
+        BaseView {
             VStack {
                 QText("WelcomeScreen_title", type: .bold, size: .large)
                     .padding(.top, 30)

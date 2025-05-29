@@ -11,7 +11,7 @@ struct SelectBookScreenView: View {
     @StateObject var viewModel = SelectBookScreenViewModel()
     
     var body: some View {
-        ScreenView {
+        BaseView {
             BookListView(books: viewModel.books, showQuotesNumber: false) { book in
                 viewModel.selectBook(book: book)
             } onBookDeleted: { _ in }
