@@ -51,6 +51,9 @@ final class BookQuotesViewModel: ObservableObject {
         if let index = quotes.firstIndex(where: { $0.id == quote.id }) {
             quotes.remove(at: index)
         }
+        if quotes.isEmpty {
+            navigationRouter.pop()
+        }
     }
     
     private func getQuotes() {
