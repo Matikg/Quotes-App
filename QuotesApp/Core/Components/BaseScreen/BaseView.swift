@@ -1,17 +1,13 @@
 import SwiftUI
+import DependencyInjection
 
-struct ScreenView<Content: View>: View {
+struct BaseView<Content: View>: View {
+    @StateObject private var viewModel = BaseViewModel()
+    
     private let backgroundColor = Color.background
     private let content: () -> Content
     private var navbar: AnyView? = nil
     private var navbarTrailing: AnyView? = nil
-    
-    @Environment(\.dismiss) private var dismiss
-    @Environment(\.presentationMode) private var presentationMode
-    
-    private var showBackButton: Bool {
-        presentationMode.wrappedValue.isPresented
-    }
     
     init(
         @ViewBuilder content: @escaping () -> Content
@@ -38,8 +34,8 @@ struct ScreenView<Content: View>: View {
                 if let navbar {
                     ZStack(alignment: .top) {
                         HStack {
-                            if showBackButton {
-                                Button(action: { dismiss() }) {
+                            if viewModel.showBackButton {
+                                Button(action: { viewModel.navigateBack() }) {
                                     HStack(spacing: 2) {
                                         Image(systemName: "chevron.left")
                                             .foregroundColor(.accent)
@@ -74,9 +70,9 @@ struct ScreenView<Content: View>: View {
     }
 }
 
-extension ScreenView {
-    func navBar<NavBar: View>(_ navbar: @escaping () -> NavBar) -> ScreenView {
-        ScreenView(
+extension BaseView {
+    func navBar<NavBar: View>(_ navbar: @escaping () -> NavBar) -> BaseView {
+        BaseView(
             navbar: AnyView(navbar()),
             navbarTrailing: nil,
             content: content
@@ -86,8 +82,8 @@ extension ScreenView {
     func navBar<NavBar: View, NavBarTrailing: View>(
         center navbar: @escaping () -> NavBar,
         trailing navbarTrailing: @escaping () -> NavBarTrailing
-    ) -> ScreenView {
-        ScreenView(
+    ) -> BaseView {
+        BaseView(
             navbar: AnyView(navbar()),
             navbarTrailing: AnyView(navbarTrailing()),
             content: content

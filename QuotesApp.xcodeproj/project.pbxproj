@@ -33,10 +33,11 @@
 		E80DAAAF2DD9730A00AD2C19 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAAAE2DD9730A00AD2C19 /* Constants.swift */; };
 		E80DAAB12DD9D1C700AD2C19 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAAB02DD9D1C700AD2C19 /* PurchaseManager.swift */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
-		E83481702C43E4C300A74FC4 /* ScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* ScreenView.swift */; };
+		E83481702C43E4C300A74FC4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* BaseView.swift */; };
 		E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */; };
 		E83481742C45095800A74FC4 /* BookListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481732C45095800A74FC4 /* BookListRowView.swift */; };
 		E836D5DE2DE795800010393A /* CameraAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836D5DD2DE795800010393A /* CameraAccessManager.swift */; };
+		E836D5DB2DE501F50010393A /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836D5DA2DE501F50010393A /* BaseViewModel.swift */; };
 		E86436542C5FA5E20029858F /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = E86436532C5FA5E20029858F /* DependencyInjection */; };
 		E86436592C625DEF0029858F /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = E86436582C625DEF0029858F /* DependencyInjection */; };
 		E87369E02C9C1EE8000D527C /* QInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87369DF2C9C1EE8000D527C /* QInput.swift */; };
@@ -129,11 +130,12 @@
 		E80DAAAE2DD9730A00AD2C19 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E80DAAB02DD9D1C700AD2C19 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		E83481692C3FB75D00A74FC4 /* QDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QDivider.swift; sourceTree = "<group>"; };
-		E834816F2C43E4C300A74FC4 /* ScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenView.swift; sourceTree = "<group>"; };
+		E834816F2C43E4C300A74FC4 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		E83481732C45095800A74FC4 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
 		E836D5D92DE0FC1C0010393A /* QuotesApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesApp.entitlements; sourceTree = "<group>"; };
 		E836D5DD2DE795800010393A /* CameraAccessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessManager.swift; sourceTree = "<group>"; };
+		E836D5DA2DE501F50010393A /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		E87369DF2C9C1EE8000D527C /* QInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QInput.swift; sourceTree = "<group>"; };
 		E88170922D3D2BC6003F5207 /* BookDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDoc.swift; sourceTree = "<group>"; };
 		E88170952D3D735A003F5207 /* Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
@@ -285,6 +287,15 @@
 			path = RevenueCat;
 			sourceTree = "<group>";
 		};
+		E836D5DC2DE78A050010393A /* BaseScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E834816F2C43E4C300A74FC4 /* BaseView.swift */,
+				E836D5DA2DE501F50010393A /* BaseViewModel.swift */,
+			);
+			path = BaseScreen;
+			sourceTree = "<group>";
+		};
 		E86436502C5F9EC50029858F /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,8 +316,8 @@
 				E89242CB2D5FB1DC00F8A420 /* SelectBookScreen */,
 				E8C90A352D78C61E0048265A /* BookQuotesScreen */,
 				E8E3CCC42D84B57300406F89 /* QuoteDetailsScreen */,
-				E88FF5AA2C3A876700AEA2BE /* Components */,
 				E8E3CCCE2DADADCD00406F89 /* QuoteScanScreen */,
+				E88FF5AA2C3A876700AEA2BE /* Components */,
 				E88FF5AE2C3A880000AEA2BE /* Router */,
 			);
 			path = Core;
@@ -431,7 +442,7 @@
 		E88FF5AA2C3A876700AEA2BE /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E834816F2C43E4C300A74FC4 /* ScreenView.swift */,
+				E836D5DC2DE78A050010393A /* BaseScreen */,
 				E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */,
 				E88170972D3EB497003F5207 /* DefaultBookCover.swift */,
 				E88FF5B52C3E6E5000AEA2BE /* QButton.swift */,
@@ -771,6 +782,7 @@
 				E80DAAB12DD9D1C700AD2C19 /* PurchaseManager.swift in Sources */,
 				E8E3CCC62D84B5B500406F89 /* QuoteDetailsView.swift in Sources */,
 				E80DAA872DBE1A8400AD2C19 /* SaveScannedQuoteRepository.swift in Sources */,
+				E836D5DB2DE501F50010393A /* BaseViewModel.swift in Sources */,
 				E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */,
 				E836D5DE2DE795800010393A /* CameraAccessManager.swift in Sources */,
 				E89242CD2D5FB24B00F8A420 /* SelectBookScreenView.swift in Sources */,
@@ -799,7 +811,7 @@
 				E8E3CCCA2D8B721A00406F89 /* SwipeableRow.swift in Sources */,
 				E8E3CCCD2DA4F8D500406F89 /* UINavigationController+Extensions.swift in Sources */,
 				E8C3555F2CFCD120001F6065 /* BookScreenView.swift in Sources */,
-				E83481702C43E4C300A74FC4 /* ScreenView.swift in Sources */,
+				E83481702C43E4C300A74FC4 /* BaseView.swift in Sources */,
 				E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */,
 				E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */,
 				E80DAA722DBDAC8900AD2C19 /* LiveScannerView.swift in Sources */,
@@ -863,6 +875,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -928,6 +941,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

@@ -11,7 +11,7 @@ struct QuoteEditView: View {
     @ObservedObject var viewModel: QuoteEditViewModel
     
     var body: some View {
-        ScreenView {
+        BaseView {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 30) {
                     ZStack(alignment: .topTrailing) {

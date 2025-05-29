@@ -11,7 +11,7 @@ struct QuoteDetailsView: View {
     @ObservedObject var viewModel: QuoteDetailsViewModel
     
     var body: some View {
-        ScreenView {
+        BaseView {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
                     HStack(alignment: .top) {
