@@ -47,11 +47,12 @@ final class MainScreenViewModel: ObservableObject {
     }
     
     func selectBook(_ book: Domain.BookItem) {
-        saveQuoteRepository.selectBook(book)
-        
-        let route: Route = book.quotesNumber == 0 ? .edit(existingQuote: nil) : .quotes(book: book)
-        
-        navigationRouter.push(route: route)
+        if book.quotesNumber == 0 {
+            saveQuoteRepository.selectBook(book)
+            navigationRouter.push(route: .edit(existingQuote: nil))
+        } else {
+            navigationRouter.push(route: .quotes(book: book))
+        }
     }
     
     func deleteBook(_ book: Domain.BookItem) {

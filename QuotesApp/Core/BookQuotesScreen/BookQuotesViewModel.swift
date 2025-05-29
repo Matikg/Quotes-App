@@ -24,10 +24,6 @@ final class BookQuotesViewModel: ObservableObject {
         getQuotes()
     }
     
-    deinit {
-        saveQuoteRepository.resetBook()
-    }
-    
     //MARK: - Methods
     
     func selectQuote(_ quote: Domain.QuoteItem) {
