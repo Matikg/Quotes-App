@@ -7,6 +7,7 @@
 
 import Foundation
 import DependencyInjection
+import SwiftUI
 
 final class QuoteEditViewModel: ObservableObject {
     enum InputError: String, CaseIterable {
@@ -21,6 +22,7 @@ final class QuoteEditViewModel: ObservableObject {
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     @Injected private var saveScannedQuoteRepository: SaveScannedQuoteRepositoryInterface
     @Injected private var crashlyticsManager: CrashlyticsManagerInterface
+    @Injected private var cameraAccessManager: CameraAccessManagerInterface
     
     @Published var quoteInput = ""
     @Published var categoryInput = ""
@@ -28,6 +30,7 @@ final class QuoteEditViewModel: ObservableObject {
     @Published var noteInput = ""
     @Published var bookButtonLabel = ""
     @Published var errors = [InputError: String]()
+    @Published var showCameraAccessAlert = false
     
     private let quoteId: UUID?
     
@@ -84,13 +87,40 @@ final class QuoteEditViewModel: ObservableObject {
         navigationRouter.popAll()
     }
     
-    func scanQuote() {
-        navigationRouter.push(route: .scan)
+    @MainActor
+    func scanQuote() async {
+        // First time
+        if cameraAccessManager.shouldAskForCameraAccess() {
+            let granted = await cameraAccessManager.checkCameraAccess()
+            if granted == .authorized {
+                navigationRouter.push(route: .scan)
+            }
+            return
+        }
+        
+        //Second time
+        let access = await cameraAccessManager.checkCameraAccess()
+        
+        switch access {
+        case .authorized:
+            navigationRouter.push(route: .scan)
+        case .denied:
+            showCameraAccessAlert = true
+        case .notDetermined:
+            break
+        }
     }
     
     func addBook() {
         let route: Route = coreDataManager.fetchBooks().isEmpty ? .book : .select
         navigationRouter.push(route: route)
+    }
+    
+    func openAppSettings() {
+        if let url = URL(string: UIApplication.openSettingsURLString),
+           UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
     }
     
     private func validate() {

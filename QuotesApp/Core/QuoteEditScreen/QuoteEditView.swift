@@ -16,7 +16,9 @@ struct QuoteEditView: View {
                 VStack(alignment: .leading, spacing: 30) {
                     ZStack(alignment: .topTrailing) {
                         Button {
-                            viewModel.scanQuote()
+                            Task {
+                                await viewModel.scanQuote()
+                            }
                         } label: {
                             HStack {
                                 Image(systemName: "text.viewfinder")
@@ -52,6 +54,15 @@ struct QuoteEditView: View {
                 }
             }
         )
+        .alert("Camera_access_title",
+               isPresented: $viewModel.showCameraAccessAlert) {
+            Button("Cancel", role: .cancel) {}
+            Button("Settings") {
+                viewModel.openAppSettings()
+            }
+        } message: {
+            Text("Camera_access_description")
+        }
     }
     
     //MARK: - View Builders

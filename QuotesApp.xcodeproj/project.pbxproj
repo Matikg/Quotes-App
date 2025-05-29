@@ -36,6 +36,7 @@
 		E83481702C43E4C300A74FC4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* BaseView.swift */; };
 		E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */; };
 		E83481742C45095800A74FC4 /* BookListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481732C45095800A74FC4 /* BookListRowView.swift */; };
+		E836D5DE2DE795800010393A /* CameraAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836D5DD2DE795800010393A /* CameraAccessManager.swift */; };
 		E836D5DB2DE501F50010393A /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836D5DA2DE501F50010393A /* BaseViewModel.swift */; };
 		E86436542C5FA5E20029858F /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = E86436532C5FA5E20029858F /* DependencyInjection */; };
 		E86436592C625DEF0029858F /* DependencyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = E86436582C625DEF0029858F /* DependencyInjection */; };
@@ -133,6 +134,7 @@
 		E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		E83481732C45095800A74FC4 /* BookListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRowView.swift; sourceTree = "<group>"; };
 		E836D5D92DE0FC1C0010393A /* QuotesApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesApp.entitlements; sourceTree = "<group>"; };
+		E836D5DD2DE795800010393A /* CameraAccessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessManager.swift; sourceTree = "<group>"; };
 		E836D5DA2DE501F50010393A /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		E87369DF2C9C1EE8000D527C /* QInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QInput.swift; sourceTree = "<group>"; };
 		E88170922D3D2BC6003F5207 /* BookDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDoc.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				E881708E2D3D2AD1003F5207 /* Core Data */,
 				E80DAA922DCD41B500AD2C19 /* Firebase */,
 				E80DAAB22DD9E2EE00AD2C19 /* RevenueCat */,
+				E836D5DD2DE795800010393A /* CameraAccessManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -781,6 +784,7 @@
 				E80DAA872DBE1A8400AD2C19 /* SaveScannedQuoteRepository.swift in Sources */,
 				E836D5DB2DE501F50010393A /* BaseViewModel.swift in Sources */,
 				E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */,
+				E836D5DE2DE795800010393A /* CameraAccessManager.swift in Sources */,
 				E89242CD2D5FB24B00F8A420 /* SelectBookScreenView.swift in Sources */,
 				E88170982D3EB497003F5207 /* DefaultBookCover.swift in Sources */,
 				E88FF5B92C3F1F7100AEA2BE /* UserDefaultsConstants.swift in Sources */,
