@@ -78,7 +78,7 @@ struct BookListRowView: View {
     private func buildQuotesNumberView() -> some View {
         ZStack {
             Rectangle()
-                .stroke(Color.accentColor, lineWidth: 2)
+                .stroke(.accent, lineWidth: 2)
                 .frame(width: 60, height: 73)
             
             VStack(spacing: 10) {

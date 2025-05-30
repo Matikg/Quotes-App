@@ -91,7 +91,7 @@ struct ReviewView: View {
                         }) {
                             Text("Find_button_label")
                                 .padding(8)
-                                .background(Color.accentColor)
+                                .background(.accent)
                                 .foregroundColor(.white)
                                 .clipShape(Capsule())
                         }
@@ -108,7 +108,7 @@ struct ReviewView: View {
 
             ScrollView {
                 Text(viewModel.items.map(\.string).joined(separator: " "))
-                    .foregroundStyle(Color.accentColor)
+                    .foregroundStyle(.accent)
                     .padding()
                     .textSelection(.enabled)
             }
@@ -161,7 +161,7 @@ struct CropOverlay: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .stroke(Color.accentColor, lineWidth: 2)
+                .stroke(.accent, lineWidth: 2)
                 .frame(width: rect.width, height: rect.height)
                 .position(x: rect.midX, y: rect.midY)
 
