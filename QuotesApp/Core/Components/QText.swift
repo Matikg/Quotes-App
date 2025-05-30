@@ -51,6 +51,6 @@ struct QText: View {
     var body: some View {
         Text(textKey)
             .font(font)
-            .foregroundStyle(.accent)
+            .foregroundStyle(Color.accentColor)
     }
 }
