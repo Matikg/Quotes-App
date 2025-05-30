@@ -37,13 +37,11 @@ struct QuotesListRowView: View {
                     Spacer()
                     
                     QText(quote.category, type: .regular, size: .vsmall)
-                        .accentColor(.black)
                         .padding(5)
-                        .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
+                        .background(Rectangle().stroke(.accent, lineWidth: 1))
                 }
                 
                 QText(quote.text, type: .regular, size: .vsmall)
-                    .accentColor(.black)
                     .lineLimit(3)
                     .lineSpacing(10)
                     .multilineTextAlignment(.leading)

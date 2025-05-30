@@ -77,7 +77,6 @@ struct QuoteEditView: View {
             } label: {
                 HStack {
                     QText(viewModel.bookButtonLabel, type: .regular, size: .vsmall)
-                        .accentColor(.black)
                     Spacer()
                     Image(systemName: "chevron.right")
                         .foregroundStyle(.accent)
@@ -85,7 +84,7 @@ struct QuoteEditView: View {
                 }
                 .frame(height: 38)
                 .padding(.horizontal, 10)
-                .background(Rectangle().stroke(viewModel.errors[.book] == nil ? Color.accentColor : .red, lineWidth: 1))
+                .background(Rectangle().stroke(viewModel.errors[.book] == nil ? .accent : .red, lineWidth: 1))
             }
             if let error = viewModel.errors[.book] {
                 QText(error, type: .regular, size: .vsmall)

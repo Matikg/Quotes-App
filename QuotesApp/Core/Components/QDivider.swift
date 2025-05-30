@@ -10,7 +10,7 @@ import SwiftUI
 struct QDivider: View {
     var body: some View {
         Rectangle()
-            .foregroundStyle(Color.accentColor)
+            .foregroundStyle(.accent)
             .frame(height: 1)
             .padding()
     }
