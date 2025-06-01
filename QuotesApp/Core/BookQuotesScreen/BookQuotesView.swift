@@ -46,6 +46,9 @@ struct BookQuotesView: View {
                 QText(viewModel.book.author, type: .regular, size: .vsmall)
             }
         }
+        .onAppear {
+            viewModel.onAppear()
+        }
     }
 }
 
