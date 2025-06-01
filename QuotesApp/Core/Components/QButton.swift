@@ -27,7 +27,7 @@ struct QButton: View {
         Button(action: action) {
             ZStack {
                 Rectangle()
-                    .stroke(Color.accentColor, lineWidth: 3)
+                    .stroke(.accent, lineWidth: 3)
                     .frame(height: 46)
                     .padding(.horizontal, 100)
                 

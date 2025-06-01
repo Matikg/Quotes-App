@@ -67,14 +67,12 @@ struct QuoteDetailsView: View {
     
     private var quoteCategory: some View {
         QText(viewModel.quote.category, type: .regular, size: .vsmall)
-            .accentColor(.black)
             .padding(5)
-            .background(Rectangle().stroke(Color.accentColor, lineWidth: 1))
+            .background(Rectangle().stroke(.accent, lineWidth: 1))
     }
     
     private var quoteText: some View {
         QText(viewModel.quote.text, type: .regular, size: .vsmall)
-            .accentColor(.black)
             .lineSpacing(10)
             .multilineTextAlignment(.leading)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -103,7 +101,6 @@ struct QuoteDetailsView: View {
                 QText("Note_label", type: .bold, size: .vsmall)
                 
                 QText(viewModel.quote.note, type: .regular, size: .vsmall)
-                    .accentColor(.black)
                     .lineSpacing(10)
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)

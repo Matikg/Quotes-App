@@ -33,19 +33,19 @@ struct QInput: View {
             case .oneLine:
                 TextField("", text: $text)
                     .font(.custom("Merriweather-Regular", size: 12))
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.accent)
                     .frame(height: 38)
                     .padding(.leading, 10)
-                    .background(Rectangle().stroke(error == nil ? Color.accentColor : .red, lineWidth: 1))
+                    .background(Rectangle().stroke(error == nil ? .accent : .red, lineWidth: 1))
                 
             case .multiLine:
                 TextEditor(text: $text)
                     .font(.custom("Merriweather-Regular", size: 12))
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.accent)
                     .frame(height: 162)
                     .scrollContentBackground(.hidden)
                     .padding(.leading, 5)
-                    .background(Rectangle().stroke(error == nil ? Color.accentColor : .red, lineWidth: 1))
+                    .background(Rectangle().stroke(error == nil ? .accent : .red, lineWidth: 1))
             }
             
             if let error {
