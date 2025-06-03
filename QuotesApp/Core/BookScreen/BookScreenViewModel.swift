@@ -20,6 +20,13 @@ final class BookScreenViewModel: ObservableObject {
         case `default`
         case loading
         case image(Data)
+        
+        var imageData: Data? {
+            guard case .image(let data) = self else {
+                return nil
+            }
+            return data
+        }
     }
     
     @Injected private var navigationRouter: any NavigationRouting
@@ -33,15 +40,23 @@ final class BookScreenViewModel: ObservableObject {
     @Published var didSelectSuggestion: Bool = false
     @Published var selectedBook: Domain.SuggestedBookItem?
     @Published var coverImage: CoverImageState = .default
+    @Published var isTitleEditing: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
+        $authorInput
+            .sink { [weak self] _ in
+                self?.selectedBook = nil
+            }
+            .store(in: &cancellables)
+        
         $titleInput
             .debounce(for: .milliseconds(1000), scheduler: RunLoop.main)
             .sink { [weak self] value in
-                guard let self else { return }
+                guard let self, isTitleEditing else { return }
                 
+                selectedBook = nil
                 guard !value.isEmpty else {
                     foundBooks = []
                     didSelectSuggestion = false
@@ -54,48 +69,13 @@ final class BookScreenViewModel: ObservableObject {
                 searchBooks()
             }
             .store(in: &cancellables)
-        
-        $selectedBook
-            .sink { [weak self] selectedBook in
-                guard let self else { return }
-                
-                guard let book = selectedBook else {
-                    coverImage = .default
-                    return
-                }
-                
-                if let data = book.coverImageData {
-                    coverImage = .image(data)
-                    return
-                }
-                
-                switch book.cover {
-                case .remote(let url):
-                    coverImage = .loading
-                    
-                    Task {
-                        do {
-                            let data = try await self.apiService.fetchBookCover(from: url)
-                            await MainActor.run {
-                                var updatedBook = book
-                                updatedBook.coverImageData = data
-                                self.selectedBook = updatedBook
-                                self.coverImage = .image(data)
-                            }
-                        } catch {
-                            await MainActor.run {
-                                self.coverImage = .default
-                            }
-                        }
-                    }
-                case .default:
-                    coverImage = .default
-                }
-            }
-            .store(in: &cancellables)
     }
     
     //MARK: - Methods
+    
+    func resetCover() {
+        coverImage = .default
+    }
     
     func selectBook(_ book: Domain.SuggestedBookItem) {
         didSelectSuggestion = true
@@ -103,14 +83,57 @@ final class BookScreenViewModel: ObservableObject {
         authorInput = book.author
         selectedBook = book
         foundBooks = []
+        
+        guard let book = selectedBook else {
+            coverImage = .default
+            return
+        }
+        
+        if let data = book.coverImageData {
+            coverImage = .image(data)
+            return
+        }
+        
+        switch book.cover {
+        case .remote(let url):
+            coverImage = .loading
+            
+            Task {
+                do {
+                    let data = try await self.apiService.fetchBookCover(from: url)
+                    await MainActor.run {
+                        var updatedBook = book
+                        updatedBook.coverImageData = data
+                        self.selectedBook = updatedBook
+                        self.coverImage = .image(data)
+                    }
+                } catch {
+                    await MainActor.run {
+                        self.coverImage = .default
+                    }
+                }
+            }
+        case .default:
+            coverImage = .default
+        }
     }
     
     func saveBook() {
         validate()
         
         guard errors.isEmpty else { return }
-        
-        let book = selectedBook.map(Domain.BookItem.init) ?? Domain.BookItem(from: Domain.SuggestedBookItem(title: titleInput, author: authorInput, cover: .default))
+
+        let id = selectedBook?.id ?? UUID()
+        let title = selectedBook?.title ?? titleInput
+        let author = selectedBook?.author ?? authorInput
+        let coverData = selectedBook?.coverImageData ?? coverImage.imageData
+        let book = Domain.BookItem(
+            id: id,
+            title: title,
+            author: author,
+            quotesNumber: 0,
+            coverImageData: coverData
+        )
         
         saveQuoteRepository.selectBook(book)
         saveQuoteRepository.saveBook(book)

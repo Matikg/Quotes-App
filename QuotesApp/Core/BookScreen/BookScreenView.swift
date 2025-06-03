@@ -18,8 +18,14 @@ struct BookScreenView: View {
                     
                     VStack(alignment: .leading, spacing: 30) {
                         VStack(spacing: 0) {
-                            QInput(label: "Title_label", text: $viewModel.titleInput, type: .oneLine, error: viewModel.errors[.title])
-                                .autocorrectionDisabled()
+                            QInput(
+                                label: "Title_label",
+                                text: $viewModel.titleInput,
+                                type: .oneLine,
+                                error: viewModel.errors[.title]
+                            )
+                            .editing($viewModel.isTitleEditing)
+                            .autocorrectionDisabled()
                             
                             buildBookHint()
                         }
@@ -56,10 +62,25 @@ struct BookScreenView: View {
                 .frame(width: 124, height: 169)
         case .image(let data):
             if let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 124, height: 169)
+                ZStack(alignment: .topTrailing) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 124, height: 169)
+                    
+                    Button(action: {
+                        viewModel.resetCover()
+                    }) {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 12, weight: .bold))
+                            .foregroundColor(.accent)
+                            .padding(4)
+                            .background(Color.background)
+                            .clipShape(Circle())
+                            .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
+                    }
+                    .offset(x: 0, y: -8)
+                }
             } else {
                 DefaultBookCover()
             }
