@@ -21,7 +21,6 @@ final class BookQuotesViewModel: ObservableObject {
     
     init(book: Domain.BookItem) {
         self.book = book
-        getQuotes()
     }
     
     //MARK: - Methods
@@ -54,6 +53,10 @@ final class BookQuotesViewModel: ObservableObject {
         if quotes.isEmpty {
             navigationRouter.pop()
         }
+    }
+    
+    func onAppear() {
+        getQuotes()
     }
     
     private func getQuotes() {

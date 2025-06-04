@@ -84,7 +84,9 @@ final class QuoteEditViewModel: ObservableObject {
             note: noteInput,
             quoteId: quoteId
         )
+        
         navigationRouter.popAll()
+        navigationRouter.push(route: .quotes(book: selectedBook))
     }
     
     @MainActor
