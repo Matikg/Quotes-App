@@ -17,4 +17,5 @@ protocol CoreDataManagerInterface {
     func fetchQuotes(for selectedBook: Domain.BookItem) -> [QuoteEntity]
     func fetchBook(for quote: Domain.QuoteItem) -> BookEntity?
     func fetchAllQuotes() -> [QuoteEntity]
+    func fetchCategories() -> [String]
 }

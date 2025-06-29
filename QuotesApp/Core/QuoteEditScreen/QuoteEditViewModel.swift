@@ -8,6 +8,7 @@
 import Foundation
 import DependencyInjection
 import SwiftUI
+import Combine
 
 final class QuoteEditViewModel: ObservableObject {
     enum InputError: String, CaseIterable {
@@ -31,8 +32,12 @@ final class QuoteEditViewModel: ObservableObject {
     @Published var bookButtonLabel = ""
     @Published var errors = [InputError: String]()
     @Published var showCameraAccessAlert = false
+    @Published var categoriesHint: [String] = []
+    @Published var isCategoriesInputActive = false
     
     private let quoteId: UUID?
+    private var categories: [String] = []
+    private var cancellables = Set<AnyCancellable>()
     
     init(existingQuote: Domain.QuoteItem? = nil) {
         self.quoteInput = existingQuote?.text ?? ""
@@ -42,6 +47,8 @@ final class QuoteEditViewModel: ObservableObject {
         if let page = existingQuote?.page {
             self.pageInput = String(page)
         }
+        categories = coreDataManager.fetchCategories()
+        observeCategory()
     }
     
     deinit {
@@ -87,6 +94,11 @@ final class QuoteEditViewModel: ObservableObject {
         
         navigationRouter.popAll()
         navigationRouter.push(route: .quotes(book: selectedBook))
+    }
+    
+    func selectCategory(_ category: String) {
+        categoryInput = category
+        categoriesHint = []
     }
     
     @MainActor
@@ -141,4 +153,31 @@ final class QuoteEditViewModel: ObservableObject {
             errors[.book] = InputError.book.rawValue
         }
     }
+    
+    private func observeCategory() {
+        Publishers
+            .CombineLatest(
+                $categoryInput
+                    .debounce(for: .milliseconds(150), scheduler: RunLoop.main)
+                    .removeDuplicates(),
+                
+                $isCategoriesInputActive
+                    .removeDuplicates()
+            )
+            .map { [categories] input, isActive -> [String] in
+                guard isActive else { return [] }
+                let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                guard !trimmed.isEmpty else { return categories }
+                return categories.filter {
+                    $0.localizedCaseInsensitiveContains(trimmed)
+                }
+            }
+            .receive(on: RunLoop.main)
+            .sink { [weak self] hints in
+                self?.categoriesHint = hints
+            }
+            .store(in: &cancellables)
+    }
+
 }

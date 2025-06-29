@@ -175,4 +175,9 @@ final class CoreDataManager: CoreDataManagerInterface {
             return []
         }
     }
+    
+    func fetchCategories() -> [String] {
+        let allQuotes = fetchAllQuotes()
+        return Array(Set(allQuotes.compactMap(\.category)))
+    }
 }
