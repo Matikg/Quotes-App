@@ -26,17 +26,38 @@ struct QuoteEditView: View {
                             }
                         }
                         
-                        QInput(label: "Quote_label", text: $viewModel.quoteInput, type: .multiLine, error: viewModel.errors[.quote])
+                        QInput(
+                            label: "Quote_label",
+                            text: $viewModel.quoteInput,
+                            type: .multiLine,
+                            error: viewModel.errors[.quote]
+                        )
                     }
                     
-                    buildBookButton()
+                    bookButton
                     
-                    QInput(label: "Category_label", text: $viewModel.categoryInput, type: .oneLine, error: viewModel.errors[.category])
+                    VStack(spacing: 0) {
+                        QInput(
+                            label: "Category_label",
+                            text: $viewModel.categoryInput,
+                            type: .oneLine,
+                            error: viewModel.errors[.category]
+                        ).editing($viewModel.isCategoriesInputActive)
+                        categoryHintScrollView
+                    }
                     
-                    QInput(label: "Page_label", text: $viewModel.pageInput, type: .oneLine, error: viewModel.errors[.page])
-                        .keyboardType(.numberPad)
+                    QInput(
+                        label: "Page_label",
+                        text: $viewModel.pageInput,
+                        type: .oneLine,
+                        error: viewModel.errors[.page]
+                    ).keyboardType(.numberPad)
                     
-                    QInput(label: "Note_label", text: $viewModel.noteInput, type: .multiLine)
+                    QInput(
+                        label: "Note_label",
+                        text: $viewModel.noteInput,
+                        type: .multiLine
+                    )
                 }
                 .padding()
             }
@@ -63,12 +84,37 @@ struct QuoteEditView: View {
         } message: {
             Text("Camera_access_description")
         }
+        .onAppear {
+            viewModel.onAppear()
+        }
     }
     
     //MARK: - View Builders
     
     @ViewBuilder
-    private func buildBookButton() -> some View {
+    private var categoryHintScrollView: some View {
+        if viewModel.categoriesHint.isEmpty { EmptyView() } else {
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 0) {
+                    ForEach(viewModel.categoriesHint, id: \.self) { category in
+                        QText(category, type: .bold, size: .vsmall)
+                            .padding(.horizontal, 20)
+                            .frame(height: 38)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(.hint)
+                            .lineLimit(1)
+                            .onTapGesture {
+                                viewModel.selectCategory(category)
+                            }
+                    }
+                }
+            }
+            .frame(maxHeight: 76)
+        }
+    }
+    
+    @ViewBuilder
+    private var bookButton: some View {
         VStack(alignment: .leading) {
             QText("Book_label", type: .bold, size: .vsmall)
             
@@ -91,12 +137,5 @@ struct QuoteEditView: View {
                     .accentColor(.red)
             }
         }
-        .onAppear {
-            viewModel.onAppear()
-        }
     }
 }
-
-//#Preview {
-//    QuoteEditView()
-//}
