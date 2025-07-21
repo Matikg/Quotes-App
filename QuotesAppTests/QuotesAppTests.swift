@@ -1,10 +1,3 @@
-//
-//  QuotesAppTests.swift
-//  QuotesAppTests
-//
-//  Created by Mateusz Grudzień on 03/07/2024.
-//
-
 import XCTest
 @testable import QuotesApp
 
