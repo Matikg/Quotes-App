@@ -69,6 +69,7 @@ final class QuoteEditViewModel: ObservableObject {
     }
     
     func saveQuote() {
+        trimAllInputs()
         validate()
         
         guard errors.isEmpty else { return }
@@ -179,5 +180,12 @@ final class QuoteEditViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-
+    
+    private func trimAllInputs() {
+        let set = CharacterSet.whitespacesAndNewlines
+        quoteInput = quoteInput.trimmingCharacters(in: set)
+        categoryInput = categoryInput.trimmingCharacters(in: set)
+        noteInput = noteInput.trimmingCharacters(in: set)
+        pageInput = pageInput.trimmingCharacters(in: set)
+    }
 }
