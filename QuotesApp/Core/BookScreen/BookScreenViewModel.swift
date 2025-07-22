@@ -119,6 +119,7 @@ final class BookScreenViewModel: ObservableObject {
     }
     
     func saveBook() {
+        trimAllInputs()
         validate()
         
         guard errors.isEmpty else { return }
@@ -157,5 +158,11 @@ final class BookScreenViewModel: ObservableObject {
         if authorInput.isEmpty {
             errors[.author] = InputError.author.rawValue
         }
+    }
+    
+    private func trimAllInputs() {
+        let set = CharacterSet.whitespacesAndNewlines
+        titleInput = titleInput.trimmingCharacters(in: set)
+        authorInput = authorInput.trimmingCharacters(in: set)
     }
 }

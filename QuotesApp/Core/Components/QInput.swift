@@ -54,8 +54,12 @@ struct QInput: View {
                 .frame(height: 38)
                 .padding(.leading, 10)
                 .background(Rectangle().stroke(error == nil ? .accent : .red, lineWidth: 1))
-                .onSubmit {
-                    isEditing = false
+                .focused($isFocused)
+                .onChange(of: isFocused) {
+                    isEditing = isFocused
+                    if !isFocused {
+                        text = text.trimmingCharacters(in: .whitespacesAndNewlines)
+                    }
                 }
                 
             case .multiLine:
@@ -69,6 +73,9 @@ struct QInput: View {
                     .focused($isFocused)
                     .onChange(of: isFocused) {
                         isEditing = isFocused
+                        if !isFocused {
+                            text = text.trimmingCharacters(in: .whitespacesAndNewlines)
+                        }
                     }
             }
             
