@@ -39,7 +39,7 @@ final class QuoteEditViewModel: ObservableObject {
     private let quoteId: UUID?
     private var categories: [String] = []
     private var cancellables = Set<AnyCancellable>()
-    private let maxPageNumber = 2000
+    private let maxPageNumber = 5000
     
     init(existingQuote: Domain.QuoteItem? = nil) {
         self.quoteInput = existingQuote?.text ?? ""
@@ -142,23 +142,28 @@ final class QuoteEditViewModel: ObservableObject {
     private func validate() {
         errors.removeAll()
         
+        validatePage(input: pageInput, maxPage: maxPageNumber)
+        
         if quoteInput.isEmpty {
             errors[.quote] = InputError.quote.rawValue
-        }
-        if pageInput.isEmpty {
-            errors[.page] = InputError.page.rawValue
-        } else if let page = Int(pageInput) {
-            if page < 1 || page > maxPageNumber {
-                errors[.page] = InputError.pageRange.rawValue
-            }
-        } else {
-            errors[.page] = InputError.page.rawValue
         }
         if categoryInput.isEmpty {
             errors[.category] = InputError.category.rawValue
         }
         if saveQuoteRepository.selectedBook == nil {
             errors[.book] = InputError.book.rawValue
+        }
+    }
+    
+    private func validatePage(input page: String, maxPage: Int) {
+        guard !pageInput.isEmpty, let page = Int(pageInput) else {
+            errors[.page] = InputError.page.rawValue
+            return
+        }
+        
+        guard (1...maxPage).contains(page) else {
+            errors[.page] = InputError.pageRange.rawValue
+            return
         }
     }
     

@@ -418,13 +418,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Page number is out of range"
+            "value" : "Page"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Numer strony jest poza zakresem"
+            "value" : "Strona"
           }
         }
       }
@@ -435,13 +435,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wrong range"
+            "value" : "Page number is out of range"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zly przedzial"
+            "value" : "Numer strony jest poza zakresem"
           }
         }
       }
