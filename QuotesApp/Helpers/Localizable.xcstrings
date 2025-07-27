@@ -418,13 +418,30 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Page"
+            "value" : "Page number is out of range"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Strona"
+            "value" : "Numer strony jest poza zakresem"
+          }
+        }
+      }
+    },
+    "Page_range_dialog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wrong range"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zly przedzial"
           }
         }
       }
@@ -551,6 +568,12 @@
     "Settings" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",

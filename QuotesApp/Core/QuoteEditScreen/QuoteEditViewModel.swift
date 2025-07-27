@@ -14,6 +14,7 @@ final class QuoteEditViewModel: ObservableObject {
     enum InputError: String, CaseIterable {
         case quote = "Quote_empty_dialog"
         case page = "Page_empty_dialog"
+        case pageRange = "Page_range_dialog"
         case category = "Category_empty_dialog"
         case book = "Book_empty_dialog"
     }
@@ -38,6 +39,7 @@ final class QuoteEditViewModel: ObservableObject {
     private let quoteId: UUID?
     private var categories: [String] = []
     private var cancellables = Set<AnyCancellable>()
+    private let maxPageNumber = 2000
     
     init(existingQuote: Domain.QuoteItem? = nil) {
         self.quoteInput = existingQuote?.text ?? ""
@@ -143,7 +145,13 @@ final class QuoteEditViewModel: ObservableObject {
         if quoteInput.isEmpty {
             errors[.quote] = InputError.quote.rawValue
         }
-        if pageInput.isEmpty || Int(pageInput) == nil {
+        if pageInput.isEmpty {
+            errors[.page] = InputError.page.rawValue
+        } else if let page = Int(pageInput) {
+            if page < 1 || page > maxPageNumber {
+                errors[.page] = InputError.pageRange.rawValue
+            }
+        } else {
             errors[.page] = InputError.page.rawValue
         }
         if categoryInput.isEmpty {
@@ -179,5 +187,4 @@ final class QuoteEditViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-
 }
