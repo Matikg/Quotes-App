@@ -429,6 +429,23 @@
         }
       }
     },
+    "Page_range_dialog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page number is out of range"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numer strony jest poza zakresem"
+          }
+        }
+      }
+    },
     "Quote_empty_dialog" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -551,6 +568,12 @@
     "Settings" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
