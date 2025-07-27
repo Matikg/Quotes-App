@@ -12,13 +12,22 @@ final class SelectBookScreenViewModel: ObservableObject {
     @Injected private var coreDataManager: CoreDataManagerInterface
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
+    @Injected private var purchaseManager: PurchaseManagerInterface
     
     @Published var books = [Domain.BookItem]()
     
     //MARK: - Methods
     
+    @MainActor
     func createBook() {
-        navigationRouter.push(route: .book)
+        Task {
+            let canAddQuote = await purchaseManager.checkPremiumAction()
+            if canAddQuote {
+                navigationRouter.push(route: .book)
+            } else {
+                navigationRouter.present(sheet: .paywall)
+            }
+        }
     }
     
     func selectBook(book: Domain.BookItem) {
