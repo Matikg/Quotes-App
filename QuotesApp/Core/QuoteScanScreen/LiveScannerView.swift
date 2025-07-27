@@ -5,7 +5,7 @@ import DependencyInjection
 
 struct LiveScannerView: UIViewControllerRepresentable {
     func makeCoordinator() -> Coordinator { Coordinator(self) }
-
+    
     func makeUIViewController(context: Context) -> DataScannerViewController {
         let scanner = DataScannerViewController(
             recognizedDataTypes: [.text()],
@@ -18,7 +18,7 @@ struct LiveScannerView: UIViewControllerRepresentable {
         )
         scanner.delegate = context.coordinator
         context.coordinator.scanner = scanner
-
+        
         // Capture button
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "camera.fill"), for: .normal)
@@ -39,30 +39,39 @@ struct LiveScannerView: UIViewControllerRepresentable {
         ])
         
         //TODO: ViewModel tutaj
-
+        
         DispatchQueue.main.async {
             do { try scanner.startScanning() }
             catch { print("Scanner start error:", error) }
         }
         return scanner
     }
-
+    
     func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {}
-
+    
     class Coordinator: NSObject, DataScannerViewControllerDelegate {
         @Injected private var navigationRouter: any NavigationRouting
         @Injected private var crashlyticsManager: CrashlyticsManagerInterface
         
         var parent: LiveScannerView
         var scanner: DataScannerViewController?
-
+        private var isCapturingPhoto = false
+        
         init(_ parent: LiveScannerView) {
             self.parent = parent
         }
-
+        
         @objc func didTapCapture() {
-            guard let scanner else { return }
+            guard !isCapturingPhoto, let scanner else { return }
+            isCapturingPhoto = true
+            
             Task {
+                defer {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.isCapturingPhoto = false
+                    }
+                }
+                
                 do {
                     let photo = try await scanner.capturePhoto()
                     scanner.stopScanning()
@@ -75,7 +84,7 @@ struct LiveScannerView: UIViewControllerRepresentable {
                 }
             }
         }
-
+        
         private func uprightImage(_ image: UIImage) -> UIImage {
             UIGraphicsBeginImageContextWithOptions(image.size, true, image.scale)
             image.draw(in: CGRect(origin: .zero, size: image.size))
