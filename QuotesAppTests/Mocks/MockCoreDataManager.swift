@@ -3,11 +3,13 @@ import Foundation
 
 final class MockCoreDataManager: CoreDataManagerInterface {
     private(set) var fetchBooksCalled = false
+    private(set) var fetchBooksCallsCount = 0
     
     var booksToReturn: [BookEntity] = []
     
     func fetchBooks() -> [BookEntity] {
         fetchBooksCalled = true
+        fetchBooksCallsCount += 1
         return booksToReturn
     }
     

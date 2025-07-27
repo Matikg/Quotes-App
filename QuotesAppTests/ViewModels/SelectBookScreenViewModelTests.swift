@@ -3,12 +3,10 @@ import DependencyInjection
 @testable import QuotesApp
 
 final class SelectBookScreenViewModelTests: XCTestCase {
-    // our mocks:
     private var mockCoreDataManager: MockCoreDataManager!
     private var mockNavigationRouter: MockNavigationRouter!
     private var mockSaveQuoteRepo: MockSaveQuoteRepository!
     
-    // System under test
     private var sut: SelectBookScreenViewModel!
     
     override func setUp() {
@@ -59,7 +57,6 @@ final class SelectBookScreenViewModelTests: XCTestCase {
         
         // Then
         XCTAssertEqual(mockSaveQuoteRepo.selectBookCalledWith, dummyBook)
-        XCTAssertTrue(mockNavigationRouter.popCalled)
         XCTAssertEqual(mockNavigationRouter.popCallCount, 1)
     }
     
@@ -86,7 +83,7 @@ final class SelectBookScreenViewModelTests: XCTestCase {
         sut.onAppear()
         
         // Then
-        XCTAssertTrue(mockCoreDataManager.fetchBooksCalled)
+        XCTAssertEqual(mockCoreDataManager.fetchBooksCallsCount, 1)
         XCTAssertEqual(sut.books.count, 2)
         
         let expected = [book1, book2].compactMap(Domain.BookItem.init)
