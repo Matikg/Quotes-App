@@ -24,6 +24,7 @@ final class QuoteEditViewModel: ObservableObject {
     @Injected private var saveScannedQuoteRepository: SaveScannedQuoteRepositoryInterface
     @Injected private var crashlyticsManager: CrashlyticsManagerInterface
     @Injected private var cameraAccessManager: CameraAccessManagerInterface
+    @Injected private var purchaseManager: PurchaseManagerInterface
     
     @Published var quoteInput = ""
     @Published var categoryInput = ""
@@ -58,47 +59,16 @@ final class QuoteEditViewModel: ObservableObject {
     
     //MARK: - Methods
     
-    func onAppear() {
-        if let savedBook = saveQuoteRepository.selectedBook {
-            bookButtonLabel = "\(savedBook.title), \(savedBook.author)"
-        }
-        
-        if let scannedQuote = saveScannedQuoteRepository.scannedQuote {
-            quoteInput = scannedQuote
-        }
-    }
-    
+    @MainActor
     func saveQuote() {
-        validate()
-        
-        guard errors.isEmpty else { return }
-        
-        guard let page = Int(pageInput) else {
-            crashlyticsManager.log(CrashReason.QuoteEdit.invalidInput)
-            return
+        Task {
+            let canAddQuote = await purchaseManager.checkPremiumAction()
+            if canAddQuote {
+                performSave()
+            } else {
+                navigationRouter.present(sheet: .paywall)
+            }
         }
-        guard let selectedBook = saveQuoteRepository.selectedBook else {
-            crashlyticsManager.log(CrashReason.QuoteEdit.noBookSelected)
-            return
-        }
-        guard let bookEntity = coreDataManager.fetchBookEntity(for: selectedBook) else { return }
-        
-        coreDataManager.saveQuote(
-            to: bookEntity,
-            text: quoteInput,
-            category: categoryInput,
-            page: page,
-            note: noteInput,
-            quoteId: quoteId
-        )
-        
-        navigationRouter.popAll()
-        navigationRouter.push(route: .quotes(book: selectedBook))
-    }
-    
-    func selectCategory(_ category: String) {
-        categoryInput = category
-        categoriesHint = []
     }
     
     @MainActor
@@ -125,6 +95,21 @@ final class QuoteEditViewModel: ObservableObject {
         }
     }
     
+    func onAppear() {
+        if let savedBook = saveQuoteRepository.selectedBook {
+            bookButtonLabel = "\(savedBook.title), \(savedBook.author)"
+        }
+        
+        if let scannedQuote = saveScannedQuoteRepository.scannedQuote {
+            quoteInput = scannedQuote
+        }
+    }
+    
+    func selectCategory(_ category: String) {
+        categoryInput = category
+        categoriesHint = []
+    }
+    
     func addBook() {
         let route: Route = coreDataManager.fetchBooks().isEmpty ? .book : .select
         navigationRouter.push(route: route)
@@ -135,6 +120,33 @@ final class QuoteEditViewModel: ObservableObject {
            UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }
+    }
+    
+    private func performSave() {
+        validate()
+        
+        guard errors.isEmpty else { return }
+        
+        guard let page = Int(pageInput) else {
+            crashlyticsManager.log(CrashReason.QuoteEdit.invalidInput)
+            return
+        }
+        guard let selectedBook = saveQuoteRepository.selectedBook else {
+            crashlyticsManager.log(CrashReason.QuoteEdit.noBookSelected)
+            return
+        }
+        guard let bookEntity = coreDataManager.fetchBookEntity(for: selectedBook) else { return }
+        
+        coreDataManager.saveQuote(
+            to: bookEntity,
+            text: quoteInput,
+            category: categoryInput,
+            page: page,
+            note: noteInput,
+            quoteId: quoteId
+        )
+        navigationRouter.popAll()
+        navigationRouter.push(route: .quotes(book: selectedBook))
     }
     
     private func validate() {
@@ -179,5 +191,4 @@ final class QuoteEditViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-
 }

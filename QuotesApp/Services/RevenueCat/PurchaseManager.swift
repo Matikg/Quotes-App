@@ -18,6 +18,7 @@ final class PurchaseManager: PurchaseManagerInterface {
     
     private enum Configuration {
         static let quoteLimit = 3
+        static let bookLimit = 3
     }
     
     init() {
@@ -30,8 +31,10 @@ final class PurchaseManager: PurchaseManagerInterface {
     func checkPremiumAction() async -> Bool {
         let hasPremium = await checkFullAccess()
         let quotesCount = coreDataManager.fetchAllQuotes().count
+        let booksCount = coreDataManager.fetchBooks().count
         
         return hasPremium || quotesCount < Configuration.quoteLimit
+        && booksCount < Configuration.bookLimit
     }
     
     private func checkFullAccess() async -> Bool {
