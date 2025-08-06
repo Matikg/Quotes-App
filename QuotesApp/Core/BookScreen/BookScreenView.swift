@@ -22,6 +22,7 @@ struct BookScreenView: View {
                                 label: "Title_label",
                                 text: $viewModel.titleInput,
                                 type: .oneLine,
+                                isLoading: viewModel.isSearching,
                                 error: viewModel.errors[.title]
                             )
                             .editing($viewModel.isTitleEditing)
@@ -105,8 +106,4 @@ struct BookScreenView: View {
             }
         }
     }
-}
-
-#Preview {
-    BookScreenView()
 }
