@@ -23,15 +23,23 @@ struct QInput: View {
     @Binding private var text: String
     private let label: String
     private let inputType: InputType
+    private let isLoading: Bool
     private let error: String?
     
     @FocusState private var isFocused: Bool
     @State private var isEditing: Bool = false
     
-    init(label: String, text: Binding<String>, type: InputType, error: String? = nil) {
+    init(
+        label: String,
+        text: Binding<String>,
+        type: InputType,
+        isLoading: Bool = false,
+        error: String? = nil
+    ) {
         self.label = label
         self._text = text
         self.inputType = type
+        self.isLoading = isLoading
         self.error = error
     }
     
@@ -41,22 +49,28 @@ struct QInput: View {
             
             switch inputType {
             case .oneLine:
-                TextField(
-                    "",
-                    text: $text,
-                    onEditingChanged: { editing in
-                        isEditing = editing
-                        isFocused = editing
+                HStack {
+                    TextField(
+                        "",
+                        text: $text,
+                        onEditingChanged: { editing in
+                            isEditing = editing
+                            isFocused = editing
+                        }
+                    )
+                    .font(.custom("Merriweather-Regular", size: 12))
+                    .foregroundStyle(.accent)
+                    .onSubmit {
+                        isEditing = false
                     }
-                )
-                .font(.custom("Merriweather-Regular", size: 12))
-                .foregroundStyle(.accent)
+                    
+                    if isLoading {
+                        QSpinner().scaleEffect(0.4)
+                    }
+                }
                 .frame(height: 38)
                 .padding(.leading, 10)
                 .background(Rectangle().stroke(error == nil ? .accent : .red, lineWidth: 1))
-                .onSubmit {
-                    isEditing = false
-                }
                 
             case .multiLine:
                 TextEditor(text: $text)
@@ -90,5 +104,16 @@ extension QInput {
         self.onPreferenceChange(QInputIsEditingPreferenceKey.self) { newValue in
             binding.wrappedValue = newValue
         }
+    }
+}
+
+#Preview {
+    VStack {
+        QInput(label: "label", text: .constant("text"), type: .oneLine)
+            .padding(.bottom, 20)
+        QInput(label: "label", text: .constant("text"), type: .oneLine, isLoading: true)
+            .padding(.bottom, 20)
+        QInput(label: "label", text: .constant("text"), type: .multiLine)
+            .padding(.bottom, 20)
     }
 }
