@@ -37,10 +37,11 @@ final class BookScreenViewModel: ObservableObject {
     @Published var authorInput = ""
     @Published var errors = [InputError: String]()
     @Published var foundBooks = [Domain.SuggestedBookItem]()
-    @Published var didSelectSuggestion: Bool = false
+    @Published var didSelectSuggestion = false
     @Published var selectedBook: Domain.SuggestedBookItem?
     @Published var coverImage: CoverImageState = .default
-    @Published var isTitleEditing: Bool = false
+    @Published var isTitleEditing = false
+    @Published var isSearching = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -142,9 +143,13 @@ final class BookScreenViewModel: ObservableObject {
     }
     
     private func searchBooks() {
+        isSearching = true
         Task {
             let books = try await apiService.fetchBooks(for: titleInput)
             foundBooks = books.compactMap { Domain.SuggestedBookItem(model: $0) }
+            await MainActor.run {
+                self.isSearching = false
+            }
         }
     }
     
