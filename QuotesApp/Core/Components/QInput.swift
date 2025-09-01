@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-private struct QInputIsEditingPreferenceKey: PreferenceKey {
-    static var defaultValue: Bool = false
-    static func reduce(value: inout Bool, nextValue: () -> Bool) {
-        value = nextValue()
-    }
-}
-
 struct QInput: View {
     enum InputType {
         case oneLine
@@ -25,9 +18,6 @@ struct QInput: View {
     private let inputType: InputType
     private let isLoading: Bool
     private let error: String?
-    
-    @FocusState private var isFocused: Bool
-    @State private var isEditing: Bool = false
     
     init(
         label: String,
@@ -50,19 +40,9 @@ struct QInput: View {
             switch inputType {
             case .oneLine:
                 HStack {
-                    TextField(
-                        "",
-                        text: $text,
-                        onEditingChanged: { editing in
-                            isEditing = editing
-                            isFocused = editing
-                        }
-                    )
-                    .font(.custom("Merriweather-Regular", size: 12))
-                    .foregroundStyle(.accent)
-                    .onSubmit {
-                        isEditing = false
-                    }
+                    TextField("", text: $text)
+                        .font(.custom("Merriweather-Regular", size: 12))
+                        .foregroundStyle(.accent)
                     
                     if isLoading {
                         QSpinner().scaleEffect(0.4)
@@ -80,29 +60,12 @@ struct QInput: View {
                     .scrollContentBackground(.hidden)
                     .padding(.leading, 5)
                     .background(Rectangle().stroke(error == nil ? .accent : .red, lineWidth: 1))
-                    .focused($isFocused)
-                    .onChange(of: isFocused) {
-                        isEditing = isFocused
-                    }
             }
             
             if let error {
                 QText(error, type: .regular, size: .vsmall)
                     .accentColor(.red)
             }
-        }
-        .preference(key: QInputIsEditingPreferenceKey.self, value: isEditing)
-    }
-}
-
-extension QInput {
-    /// Call this from a parent view to bind the `isEditing` state out of QInput.
-    /// Example:
-    ///     @State private var keyboardIsActive = false
-    ///     QInput(...).editing($keyboardIsActive)
-    func editing(_ binding: Binding<Bool>) -> some View {
-        self.onPreferenceChange(QInputIsEditingPreferenceKey.self) { newValue in
-            binding.wrappedValue = newValue
         }
     }
 }
