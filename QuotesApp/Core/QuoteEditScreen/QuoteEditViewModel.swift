@@ -35,12 +35,13 @@ final class QuoteEditViewModel: ObservableObject {
     @Published var errors = [InputError: String]()
     @Published var showCameraAccessAlert = false
     @Published var categoriesHint: [String] = []
-    @Published var isCategoriesInputActive = false
+    @Published var isCategoryFocused = false
     
     private let quoteId: UUID?
+    private let maxPageNumber = 5000
     private var categories: [String] = []
     private var cancellables = Set<AnyCancellable>()
-    private let maxPageNumber = 5000
+    private var didSelectCategory = false
     
     init(existingQuote: Domain.QuoteItem? = nil) {
         self.quoteInput = existingQuote?.text ?? ""
@@ -110,6 +111,7 @@ final class QuoteEditViewModel: ObservableObject {
     func selectCategory(_ category: String) {
         categoryInput = category
         categoriesHint = []
+        didSelectCategory = true
     }
     
     func addBook() {
@@ -180,27 +182,31 @@ final class QuoteEditViewModel: ObservableObject {
     }
     
     private func observeCategory() {
-        Publishers
-            .CombineLatest(
-                $categoryInput
-                    .debounce(for: .milliseconds(150), scheduler: RunLoop.main)
-                    .removeDuplicates(),
+        Publishers.CombineLatest($categoryInput, $isCategoryFocused)
+            .debounce(for: .milliseconds(150), scheduler: RunLoop.main)
+            .sink { [weak self] (input, focused) in
+                guard let self else { return }
                 
-                $isCategoriesInputActive
-                    .removeDuplicates()
-            )
-            .map { [categories] input, isActive -> [String] in
-                guard isActive else { return [] }
+                if !focused {
+                    categoriesHint = []
+                    return
+                }
+                
                 let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
                 
-                guard !trimmed.isEmpty else { return categories }
-                return categories.filter {
-                    $0.localizedCaseInsensitiveContains(trimmed)
+                if didSelectCategory {
+                    categoriesHint = []
+                    didSelectCategory = false
+                    return
                 }
-            }
-            .receive(on: RunLoop.main)
-            .sink { [weak self] hints in
-                self?.categoriesHint = hints
+                
+                if trimmed.isEmpty {
+                    categoriesHint = categories
+                } else {
+                    categoriesHint = categories.filter {
+                        $0.localizedCaseInsensitiveContains(trimmed)
+                    }
+                }
             }
             .store(in: &cancellables)
     }

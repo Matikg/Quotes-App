@@ -40,7 +40,6 @@ final class BookScreenViewModel: ObservableObject {
     @Published var didSelectSuggestion = false
     @Published var selectedBook: Domain.SuggestedBookItem?
     @Published var coverImage: CoverImageState = .default
-    @Published var isTitleEditing = false
     @Published var isSearching = false
     
     private var cancellables = Set<AnyCancellable>()
@@ -55,7 +54,7 @@ final class BookScreenViewModel: ObservableObject {
         $titleInput
             .debounce(for: .milliseconds(1000), scheduler: RunLoop.main)
             .sink { [weak self] value in
-                guard let self, isTitleEditing else { return }
+                guard let self else { return }
                 
                 selectedBook = nil
                 guard !value.isEmpty else {

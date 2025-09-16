@@ -9,6 +9,7 @@ import SwiftUI
 
 struct QuoteEditView: View {
     @ObservedObject var viewModel: QuoteEditViewModel
+    @FocusState private var isCategoryFocused: Bool
     
     var body: some View {
         BaseView {
@@ -42,7 +43,12 @@ struct QuoteEditView: View {
                             text: $viewModel.categoryInput,
                             type: .oneLine,
                             error: viewModel.errors[.category]
-                        ).editing($viewModel.isCategoriesInputActive)
+                        )
+                        .focused($isCategoryFocused)
+                        .onChange(of: isCategoryFocused) {
+                            viewModel.isCategoryFocused = isCategoryFocused
+                        }
+                        
                         categoryHintScrollView
                     }
                     
@@ -93,7 +99,7 @@ struct QuoteEditView: View {
     
     @ViewBuilder
     private var categoryHintScrollView: some View {
-        if viewModel.categoriesHint.isEmpty { EmptyView() } else {
+        if !viewModel.isCategoryFocused { EmptyView() } else {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
                     ForEach(viewModel.categoriesHint, id: \.self) { category in

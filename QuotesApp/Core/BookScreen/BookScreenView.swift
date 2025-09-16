@@ -25,13 +25,18 @@ struct BookScreenView: View {
                                 isLoading: viewModel.isSearching,
                                 error: viewModel.errors[.title]
                             )
-                            .editing($viewModel.isTitleEditing)
                             .autocorrectionDisabled()
                             
                             buildBookHint()
                         }
                         
-                        QInput(label: "Author_label", text: $viewModel.authorInput, type: .oneLine, error: viewModel.errors[.author])
+                        QInput(
+                            label: "Author_label",
+                            text: $viewModel.authorInput,
+                            type: .oneLine,
+                            error: viewModel.errors[.author]
+                        )
+                        .autocorrectionDisabled()
                     }
                 }
                 .padding(.top, 30)
