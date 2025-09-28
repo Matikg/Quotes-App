@@ -28,6 +28,19 @@ struct MainScreenView: View {
                 viewModel.getBooks()
             }
         }
+        .navBar(
+            center: {
+                QText("Books_title", type: .bold, size: .medium)
+            },
+            trailing: {
+                Button {
+                    viewModel.openSettings()
+                } label: {
+                    Image(systemName: "gearshape.fill")
+                        .font(.title2)
+                }
+            }
+        )
     }
     
     //MARK: - View Builders

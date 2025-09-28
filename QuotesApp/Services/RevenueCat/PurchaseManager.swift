@@ -11,6 +11,7 @@ import DependencyInjection
 
 protocol PurchaseManagerInterface {
     func checkPremiumAction() async -> Bool
+    func checkFullAccess() async -> Bool
 }
 
 final class PurchaseManager: PurchaseManagerInterface {
@@ -37,7 +38,7 @@ final class PurchaseManager: PurchaseManagerInterface {
         && booksCount < Configuration.bookLimit
     }
     
-    private func checkFullAccess() async -> Bool {
+    func checkFullAccess() async -> Bool {
         let customerInfo = try? await Purchases.shared.customerInfo()
         return customerInfo?.entitlements[Constants.entitlementId]?.isActive == true
     }

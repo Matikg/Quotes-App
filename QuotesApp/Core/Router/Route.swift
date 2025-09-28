@@ -17,6 +17,7 @@ enum Route: Hashable, Identifiable, View {
     case scan
     case review(image: UIImage)
     case paywall
+    case settings
     
     var id: Int { hashValue }
     
@@ -40,6 +41,8 @@ enum Route: Hashable, Identifiable, View {
             ReviewView(viewModel: ReviewViewModel(image: image))
         case .paywall:
             PaywallView()
+        case .settings:
+            SettingsView()
         }
     }
 }

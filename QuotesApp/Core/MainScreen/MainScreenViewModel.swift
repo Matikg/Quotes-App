@@ -72,4 +72,8 @@ final class MainScreenViewModel: ObservableObject {
     func cancelDeleteBook() {
         bookToDelete = nil
     }
+    
+    func openSettings() {
+        navigationRouter.push(route: .settings)
+    }
 }

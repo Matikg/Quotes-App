@@ -10,11 +10,20 @@ import DependencyInjection
 
 @main
 struct AppEntry: App {
-    @StateObject private var navigationRouter = NavigationRouter()
+    @StateObject private var navigationRouter: NavigationRouter
     @StateObject private var rootScreenViewModel = RootScreenViewModel()
     
     init() {
+        let router = NavigationRouter()
+        _navigationRouter = StateObject(wrappedValue: router)
+        
         ContainerManager.shared.registerDefaults()
+        ContainerManager.shared
+            .container(for: .main)
+            .register(
+                (any NavigationRouting).self,
+                instance: router
+            )
     }
     
     var body: some Scene {
@@ -23,14 +32,6 @@ struct AppEntry: App {
                 RootScreenView(viewModel: rootScreenViewModel)
                     .navigationDestination(for: Route.self, destination: { $0 })
                     .sheet(item: $navigationRouter.presentedSheet, content: { $0 })
-                    .onAppear {
-                        ContainerManager.shared
-                            .container(for: .main)
-                            .register(
-                                (any NavigationRouting).self,
-                                instance: navigationRouter
-                            )
-                    }
             }
         }
     }
