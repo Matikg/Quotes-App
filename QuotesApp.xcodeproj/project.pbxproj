@@ -703,7 +703,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1630;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					E88FF57B2C35924F00AEA2BE = {
 						CreatedOnToolsVersion = 15.4;
@@ -974,6 +974,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1033,6 +1034,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
@@ -1056,6 +1058,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Quotes;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCameraUsageDescription = "The app needs camera access to scan text from books.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1073,7 +1076,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Book Quote Saver Dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = development;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1096,6 +1099,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Quotes;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCameraUsageDescription = "The app needs camera access to scan text from books.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1113,7 +1117,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Book Quote Saver Dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = development;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
