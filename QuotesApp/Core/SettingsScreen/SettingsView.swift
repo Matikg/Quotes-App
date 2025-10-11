@@ -6,20 +6,22 @@ struct SettingsView: View {
     var body: some View {
         BaseView {
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 30) {
+                VStack(spacing: 16) {
                     if viewModel.hasFullAccess {
                         buildSubInfoView
                     } else {
                         buildNoSubInfoView
                     }
                     
-                    VStack(spacing: 15) {
+                    VStack(spacing: 16) {
                         buildToggleRow(label: "Settings_notifications", isOn: $viewModel.isNotificationsOn)
                         buildToggleRow(label: "Settings_analytics", isOn: $viewModel.isAnalyticsOn)
                         buildAboutUsButton
                     }
                     
-                    VStack(spacing: 15) {
+                    Spacer()
+                    
+                    VStack(spacing: 16) {
                         buildLinkButton(label: "Settings_policy") {
                             viewModel.openPrivacyPolicy()
                         }
@@ -28,13 +30,13 @@ struct SettingsView: View {
                             viewModel.openMail()
                         }
                         
-                        HStack {
+                        HStack(spacing: 3) {
                             QText("Settings_app_version", type: .regular, size: .vsmall)
                             QText(viewModel.appVersion, type: .regular, size: .vsmall)
                         }
                     }
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 24)
             }
         }
         .navBar {
@@ -48,36 +50,29 @@ struct SettingsView: View {
     //MARK: - View Builders
     
     private var buildSubInfoView: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 16) {
             Image(.goldenCrown)
-            QText("Settings_unlocked_header", type: .bold, size: .medium)
-            QText("Settings_thanks", type: .regular, size: .small)
+            VStack(spacing: 4) {
+                QText("Settings_unlocked_header", type: .bold, size: .medium)
+                QText("Settings_thanks", type: .regular, size: .small)
+            }
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical)
+        .padding(.vertical, 16)
         .background(Rectangle().stroke(.accent, lineWidth: 3))
         .padding(.top, 30)
     }
     
     private var buildNoSubInfoView: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 16) {
             Image(.grayCrown)
             QText("Settings_upgrade_header", type: .bold, size: .medium)
                 .multilineTextAlignment(.center)
             
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(.padlock)
-                    QText("Settings_padlock1", type: .regular, size: .small)
-                }
-                HStack {
-                    Image(.padlock)
-                    QText("Settings_padlock2", type: .regular, size: .small)
-                }
-                HStack {
-                    Image(.padlock)
-                    QText("Settings_padlock3", type: .regular, size: .small)
-                }
+            VStack(alignment: .leading, spacing: 4) {
+                buildPadlockInfo("Settings_padlock1")
+                buildPadlockInfo("Settings_padlock2")
+                buildPadlockInfo("Settings_padlock3")
             }
             
             Button {
@@ -87,7 +82,7 @@ struct SettingsView: View {
             }
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical)
+        .padding(.vertical, 16)
         .background(Rectangle().stroke(.accent, lineWidth: 3))
         .padding(.top, 30)
     }
@@ -103,9 +98,17 @@ struct SettingsView: View {
                     .foregroundStyle(.accent)
                     .font(.system(size: 22))
             }
-            .frame(maxWidth: .infinity)
-            .padding()
+            .padding(.vertical, 12)
+            .padding(.horizontal, 16)
+            .frame(maxWidth: .infinity, minHeight: 44)
             .background(.hint)
+        }
+    }
+    
+    private func buildPadlockInfo(_ text: String) -> some View {
+        HStack(spacing: 4) {
+            Image(.padlock)
+            QText(text, type: .regular, size: .small)
         }
     }
     
@@ -115,8 +118,9 @@ struct SettingsView: View {
             Toggle("", isOn: isOn)
                 .tint(.accent)
         }
-        .frame(maxWidth: .infinity)
-        .padding()
+        .padding(.vertical, 12)
+        .padding(.horizontal, 16)
+        .frame(maxWidth: .infinity, minHeight: 44)
         .background(.hint)
     }
     

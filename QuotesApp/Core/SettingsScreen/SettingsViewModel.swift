@@ -1,6 +1,5 @@
-import Foundation
-import DependencyInjection
 import UIKit
+import DependencyInjection
 
 final class SettingsViewModel: ObservableObject {
     @Injected private var purchaseManager: PurchaseManagerInterface
