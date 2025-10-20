@@ -1,5 +1,6 @@
 import UIKit
 import DependencyInjection
+import RevenueCat
 
 final class SettingsViewModel: ObservableObject {
     @Injected private var purchaseManager: PurchaseManagerInterface
@@ -17,14 +18,21 @@ final class SettingsViewModel: ObservableObject {
         }
     }
     
+    private var customerInfoTask: Task<Void, Never>?
+    
     var appVersion: String {
         Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "-"
+    }
+    
+    deinit {
+        customerInfoTask?.cancel()
     }
     
     @MainActor
     func onAppear() {
         Task {
-            self.hasFullAccess = await self.purchaseManager.checkFullAccess()
+            hasFullAccess = await purchaseManager.checkFullAccess()
+            startObservingCustomerInfo()
         }
     }
     
@@ -54,5 +62,21 @@ final class SettingsViewModel: ObservableObject {
     
     func toggleAnalytics() {
         
+    }
+    
+    // MARK: - Private
+    
+    private func startObservingCustomerInfo() {
+        customerInfoTask?.cancel()
+        
+        customerInfoTask = Task { [weak self] in
+            guard let self else { return }
+            for await info in purchaseManager.customerInfoUpdates() {
+                let isActive = info.entitlements[Constants.entitlementId]?.isActive == true
+                await MainActor.run {
+                    self.hasFullAccess = isActive
+                }
+            }
+        }
     }
 }
