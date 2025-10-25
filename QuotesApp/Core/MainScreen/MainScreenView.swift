@@ -13,9 +13,6 @@ struct MainScreenView: View {
     var body: some View {
         BaseView {
             VStack {
-                QText("WelcomeScreen_title", type: .bold, size: .large)
-                    .padding(.top, 30)
-                
                 switch viewModel.state {
                 case .empty:
                     buildEmptyListView()
