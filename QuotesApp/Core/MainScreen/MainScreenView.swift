@@ -13,9 +13,6 @@ struct MainScreenView: View {
     var body: some View {
         BaseView {
             VStack {
-                QText("WelcomeScreen_title", type: .bold, size: .large)
-                    .padding(.top, 30)
-                
                 switch viewModel.state {
                 case .empty:
                     buildEmptyListView()
@@ -28,6 +25,19 @@ struct MainScreenView: View {
                 viewModel.getBooks()
             }
         }
+        .navBar(
+            center: {
+                QText("Books_title", type: .bold, size: .medium)
+            },
+            trailing: {
+                Button {
+                    viewModel.openSettings()
+                } label: {
+                    Image(systemName: "gearshape.fill")
+                        .font(.title2)
+                }
+            }
+        )
     }
     
     //MARK: - View Builders
