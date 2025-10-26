@@ -17,10 +17,8 @@ private extension CGRect {
 
 struct ReviewView: View {
     @ObservedObject private var viewModel: ReviewViewModel
-    @State private var isCropVisible: Bool = false
     @State private var cropRect: CGRect = .zero
-    @State private var activeHandle: Handle? = nil
-
+    
     enum Handle { case top, bottom, left, right }
     
     init(viewModel: ReviewViewModel) {
@@ -28,40 +26,44 @@ struct ReviewView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            GeometryReader { geo in
-                let size = geo.size
-                let imgSize = viewModel.image.size
-                let scale = min(size.width / imgSize.width,
-                                size.height / imgSize.height)
-                let displaySize = CGSize(width: imgSize.width * scale,
-                                         height: imgSize.height * scale)
-                let xOffset = (size.width - displaySize.width) / 2
-                let yOffset = (size.height - displaySize.height) / 2
-                let imageFrame = CGRect(x: xOffset,
-                                        y: yOffset,
-                                        width: displaySize.width,
-                                        height: displaySize.height)
+        BaseView {
+            VStack(spacing: 36) {
+                GeometryReader { geo in
+                    let size = geo.size
+                    let imgSize = viewModel.image.size
+                    let safeImgWidth = max(imgSize.width, 1)
+                    let safeImgHeight = max(imgSize.height, 1)
+                    let scale = min(size.width / safeImgWidth,
+                                    size.height / safeImgHeight)
+                    let displaySize = CGSize(width: safeImgWidth * scale,
+                                             height: safeImgHeight * scale)
+                    let xOffset = (size.width - displaySize.width) / 2
+                    let yOffset = (size.height - displaySize.height) / 2
+                    let imageFrame = CGRect(x: xOffset,
+                                            y: yOffset,
+                                            width: displaySize.width,
+                                            height: displaySize.height)
 
-                ZStack(alignment: .topLeading) {
-                    Image(uiImage: viewModel.image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: displaySize.width, height: displaySize.height)
-                        .offset(x: xOffset, y: yOffset)
-
-                    if isCropVisible {
+                    ZStack(alignment: .topLeading) {
+                        Image(uiImage: viewModel.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: displaySize.width, height: displaySize.height)
+                            .offset(x: xOffset, y: yOffset)
+                        
                         Path { path in
                             path.addRect(imageFrame)
                             path.addRect(cropRect)
                         }
                         .fill(Color.black.opacity(0.4), style: FillStyle(eoFill: true))
-                    }
-
-                    if isCropVisible {
+                        
                         CropOverlay(
                             rect: $cropRect,
-                            imageFrame: imageFrame
+                            imageFrame: imageFrame,
+                            onGestureEnded: {
+                                let region = normalized(rect: cropRect, in: size)
+                                viewModel.recognizeText(in: region)
+                            }
                         )
                         .gesture(
                             DragGesture()
@@ -73,71 +75,45 @@ struct ReviewView: View {
                                 }
                         )
                     }
-
-                    Button(action: { toggleCrop() }) {
-                        Image(systemName: "crop")
-                            .foregroundStyle(.white)
-                            .padding(8)
-                            .background(Circle().fill(Color.black))
+                    .onAppear {
+                        cropRect = imageFrame
                     }
-                    .padding()
-                    .position(x: size.width - 30, y: 30)
-
-                    if isCropVisible {
-                        Button(action: {
-                            let region = normalized(rect: cropRect, in: size)
-                            viewModel.recognizeText(in: region)
-                            isCropVisible = false
-                        }) {
-                            Text("Find_button_label")
-                                .padding(8)
-                                .background(.accent)
-                                .foregroundColor(.white)
-                                .clipShape(Capsule())
+                    .onChange(of: size) { _, _ in
+                        if cropRect == .zero {
+                            cropRect = imageFrame
+                        } else {
+                            cropRect = cropRect.clamped(to: imageFrame)
                         }
-                        .position(x: size.width - 50, y: 70)
                     }
                 }
-                .onAppear {
-                    cropRect = imageFrame
-                }
+                .frame(maxHeight: .infinity)
+                .padding(.horizontal, 35)
+                
+                recognizedTextBox
             }
-            .frame(height: 400)
-
-            Divider()
-
-            ScrollView {
-                Text(viewModel.items.map(\.string).joined(separator: " "))
-                    .foregroundStyle(.accent)
-                    .padding()
-                    .textSelection(.enabled)
-            }
-            .layoutPriority(1)
-
-            Divider()
-            HStack {
-                Button("Retake_button_label") { viewModel.retakePhoto() }
-                    .padding()
-                Spacer()
-                Button("Done_button_label") { viewModel.acceptPhoto() }
-                    .padding()
-            }
+            .padding(.top, 30)
         }
-        .background(Color.background)
+        .navBar(center: {
+            QText("ScanReview_title", type: .bold, size: .medium)
+        }, trailing: {
+            Button {
+                viewModel.acceptPhoto()
+            } label: {
+                QText("Save", type: .regular, size: .small)
+            }
+        })
     }
 
     // MARK: - Helpers
-
-    private func toggleCrop() {
-        isCropVisible.toggle()
-    }
-
+    
     private func normalized(rect: CGRect, in containerSize: CGSize) -> CGRect {
         let imgSize = viewModel.image.size
-        let scale = min(containerSize.width / imgSize.width,
-                        containerSize.height / imgSize.height)
-        let displaySize = CGSize(width: imgSize.width * scale,
-                                 height: imgSize.height * scale)
+        let safeImgWidth = max(imgSize.width, 1)
+        let safeImgHeight = max(imgSize.height, 1)
+        let scale = min(containerSize.width / safeImgWidth,
+                        containerSize.height / safeImgHeight)
+        let displaySize = CGSize(width: safeImgWidth * scale,
+                                 height: safeImgHeight * scale)
         let xOffset = (containerSize.width - displaySize.width) / 2
         let yOffset = (containerSize.height - displaySize.height) / 2
 
@@ -151,27 +127,47 @@ struct ReviewView: View {
 
         return CGRect(x: x, y: y, width: w, height: h)
     }
+    
+    // MARK: - View Builders
+    
+    private var recognizedTextBox: some View {
+        ZStack {
+            Rectangle()
+                .stroke(.accent, lineWidth: 1)
+            
+            ScrollView(showsIndicators: false) {
+                Text(viewModel.items.map(\.string).joined(separator: " "))
+                    .foregroundStyle(.accent)
+                    .textSelection(.enabled)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(10)
+            }
+        }
+        .frame(height: 172)
+        .padding(.horizontal, 18)
+    }
 }
 
 // MARK: - CropOverlay
 struct CropOverlay: View {
     @Binding var rect: CGRect
     let imageFrame: CGRect
-
+    let onGestureEnded: () -> Void
+    
     var body: some View {
         ZStack {
             Rectangle()
                 .stroke(.accent, lineWidth: 2)
                 .frame(width: rect.width, height: rect.height)
                 .position(x: rect.midX, y: rect.midY)
-
-            HandleView(handle: .top, rect: $rect, imageFrame: imageFrame)
+            
+            HandleView(handle: .top, rect: $rect, imageFrame: imageFrame, onGestureEnded: onGestureEnded)
                 .position(x: rect.midX, y: rect.minY)
-            HandleView(handle: .bottom, rect: $rect, imageFrame: imageFrame)
+            HandleView(handle: .bottom, rect: $rect, imageFrame: imageFrame, onGestureEnded: onGestureEnded)
                 .position(x: rect.midX, y: rect.maxY)
-            HandleView(handle: .left, rect: $rect, imageFrame: imageFrame)
+            HandleView(handle: .left, rect: $rect, imageFrame: imageFrame, onGestureEnded: onGestureEnded)
                 .position(x: rect.minX, y: rect.midY)
-            HandleView(handle: .right, rect: $rect, imageFrame: imageFrame)
+            HandleView(handle: .right, rect: $rect, imageFrame: imageFrame, onGestureEnded: onGestureEnded)
                 .position(x: rect.maxX, y: rect.midY)
         }
     }
@@ -182,6 +178,7 @@ struct HandleView: View {
     let handle: ReviewView.Handle
     @Binding var rect: CGRect
     let imageFrame: CGRect
+    let onGestureEnded: () -> Void
 
     var body: some View {
         Circle()
@@ -205,6 +202,9 @@ struct HandleView: View {
                             newRect.size.width += value.translation.width
                         }
                         rect = newRect.clamped(to: imageFrame)
+                    }
+                    .onEnded { _ in
+                        onGestureEnded()
                     }
             )
     }

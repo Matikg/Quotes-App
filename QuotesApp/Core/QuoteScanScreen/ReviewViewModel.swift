@@ -15,10 +15,6 @@ final class ReviewViewModel: ObservableObject {
         recognizeText()
     }
 
-    func retakePhoto() {
-        navigationRouter.pop()
-    }
-    
     func acceptPhoto() {
         saveScannedQuoteRepository.saveScannedQuote(items.map { $0.string }.joined(separator: " "))
         

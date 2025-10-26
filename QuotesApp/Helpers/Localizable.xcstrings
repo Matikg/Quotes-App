@@ -310,23 +310,6 @@
         }
       }
     },
-    "Done_button_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Done"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gotowe"
-          }
-        }
-      }
-    },
     "Edit" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -340,23 +323,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Edytuj"
-          }
-        }
-      }
-    },
-    "Find_button_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Find"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Znajdź"
           }
         }
       }
@@ -531,23 +497,6 @@
         }
       }
     },
-    "Retake_button_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Retake"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Powtórz"
-          }
-        }
-      }
-    },
     "Save" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -578,6 +527,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zeskanuj cytat"
+          }
+        }
+      }
+    },
+    "ScanReview_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podgląd"
           }
         }
       }
