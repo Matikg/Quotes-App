@@ -4,6 +4,91 @@
     "" : {
       "shouldTranslate" : false
     },
+    "about_us_header1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We love books and technology – that’s why we combined them into one."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uwielbiamy książki i technologię – dlatego połączyliśmy je w jedno."
+          }
+        }
+      }
+    },
+    "about_us_header2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book Quote Saver was created out of the need to have a place to keep the best things you take from reading. It’s a safe space that stores your personal story with books and the words that moved you, inspired you, or reminded you who you are."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book Quote Saver powstał z potrzeby stworzenia miejsca, w którym można zatrzymać to, co najlepsze wynosi się z lektury. To bezpieczna przestrzeń, która przechowuje Twoją osobistą historię z książkami i słowa, które coś w Tobie poruszyły, zainspirowały lub przypomniały, kim jesteś."
+          }
+        }
+      }
+    },
+    "about_us_mission" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Our mission"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nasza misja"
+          }
+        }
+      }
+    },
+    "about_us_team" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Our team"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nasz zespół"
+          }
+        }
+      }
+    },
+    "about_us_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About Us"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Nas"
+          }
+        }
+      }
+    },
     "Author_empty_dialog" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -51,6 +136,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wróć"
+          }
+        }
+      }
+    },
+    "bartson_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I’m passionate about creating digital products. My specialty is iOS app development, which is my main career path. I see reading books as an important part of my personal growth, which is why I’m proud to be part of this project."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pasjonuję się tworzeniem produktów cyfrowych. Moją specjalizacją jest programowanie aplikacji iOS, co jest moją główną ścieżką kariery. Czytanie książek traktuję jako ważną część mojego rozwoju osobistego, dlatego jestem dumny, że jestem częścią tego projektu."
           }
         }
       }
@@ -357,6 +459,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cytaty"
+          }
+        }
+      }
+    },
+    "matikg_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My main specialty is iOS app development, and I’m especially interested in combining it with automation to create solutions that make life easier. Books are my way to relax and have fun — they’re a source of inspiration and help me unwind."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moją główną specjalizacją jest programowanie aplikacji iOS, a szczególnie interesuje mnie łączenie go z automatyzacją, by tworzyć rozwiązania ułatwiające życie. Książki są dla mnie formą relaksu i rozrywki — stanowią źródło inspiracji i pozwalają mi się odprężyć."
           }
         }
       }

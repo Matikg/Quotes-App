@@ -89,7 +89,7 @@ struct SettingsView: View {
     
     private var buildAboutUsButton: some View {
         Button {
-            
+            viewModel.showAboutUs()
         } label: {
             HStack {
                 QText("Settings_about_us", type: .regular, size: .small)
