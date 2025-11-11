@@ -56,6 +56,10 @@ final class SettingsViewModel: ObservableObject {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
+    func showAboutUs() {
+        navigationRouter.push(route: .aboutUs)
+    }
+    
     func toggleNotifications() {
         
     }

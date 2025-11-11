@@ -96,6 +96,7 @@
 		E8E3CCC82D84B5D200406F89 /* QuoteDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */; };
 		E8E3CCCA2D8B721A00406F89 /* SwipeableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */; };
 		E8E3CCCD2DA4F8D500406F89 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCCC2DA4F8D500406F89 /* UINavigationController+Extensions.swift */; };
+		E8E995C92EB9382C0042EE45 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E995C82EB9382C0042EE45 /* AboutUsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,6 +206,7 @@
 		E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsViewModel.swift; sourceTree = "<group>"; };
 		E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeableRow.swift; sourceTree = "<group>"; };
 		E8E3CCCC2DA4F8D500406F89 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		E8E995C82EB9382C0042EE45 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +375,7 @@
 				E8E3CCC42D84B57300406F89 /* QuoteDetailsScreen */,
 				E8E3CCCE2DADADCD00406F89 /* QuoteScanScreen */,
 				E83F64C02E84624F0036885E /* SettingsScreen */,
+				E8E995C72EB937CA0042EE45 /* AboutUsScreen */,
 				E88FF5AA2C3A876700AEA2BE /* Components */,
 				E88FF5AE2C3A880000AEA2BE /* Router */,
 			);
@@ -653,6 +656,14 @@
 			path = QuoteScanScreen;
 			sourceTree = "<group>";
 		};
+		E8E995C72EB937CA0042EE45 /* AboutUsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E8E995C82EB9382C0042EE45 /* AboutUsView.swift */,
+			);
+			path = AboutUsScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -860,6 +871,7 @@
 				E8E3CCC82D84B5D200406F89 /* QuoteDetailsViewModel.swift in Sources */,
 				E80DAA8F2DBE7C3400AD2C19 /* BookItem.swift in Sources */,
 				8874837B2E434D86001EF39D /* QSpinner.swift in Sources */,
+				E8E995C92EB9382C0042EE45 /* AboutUsView.swift in Sources */,
 				E8A9DF262C56BA6C00C9AB6D /* NavigationRouting.swift in Sources */,
 				E88FF5822C35924F00AEA2BE /* MainScreenView.swift in Sources */,
 				E80DAA782DBDB99C00AD2C19 /* ReviewViewModel.swift in Sources */,
