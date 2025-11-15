@@ -9,17 +9,17 @@ struct LiveScannerView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> DataScannerViewController {
         let scanner = DataScannerViewController(
             recognizedDataTypes: [.text()],
-            qualityLevel: .accurate,
-            recognizesMultipleItems: true,
-            isHighFrameRateTrackingEnabled: true,
+            qualityLevel: .balanced,
+            recognizesMultipleItems: false,
+            isHighFrameRateTrackingEnabled: false,
             isPinchToZoomEnabled: true,
             isGuidanceEnabled: true,
             isHighlightingEnabled: false
         )
+        
         scanner.delegate = context.coordinator
         context.coordinator.scanner = scanner
         
-        // Capture button
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "camera.fill"), for: .normal)
         button.backgroundColor = UIColor.white.withAlphaComponent(0.8)
@@ -32,29 +32,30 @@ struct LiveScannerView: UIViewControllerRepresentable {
             action: #selector(Coordinator.didTapCapture),
             for: .touchUpInside
         )
+        
         scanner.view.addSubview(button)
+        
         NSLayoutConstraint.activate([
             button.bottomAnchor.constraint(equalTo: scanner.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             button.centerXAnchor.constraint(equalTo: scanner.view.centerXAnchor)
         ])
         
-        //TODO: ViewModel tutaj
-        
         DispatchQueue.main.async {
-            do { try scanner.startScanning() }
-            catch { print("Scanner start error:", error) }
+            try? scanner.startScanning()
         }
+        
         return scanner
     }
     
-    func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: DataScannerViewController, context: Context) { }
     
+    @MainActor
     class Coordinator: NSObject, DataScannerViewControllerDelegate {
         @Injected private var navigationRouter: any NavigationRouting
         @Injected private var crashlyticsManager: CrashlyticsManagerInterface
         
         var parent: LiveScannerView
-        var scanner: DataScannerViewController?
+        weak var scanner: DataScannerViewController?
         private var isCapturingPhoto = false
         
         init(_ parent: LiveScannerView) {
@@ -65,32 +66,30 @@ struct LiveScannerView: UIViewControllerRepresentable {
             guard !isCapturingPhoto, let scanner else { return }
             isCapturingPhoto = true
             
-            Task {
+            Task { @MainActor in
+                let start = CFAbsoluteTimeGetCurrent()
+                
                 defer {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.isCapturingPhoto = false
-                    }
+                    isCapturingPhoto = false
+                    let total = CFAbsoluteTimeGetCurrent() - start
                 }
                 
                 do {
-                    let photo = try await scanner.capturePhoto()
-                    scanner.stopScanning()
-                    let uiImage = uprightImage(photo)
-                    DispatchQueue.main.async { [weak self] in
-                        self?.navigationRouter.push(route: .review(image: uiImage))
+                    if scanner.isScanning {
+                        scanner.stopScanning()
                     }
+                    
+                    let photo = try await scanner.capturePhoto()
+                    let afterCapture = CFAbsoluteTimeGetCurrent()
+                    
+                    // Push review screen
+                    navigationRouter.push(route: .review(image: photo))
+                    let afterPush = CFAbsoluteTimeGetCurrent()
+                    
                 } catch {
                     crashlyticsManager.record(error)
                 }
             }
-        }
-        
-        private func uprightImage(_ image: UIImage) -> UIImage {
-            UIGraphicsBeginImageContextWithOptions(image.size, true, image.scale)
-            image.draw(in: CGRect(origin: .zero, size: image.size))
-            let normalized = UIGraphicsGetImageFromCurrentImageContext()!
-            UIGraphicsEndImageContext()
-            return normalized
         }
     }
 }
