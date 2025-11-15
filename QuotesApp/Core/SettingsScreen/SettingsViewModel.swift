@@ -5,6 +5,7 @@ import RevenueCat
 final class SettingsViewModel: ObservableObject {
     @Injected private var purchaseManager: PurchaseManagerInterface
     @Injected private var navigationRouter: any NavigationRouting
+    @Injected private var analyticsManager: AnalyticsManagerInterface
     
     @Published private(set) var hasFullAccess = false
     @Published var isNotificationsOn = false {
@@ -33,6 +34,8 @@ final class SettingsViewModel: ObservableObject {
         Task {
             hasFullAccess = await purchaseManager.checkFullAccess()
             startObservingCustomerInfo()
+            
+            isAnalyticsOn = analyticsManager.isAnalyticsEnabled
         }
     }
     
@@ -65,7 +68,7 @@ final class SettingsViewModel: ObservableObject {
     }
     
     func toggleAnalytics() {
-        
+        analyticsManager.setAnalyticsEnabled(isAnalyticsOn)
     }
     
     // MARK: - Private
