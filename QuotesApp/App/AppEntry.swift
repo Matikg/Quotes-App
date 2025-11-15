@@ -1,12 +1,6 @@
-//
-//  QuotesAppApp.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 03/07/2024.
-//
-
 import SwiftUI
 import DependencyInjection
+import Firebase
 
 @main
 struct AppEntry: App {
@@ -16,6 +10,8 @@ struct AppEntry: App {
     init() {
         let router = NavigationRouter()
         _navigationRouter = StateObject(wrappedValue: router)
+        
+        FirebaseApp.configure()
         
         ContainerManager.shared.registerDefaults()
         ContainerManager.shared
