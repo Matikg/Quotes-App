@@ -15,24 +15,15 @@ enum AnalyticsEvent {
     
     var name: String {
         switch self {
-        case .addToCart:
-            return AnalyticsEventAddToCart
-        case .purchase:
-            return AnalyticsEventPurchase
-        case .viewItem:
-            return AnalyticsEventViewItem
-        case .viewItemList:
-            return AnalyticsEventViewItemList
-        case .selectContent:
-            return AnalyticsEventSelectContent
-        case .search:
-            return AnalyticsEventSearch
-        case .login:
-            return AnalyticsEventLogin
-        case .signUp:
-            return AnalyticsEventSignUp
-        case .screenView:
-            return AnalyticsEventScreenView
+        case .addToCart: AnalyticsEventAddToCart
+        case .purchase: AnalyticsEventPurchase
+        case .viewItem: AnalyticsEventViewItem
+        case .viewItemList: AnalyticsEventViewItemList
+        case .selectContent: AnalyticsEventSelectContent
+        case .search: AnalyticsEventSearch
+        case .login: AnalyticsEventLogin
+        case .signUp: AnalyticsEventSignUp
+        case .screenView: AnalyticsEventScreenView
         }
     }
 }
