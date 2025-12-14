@@ -6,6 +6,7 @@ final class SelectBookScreenViewModelTests: XCTestCase {
     private var mockCoreDataManager: MockCoreDataManager!
     private var mockNavigationRouter: MockNavigationRouter!
     private var mockSaveQuoteRepo: MockSaveQuoteRepository!
+    private var mockPurchaseManager: MockPurchaseManager!
 
     private var sut: SelectBookScreenViewModel!
 
@@ -16,6 +17,7 @@ final class SelectBookScreenViewModelTests: XCTestCase {
         mockCoreDataManager = MockCoreDataManager()
         mockNavigationRouter = MockNavigationRouter()
         mockSaveQuoteRepo = MockSaveQuoteRepository()
+        mockPurchaseManager = MockPurchaseManager()
 
         // 2) Register all dependecies
         let container = ContainerManager.shared.container(for: .main)
@@ -24,6 +26,7 @@ final class SelectBookScreenViewModelTests: XCTestCase {
         container.register(CoreDataManagerInterface.self, instance: mockCoreDataManager)
         container.register((any NavigationRouting).self, instance: mockNavigationRouter)
         container.register(SaveQuoteRepositoryInterface.self, instance: mockSaveQuoteRepo)
+        container.register(PurchaseManagerInterface.self, instance: mockPurchaseManager)
 
         // 3) Now that DI is wired up, create a fresh ViewModel
         sut = SelectBookScreenViewModel()
@@ -35,15 +38,18 @@ final class SelectBookScreenViewModelTests: XCTestCase {
         mockCoreDataManager = nil
         mockNavigationRouter = nil
         mockSaveQuoteRepo = nil
+        mockPurchaseManager = nil
         sut = nil
 
         super.tearDown()
     }
 
     @MainActor
-    func test_createBook_pushesBookRoute() {
+    func test_createBook_pushesBookRoute() async {
         // When
         sut.createBook()
+
+        try? await Task.sleep(nanoseconds: 50_000_000)
 
         // Then
         XCTAssertEqual(mockNavigationRouter.lastPushedRoute, .book)
