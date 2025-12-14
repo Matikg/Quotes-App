@@ -9,7 +9,7 @@ enum BookItemStub {
         quotesNumber: Int = 0,
         coverImageData: Data? = nil
     ) -> Domain.BookItem {
-        return Domain.BookItem(
+        Domain.BookItem(
             id: id,
             title: title,
             author: author,

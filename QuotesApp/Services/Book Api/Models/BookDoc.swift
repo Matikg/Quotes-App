@@ -1,10 +1,3 @@
-//
-//  Book Models.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 19/01/2025.
-//
-
 import Foundation
 
 struct SearchResponse: Decodable {
@@ -17,7 +10,7 @@ struct BookDoc: Decodable {
     let authorName: [String]?
     let coverEditionKey: String?
     let coverKey: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case title
         case authorName = "author_name"

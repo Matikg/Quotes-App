@@ -1,10 +1,3 @@
-//
-//  WelcomeScreenViewModel.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 10/07/2024.
-//
-
 import SwiftUI
 
 final class WelcomeScreenViewModel: ObservableObject {

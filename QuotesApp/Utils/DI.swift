@@ -1,12 +1,5 @@
-//
-//  DI.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 08/02/2025.
-//
-
-import Foundation
 import DependencyInjection
+import Foundation
 
 extension ContainerManager {
     func registerDefaults() {

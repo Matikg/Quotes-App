@@ -8,26 +8,40 @@
 # ----------------
 opt_in_rules:
   - empty_count
+  - empty_string
   - first_where
+  - implicit_return
+  - let_var_whitespace
+  - redundant_nil_coalescing
+  - redundant_type_annotation
   - sorted_imports
   - explicit_init
   - implicit_optional_initialization
   - toggle_bool
   - weak_delegate
+  - closure_body_length
+  - function_body_length
+  - file_length
+
+# ----------------
+# Analyzer rules
+# ----------------
+analyzer_rules:
+  - unused_import
+  - unused_declaration
 
 # ----------------
 # Disabled rules
 # ----------------
 disabled_rules:
-  - trailing_whitespace
   - line_length
-  - force_cast
-  - force_try
+  - multiple_closures_with_trailing_closure
+  - opening_brace
 
 # ----------------
 # General settings
 # ----------------
-warning_threshold: 100
+warning_threshold: 10
 
 # ----------------
 # Naming
@@ -43,12 +57,19 @@ identifier_name:
 type_name:
   min_length:
     warning: 3
+    
+# ----------------
+# Function parameters
+# ----------------
+function_parameter_count:
+  warning: 6
+  error: 8
 
 # ----------------
 # SwiftUI-friendly
 # ----------------
 closure_body_length:
-  warning: 60
+  warning: 80
   error: 120
 
 function_body_length:
@@ -58,6 +79,10 @@ function_body_length:
 file_length:
   warning: 500
   error: 800
+  
+trailing_whitespace:
+  ignores_empty_lines: true
+  ignores_comments: true
 
 # ----------------
 # Excluded paths
@@ -66,5 +91,7 @@ excluded:
   - Pods
   - Carthage
   - .build
+  - DerivedData
+  - Scripts
   - Preview Content
   - Frameworks

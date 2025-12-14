@@ -1,21 +1,14 @@
-//
-//  BookScreenView.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 01/12/2024.
-//
-
 import SwiftUI
 
 struct BookScreenView: View {
     @StateObject var viewModel = BookScreenViewModel()
-    
+
     var body: some View {
         BaseView {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30) {
                     buildBookCover()
-                    
+
                     VStack(alignment: .leading, spacing: 30) {
                         VStack(spacing: 0) {
                             QInput(
@@ -26,10 +19,10 @@ struct BookScreenView: View {
                                 error: viewModel.errors[.title]
                             )
                             .autocorrectionDisabled()
-                            
+
                             buildBookHint()
                         }
-                        
+
                         QInput(
                             label: "Author_label",
                             text: $viewModel.authorInput,
@@ -54,9 +47,9 @@ struct BookScreenView: View {
             }
         })
     }
-    
-    //MARK: - View Builders
-    
+
+    // MARK: - View Builders
+
     @ViewBuilder
     private func buildBookCover() -> some View {
         switch viewModel.coverImage {
@@ -66,14 +59,14 @@ struct BookScreenView: View {
             ProgressView()
                 .tint(.accent)
                 .frame(width: 124, height: 169)
-        case .image(let data):
+        case let .image(data):
             if let uiImage = UIImage(data: data) {
                 ZStack(alignment: .topTrailing) {
                     Image(uiImage: uiImage)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 124, height: 169)
-                    
+
                     Button(action: {
                         viewModel.resetCover()
                     }) {
@@ -92,7 +85,7 @@ struct BookScreenView: View {
             }
         }
     }
-    
+
     @ViewBuilder
     private func buildBookHint() -> some View {
         if !viewModel.foundBooks.isEmpty, !viewModel.titleInput.isEmpty {

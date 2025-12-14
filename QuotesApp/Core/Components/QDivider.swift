@@ -1,10 +1,3 @@
-//
-//  CustomDivider.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 11/07/2024.
-//
-
 import SwiftUI
 
 struct QDivider: View {

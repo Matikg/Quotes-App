@@ -1,12 +1,5 @@
-//
-//  CameraAccessManager.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 28/05/2025.
-//
-
-import Foundation
 import AVFoundation
+import Foundation
 
 enum CameraAccessStatus {
     case authorized
@@ -38,7 +31,7 @@ final class CameraAccessManager: CameraAccessManagerInterface {
             return .denied
         }
     }
-    
+
     func shouldAskForCameraAccess() -> Bool {
         AVCaptureDevice.authorizationStatus(for: .video) == .notDetermined
     }

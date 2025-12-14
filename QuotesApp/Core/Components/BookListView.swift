@@ -1,10 +1,3 @@
-//
-//  BookListView.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 16/02/2025.
-//
-
 import SwiftUI
 
 struct BookListView: View {
@@ -12,9 +5,9 @@ struct BookListView: View {
     private let showQuotesNumber: Bool
     private let onBookSelected: (Domain.BookItem) -> Void
     private let onBookDeleted: (Domain.BookItem) -> Void
-    
-    @State private var activeRow: UUID? = nil
-    
+
+    @State private var activeRow: UUID?
+
     init(
         books: [Domain.BookItem],
         showQuotesNumber: Bool,
@@ -26,7 +19,7 @@ struct BookListView: View {
         self.onBookSelected = onBookSelected
         self.onBookDeleted = onBookDeleted
     }
-    
+
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVStack(alignment: .leading, spacing: 25) {

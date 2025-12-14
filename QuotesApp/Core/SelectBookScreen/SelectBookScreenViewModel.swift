@@ -1,23 +1,16 @@
-//
-//  SelectBookScreenViewModel.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 14/02/2025.
-//
-
-import SwiftUI
 import DependencyInjection
+import SwiftUI
 
 final class SelectBookScreenViewModel: ObservableObject {
     @Injected private var coreDataManager: CoreDataManagerInterface
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     @Injected private var purchaseManager: PurchaseManagerInterface
-    
+
     @Published var books = [Domain.BookItem]()
-    
-    //MARK: - Methods
-    
+
+    // MARK: - Methods
+
     @MainActor
     func createBook() {
         Task {
@@ -29,16 +22,16 @@ final class SelectBookScreenViewModel: ObservableObject {
             }
         }
     }
-    
+
     func selectBook(book: Domain.BookItem) {
         saveQuoteRepository.selectBook(book)
         navigationRouter.pop()
     }
-    
+
     func onAppear() {
         getBooks()
     }
-    
+
     private func getBooks() {
         let fetchedBooks = coreDataManager.fetchBooks()
         books = fetchedBooks.compactMap(Domain.BookItem.init)

@@ -1,15 +1,8 @@
-//
-//  SelectBookScreenView.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 14/02/2025.
-//
-
 import SwiftUI
 
 struct SelectBookScreenView: View {
     @StateObject var viewModel = SelectBookScreenViewModel()
-    
+
     var body: some View {
         BaseView {
             BookListView(books: viewModel.books, showQuotesNumber: false) { book in

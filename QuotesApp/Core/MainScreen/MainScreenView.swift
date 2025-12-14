@@ -1,22 +1,15 @@
-//
-//  ContentView.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 03/07/2024.
-//
-
 import SwiftUI
 
 struct MainScreenView: View {
     @ObservedObject var viewModel: MainScreenViewModel
-    
+
     var body: some View {
         BaseView {
             VStack {
                 switch viewModel.state {
                 case .empty:
                     buildEmptyListView()
-                    
+
                 case let .loaded(books):
                     buildLoadedListView(books: books)
                 }
@@ -39,25 +32,25 @@ struct MainScreenView: View {
             }
         )
     }
-    
-    //MARK: - View Builders
-    
+
+    // MARK: - View Builders
+
     private func buildEmptyListView() -> some View {
         VStack {
             Spacer()
             Image(.bookshelf)
                 .padding(.bottom, 30)
-            
+
             QText("MainScreen_empty_quote", type: .bold, size: .medium)
-            
+
             QButton(label: "Button_add_quote", state: viewModel.buttonState) {
                 viewModel.addQuote()
             }
-            
+
             Spacer()
         }
     }
-    
+
     private func buildLoadedListView(books: [Domain.BookItem]) -> some View {
         VStack {
             BookListView(
@@ -71,7 +64,7 @@ struct MainScreenView: View {
             .refreshable {
                 viewModel.getBooks()
             }
-            
+
             QButton(label: "Button_add_quote", state: viewModel.buttonState) {
                 viewModel.addQuote()
             }
@@ -83,9 +76,9 @@ struct MainScreenView: View {
                 primaryButton: .destructive(Text("Book_delete_alert"), action: {
                     viewModel.deleteBook(book)
                 }),
-                secondaryButton: .cancel({
+                secondaryButton: .cancel {
                     viewModel.cancelDeleteBook()
-                })
+                }
             )
         }
     }

@@ -1,10 +1,3 @@
-//
-//  QuoteItem.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 27/04/2025.
-//
-
 import Foundation
 
 extension Domain {
@@ -21,12 +14,12 @@ extension Domain {
 extension Domain.QuoteItem {
     init?(quoteEntity: QuoteEntity) {
         guard let id = quoteEntity.id, let text = quoteEntity.text, let category = quoteEntity.category, let date = quoteEntity.date else { return nil }
-        
+
         self.id = id
         self.text = text
-        self.page = quoteEntity.page
+        page = quoteEntity.page
         self.category = category
         self.date = date
-        self.note = quoteEntity.note ?? ""
+        note = quoteEntity.note ?? ""
     }
 }

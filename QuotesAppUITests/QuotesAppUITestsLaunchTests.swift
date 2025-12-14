@@ -1,15 +1,7 @@
-//
-//  QuotesAppUITestsLaunchTests.swift
-//  QuotesAppUITests
-//
-//  Created by Mateusz Grudzień on 03/07/2024.
-//
-
 import XCTest
 
 final class QuotesAppUITestsLaunchTests: XCTestCase {
-
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
+    override static var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
 

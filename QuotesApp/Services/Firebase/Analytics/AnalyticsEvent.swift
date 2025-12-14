@@ -1,6 +1,6 @@
-import Foundation
-import FirebaseCore
 import FirebaseAnalytics
+import FirebaseCore
+import Foundation
 
 enum AnalyticsEvent {
     case addToCart
@@ -12,7 +12,7 @@ enum AnalyticsEvent {
     case login
     case signUp
     case screenView
-    
+
     var name: String {
         switch self {
         case .addToCart: AnalyticsEventAddToCart

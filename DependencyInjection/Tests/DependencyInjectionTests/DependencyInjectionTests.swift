@@ -1,5 +1,5 @@
-import XCTest
 @testable import DependencyInjection
+import XCTest
 
 final class DependencyInjectionTests: XCTestCase {
     func testExample() throws {

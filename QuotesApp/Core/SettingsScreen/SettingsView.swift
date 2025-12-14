@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @StateObject private var viewModel = SettingsViewModel()
-    
+
     var body: some View {
         BaseView {
             ScrollView(showsIndicators: false) {
@@ -12,24 +12,24 @@ struct SettingsView: View {
                     } else {
                         buildNoSubInfoView
                     }
-                    
+
                     VStack(spacing: 16) {
                         buildToggleRow(label: "Settings_notifications", isOn: $viewModel.isNotificationsOn)
                         buildToggleRow(label: "Settings_analytics", isOn: $viewModel.isAnalyticsOn)
                         buildAboutUsButton
                     }
-                    
+
                     Spacer()
-                    
+
                     VStack(spacing: 16) {
                         buildLinkButton(label: "Settings_policy") {
                             viewModel.openPrivacyPolicy()
                         }
-                        
+
                         buildLinkButton(label: "Settings_write_to_us") {
                             viewModel.openMail()
                         }
-                        
+
                         HStack(spacing: 3) {
                             QText("Settings_app_version", type: .regular, size: .vsmall)
                             QText(viewModel.appVersion, type: .regular, size: .vsmall)
@@ -46,9 +46,9 @@ struct SettingsView: View {
             viewModel.onAppear()
         }
     }
-    
-    //MARK: - View Builders
-    
+
+    // MARK: - View Builders
+
     private var buildSubInfoView: some View {
         VStack(spacing: 16) {
             Image(.goldenCrown)
@@ -62,19 +62,19 @@ struct SettingsView: View {
         .background(Rectangle().stroke(.accent, lineWidth: 3))
         .padding(.top, 30)
     }
-    
+
     private var buildNoSubInfoView: some View {
         VStack(spacing: 16) {
             Image(.grayCrown)
             QText("Settings_upgrade_header", type: .bold, size: .medium)
                 .multilineTextAlignment(.center)
-            
+
             VStack(alignment: .leading, spacing: 4) {
                 buildPadlockInfo("Settings_padlock1")
                 buildPadlockInfo("Settings_padlock2")
                 buildPadlockInfo("Settings_padlock3")
             }
-            
+
             Button {
                 viewModel.showPaywall()
             } label: {
@@ -86,7 +86,7 @@ struct SettingsView: View {
         .background(Rectangle().stroke(.accent, lineWidth: 3))
         .padding(.top, 30)
     }
-    
+
     private var buildAboutUsButton: some View {
         Button {
             viewModel.showAboutUs()
@@ -104,15 +104,15 @@ struct SettingsView: View {
             .background(.hint)
         }
     }
-    
+
     private func buildPadlockInfo(_ text: String) -> some View {
         HStack(spacing: 4) {
             Image(.padlock)
             QText(text, type: .regular, size: .small)
         }
     }
-    
-    private func buildToggleRow(label: String , isOn: Binding<Bool>) -> some View {
+
+    private func buildToggleRow(label: String, isOn: Binding<Bool>) -> some View {
         HStack {
             QText(label, type: .regular, size: .small)
             Toggle("", isOn: isOn)
@@ -123,7 +123,7 @@ struct SettingsView: View {
         .frame(maxWidth: .infinity, minHeight: 44)
         .background(.hint)
     }
-    
+
     private func buildLinkButton(
         label: String,
         action: @escaping () -> Void

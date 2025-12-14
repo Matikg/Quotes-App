@@ -1,10 +1,3 @@
-//
-//  Constants.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 18/05/2025.
-//
-
 import Foundation
 
 enum Constants {

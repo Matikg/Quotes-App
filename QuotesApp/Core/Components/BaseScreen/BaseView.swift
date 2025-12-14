@@ -1,20 +1,20 @@
-import SwiftUI
 import DependencyInjection
+import SwiftUI
 
 struct BaseView<Content: View>: View {
     @StateObject private var viewModel = BaseViewModel()
-    
+
     private let backgroundColor = Color.background
     private let content: () -> Content
-    private var navbar: AnyView? = nil
-    private var navbarTrailing: AnyView? = nil
-    
+    private var navbar: AnyView?
+    private var navbarTrailing: AnyView?
+
     init(
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.content = content
     }
-    
+
     private init(
         navbar: AnyView?,
         navbarTrailing: AnyView?,
@@ -24,12 +24,12 @@ struct BaseView<Content: View>: View {
         self.navbarTrailing = navbarTrailing
         self.content = content
     }
-    
+
     var body: some View {
         ZStack {
             backgroundColor
                 .ignoresSafeArea()
-            
+
             VStack(spacing: 0) {
                 if let navbar {
                     ZStack(alignment: .top) {
@@ -46,13 +46,13 @@ struct BaseView<Content: View>: View {
                                     }
                                 }
                             }
-                            
+
                             Spacer()
-                            
+
                             navbarTrailing
                                 .padding(.trailing, 16)
                         }
-                        
+
                         navbar
                             .frame(maxWidth: .infinity, alignment: .center)
                             .padding(.horizontal, 100)
@@ -60,9 +60,9 @@ struct BaseView<Content: View>: View {
                     .background(Color.background)
                     .padding(.vertical, 8)
                 }
-                
+
                 content()
-                
+
                 Spacer()
             }
         }
@@ -71,17 +71,17 @@ struct BaseView<Content: View>: View {
 }
 
 extension BaseView {
-    func navBar<NavBar: View>(_ navbar: @escaping () -> NavBar) -> BaseView {
+    func navBar(_ navbar: @escaping () -> some View) -> BaseView {
         BaseView(
             navbar: AnyView(navbar()),
             navbarTrailing: nil,
             content: content
         )
     }
-    
-    func navBar<NavBar: View, NavBarTrailing: View>(
-        center navbar: @escaping () -> NavBar,
-        trailing navbarTrailing: @escaping () -> NavBarTrailing
+
+    func navBar(
+        center navbar: @escaping () -> some View,
+        trailing navbarTrailing: @escaping () -> some View
     ) -> BaseView {
         BaseView(
             navbar: AnyView(navbar()),

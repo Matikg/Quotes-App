@@ -1,16 +1,9 @@
-//
-//  QuoteEditView.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 03/08/2024.
-//
-
 import SwiftUI
 
 struct QuoteEditView: View {
     @ObservedObject var viewModel: QuoteEditViewModel
     @FocusState private var isCategoryFocused: Bool
-    
+
     var body: some View {
         BaseView {
             ScrollView(showsIndicators: false) {
@@ -26,7 +19,7 @@ struct QuoteEditView: View {
                                 QText("Scan_button_label", type: .regular, size: .vsmall)
                             }
                         }
-                        
+
                         QInput(
                             label: "Quote_label",
                             text: $viewModel.quoteInput,
@@ -34,9 +27,9 @@ struct QuoteEditView: View {
                             error: viewModel.errors[.quote]
                         )
                     }
-                    
+
                     bookButton
-                    
+
                     VStack(spacing: 0) {
                         QInput(
                             label: "Category_label",
@@ -48,17 +41,17 @@ struct QuoteEditView: View {
                         .onChange(of: isCategoryFocused) {
                             viewModel.isCategoryFocused = isCategoryFocused
                         }
-                        
+
                         categoryHintScrollView
                     }
-                    
+
                     QInput(
                         label: "Page_label",
                         text: $viewModel.pageInput,
                         type: .oneLine,
                         error: viewModel.errors[.page]
                     ).keyboardType(.numberPad)
-                    
+
                     QInput(
                         label: "Note_label",
                         text: $viewModel.noteInput,
@@ -82,7 +75,8 @@ struct QuoteEditView: View {
             }
         )
         .alert("Camera_access_title",
-               isPresented: $viewModel.showCameraAccessAlert) {
+               isPresented: $viewModel.showCameraAccessAlert)
+        {
             Button("Cancel", role: .cancel) {}
             Button("Settings") {
                 viewModel.openAppSettings()
@@ -94,9 +88,9 @@ struct QuoteEditView: View {
             viewModel.onAppear()
         }
     }
-    
-    //MARK: - View Builders
-    
+
+    // MARK: - View Builders
+
     @ViewBuilder
     private var categoryHintScrollView: some View {
         if !viewModel.isCategoryFocused { EmptyView() } else {
@@ -118,12 +112,12 @@ struct QuoteEditView: View {
             .frame(maxHeight: 76)
         }
     }
-    
+
     @ViewBuilder
     private var bookButton: some View {
         VStack(alignment: .leading) {
             QText("Book_label", type: .bold, size: .vsmall)
-            
+
             Button {
                 viewModel.addBook()
             } label: {

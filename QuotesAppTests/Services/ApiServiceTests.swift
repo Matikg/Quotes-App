@@ -1,5 +1,5 @@
-import XCTest
 @testable import QuotesApp
+import XCTest
 
 final class ApiServiceTests: XCTestCase {
     func testFetchBooksReturnsBooksOnValidResponse() async throws {
@@ -10,8 +10,8 @@ final class ApiServiceTests: XCTestCase {
             BookDoc(title: "Book 2", authorName: ["name"], coverEditionKey: "edition key", coverKey: 1)
         ]
         let mockResponse = SearchResponse(numFound: 2, docs: expectedBooks)
-        let responseData = try! JSONEncoder().encode(mockResponse)
-        
+        let responseData = try JSONEncoder().encode(mockResponse)
+
         mockSession.data = responseData
         mockSession.response = HTTPURLResponse(
             url: URL(string: "https://openlibrary.org")!,
@@ -19,12 +19,12 @@ final class ApiServiceTests: XCTestCase {
             httpVersion: nil,
             headerFields: nil
         )
-        
+
         let apiService = BookApiService(session: mockSession)
-        
+
         // When
         let books = try await apiService.fetchBooks(for: "Swift")
-        
+
         // Then
         XCTAssertEqual(books.count, expectedBooks.count)
         XCTAssertEqual(books.first?.title, expectedBooks.first?.title)
@@ -34,8 +34,8 @@ final class ApiServiceTests: XCTestCase {
         // Given
         let mockSession = MockNetworkSession()
         let mockResponse = SearchResponse(numFound: 2, docs: [])
-        let responseData = try! JSONEncoder().encode(mockResponse)
-        
+        let responseData = try JSONEncoder().encode(mockResponse)
+
         mockSession.data = responseData
         mockSession.response = HTTPURLResponse(
             url: URL(string: "https://openlibrary.org")!,
@@ -43,12 +43,12 @@ final class ApiServiceTests: XCTestCase {
             httpVersion: nil,
             headerFields: nil
         )
-        
+
         let apiService = BookApiService(session: mockSession)
-        
+
         // When
         let books = try await apiService.fetchBooks(for: "Invalid")
-        
+
         // Then
         XCTAssertTrue(books.isEmpty)
     }
@@ -57,9 +57,9 @@ final class ApiServiceTests: XCTestCase {
         // Given
         let mockSession = MockNetworkSession()
         mockSession.error = URLError(.notConnectedToInternet)
-        
+
         let apiService = BookApiService(session: mockSession)
-        
+
         do {
             // When
             _ = try await apiService.fetchBooks(for: "Error")

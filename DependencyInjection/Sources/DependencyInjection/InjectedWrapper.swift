@@ -1,11 +1,10 @@
-
 import Foundation
 
 @propertyWrapper
 public struct Injected<T> {
     private let scope: Scope
     private var storage: T?
-    
+
     public var wrappedValue: T {
         mutating get {
             if let value = storage {
@@ -21,7 +20,7 @@ public struct Injected<T> {
             storage = newValue
         }
     }
-    
+
     public init(scope: Scope = .main) {
         self.scope = scope
     }

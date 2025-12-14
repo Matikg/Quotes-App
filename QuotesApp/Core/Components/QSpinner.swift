@@ -35,7 +35,7 @@ struct MaterialSpinner: View {
     @State private var end: CGFloat = 0.0
     @State private var rotation: Double = 0.0
     @Binding var isLoading: Bool
-    
+
     var body: some View {
         SpinnerShape(start: start, end: end)
             .stroke(
@@ -49,13 +49,13 @@ struct MaterialSpinner: View {
                 animateHeadTail()
             }
     }
-    
+
     private func animateRotation() {
         withAnimation(.linear(duration: 1.2).repeatForever(autoreverses: false)) {
             rotation = 360
         }
     }
-    
+
     private func animateHeadTail() {
         Task {
             while isLoading {
@@ -64,7 +64,7 @@ struct MaterialSpinner: View {
             }
         }
     }
-    
+
     private func animate(_ action: @escaping () -> Void) async {
         withAnimation(.easeOut(duration: 0.65)) {
             action()

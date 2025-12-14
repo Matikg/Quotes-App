@@ -1,12 +1,5 @@
-//
-//  Route.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 28/07/2024.
-//
-
-import SwiftUI
 import RevenueCatUI
+import SwiftUI
 
 enum Route: Hashable, Identifiable, View {
     case quotes(book: Domain.BookItem)
@@ -19,17 +12,17 @@ enum Route: Hashable, Identifiable, View {
     case paywall
     case settings
     case aboutUs
-    
+
     var id: Int { hashValue }
-    
+
     @ViewBuilder
     var body: some View {
         switch self {
-        case .quotes(let book):
+        case let .quotes(book):
             BookQuotesView(viewModel: BookQuotesViewModel(book: book))
-        case .details(let quote):
+        case let .details(quote):
             QuoteDetailsView(viewModel: QuoteDetailsViewModel(quote: quote))
-        case .edit(let existingQuote):
+        case let .edit(existingQuote):
             QuoteEditView(viewModel: QuoteEditViewModel(existingQuote: existingQuote))
         case .book:
             BookScreenView()

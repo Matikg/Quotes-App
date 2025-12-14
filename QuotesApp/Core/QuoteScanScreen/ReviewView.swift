@@ -5,7 +5,7 @@ private extension CGRect {
     func clamped(to bounds: CGRect) -> CGRect {
         var rect = self
 
-        rect.size.width  = max(40,  min(rect.size.width,  bounds.width))
+        rect.size.width = max(40, min(rect.size.width, bounds.width))
         rect.size.height = max(40, min(rect.size.height, bounds.height))
 
         rect.origin.x = min(max(bounds.minX, rect.origin.x), bounds.maxX - rect.size.width)
@@ -18,9 +18,9 @@ private extension CGRect {
 struct ReviewView: View {
     @ObservedObject private var viewModel: ReviewViewModel
     @State private var cropRect: CGRect = .zero
-    
+
     enum Handle { case top, bottom, left, right }
-    
+
     init(viewModel: ReviewViewModel) {
         self.viewModel = viewModel
     }
@@ -50,13 +50,13 @@ struct ReviewView: View {
                             .scaledToFit()
                             .frame(width: displaySize.width, height: displaySize.height)
                             .offset(x: xOffset, y: yOffset)
-                        
+
                         Path { path in
                             path.addRect(imageFrame)
                             path.addRect(cropRect)
                         }
                         .fill(Color.black.opacity(0.4), style: FillStyle(eoFill: true))
-                        
+
                         CropOverlay(
                             rect: $cropRect,
                             imageFrame: imageFrame,
@@ -88,7 +88,7 @@ struct ReviewView: View {
                 }
                 .frame(maxHeight: .infinity)
                 .padding(.horizontal, 35)
-                
+
                 recognizedTextBox
             }
             .padding(.top, 30)
@@ -105,7 +105,7 @@ struct ReviewView: View {
     }
 
     // MARK: - Helpers
-    
+
     private func normalized(rect: CGRect, in containerSize: CGSize) -> CGRect {
         let imgSize = viewModel.image.size
         let safeImgWidth = max(imgSize.width, 1)
@@ -122,19 +122,19 @@ struct ReviewView: View {
 
         let x = max(0, relativeRect.minX) / displaySize.width
         let y = 1.0 - (min(displaySize.height, relativeRect.maxY) / displaySize.height)
-        let w = relativeRect.width / displaySize.width
-        let h = relativeRect.height / displaySize.height
+        let width = relativeRect.width / displaySize.width
+        let height = relativeRect.height / displaySize.height
 
-        return CGRect(x: x, y: y, width: w, height: h)
+        return CGRect(x: x, y: y, width: width, height: height)
     }
-    
+
     // MARK: - View Builders
-    
+
     private var recognizedTextBox: some View {
         ZStack {
             Rectangle()
                 .stroke(.accent, lineWidth: 1)
-            
+
             ScrollView(showsIndicators: false) {
                 Text(viewModel.items.map(\.string).joined(separator: " "))
                     .foregroundStyle(.accent)
@@ -149,18 +149,19 @@ struct ReviewView: View {
 }
 
 // MARK: - CropOverlay
+
 struct CropOverlay: View {
     @Binding var rect: CGRect
     let imageFrame: CGRect
     let onGestureEnded: () -> Void
-    
+
     var body: some View {
         ZStack {
             Rectangle()
                 .stroke(.accent, lineWidth: 2)
                 .frame(width: rect.width, height: rect.height)
                 .position(x: rect.midX, y: rect.midY)
-            
+
             HandleView(handle: .top, rect: $rect, imageFrame: imageFrame, onGestureEnded: onGestureEnded)
                 .position(x: rect.midX, y: rect.minY)
             HandleView(handle: .bottom, rect: $rect, imageFrame: imageFrame, onGestureEnded: onGestureEnded)
@@ -174,6 +175,7 @@ struct CropOverlay: View {
 }
 
 // MARK: - HandleView
+
 struct HandleView: View {
     let handle: ReviewView.Handle
     @Binding var rect: CGRect
@@ -191,12 +193,12 @@ struct HandleView: View {
                         var newRect = rect
                         switch handle {
                         case .top:
-                            newRect.origin.y    += value.translation.height
+                            newRect.origin.y += value.translation.height
                             newRect.size.height -= value.translation.height
                         case .bottom:
                             newRect.size.height += value.translation.height
                         case .left:
-                            newRect.origin.x   += value.translation.width
+                            newRect.origin.x += value.translation.width
                             newRect.size.width -= value.translation.width
                         case .right:
                             newRect.size.width += value.translation.width

@@ -1,5 +1,5 @@
-import Foundation
 import CoreData
+import Foundation
 @testable import QuotesApp
 
 enum BookEntityStub {
@@ -15,13 +15,13 @@ enum BookEntityStub {
         let desc = model.entitiesByName["BookEntity"]!
         // 3) Instantiate without a context
         let entity = BookEntity(entity: desc, insertInto: nil)
-        
+
         // 4) Populate its attributes
         entity.id = id
         entity.title = title
         entity.author = author
         entity.coverImage = coverImageData
-        
+
         return entity
     }
 }

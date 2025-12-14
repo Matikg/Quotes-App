@@ -1,12 +1,12 @@
+import DependencyInjection
 import UIKit
 import Vision
-import DependencyInjection
 
 final class ReviewViewModel: ObservableObject {
     @Published var image: UIImage
     @Published var items: [Domain.RecognizedTextItem] = []
     @Published var isLoading = false
-    
+
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var saveScannedQuoteRepository: SaveScannedQuoteRepositoryInterface
 
@@ -16,8 +16,8 @@ final class ReviewViewModel: ObservableObject {
     }
 
     func acceptPhoto() {
-        saveScannedQuoteRepository.saveScannedQuote(items.map { $0.string }.joined(separator: " "))
-        
+        saveScannedQuoteRepository.saveScannedQuote(items.map(\.string).joined(separator: " "))
+
         navigationRouter.pop()
         navigationRouter.pop()
     }
@@ -38,7 +38,7 @@ final class ReviewViewModel: ObservableObject {
         let request = VNRecognizeTextRequest()
         request.recognitionLevel = .accurate
         request.usesLanguageCorrection = true
-        if let r = region { request.regionOfInterest = r }
+        if let region { request.regionOfInterest = region }
         let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
         try? handler.perform([request])
         return (request.results ?? []).compactMap {

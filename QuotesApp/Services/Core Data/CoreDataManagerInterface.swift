@@ -1,10 +1,3 @@
-//
-//  CoreDataManagerProtocol.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 16/10/2024.
-//
-
 import Foundation
 
 protocol CoreDataManagerInterface {

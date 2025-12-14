@@ -3,6 +3,4 @@
 # Project: QuotesApp
 # ================================
 
---enable isEmpty
---enable blankLineAfterImports
 --disable trailingCommas

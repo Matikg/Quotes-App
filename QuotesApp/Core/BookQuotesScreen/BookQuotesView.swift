@@ -1,16 +1,9 @@
-//
-//  BookQuotesView.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 09/03/2025.
-//
-
 import SwiftUI
 
 struct BookQuotesView: View {
     @ObservedObject var viewModel: BookQuotesViewModel
-    @State private var activeRow: UUID? = nil
-    
+    @State private var activeRow: UUID?
+
     var body: some View {
         BaseView {
             ScrollView(showsIndicators: false) {
@@ -32,9 +25,9 @@ struct BookQuotesView: View {
             .safeAreaInset(edge: .top) {
                 Color.clear.frame(height: 30)
             }
-            
+
             Spacer()
-            
+
             QButton(label: "Button_add_quote", state: viewModel.buttonState) {
                 viewModel.addQuote()
             }

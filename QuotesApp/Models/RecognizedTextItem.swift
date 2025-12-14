@@ -1,10 +1,3 @@
-//
-//  RecognizedTextItem.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 27/04/2025.
-//
-
 import SwiftUI
 
 extension Domain {

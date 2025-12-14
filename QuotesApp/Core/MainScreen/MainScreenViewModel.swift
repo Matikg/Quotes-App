@@ -1,37 +1,30 @@
-//
-//  MainScreenViewModel.swift
-//  QuotesApp
-//
-//  Created by Mateusz Grudzień on 14/07/2024.
-//
-
-import SwiftUI
 import DependencyInjection
+import SwiftUI
 
 final class MainScreenViewModel: ObservableObject {
     enum BookListState {
         case empty
         case loaded([Domain.BookItem])
     }
-    
+
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var coreDataManager: CoreDataManagerInterface
     @Injected private var purchaseManager: PurchaseManagerInterface
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
-    
+
     @Published var state: BookListState = .empty
     @Published var bookToDelete: Domain.BookItem?
     @Published var buttonState: QButton.ButtonState = .idle
-    
-    //MARK: - Methods
-    
+
+    // MARK: - Methods
+
     @MainActor
     func addQuote() {
         Task {
             buttonState = .loading
             let canAddQuote = await purchaseManager.checkPremiumAction()
             buttonState = .idle
-            
+
             if canAddQuote {
                 navigationRouter.push(route: .edit(existingQuote: nil))
             } else {
@@ -39,13 +32,13 @@ final class MainScreenViewModel: ObservableObject {
             }
         }
     }
-    
+
     func getBooks() {
         let fetchedBooks = coreDataManager.fetchBooks()
         let bookItems = fetchedBooks.compactMap(Domain.BookItem.init)
         state = bookItems.isEmpty ? .empty : .loaded(bookItems)
     }
-    
+
     func selectBook(_ book: Domain.BookItem) {
         if book.quotesNumber == 0 {
             saveQuoteRepository.selectBook(book)
@@ -54,25 +47,25 @@ final class MainScreenViewModel: ObservableObject {
             navigationRouter.push(route: .quotes(book: book))
         }
     }
-    
+
     func deleteBook(_ book: Domain.BookItem) {
         coreDataManager.deleteBook(book: book)
-        
+
         switch state {
         case .empty:
             break
-        case .loaded(let books):
+        case let .loaded(books):
             let updatedBooks = books.filter { $0.id != book.id }
             state = updatedBooks.isEmpty ? .empty : .loaded(updatedBooks)
         }
-        
+
         cancelDeleteBook()
     }
-    
+
     func cancelDeleteBook() {
         bookToDelete = nil
     }
-    
+
     func openSettings() {
         navigationRouter.push(route: .settings)
     }
