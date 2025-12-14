@@ -1,0 +1,87 @@
+name: iOS – Lint, Build & Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+concurrency:
+  group: ios-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ios-ci:
+    runs-on: macos-15
+
+    env:
+      PROJECT: "QuotesApp.xcodeproj"
+      SCHEME: "QuotesApp"
+      CONFIGURATION: "Debug"
+      DESTINATION: "platform=iOS Simulator,name=iPhone 15,OS=latest"
+      XCODE_VERSION: "16.4"
+
+    steps:
+      # 1️⃣ Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Wybór konkretnej wersji Xcode
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ env.XCODE_VERSION }}
+
+      # 3️⃣ Cache SwiftPM + DerivedData (przyspiesza buildy)
+      - name: Cache SwiftPM & DerivedData
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/Library/Developer/Xcode/DerivedData
+            ~/Library/Caches/org.swift.swiftpm
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
+
+      # 4️⃣ SwiftLint (Homebrew)
+      - name: Ensure SwiftLint
+        run: |
+          set -euo pipefail
+          if command -v swiftlint >/dev/null 2>&1; then
+            echo "SwiftLint already installed: $(swiftlint version)"
+          else
+            brew update
+            brew install swiftlint
+            echo "SwiftLint installed: $(swiftlint version)"
+          fi
+
+      - name: SwiftLint
+        run: swiftlint lint --strict
+
+      # 5️⃣ SwiftFormat (lint only – NO auto-fix)
+      - name: Ensure SwiftFormat
+        run: |
+          set -euo pipefail
+          if command -v swiftformat >/dev/null 2>&1; then
+            echo "SwiftFormat already installed: $(swiftformat --version)"
+          else
+            brew update
+            brew install swiftformat
+            echo "SwiftFormat installed"
+          fi
+
+      - name: SwiftFormat (lint)
+        run: swiftformat --lint .
+
+      # 6️⃣ Build + Unit Tests (XCTest)
+      - name: Build & Unit Tests
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project "${PROJECT}" \
+            -scheme "${SCHEME}" \
+            -configuration "${CONFIGURATION}" \
+            -destination "${DESTINATION}" \
+            -sdk iphonesimulator \
+            -enableCodeCoverage YES \
+            clean test
