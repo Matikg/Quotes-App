@@ -1,0 +1,70 @@
+# ================================
+# SwiftLint configuration
+# Project: QuotesApp
+# ================================
+
+# ----------------
+# Opt-in rules
+# ----------------
+opt_in_rules:
+  - empty_count
+  - first_where
+  - sorted_imports
+  - explicit_init
+  - implicit_optional_initialization
+  - toggle_bool
+  - weak_delegate
+
+# ----------------
+# Disabled rules
+# ----------------
+disabled_rules:
+  - trailing_whitespace
+  - line_length
+  - force_cast
+  - force_try
+
+# ----------------
+# General settings
+# ----------------
+warning_threshold: 100
+
+# ----------------
+# Naming
+# ----------------
+identifier_name:
+  min_length:
+    warning: 2
+  excluded:
+    - id
+    - x
+    - y
+
+type_name:
+  min_length:
+    warning: 3
+
+# ----------------
+# SwiftUI-friendly
+# ----------------
+closure_body_length:
+  warning: 60
+  error: 120
+
+function_body_length:
+  warning: 60
+  error: 120
+
+file_length:
+  warning: 500
+  error: 800
+
+# ----------------
+# Excluded paths
+# ----------------
+excluded:
+  - Pods
+  - Carthage
+  - .build
+  - Preview Content
+  - Frameworks

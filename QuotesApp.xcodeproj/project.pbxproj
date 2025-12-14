@@ -145,6 +145,8 @@
 		E80DAAB02DD9D1C700AD2C19 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		E815B22D2EC3D39B00329560 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		E815B22F2EC883E500329560 /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
+		E81ED7542EEE4AFC0055F9AF /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E81ED7582EEE693C0055F9AF /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		E83481692C3FB75D00A74FC4 /* QDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QDivider.swift; sourceTree = "<group>"; };
 		E834816F2C43E4C300A74FC4 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
@@ -441,6 +443,8 @@
 		E88FF5732C35924F00AEA2BE = {
 			isa = PBXGroup;
 			children = (
+				E81ED7542EEE4AFC0055F9AF /* .swiftlint.yml */,
+				E81ED7582EEE693C0055F9AF /* .swiftformat */,
 				E88FF57E2C35924F00AEA2BE /* QuotesApp */,
 				E88FF58F2C35925300AEA2BE /* QuotesAppTests */,
 				E88FF5992C35925300AEA2BE /* QuotesAppUITests */,
@@ -470,7 +474,6 @@
 				8871813C2D4A9C9800F25668 /* Repositories */,
 				E88170A42D5805B2003F5207 /* Utils */,
 				E88FF5B72C3F1F3D00AEA2BE /* Helpers */,
-				E8E3CCCB2DA4F8AC00406F89 /* Extensions */,
 				E8D267D32C4EE93200A19EB6 /* Fonts */,
 				E8D267E42C4EEA0A00A19EB6 /* Info.plist */,
 				E88FF5832C35925300AEA2BE /* Assets.xcassets */,
@@ -660,13 +663,6 @@
 			path = QuoteDetailsScreen;
 			sourceTree = "<group>";
 		};
-		E8E3CCCB2DA4F8AC00406F89 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		E8E3CCCE2DADADCD00406F89 /* QuoteScanScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,7 +691,9 @@
 				E88FF5782C35924F00AEA2BE /* Sources */,
 				E88FF5792C35924F00AEA2BE /* Frameworks */,
 				E88FF57A2C35924F00AEA2BE /* Resources */,
-				E80DAA9A2DCD45DF00AD2C19 /* ShellScript */,
+				E80DAA9A2DCD45DF00AD2C19 /* FirebaseCrashlytics */,
+				E81ED7562EEE50AC0055F9AF /* SwiftLint */,
+				E81ED7572EEE66380055F9AF /* SwiftFormat */,
 			);
 			buildRules = (
 			);
@@ -787,6 +785,7 @@
 				E86436572C625DEF0029858F /* XCLocalSwiftPackageReference "DependencyInjection" */,
 				E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				E80DAAA62DD950A400AD2C19 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+				E81ED7532EEE4A230055F9AF /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = E88FF57D2C35924F00AEA2BE /* Products */;
 			projectDirPath = "";
@@ -838,7 +837,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E80DAA9A2DCD45DF00AD2C19 /* ShellScript */ = {
+		E80DAA9A2DCD45DF00AD2C19 /* FirebaseCrashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -854,6 +853,7 @@
 				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}.debug.dylib",
 			);
+			name = FirebaseCrashlytics;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -861,6 +861,44 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+		E81ED7562EEE50AC0055F9AF /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n\n";
+			showEnvVarsInLog = 0;
+		};
+		E81ED7572EEE66380055F9AF /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1115,6 +1153,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K72F7V883D;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Quotes;
@@ -1156,6 +1195,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K72F7V883D;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuotesApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Quotes;
@@ -1342,6 +1382,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.24.0;
+			};
+		};
+		E81ED7532EEE4A230055F9AF /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = exactVersion;
+				version = 0.62.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

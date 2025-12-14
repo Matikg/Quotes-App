@@ -2,19 +2,17 @@ import Foundation
 @testable import QuotesApp
 
 final class MockSaveQuoteRepository: SaveQuoteRepositoryInterface {
-    private(set) var selectBookCalledWith: Domain.BookItem? = nil
-    
-    private(set) var _selectedBook: Domain.BookItem? = nil
-    var selectedBook: Domain.BookItem? { _selectedBook }
+    private(set) var selectBookCalledWith: Domain.BookItem?
+    private(set) var selectedBook: Domain.BookItem?
     
     func selectBook(_ book: Domain.BookItem) {
         selectBookCalledWith = book
-        _selectedBook = book
+        selectedBook = book
     }
     
     func saveBook(_ book: Domain.BookItem) { }
     
     func resetBook() {
-        _selectedBook = nil
+        selectedBook = nil
     }
 }
