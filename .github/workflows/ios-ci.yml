@@ -84,4 +84,8 @@ jobs:
             -destination "${DESTINATION}" \
             -sdk iphonesimulator \
             -enableCodeCoverage YES \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES=YES \
             clean test
