@@ -65,14 +65,16 @@ final class ApiServiceTests: XCTestCase {
             _ = try await apiService.fetchBooks(for: "Error")
             XCTFail("Expected error to be thrown, but none was thrown.")
         } catch {
-            let ns = error as NSError
-            XCTFail("""
-            Caught error: \(error)
-            Type: \(type(of: error))
-            NSError domain: \(ns.domain)
-            NSError code: \(ns.code)
-            userInfo: \(ns.userInfo)
-            """)
+            await XCTContext.runActivity(named: "DEBUG error info") { _ in
+                let ns = error as NSError
+                XCTFail("""
+                Caught error: \(error)
+                Type: \(type(of: error))
+                NSError domain: \(ns.domain)
+                NSError code: \(ns.code)
+                userInfo: \(ns.userInfo)
+                """)
+            }
         }
     }
 }
