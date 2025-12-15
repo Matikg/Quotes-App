@@ -84,6 +84,7 @@ jobs:
             -destination "${DESTINATION}" \
             -sdk iphonesimulator \
             -enableCodeCoverage YES \
+            -only-testing:QuotesAppTests \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
