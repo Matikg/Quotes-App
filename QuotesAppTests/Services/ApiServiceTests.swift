@@ -1,7 +1,27 @@
+import DependencyInjection
 @testable import QuotesApp
 import XCTest
 
 final class ApiServiceTests: XCTestCase {
+    private var mockCrashlyticsManager: MockCrashlyticsManager!
+
+    override func setUp() {
+        super.setUp()
+
+        mockCrashlyticsManager = MockCrashlyticsManager()
+
+        let container = ContainerManager.shared.container(for: .main)
+        container.reset()
+        container.register(CrashlyticsManagerInterface.self, instance: mockCrashlyticsManager)
+    }
+
+    override func tearDown() {
+        ContainerManager.shared.removeContainer(for: .main)
+        mockCrashlyticsManager = nil
+
+        super.tearDown()
+    }
+
     func testFetchBooksReturnsBooksOnValidResponse() async throws {
         // Given
         let mockSession = MockNetworkSession()
@@ -67,6 +87,7 @@ final class ApiServiceTests: XCTestCase {
         } catch {
             // Then
             XCTAssertEqual((error as? URLError)?.code, .notConnectedToInternet)
+            XCTAssertEqual(mockCrashlyticsManager.recordedErrors.count, 1)
         }
     }
 }
