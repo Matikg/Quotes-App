@@ -1,11 +1,18 @@
 name: iOS – Lint, Build & Test
 
+# ================================
+# Triggers
+# ================================
 on:
   push:
     branches: [ main, develop ]
   pull_request:
     branches: [ main, develop ]
 
+# ================================
+# Concurrency
+# - Cancel previous runs for the same branch
+# ================================
 concurrency:
   group: ios-ci-${{ github.ref }}
   cancel-in-progress: true
@@ -14,36 +21,49 @@ jobs:
   ios-ci:
     runs-on: macos-15
 
+    # ================================
+    # Global environment variables
+    # ================================
     env:
       PROJECT: "QuotesApp.xcodeproj"
       SCHEME: "QuotesApp"
       CONFIGURATION: "Debug"
       DESTINATION: "platform=iOS Simulator,name=iPhone 16,OS=latest"
       XCODE_VERSION: "16.4"
+      DERIVED_DATA: ${{ runner.temp }}/DerivedData
 
     steps:
-      # 1️⃣ Checkout repo
+      # ================================
+      # 1️⃣ Checkout repository
+      # ================================
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Wybór konkretnej wersji Xcode
+      # ================================
+      # 2️⃣ Select Xcode version
+      # ================================
       - name: Select Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: ${{ env.XCODE_VERSION }}
 
-      # 3️⃣ Cache SwiftPM + DerivedData (przyspiesza buildy)
-      - name: Cache SwiftPM & DerivedData
+      # ================================
+      # 3️⃣ Cache SwiftPM & SourcePackages
+      # ================================
+      - name: Cache SwiftPM & SourcePackages
         uses: actions/cache@v4
         with:
           path: |
-            ~/Library/Developer/Xcode/DerivedData
             ~/Library/Caches/org.swift.swiftpm
+            ~/.swiftpm
+            ${{ env.DERIVED_DATA }}/SourcePackages
           key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
           restore-keys: |
             ${{ runner.os }}-spm-
 
-      # 4️⃣ SwiftLint (Homebrew)
+      # ================================
+      # 4️⃣ SwiftLint (ensure + lint)
+      # ================================
       - name: Ensure SwiftLint
         run: |
           set -euo pipefail
@@ -58,7 +78,9 @@ jobs:
       - name: SwiftLint
         run: swiftlint lint --strict
 
-      # 5️⃣ SwiftFormat (lint only – NO auto-fix)
+      # ================================
+      # 5️⃣ SwiftFormat (lint only)
+      # ================================
       - name: Ensure SwiftFormat
         run: |
           set -euo pipefail
@@ -73,7 +95,9 @@ jobs:
       - name: SwiftFormat (lint)
         run: swiftformat --lint .
 
-      # 6️⃣ Build + Unit Tests (XCTest)
+      # ================================
+      # 6️⃣ Build & Unit Tests
+      # ================================
       - name: Build & Unit Tests
         run: |
           set -o pipefail
@@ -85,8 +109,9 @@ jobs:
             -sdk iphonesimulator \
             -enableCodeCoverage YES \
             -only-testing:QuotesAppTests \
+            -derivedDataPath "${DERIVED_DATA}" \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
             CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES=YES \
-            clean test
+            test
