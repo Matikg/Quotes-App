@@ -12,7 +12,7 @@ extension URLSession: NetworkSession {
 }
 
 final class BookApiService {
-    @Injected private var crashlyticsManager: CrashlyticsManagerInterface
+    // @Injected private var crashlyticsManager: CrashlyticsManagerInterface
 
     private let baseURL: String
     private let session: NetworkSession
@@ -27,7 +27,7 @@ final class BookApiService {
               var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
         else {
             let error = URLError(.badURL)
-            crashlyticsManager.record(error)
+            // crashlyticsManager.record(error)
             throw error
         }
 
@@ -38,7 +38,7 @@ final class BookApiService {
 
         guard let url = components.url else {
             let error = URLError(.badURL)
-            crashlyticsManager.record(error)
+            // crashlyticsManager.record(error)
             throw error
         }
 
@@ -52,8 +52,7 @@ final class BookApiService {
 
             return decodedResponse.docs ?? []
         } catch {
-            print("BookApiService catch error:", error, "type:", type(of: error))
-            crashlyticsManager.record(error)
+            // crashlyticsManager.record(error)
             throw error
         }
     }
@@ -70,7 +69,7 @@ final class BookApiService {
             return data
         } else {
             let error = URLError(.badServerResponse)
-            crashlyticsManager.record(error)
+            // crashlyticsManager.record(error)
             throw error
         }
     }
