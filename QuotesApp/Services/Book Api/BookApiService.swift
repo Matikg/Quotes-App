@@ -52,6 +52,7 @@ final class BookApiService {
 
             return decodedResponse.docs ?? []
         } catch {
+            print("BookApiService catch error:", error, "type:", type(of: error))
             crashlyticsManager.record(error)
             throw error
         }

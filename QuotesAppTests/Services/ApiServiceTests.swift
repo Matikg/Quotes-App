@@ -65,8 +65,14 @@ final class ApiServiceTests: XCTestCase {
             _ = try await apiService.fetchBooks(for: "Error")
             XCTFail("Expected error to be thrown, but none was thrown.")
         } catch {
-            // Then
-            XCTAssertEqual((error as? URLError)?.code, .notConnectedToInternet)
+            let ns = error as NSError
+            XCTFail("""
+            Caught error: \(error)
+            Type: \(type(of: error))
+            NSError domain: \(ns.domain)
+            NSError code: \(ns.code)
+            userInfo: \(ns.userInfo)
+            """)
         }
     }
 }
