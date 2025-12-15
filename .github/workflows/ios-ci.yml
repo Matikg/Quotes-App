@@ -30,7 +30,6 @@ jobs:
       CONFIGURATION: "Debug"
       DESTINATION: "platform=iOS Simulator,name=iPhone 16,OS=latest"
       XCODE_VERSION: "16.4"
-      DERIVED_DATA: ${{ runner.temp }}/DerivedData
 
     steps:
       # ================================
@@ -56,7 +55,7 @@ jobs:
           path: |
             ~/Library/Caches/org.swift.swiftpm
             ~/.swiftpm
-            ${{ env.DERIVED_DATA }}/SourcePackages
+            ${{ runner.temp }}/DerivedData/SourcePackages
           key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
           restore-keys: |
             ${{ runner.os }}-spm-
@@ -109,7 +108,7 @@ jobs:
             -sdk iphonesimulator \
             -enableCodeCoverage YES \
             -only-testing:QuotesAppTests \
-            -derivedDataPath "${DERIVED_DATA}" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
