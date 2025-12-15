@@ -696,12 +696,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E88FF5A02C35925300AEA2BE /* Build configuration list for PBXNativeTarget "QuotesApp" */;
 			buildPhases = (
+				E81ED7572EEE66380055F9AF /* SwiftFormat */,
+				E81ED7562EEE50AC0055F9AF /* SwiftLint */,
 				E88FF5782C35924F00AEA2BE /* Sources */,
 				E88FF5792C35924F00AEA2BE /* Frameworks */,
 				E88FF57A2C35924F00AEA2BE /* Resources */,
 				E80DAA9A2DCD45DF00AD2C19 /* FirebaseCrashlytics */,
-				E81ED7562EEE50AC0055F9AF /* SwiftLint */,
-				E81ED7572EEE66380055F9AF /* SwiftFormat */,
 			);
 			buildRules = (
 			);
