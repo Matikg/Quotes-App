@@ -2,25 +2,26 @@ import DependencyInjection
 import RevenueCat
 import UIKit
 
+@MainActor
 final class SettingsViewModel: ObservableObject {
     @Injected private var purchaseManager: PurchaseManagerInterface
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var analyticsManager: AnalyticsManagerInterface
+    @Injected private var notificationsManager: PushNotificationsManagerInterface
 
+    @Published private(set) var showNotificationsSwitch = false
     @Published private(set) var hasFullAccess = false
+
     @Published var isNotificationsOn = false {
-        didSet {
-            toggleNotifications()
-        }
+        didSet { toggleNotifications() }
     }
 
     @Published var isAnalyticsOn = false {
-        didSet {
-            toggleAnalytics()
-        }
+        didSet { toggleAnalytics() }
     }
 
     private var customerInfoTask: Task<Void, Never>?
+    private var notificationsPermissionTask: Task<Void, Never>?
 
     var appVersion: String {
         Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "-"
@@ -28,16 +29,19 @@ final class SettingsViewModel: ObservableObject {
 
     deinit {
         customerInfoTask?.cancel()
+        notificationsPermissionTask?.cancel()
     }
 
-    @MainActor
-    func onAppear() {
-        Task {
-            hasFullAccess = await purchaseManager.checkFullAccess()
-            startObservingCustomerInfo()
+    func onAppear() async {
+        startObservingCustomerInfo()
+        startObservingNotificationsPermission()
 
-            isAnalyticsOn = analyticsManager.isAnalyticsEnabled
-        }
+        hasFullAccess = await purchaseManager.checkFullAccess()
+        isAnalyticsOn = analyticsManager.isAnalyticsEnabled
+
+        let granted = await notificationsManager.isSystemPermissionGranted()
+        showNotificationsSwitch = granted
+        isNotificationsOn = granted && notificationsManager.isPushEnabled
     }
 
     func showPaywall() {
@@ -60,17 +64,30 @@ final class SettingsViewModel: ObservableObject {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 
+    func openSystemSettings() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(url)
+    }
+
     func showAboutUs() {
         navigationRouter.push(route: .aboutUs)
     }
 
-    func toggleNotifications() {}
+    private func toggleNotifications() {
+        Task {
+            if isNotificationsOn {
+                await notificationsManager.enablePush()
+            } else {
+                await notificationsManager.disablePush()
+            }
+        }
+    }
 
-    func toggleAnalytics() {
+    private func toggleAnalytics() {
         analyticsManager.setAnalyticsEnabled(isAnalyticsOn)
     }
 
-    // MARK: - Private
+    // MARK: - Observers
 
     private func startObservingCustomerInfo() {
         customerInfoTask?.cancel()
@@ -81,6 +98,25 @@ final class SettingsViewModel: ObservableObject {
                 let isActive = info.entitlements[Constants.entitlementId]?.isActive == true
                 await MainActor.run {
                     self.hasFullAccess = isActive
+                }
+            }
+        }
+    }
+
+    private func startObservingNotificationsPermission() {
+        notificationsPermissionTask?.cancel()
+
+        notificationsPermissionTask = Task { [weak self] in
+            guard let self else { return }
+
+            let center = NotificationCenter.default
+
+            for await _ in center.notifications(named: UIApplication.willEnterForegroundNotification) {
+                let isEnabled = await notificationsManager.isSystemPermissionGranted()
+
+                await MainActor.run {
+                    self.showNotificationsSwitch = isEnabled
+                    self.isNotificationsOn = isEnabled
                 }
             }
         }

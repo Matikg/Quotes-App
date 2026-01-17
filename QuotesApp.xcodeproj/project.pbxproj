@@ -37,6 +37,7 @@
 		E815B22E2EC3D39B00329560 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815B22D2EC3D39B00329560 /* AnalyticsManager.swift */; };
 		E815B2302EC883E500329560 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815B22F2EC883E500329560 /* AnalyticsEvent.swift */; };
 		E815B2322EC885CC00329560 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E815B2312EC885CC00329560 /* FirebaseAnalytics */; };
+		E81C4F9D2F19AC1800B7FF6D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E81C4F9C2F19AC1800B7FF6D /* FirebaseMessaging */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
 		E83481702C43E4C300A74FC4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* BaseView.swift */; };
 		E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */; };
@@ -78,6 +79,7 @@
 		E8A9DF282C56BAC800C9AB6D /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF272C56BAC800C9AB6D /* NavigationRouter.swift */; };
 		E8A9DF2B2C5E430B00C9AB6D /* QuoteEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF2A2C5E430B00C9AB6D /* QuoteEditView.swift */; };
 		E8A9DF2D2C5E432F00C9AB6D /* QuoteEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF2C2C5E432F00C9AB6D /* QuoteEditViewModel.swift */; };
+		E8AF43772F15B7B600E554E7 /* PushNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF43762F15B7A000E554E7 /* PushNotificationsManager.swift */; };
 		E8B21A692CC048F600B589C3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A682CC048F600B589C3 /* CoreDataManager.swift */; };
 		E8B21A6B2CC0495500B589C3 /* CoreDataManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B21A6A2CC0495500B589C3 /* CoreDataManagerInterface.swift */; };
 		E8C3555F2CFCD120001F6065 /* BookScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C3555E2CFCD120001F6065 /* BookScreenView.swift */; };
@@ -193,6 +195,7 @@
 		E8A9DF272C56BAC800C9AB6D /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		E8A9DF2A2C5E430B00C9AB6D /* QuoteEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditView.swift; sourceTree = "<group>"; };
 		E8A9DF2C2C5E432F00C9AB6D /* QuoteEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditViewModel.swift; sourceTree = "<group>"; };
+		E8AF43762F15B7A000E554E7 /* PushNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationsManager.swift; sourceTree = "<group>"; };
 		E8B21A682CC048F600B589C3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E8B21A6A2CC0495500B589C3 /* CoreDataManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerInterface.swift; sourceTree = "<group>"; };
 		E8C3555E2CFCD120001F6065 /* BookScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScreenView.swift; sourceTree = "<group>"; };
@@ -203,14 +206,14 @@
 		E8C90A382D7D0F920048265A /* BookQuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookQuotesViewModel.swift; sourceTree = "<group>"; };
 		E8CC9BB82D7E2F0C00835FBA /* QuotesListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListRowView.swift; sourceTree = "<group>"; };
 		E8D267D12C4D9E7800A19EB6 /* QText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QText.swift; sourceTree = "<group>"; };
-		E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
-		E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
-		E8D267D62C4EE96E00A19EB6 /* Merriweather-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Italic.ttf"; sourceTree = "<group>"; };
-		E8D267D72C4EE96E00A19EB6 /* Merriweather-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-BlackItalic.ttf"; sourceTree = "<group>"; };
-		E8D267D82C4EE96E00A19EB6 /* Merriweather-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Bold.ttf"; sourceTree = "<group>"; };
-		E8D267D92C4EE96E00A19EB6 /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
-		E8D267DA2C4EE96E00A19EB6 /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Light.ttf"; sourceTree = "<group>"; };
-		E8D267DB2C4EE96E00A19EB6 /* Merriweather-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Merriweather-Black.ttf"; sourceTree = "<group>"; };
+		E8D267D42C4EE96E00A19EB6 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
+		E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Merriweather-Regular.ttf"; sourceTree = "<group>"; };
+		E8D267D62C4EE96E00A19EB6 /* Merriweather-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Merriweather-Italic.ttf"; sourceTree = "<group>"; };
+		E8D267D72C4EE96E00A19EB6 /* Merriweather-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Merriweather-BlackItalic.ttf"; sourceTree = "<group>"; };
+		E8D267D82C4EE96E00A19EB6 /* Merriweather-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Merriweather-Bold.ttf"; sourceTree = "<group>"; };
+		E8D267D92C4EE96E00A19EB6 /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
+		E8D267DA2C4EE96E00A19EB6 /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Merriweather-Light.ttf"; sourceTree = "<group>"; };
+		E8D267DB2C4EE96E00A19EB6 /* Merriweather-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Merriweather-Black.ttf"; sourceTree = "<group>"; };
 		E8D267E42C4EEA0A00A19EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8E1A9DE2EEF73600086496B /* MockPurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPurchaseManager.swift; sourceTree = "<group>"; };
 		E8E3CCC52D84B5B500406F89 /* QuoteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsView.swift; sourceTree = "<group>"; };
@@ -224,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E81C4F9D2F19AC1800B7FF6D /* FirebaseMessaging in Frameworks */,
 				E815B2322EC885CC00329560 /* FirebaseAnalytics in Frameworks */,
 				E80DAAA82DD950A400AD2C19 /* RevenueCat in Frameworks */,
 				E80DAA972DCD433F00AD2C19 /* FirebaseCrashlytics in Frameworks */,
@@ -311,6 +315,7 @@
 				E80DAA932DCD41DD00AD2C19 /* GoogleService-Info.plist */,
 				E815B22C2EC3D37B00329560 /* Analytics */,
 				E815B22B2EC3D25B00329560 /* Crashlytics */,
+				E8AF43752F15B72100E554E7 /* Notifications */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -628,6 +633,14 @@
 			path = QuoteEditScreen;
 			sourceTree = "<group>";
 		};
+		E8AF43752F15B72100E554E7 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				E8AF43762F15B7A000E554E7 /* PushNotificationsManager.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		E8C3555D2CFCA1FC001F6065 /* BookScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,6 +728,7 @@
 				E80DAAA72DD950A400AD2C19 /* RevenueCat */,
 				E80DAAA92DD950A400AD2C19 /* RevenueCatUI */,
 				E815B2312EC885CC00329560 /* FirebaseAnalytics */,
+				E81C4F9C2F19AC1800B7FF6D /* FirebaseMessaging */,
 			);
 			productName = QuotesApp;
 			productReference = E88FF57C2C35924F00AEA2BE /* QuotesApp.app */;
@@ -920,6 +934,7 @@
 			files = (
 				E8C90A372D7D0F560048265A /* BookQuotesView.swift in Sources */,
 				E80DAA6E2DBDAC0200AD2C19 /* RecognizedTextItem.swift in Sources */,
+				E8AF43772F15B7B600E554E7 /* PushNotificationsManager.swift in Sources */,
 				E80DAAB12DD9D1C700AD2C19 /* PurchaseManager.swift in Sources */,
 				E8E3CCC62D84B5B500406F89 /* QuoteDetailsView.swift in Sources */,
 				E80DAA872DBE1A8400AD2C19 /* SaveScannedQuoteRepository.swift in Sources */,
@@ -1431,6 +1446,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		E81C4F9C2F19AC1800B7FF6D /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		E86436532C5FA5E20029858F /* DependencyInjection */ = {
 			isa = XCSwiftPackageProductDependency;

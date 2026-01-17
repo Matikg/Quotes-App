@@ -7,6 +7,8 @@ struct AppEntry: App {
     @StateObject private var navigationRouter: NavigationRouter
     @StateObject private var rootScreenViewModel = RootScreenViewModel()
 
+    @Injected private var notificationsManager: PushNotificationsManagerInterface
+
     init() {
         let router = NavigationRouter()
         _navigationRouter = StateObject(wrappedValue: router)
@@ -28,6 +30,9 @@ struct AppEntry: App {
                 RootScreenView(viewModel: rootScreenViewModel)
                     .navigationDestination(for: Route.self, destination: { $0 })
                     .sheet(item: $navigationRouter.presentedSheet, content: { $0 })
+                    .task {
+                        await rootScreenViewModel.showPushPermissionAlert()
+                    }
             }
         }
     }
