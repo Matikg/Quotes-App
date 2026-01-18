@@ -133,10 +133,8 @@ final class QuoteEditViewModel: ObservableObject {
             crashlyticsManager.log(CrashReason.QuoteEdit.noBookSelected)
             return
         }
-        guard let bookEntity = coreDataManager.fetchBookEntity(for: selectedBook) else { return }
-
         coreDataManager.saveQuote(
-            to: bookEntity,
+            toBookId: selectedBook.id,
             text: quoteInput,
             category: categoryInput,
             page: page,

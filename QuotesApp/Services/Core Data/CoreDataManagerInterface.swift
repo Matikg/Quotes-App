@@ -3,7 +3,6 @@ import Foundation
 protocol CoreDataManagerInterface {
     func fetchBooks() -> [BookEntity]
     func fetchBookEntity(for domainBook: Domain.BookItem) -> BookEntity?
-    func saveQuote(to book: BookEntity, text: String, category: String, page: Int, note: String, quoteId: UUID?)
     func deleteBook(book: Domain.BookItem)
     func deleteQuote(quote: Domain.QuoteItem)
     func saveBook(for book: Domain.BookItem)
@@ -11,4 +10,14 @@ protocol CoreDataManagerInterface {
     func fetchBook(for quote: Domain.QuoteItem) -> BookEntity?
     func fetchAllQuotes() -> [QuoteEntity]
     func fetchCategories() -> [String]
+    func fetchBooksCount() -> Int
+    func fetchQuotesCount() -> Int
+    func saveQuote(
+        toBookId bookId: UUID,
+        text: String,
+        category: String,
+        page: Int,
+        note: String,
+        quoteId: UUID?
+    )
 }

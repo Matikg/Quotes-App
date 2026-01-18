@@ -15,7 +15,7 @@ final class MockCoreDataManager: CoreDataManagerInterface {
 
     func fetchBookEntity(for _: Domain.BookItem) -> BookEntity? { nil }
     func saveQuote(
-        to _: BookEntity,
+        toBookId _: UUID,
         text _: String,
         category _: String,
         page _: Int,
@@ -29,4 +29,6 @@ final class MockCoreDataManager: CoreDataManagerInterface {
     func fetchBook(for _: Domain.QuoteItem) -> BookEntity? { nil }
     func fetchAllQuotes() -> [QuoteEntity] { [] }
     func fetchCategories() -> [String] { [] }
+    func fetchBooksCount() -> Int { 0 }
+    func fetchQuotesCount() -> Int { 0 }
 }

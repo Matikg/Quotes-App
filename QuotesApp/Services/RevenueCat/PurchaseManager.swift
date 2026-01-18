@@ -25,8 +25,8 @@ final class PurchaseManager: PurchaseManagerInterface {
 
     func checkPremiumAction() async -> Bool {
         let hasPremium = await checkFullAccess()
-        let quotesCount = coreDataManager.fetchAllQuotes().count
-        let booksCount = coreDataManager.fetchBooks().count
+        let quotesCount = coreDataManager.fetchQuotesCount()
+        let booksCount = coreDataManager.fetchBooksCount()
 
         return hasPremium || quotesCount < Configuration.quoteLimit
             && booksCount < Configuration.bookLimit
