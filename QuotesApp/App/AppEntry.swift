@@ -4,6 +4,8 @@ import SwiftUI
 
 @main
 struct AppEntry: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+
     @StateObject private var navigationRouter: NavigationRouter
     @StateObject private var rootScreenViewModel = RootScreenViewModel()
 

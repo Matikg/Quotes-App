@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		883FB0CB2F1D25B1006C34B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883FB0CA2F1D25B1006C34B0 /* AppDelegate.swift */; };
 		887181322D429CB900F25668 /* QuoteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 887181302D429CB900F25668 /* QuoteDataModel.xcdatamodeld */; };
 		887181352D42A42D00F25668 /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887181342D42A42D00F25668 /* ApiServiceTests.swift */; };
 		887181382D42A45E00F25668 /* MockNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887181372D42A45E00F25668 /* MockNetworkSession.swift */; };
@@ -123,6 +124,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		883FB0CA2F1D25B1006C34B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		887181312D429CB900F25668 /* QuoteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuoteDataModel.xcdatamodel; sourceTree = "<group>"; };
 		887181342D42A42D00F25668 /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
 		887181372D42A45E00F25668 /* MockNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkSession.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 		E86436502C5F9EC50029858F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				883FB0CA2F1D25B1006C34B0 /* AppDelegate.swift */,
 				E88FF57F2C35924F00AEA2BE /* AppEntry.swift */,
 			);
 			path = App;
@@ -944,6 +947,7 @@
 				E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */,
 				E836D5DE2DE795800010393A /* CameraAccessManager.swift in Sources */,
 				E89242CD2D5FB24B00F8A420 /* SelectBookScreenView.swift in Sources */,
+				883FB0CB2F1D25B1006C34B0 /* AppDelegate.swift in Sources */,
 				E88170982D3EB497003F5207 /* DefaultBookCover.swift in Sources */,
 				E88FF5B92C3F1F7100AEA2BE /* UserDefaultsConstants.swift in Sources */,
 				E8A9DF282C56BAC800C9AB6D /* NavigationRouter.swift in Sources */,
