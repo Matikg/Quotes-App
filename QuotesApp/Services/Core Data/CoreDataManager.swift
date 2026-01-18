@@ -52,22 +52,22 @@ final class CoreDataManager: CoreDataManagerInterface {
                 let bookRequest = BookEntity.fetchRequest()
                 bookRequest.fetchLimit = 1
                 bookRequest.predicate = NSPredicate(format: "id == %@", bookId as CVarArg)
-                guard let book = try self.viewContext.fetch(bookRequest).first else { return }
+                guard let book = try viewContext.fetch(bookRequest).first else { return }
 
                 let quote: QuoteEntity
                 if let id = quoteId {
                     let request = QuoteEntity.fetchRequest()
                     request.fetchLimit = 1
                     request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-                    if let existing = try self.viewContext.fetch(request).first {
+                    if let existing = try viewContext.fetch(request).first {
                         quote = existing
                     } else {
-                        quote = QuoteEntity(context: self.viewContext)
+                        quote = QuoteEntity(context: viewContext)
                         quote.id = id
                         quote.date = Date()
                     }
                 } else {
-                    quote = QuoteEntity(context: self.viewContext)
+                    quote = QuoteEntity(context: viewContext)
                     quote.id = UUID()
                     quote.date = Date()
                 }
@@ -78,10 +78,10 @@ final class CoreDataManager: CoreDataManagerInterface {
                 quote.page = Int64(page)
                 quote.note = note
 
-                try self.viewContext.save()
+                try viewContext.save()
             } catch {
-                self.viewContext.rollback()
-                self.crashlyticsManager.record(error)
+                viewContext.rollback()
+                crashlyticsManager.record(error)
             }
         }
     }
@@ -93,13 +93,13 @@ final class CoreDataManager: CoreDataManagerInterface {
             request.predicate = NSPredicate(format: "id == %@", quote.id as CVarArg)
 
             do {
-                if let quoteEntity = try self.viewContext.fetch(request).first {
-                    self.viewContext.delete(quoteEntity)
-                    try self.viewContext.save()
+                if let quoteEntity = try viewContext.fetch(request).first {
+                    viewContext.delete(quoteEntity)
+                    try viewContext.save()
                 }
             } catch {
-                self.viewContext.rollback()
-                self.crashlyticsManager.record(error)
+                viewContext.rollback()
+                crashlyticsManager.record(error)
             }
         }
     }
@@ -111,13 +111,13 @@ final class CoreDataManager: CoreDataManagerInterface {
             request.predicate = NSPredicate(format: "id == %@", book.id as CVarArg)
 
             do {
-                if let bookEntity = try self.viewContext.fetch(request).first {
-                    self.viewContext.delete(bookEntity)
-                    try self.viewContext.save()
+                if let bookEntity = try viewContext.fetch(request).first {
+                    viewContext.delete(bookEntity)
+                    try viewContext.save()
                 }
             } catch {
-                self.viewContext.rollback()
-                self.crashlyticsManager.record(error)
+                viewContext.rollback()
+                crashlyticsManager.record(error)
             }
         }
     }
@@ -126,16 +126,16 @@ final class CoreDataManager: CoreDataManagerInterface {
         viewContext.performAndWait { [weak self] in
             guard let self else { return }
             do {
-                let bookEntity = BookEntity(context: self.viewContext)
+                let bookEntity = BookEntity(context: viewContext)
                 bookEntity.id = book.id
                 bookEntity.author = book.author
                 bookEntity.title = book.title
                 bookEntity.coverImage = book.coverImageData
 
-                try self.viewContext.save()
+                try viewContext.save()
             } catch {
-                self.viewContext.rollback()
-                self.crashlyticsManager.record(error)
+                viewContext.rollback()
+                crashlyticsManager.record(error)
             }
         }
     }
