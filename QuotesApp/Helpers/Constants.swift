@@ -5,4 +5,5 @@ enum Constants {
     static let paywallConfigurationKey = "appl_acSBnwGhPvAkfmhVOLCtwUkPuNK"
     static let contactMail = "support@asthc.com"
     static let policyUrl = "https://bookquotesaver.asthc.com/privacy-policy"
+    static let pushNotificationsTopic = "general"
 }

@@ -13,11 +13,11 @@ final class SettingsViewModel: ObservableObject {
     @Published private(set) var hasFullAccess = false
 
     @Published var isNotificationsOn = false {
-        didSet { toggleNotifications() }
+        didSet { setNotifications() }
     }
 
     @Published var isAnalyticsOn = false {
-        didSet { toggleAnalytics() }
+        didSet { setAnalytics() }
     }
 
     private var customerInfoTask: Task<Void, Never>?
@@ -73,7 +73,7 @@ final class SettingsViewModel: ObservableObject {
         navigationRouter.push(route: .aboutUs)
     }
 
-    private func toggleNotifications() {
+    private func setNotifications() {
         Task {
             if isNotificationsOn {
                 await notificationsManager.enablePush()
@@ -83,7 +83,7 @@ final class SettingsViewModel: ObservableObject {
         }
     }
 
-    private func toggleAnalytics() {
+    private func setAnalytics() {
         analyticsManager.setAnalyticsEnabled(isAnalyticsOn)
     }
 

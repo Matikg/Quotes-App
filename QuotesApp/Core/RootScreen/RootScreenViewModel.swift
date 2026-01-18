@@ -7,7 +7,7 @@ final class RootScreenViewModel: ObservableObject {
     @AppStorage(UserDefaultsConstants.FirstLaunchKey) var isFirstLaunch: Bool = true
     let mainScreenViewModel = MainScreenViewModel()
 
-    func showPushPermissionAlert() async {
+    func showPushPermissionAlertIfNeeded() async {
         await notificationsManager.requestPermissionIfNeeded()
     }
 }

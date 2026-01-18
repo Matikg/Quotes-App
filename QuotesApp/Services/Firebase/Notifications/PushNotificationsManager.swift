@@ -15,13 +15,26 @@ protocol PushNotificationsManagerInterface {
 final class PushNotificationsManager: PushNotificationsManagerInterface {
     @Injected private var crashlyticsManager: CrashlyticsManagerInterface
 
+    private let pushTopic = Constants.pushNotificationsTopic
+
     var isPushEnabled: Bool {
         UserDefaults.standard.bool(forKey: UserDefaultsConstants.NotificationsOnKey)
     }
 
     func isSystemPermissionGranted() async -> Bool {
-        let settings = await UNUserNotificationCenter.current().notificationSettings()
-        return settings.authorizationStatus == .authorized
+        let status = await UNUserNotificationCenter
+            .current()
+            .notificationSettings()
+            .authorizationStatus
+
+        switch status {
+        case .authorized, .provisional, .ephemeral:
+            return true
+        case .notDetermined, .denied:
+            return false
+        @unknown default:
+            return false
+        }
     }
 
     func requestPermissionIfNeeded() async {
@@ -56,7 +69,7 @@ final class PushNotificationsManager: PushNotificationsManagerInterface {
         }
 
         do {
-            try await Messaging.messaging().subscribe(toTopic: "general")
+            try await Messaging.messaging().subscribe(toTopic: pushTopic)
         } catch {
             crashlyticsManager.record(error)
         }
@@ -66,7 +79,7 @@ final class PushNotificationsManager: PushNotificationsManagerInterface {
         UserDefaults.standard.set(false, forKey: UserDefaultsConstants.NotificationsOnKey)
 
         do {
-            try await Messaging.messaging().unsubscribe(fromTopic: "general")
+            try await Messaging.messaging().unsubscribe(fromTopic: pushTopic)
             try await Messaging.messaging().deleteToken()
         } catch {
             crashlyticsManager.record(error)

@@ -31,7 +31,7 @@ struct AppEntry: App {
                     .navigationDestination(for: Route.self, destination: { $0 })
                     .sheet(item: $navigationRouter.presentedSheet, content: { $0 })
                     .task {
-                        await rootScreenViewModel.showPushPermissionAlert()
+                        await rootScreenViewModel.showPushPermissionAlertIfNeeded()
                     }
             }
         }
