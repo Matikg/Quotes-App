@@ -147,8 +147,11 @@ final class CoreDataManager: CoreDataManagerInterface {
             request.fetchLimit = 1
             request.predicate = NSPredicate(format: "id == %@", domainBook.id as CVarArg)
 
-            do { result = try viewContext.fetch(request).first }
-            catch { crashlyticsManager.record(error) }
+            do {
+                result = try viewContext.fetch(request).first
+            } catch {
+                crashlyticsManager.record(error)
+            }
         }
         return result
     }
