@@ -12,6 +12,7 @@ extension ContainerManager {
         container.register(AnalyticsManagerInterface.self, instance: AnalyticsManager())
         container.register(PurchaseManagerInterface.self, instance: PurchaseManager())
         container.register(CameraAccessManagerInterface.self, instance: CameraAccessManager())
+        container.register(PushNotificationsManagerInterface.self, instance: PushNotificationsManager())
     }
 }
 

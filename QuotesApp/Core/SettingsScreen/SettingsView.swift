@@ -14,7 +14,7 @@ struct SettingsView: View {
                     }
 
                     VStack(spacing: 16) {
-                        buildToggleRow(label: "Settings_notifications", isOn: $viewModel.isNotificationsOn)
+                        buildNotificationsRow
                         buildToggleRow(label: "Settings_analytics", isOn: $viewModel.isAnalyticsOn)
                         buildAboutUsButton
                     }
@@ -42,8 +42,8 @@ struct SettingsView: View {
         .navBar {
             QText("Settings", type: .bold, size: .medium)
         }
-        .onAppear {
-            viewModel.onAppear()
+        .task {
+            await viewModel.onAppear()
         }
     }
 
@@ -82,9 +82,36 @@ struct SettingsView: View {
             }
         }
         .frame(maxWidth: .infinity)
+        .padding(.leading, 4)
         .padding(.vertical, 16)
         .background(Rectangle().stroke(.accent, lineWidth: 3))
         .padding(.top, 30)
+    }
+
+    private var buildNotificationsRow: some View {
+        Group {
+            if viewModel.showNotificationsSwitch {
+                buildToggleRow(label: "Settings_notifications", isOn: $viewModel.isNotificationsOn)
+            } else {
+                VStack(alignment: .leading, spacing: 4) {
+                    QText("Settings_notifications", type: .regular, size: .small)
+
+                    HStack(alignment: .top, spacing: 16) {
+                        QText("Settings_notifications_info", type: .regular, size: .vsmall)
+
+                        Button {
+                            viewModel.openSystemSettings()
+                        } label: {
+                            QText("Open Settings", type: .bold, size: .vsmall)
+                        }
+                    }
+                }
+                .padding(.vertical, 12)
+                .padding(.horizontal, 16)
+                .frame(maxWidth: .infinity, minHeight: 44)
+                .background(.hint)
+            }
+        }
     }
 
     private var buildAboutUsButton: some View {

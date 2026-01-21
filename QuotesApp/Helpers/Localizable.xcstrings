@@ -752,6 +752,23 @@
         }
       }
     },
+    "Settings_notifications_info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable notifications for the app so you never miss new future updates and promos"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Włącz powiadomienia dla aplikacji, aby nie przegapić nowych aktualizacji i promocji"
+          }
+        }
+      }
+    },
     "Settings_padlock1" : {
       "extractionState" : "manual",
       "localizations" : {
