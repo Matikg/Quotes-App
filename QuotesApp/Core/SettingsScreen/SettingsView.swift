@@ -15,7 +15,7 @@ struct SettingsView: View {
 
                     VStack(spacing: 16) {
                         buildNotificationsRow
-                        buildToggleRow(label: "Settings_analytics", isOn: $viewModel.isAnalyticsOn)
+                        buildToggleRow(label: "settings_toggle_analytics", isOn: $viewModel.isAnalyticsOn)
                         buildAboutUsButton
                     }
 
@@ -91,18 +91,18 @@ struct SettingsView: View {
     private var buildNotificationsRow: some View {
         Group {
             if viewModel.showNotificationsSwitch {
-                buildToggleRow(label: "Settings_notifications", isOn: $viewModel.isNotificationsOn)
+                buildToggleRow(label: "settings_toggle_notifications", isOn: $viewModel.isNotificationsOn)
             } else {
                 VStack(alignment: .leading, spacing: 4) {
-                    QText("Settings_notifications", type: .regular, size: .small)
+                    QText("settings_toggle_notifications", type: .regular, size: .small)
 
                     HStack(alignment: .top, spacing: 16) {
-                        QText("Settings_notifications_info", type: .regular, size: .vsmall)
+                        QText("settings_notifications_info", type: .regular, size: .vsmall)
 
                         Button {
                             viewModel.openSystemSettings()
                         } label: {
-                            QText("Open Settings", type: .bold, size: .vsmall)
+                            QText("settings_link_settings", type: .bold, size: .vsmall)
                         }
                     }
                 }
