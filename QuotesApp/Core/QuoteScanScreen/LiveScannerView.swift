@@ -58,15 +58,24 @@ struct LiveScannerView: UIViewControllerRepresentable {
         weak var scanner: DataScannerViewController?
         private var isCapturingPhoto = false
 
+        private var captureTask: Task<Void, Never>?
+
         init(_ parent: LiveScannerView) {
             self.parent = parent
+        }
+
+        deinit {
+            captureTask?.cancel()
         }
 
         @objc func didTapCapture() {
             guard !isCapturingPhoto, let scanner else { return }
             isCapturingPhoto = true
 
-            Task { @MainActor in
+            captureTask?.cancel()
+
+            captureTask = Task { [weak self] in
+                guard let self else { return }
                 let start = CFAbsoluteTimeGetCurrent()
 
                 defer {

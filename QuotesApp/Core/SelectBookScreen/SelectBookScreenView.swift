@@ -12,12 +12,12 @@ struct SelectBookScreenView: View {
                 .padding(.horizontal)
         }
         .navBar(center: {
-            QText("BookSelect_title", type: .bold, size: .medium)
+            QText("book_select_screen_navigation_title", type: .bold, size: .medium)
         }, trailing: {
             Button {
-                viewModel.createBook()
+                Task { await viewModel.createBook() }
             } label: {
-                QText("Create", type: .regular, size: .small)
+                QText("nav_bar_button_create", type: .regular, size: .small)
             }
         })
     }

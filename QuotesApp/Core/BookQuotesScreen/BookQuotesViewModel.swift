@@ -1,14 +1,15 @@
 import DependencyInjection
 import Foundation
 
+@MainActor
 final class BookQuotesViewModel: ObservableObject {
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var coreDataManager: CoreDataManagerInterface
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     @Injected private var purchaseManager: PurchaseManagerInterface
 
-    @Published var quotes = [Domain.QuoteItem]()
-    @Published var buttonState: QButton.ButtonState = .idle
+    @Published private(set) var quotes = [Domain.QuoteItem]()
+    @Published private(set) var buttonState: QButton.ButtonState = .idle
 
     let book: Domain.BookItem
 
@@ -22,18 +23,15 @@ final class BookQuotesViewModel: ObservableObject {
         navigationRouter.push(route: .details(quote: quote))
     }
 
-    @MainActor
-    func addQuote() {
-        Task {
-            buttonState = .loading
-            let canAddQuote = await purchaseManager.checkPremiumAction()
-            buttonState = .idle
+    func addQuote() async {
+        buttonState = .loading
+        let canAddQuote = await purchaseManager.checkPremiumAction()
+        buttonState = .idle
 
-            if canAddQuote {
-                navigationRouter.push(route: .edit(existingQuote: nil))
-            } else {
-                navigationRouter.present(sheet: .paywall)
-            }
+        if canAddQuote {
+            navigationRouter.push(route: .edit(existingQuote: nil))
+        } else {
+            navigationRouter.present(sheet: .paywall)
         }
         saveQuoteRepository.selectBook(book)
     }

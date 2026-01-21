@@ -10,18 +10,16 @@ struct QuoteEditView: View {
                 VStack(alignment: .leading, spacing: 30) {
                     ZStack(alignment: .topTrailing) {
                         Button {
-                            Task {
-                                await viewModel.scanQuote()
-                            }
+                            Task { await viewModel.scanQuote() }
                         } label: {
                             HStack {
                                 Image(systemName: "text.viewfinder")
-                                QText("Scan_button_label", type: .regular, size: .vsmall)
+                                QText("button_scan_quote", type: .regular, size: .vsmall)
                             }
                         }
 
                         QInput(
-                            label: "Quote_label",
+                            label: "input_label_quote",
                             text: $viewModel.quoteInput,
                             type: .multiLine,
                             error: viewModel.errors[.quote]
@@ -32,7 +30,7 @@ struct QuoteEditView: View {
 
                     VStack(spacing: 0) {
                         QInput(
-                            label: "Category_label",
+                            label: "input_label_category",
                             text: $viewModel.categoryInput,
                             type: .oneLine,
                             error: viewModel.errors[.category]
@@ -46,14 +44,14 @@ struct QuoteEditView: View {
                     }
 
                     QInput(
-                        label: "Page_label",
+                        label: "input_label_page",
                         text: $viewModel.pageInput,
                         type: .oneLine,
                         error: viewModel.errors[.page]
                     ).keyboardType(.numberPad)
 
                     QInput(
-                        label: "Note_label",
+                        label: "input_label_personal_note",
                         text: $viewModel.noteInput,
                         type: .multiLine
                     )
@@ -64,25 +62,25 @@ struct QuoteEditView: View {
         }
         .navBar(
             center: {
-                QText("QuoteEdit_title", type: .bold, size: .medium)
+                QText("quote_edit_screen_navigation_title", type: .bold, size: .medium)
             },
             trailing: {
                 Button {
-                    viewModel.saveQuote()
+                    Task { await viewModel.saveQuote() }
                 } label: {
-                    QText("Save", type: .regular, size: .small)
+                    QText("nav_bar_button_save", type: .regular, size: .small)
                 }
             }
         )
-        .alert("Camera_access_title",
+        .alert("alert_camera_access_title",
                isPresented: $viewModel.showCameraAccessAlert)
         {
-            Button("Cancel", role: .cancel) {}
-            Button("Settings") {
+            Button("alert_action_cancel", role: .cancel) {}
+            Button("alert_action_settings") {
                 viewModel.openAppSettings()
             }
         } message: {
-            Text("Camera_access_description")
+            Text("alert_camera_access_message")
         }
         .onAppear {
             viewModel.onAppear()
@@ -116,7 +114,7 @@ struct QuoteEditView: View {
     @ViewBuilder
     private var bookButton: some View {
         VStack(alignment: .leading) {
-            QText("Book_label", type: .bold, size: .vsmall)
+            QText("input_label_book", type: .bold, size: .vsmall)
 
             Button {
                 viewModel.addBook()

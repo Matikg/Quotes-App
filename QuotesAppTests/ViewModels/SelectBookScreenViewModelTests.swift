@@ -2,6 +2,7 @@ import DependencyInjection
 @testable import QuotesApp
 import XCTest
 
+@MainActor
 final class SelectBookScreenViewModelTests: XCTestCase {
     private var mockCoreDataManager: MockCoreDataManager!
     private var mockNavigationRouter: MockNavigationRouter!
@@ -44,10 +45,9 @@ final class SelectBookScreenViewModelTests: XCTestCase {
         super.tearDown()
     }
 
-    @MainActor
     func test_createBook_pushesBookRoute() async {
         // When
-        sut.createBook()
+        await sut.createBook()
 
         try? await Task.sleep(nanoseconds: 50_000_000)
 

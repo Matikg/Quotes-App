@@ -14,24 +14,24 @@ struct SettingsView: View {
                     }
 
                     VStack(spacing: 16) {
-                        buildToggleRow(label: "Settings_notifications", isOn: $viewModel.isNotificationsOn)
-                        buildToggleRow(label: "Settings_analytics", isOn: $viewModel.isAnalyticsOn)
+                        buildToggleRow(label: "settings_toggle_notifications", isOn: $viewModel.isNotificationsOn)
+                        buildToggleRow(label: "settings_toggle_analytics", isOn: $viewModel.isAnalyticsOn)
                         buildAboutUsButton
                     }
 
                     Spacer()
 
                     VStack(spacing: 16) {
-                        buildLinkButton(label: "Settings_policy") {
+                        buildLinkButton(label: "settings_link_privacy_policy") {
                             viewModel.openPrivacyPolicy()
                         }
 
-                        buildLinkButton(label: "Settings_write_to_us") {
+                        buildLinkButton(label: "settings_link_write_to_us") {
                             viewModel.openMail()
                         }
 
                         HStack(spacing: 3) {
-                            QText("Settings_app_version", type: .regular, size: .vsmall)
+                            QText("settings_app_version", type: .regular, size: .vsmall)
                             QText(viewModel.appVersion, type: .regular, size: .vsmall)
                         }
                     }
@@ -40,7 +40,7 @@ struct SettingsView: View {
             }
         }
         .navBar {
-            QText("Settings", type: .bold, size: .medium)
+            QText("settings_screen_navigation_title", type: .bold, size: .medium)
         }
         .onAppear {
             viewModel.onAppear()
@@ -53,8 +53,8 @@ struct SettingsView: View {
         VStack(spacing: 16) {
             Image(.goldenCrown)
             VStack(spacing: 4) {
-                QText("Settings_unlocked_header", type: .bold, size: .medium)
-                QText("Settings_thanks", type: .regular, size: .small)
+                QText("settings_premium_features_unlocked", type: .bold, size: .medium)
+                QText("settings_premium_thanks", type: .regular, size: .small)
             }
         }
         .frame(maxWidth: .infinity)
@@ -66,19 +66,19 @@ struct SettingsView: View {
     private var buildNoSubInfoView: some View {
         VStack(spacing: 16) {
             Image(.grayCrown)
-            QText("Settings_upgrade_header", type: .bold, size: .medium)
+            QText("settings_non_premium_enjoy", type: .bold, size: .medium)
                 .multilineTextAlignment(.center)
 
             VStack(alignment: .leading, spacing: 4) {
-                buildPadlockInfo("Settings_padlock1")
-                buildPadlockInfo("Settings_padlock2")
-                buildPadlockInfo("Settings_padlock3")
+                buildPadlockInfo("settings_non_premium_padlock1")
+                buildPadlockInfo("settings_non_premium_padlock2")
+                buildPadlockInfo("settings_non_premium_padlock3")
             }
 
             Button {
                 viewModel.showPaywall()
             } label: {
-                QText("Settings_upgrade_now", type: .bold, size: .medium)
+                QText("settings_non_premium_upgrade_now", type: .bold, size: .medium)
             }
         }
         .frame(maxWidth: .infinity)
@@ -92,7 +92,7 @@ struct SettingsView: View {
             viewModel.showAboutUs()
         } label: {
             HStack {
-                QText("Settings_about_us", type: .regular, size: .small)
+                QText("button_about_us", type: .regular, size: .small)
                 Spacer()
                 Image(systemName: "chevron.right")
                     .foregroundStyle(.accent)

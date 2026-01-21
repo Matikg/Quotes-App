@@ -43,7 +43,7 @@ struct QuotesListRowView: View {
 
                 ZStack {
                     HStack {
-                        QText("Quote_page_label", type: .italic, size: .vsmall)
+                        QText("quote_page_label", type: .italic, size: .vsmall)
                         QText(String(quote.page), type: .italic, size: .vsmall)
                     }
                     .frame(maxWidth: .infinity, alignment: .center)

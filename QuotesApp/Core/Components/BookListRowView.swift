@@ -75,7 +75,7 @@ struct BookListRowView: View {
                 .frame(width: 60, height: 73)
 
             VStack(spacing: 10) {
-                QText("MainScreen_quotes_count", type: .regular, size: .vsmall)
+                QText("books_screen_quotes_count", type: .regular, size: .vsmall)
                 QText(String(book.quotesNumber), type: .bold, size: .medium)
             }
         }

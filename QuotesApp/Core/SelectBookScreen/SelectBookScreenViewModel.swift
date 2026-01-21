@@ -1,25 +1,23 @@
 import DependencyInjection
 import SwiftUI
 
+@MainActor
 final class SelectBookScreenViewModel: ObservableObject {
     @Injected private var coreDataManager: CoreDataManagerInterface
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
     @Injected private var purchaseManager: PurchaseManagerInterface
 
-    @Published var books = [Domain.BookItem]()
+    @Published private(set) var books = [Domain.BookItem]()
 
     // MARK: - Methods
 
-    @MainActor
-    func createBook() {
-        Task {
-            let canAddQuote = await purchaseManager.checkPremiumAction()
-            if canAddQuote {
-                navigationRouter.push(route: .book)
-            } else {
-                navigationRouter.present(sheet: .paywall)
-            }
+    func createBook() async {
+        let canAddQuote = await purchaseManager.checkPremiumAction()
+        if canAddQuote {
+            navigationRouter.push(route: .book)
+        } else {
+            navigationRouter.present(sheet: .paywall)
         }
     }
 
