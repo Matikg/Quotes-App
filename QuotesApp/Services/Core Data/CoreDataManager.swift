@@ -27,150 +27,214 @@ final class CoreDataManager: CoreDataManagerInterface {
 
     func fetchBooks() -> [BookEntity] {
         let request: NSFetchRequest<BookEntity> = BookEntity.fetchRequest()
-
-        do {
-            return try viewContext.fetch(request)
-        } catch {
-            crashlyticsManager.record(error)
-            return []
+        var result: [BookEntity] = []
+        viewContext.performAndWait {
+            do {
+                result = try viewContext.fetch(request)
+            } catch {
+                crashlyticsManager.record(error)
+            }
         }
+        return result
     }
 
-    func saveQuote(to book: BookEntity, text: String, category: String, page: Int, note: String, quoteId: UUID? = nil) {
-        do {
-            let quote: QuoteEntity
-            if let id = quoteId {
-                let request = QuoteEntity.fetchRequest()
-                request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-                if let existingQuote = try viewContext.fetch(request).first {
-                    quote = existingQuote
+    func saveQuote(
+        toBookId bookId: UUID,
+        text: String,
+        category: String,
+        page: Int,
+        note: String,
+        quoteId: UUID? = nil
+    ) {
+        viewContext.perform { [weak self] in
+            guard let self else { return }
+            do {
+                let bookRequest = BookEntity.fetchRequest()
+                bookRequest.fetchLimit = 1
+                bookRequest.predicate = NSPredicate(format: "id == %@", bookId as CVarArg)
+                guard let book = try viewContext.fetch(bookRequest).first else { return }
+
+                let quote: QuoteEntity
+                if let id = quoteId {
+                    let request = QuoteEntity.fetchRequest()
+                    request.fetchLimit = 1
+                    request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+                    if let existing = try viewContext.fetch(request).first {
+                        quote = existing
+                    } else {
+                        quote = QuoteEntity(context: viewContext)
+                        quote.id = id
+                        quote.date = Date()
+                    }
                 } else {
                     quote = QuoteEntity(context: viewContext)
-                    quote.id = id
+                    quote.id = UUID()
                     quote.date = Date()
                 }
-            } else {
-                quote = QuoteEntity(context: viewContext)
-                quote.id = UUID()
-                quote.date = Date()
+
+                quote.book = book
+                quote.text = text
+                quote.category = category
+                quote.page = Int64(page)
+                quote.note = note
+
+                try viewContext.save()
+            } catch {
+                viewContext.rollback()
+                crashlyticsManager.record(error)
             }
-
-            if let currentBook = quote.book, currentBook.objectID != book.objectID {
-                currentBook.removeFromQuotes(quote)
-            }
-
-            quote.book = book
-            quote.text = text
-            quote.category = category
-            quote.page = Int64(page)
-            quote.note = note
-
-            try viewContext.save()
-        } catch {
-            viewContext.rollback()
-            crashlyticsManager.record(error)
         }
     }
 
     func deleteQuote(quote: Domain.QuoteItem) {
-        let request = QuoteEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", quote.id as CVarArg)
+        viewContext.performAndWait { [weak self] in
+            guard let self else { return }
+            let request = QuoteEntity.fetchRequest()
+            request.predicate = NSPredicate(format: "id == %@", quote.id as CVarArg)
 
-        do {
-            if let quoteEntity = try viewContext.fetch(request).first {
-                viewContext.delete(quoteEntity)
-                try viewContext.save()
+            do {
+                if let quoteEntity = try viewContext.fetch(request).first {
+                    viewContext.delete(quoteEntity)
+                    try viewContext.save()
+                }
+            } catch {
+                viewContext.rollback()
+                crashlyticsManager.record(error)
             }
-        } catch {
-            viewContext.rollback()
-            crashlyticsManager.record(error)
         }
     }
 
     func deleteBook(book: Domain.BookItem) {
-        let request = BookEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", book.id as CVarArg)
+        viewContext.performAndWait { [weak self] in
+            guard let self else { return }
+            let request = BookEntity.fetchRequest()
+            request.predicate = NSPredicate(format: "id == %@", book.id as CVarArg)
 
-        do {
-            if let bookEntity = try viewContext.fetch(request).first {
-                viewContext.delete(bookEntity)
-                try viewContext.save()
+            do {
+                if let bookEntity = try viewContext.fetch(request).first {
+                    viewContext.delete(bookEntity)
+                    try viewContext.save()
+                }
+            } catch {
+                viewContext.rollback()
+                crashlyticsManager.record(error)
             }
-        } catch {
-            viewContext.rollback()
-            crashlyticsManager.record(error)
         }
     }
 
     func saveBook(for book: Domain.BookItem) {
-        do {
-            let bookEntity = BookEntity(context: viewContext)
-            bookEntity.id = book.id
-            bookEntity.author = book.author
-            bookEntity.title = book.title
-            bookEntity.coverImage = book.coverImageData
+        viewContext.performAndWait { [weak self] in
+            guard let self else { return }
+            do {
+                let bookEntity = BookEntity(context: viewContext)
+                bookEntity.id = book.id
+                bookEntity.author = book.author
+                bookEntity.title = book.title
+                bookEntity.coverImage = book.coverImageData
 
-            try viewContext.save()
-        } catch {
-            viewContext.rollback()
-            crashlyticsManager.record(error)
+                try viewContext.save()
+            } catch {
+                viewContext.rollback()
+                crashlyticsManager.record(error)
+            }
         }
     }
 
     func fetchBookEntity(for domainBook: Domain.BookItem) -> BookEntity? {
-        let request = BookEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", domainBook.id as CVarArg)
+        var result: BookEntity?
+        viewContext.performAndWait {
+            let request = BookEntity.fetchRequest()
+            request.fetchLimit = 1
+            request.predicate = NSPredicate(format: "id == %@", domainBook.id as CVarArg)
 
-        do {
-            let result = try viewContext.fetch(request)
-            return result.first
-        } catch {
-            crashlyticsManager.record(error)
-            return nil
+            do {
+                result = try viewContext.fetch(request).first
+            } catch {
+                crashlyticsManager.record(error)
+            }
         }
+        return result
     }
 
     func fetchQuotes(for selectedBook: Domain.BookItem) -> [QuoteEntity] {
         let request = QuoteEntity.fetchRequest()
         request.predicate = NSPredicate(format: "book.id == %@", selectedBook.id as CVarArg)
-
-        do {
-            let quotes = try viewContext.fetch(request)
-            return quotes
-        } catch {
-            crashlyticsManager.record(error)
-            return []
+        var result: [QuoteEntity] = []
+        viewContext.performAndWait {
+            do {
+                result = try viewContext.fetch(request)
+            } catch {
+                crashlyticsManager.record(error)
+            }
         }
+        return result
     }
 
     func fetchBook(for quote: Domain.QuoteItem) -> BookEntity? {
         let request = QuoteEntity.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", quote.id as CVarArg)
-        do {
-            let quotes = try viewContext.fetch(request)
-            guard let quoteEntity = quotes.first else { return nil }
-
-            return quoteEntity.book
-        } catch {
-            crashlyticsManager.record(error)
-            return nil
+        var result: BookEntity?
+        viewContext.performAndWait {
+            do {
+                let quotes = try viewContext.fetch(request)
+                result = quotes.first?.book
+            } catch {
+                crashlyticsManager.record(error)
+            }
         }
+        return result
     }
 
     func fetchAllQuotes() -> [QuoteEntity] {
         let request = QuoteEntity.fetchRequest()
-
-        do {
-            let quotes = try viewContext.fetch(request)
-            return quotes
-        } catch {
-            crashlyticsManager.record(error)
-            return []
+        var result: [QuoteEntity] = []
+        viewContext.performAndWait {
+            do {
+                result = try viewContext.fetch(request)
+            } catch {
+                crashlyticsManager.record(error)
+            }
         }
+        return result
     }
 
     func fetchCategories() -> [String] {
-        let allQuotes = fetchAllQuotes()
-        return Array(Set(allQuotes.compactMap(\.category)))
+        var result: [String] = []
+        viewContext.performAndWait {
+            let request = QuoteEntity.fetchRequest()
+            do {
+                let allQuotes = try viewContext.fetch(request)
+                result = Array(Set(allQuotes.compactMap(\.category)))
+            } catch {
+                crashlyticsManager.record(error)
+            }
+        }
+        return result
+    }
+
+    func fetchBooksCount() -> Int {
+        let request = BookEntity.fetchRequest()
+        var result = 0
+        viewContext.performAndWait {
+            do {
+                result = try viewContext.count(for: request)
+            } catch {
+                crashlyticsManager.record(error)
+            }
+        }
+        return result
+    }
+
+    func fetchQuotesCount() -> Int {
+        let request = QuoteEntity.fetchRequest()
+        var result = 0
+        viewContext.performAndWait {
+            do {
+                result = try viewContext.count(for: request)
+            } catch {
+                crashlyticsManager.record(error)
+            }
+        }
+        return result
     }
 }
