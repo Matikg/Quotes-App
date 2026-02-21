@@ -1,7 +1,9 @@
+import PhotosUI
 import SwiftUI
 
 struct BookScreenView: View {
     @StateObject var viewModel = BookScreenViewModel()
+    @State private var selectedCoverItem: PhotosPickerItem?
 
     var body: some View {
         BaseView {
@@ -52,36 +54,58 @@ struct BookScreenView: View {
 
     @ViewBuilder
     private func buildBookCover() -> some View {
-        switch viewModel.coverImage {
-        case .default:
-            DefaultBookCover()
-        case .loading:
-            ProgressView()
-                .tint(.accent)
-                .frame(width: 124, height: 169)
-        case let .image(data):
-            if let uiImage = UIImage(data: data) {
-                ZStack(alignment: .topTrailing) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 124, height: 169)
-
-                    Button(action: {
-                        viewModel.resetCover()
-                    }) {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 12, weight: .bold))
-                            .foregroundColor(.accent)
-                            .padding(4)
-                            .background(Color.background)
-                            .clipShape(Circle())
-                            .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
-                    }
-                    .offset(x: 0, y: -8)
-                }
-            } else {
+        ZStack(alignment: .bottomTrailing) {
+            switch viewModel.coverImage {
+            case .default:
                 DefaultBookCover()
+            case .loading:
+                ProgressView()
+                    .tint(.accent)
+                    .frame(width: 124, height: 169)
+            case let .image(data):
+                if let uiImage = UIImage(data: data) {
+                    ZStack(alignment: .topTrailing) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 124, height: 169)
+
+                        Button(action: {
+                            viewModel.resetCover()
+                        }) {
+                            Image(systemName: "xmark")
+                                .font(.system(size: 12, weight: .bold))
+                                .foregroundColor(.accent)
+                                .padding(4)
+                                .background(Color.background)
+                                .clipShape(Circle())
+                                .shadow(color: .black.opacity(0.3), radius: 4, x: 0, y: 2)
+                        }
+                        .offset(x: 0, y: -8)
+                    }
+                } else {
+                    DefaultBookCover()
+                }
+            }
+
+            PhotosPicker(selection: $selectedCoverItem, matching: .images) {
+                Image(systemName: "photo.badge.plus")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundColor(.background)
+                    .frame(width: 32, height: 32)
+                    .background(Color.accent)
+                    .clipShape(Circle())
+                    .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
+            }
+            .offset(x: 8, y: 8)
+        }
+        .onChange(of: selectedCoverItem) { _, newValue in
+            guard let newValue else { return }
+            Task {
+                await viewModel.handleCoverSelection(newValue)
+                await MainActor.run {
+                    selectedCoverItem = nil
+                }
             }
         }
     }
