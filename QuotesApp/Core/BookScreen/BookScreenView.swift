@@ -52,7 +52,6 @@ struct BookScreenView: View {
 
     // MARK: - View Builders
 
-    @ViewBuilder
     private func buildBookCover() -> some View {
         ZStack(alignment: .bottomTrailing) {
             switch viewModel.coverImage {
