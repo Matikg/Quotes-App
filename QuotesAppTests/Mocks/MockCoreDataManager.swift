@@ -13,7 +13,10 @@ final class MockCoreDataManager: CoreDataManagerInterface {
         return booksToReturn
     }
 
-    func fetchBookEntity(for _: Domain.BookItem) -> BookEntity? { nil }
+    func fetchBookEntity(for _: Domain.BookItem) -> BookEntity? {
+        nil
+    }
+
     func saveQuote(
         toBookId _: UUID,
         text _: String,
@@ -25,10 +28,27 @@ final class MockCoreDataManager: CoreDataManagerInterface {
     func deleteBook(book _: Domain.BookItem) {}
     func deleteQuote(quote _: Domain.QuoteItem) {}
     func saveBook(for _: Domain.BookItem) {}
-    func fetchQuotes(for _: Domain.BookItem) -> [QuoteEntity] { [] }
-    func fetchBook(for _: Domain.QuoteItem) -> BookEntity? { nil }
-    func fetchAllQuotes() -> [QuoteEntity] { [] }
-    func fetchCategories() -> [String] { [] }
-    func fetchBooksCount() -> Int { 0 }
-    func fetchQuotesCount() -> Int { 0 }
+    func fetchQuotes(for _: Domain.BookItem) -> [QuoteEntity] {
+        []
+    }
+
+    func fetchBook(for _: Domain.QuoteItem) -> BookEntity? {
+        nil
+    }
+
+    func fetchAllQuotes() -> [QuoteEntity] {
+        []
+    }
+
+    func fetchCategories() -> [String] {
+        []
+    }
+
+    func fetchBooksCount() -> Int {
+        0
+    }
+
+    func fetchQuotesCount() -> Int {
+        0
+    }
 }

@@ -113,7 +113,6 @@ struct QuoteEditView: View {
         }
     }
 
-    @ViewBuilder
     private var bookButton: some View {
         VStack(alignment: .leading) {
             QText("Book_label", type: .bold, size: .vsmall)
