@@ -39,7 +39,6 @@
 		E815B2302EC883E500329560 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E815B22F2EC883E500329560 /* AnalyticsEvent.swift */; };
 		E815B2322EC885CC00329560 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E815B2312EC885CC00329560 /* FirebaseAnalytics */; };
 		E81C4F9D2F19AC1800B7FF6D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E81C4F9C2F19AC1800B7FF6D /* FirebaseMessaging */; };
-		E8D511A12F4A29D1009A1111 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = E8D511A72F4A29D1009A1111 /* FirebaseRemoteConfig */; };
 		E834816A2C3FB75D00A74FC4 /* QDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481692C3FB75D00A74FC4 /* QDivider.swift */; };
 		E83481702C43E4C300A74FC4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E834816F2C43E4C300A74FC4 /* BaseView.swift */; };
 		E83481722C4461DE00A74FC4 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83481712C4461DE00A74FC4 /* MainScreenViewModel.swift */; };
@@ -76,8 +75,6 @@
 		E89242D52D6289A600F8A420 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89242D42D6289A600F8A420 /* BookListView.swift */; };
 		E8A2222D2F468C5800B1E7BF /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2222C2F468C4F00B1E7BF /* WhatsNewView.swift */; };
 		E8A2222F2F49CAF300B1E7BF /* QBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2222E2F49CAE700B1E7BF /* QBanner.swift */; };
-		E8D511A22F4A29D1009A1111 /* WhatsNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D511A42F4A29D1009A1111 /* WhatsNewViewModel.swift */; };
-		E8D511A32F4A29D1009A1111 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D511A52F4A29D1009A1111 /* RemoteConfigManager.swift */; };
 		E8A9DF202C565D4500C9AB6D /* RootScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */; };
 		E8A9DF222C565D5400C9AB6D /* RootScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */; };
 		E8A9DF242C56B9F100C9AB6D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF232C56B9F100C9AB6D /* Route.swift */; };
@@ -105,6 +102,9 @@
 		E8D267E12C4EE96F00A19EB6 /* Merriweather-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267D92C4EE96E00A19EB6 /* Merriweather-LightItalic.ttf */; };
 		E8D267E22C4EE96F00A19EB6 /* Merriweather-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267DA2C4EE96E00A19EB6 /* Merriweather-Light.ttf */; };
 		E8D267E32C4EE96F00A19EB6 /* Merriweather-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8D267DB2C4EE96E00A19EB6 /* Merriweather-Black.ttf */; };
+		E8D511A12F4A29D1009A1111 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = E8D511A72F4A29D1009A1111 /* FirebaseRemoteConfig */; };
+		E8D511A22F4A29D1009A1111 /* WhatsNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D511A42F4A29D1009A1111 /* WhatsNewViewModel.swift */; };
+		E8D511A32F4A29D1009A1111 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D511A52F4A29D1009A1111 /* RemoteConfigManager.swift */; };
 		E8E3CCC62D84B5B500406F89 /* QuoteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC52D84B5B500406F89 /* QuoteDetailsView.swift */; };
 		E8E3CCC82D84B5D200406F89 /* QuoteDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */; };
 		E8E3CCCA2D8B721A00406F89 /* SwipeableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */; };
@@ -197,8 +197,6 @@
 		E89242D42D6289A600F8A420 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		E8A2222C2F468C4F00B1E7BF /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		E8A2222E2F49CAE700B1E7BF /* QBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QBanner.swift; sourceTree = "<group>"; };
-		E8D511A42F4A29D1009A1111 /* WhatsNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewModel.swift; sourceTree = "<group>"; };
-		E8D511A52F4A29D1009A1111 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenView.swift; sourceTree = "<group>"; };
 		E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenViewModel.swift; sourceTree = "<group>"; };
 		E8A9DF232C56B9F100C9AB6D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -226,6 +224,8 @@
 		E8D267DA2C4EE96E00A19EB6 /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Merriweather-Light.ttf"; sourceTree = "<group>"; };
 		E8D267DB2C4EE96E00A19EB6 /* Merriweather-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Merriweather-Black.ttf"; sourceTree = "<group>"; };
 		E8D267E42C4EEA0A00A19EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8D511A42F4A29D1009A1111 /* WhatsNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewModel.swift; sourceTree = "<group>"; };
+		E8D511A52F4A29D1009A1111 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		E8E1A9DE2EEF73600086496B /* MockPurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPurchaseManager.swift; sourceTree = "<group>"; };
 		E8E3CCC52D84B5B500406F89 /* QuoteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsView.swift; sourceTree = "<group>"; };
 		E8E3CCC72D84B5D200406F89 /* QuoteDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -557,14 +557,11 @@
 			isa = PBXGroup;
 			children = (
 				E836D5DC2DE78A050010393A /* BaseScreen */,
-				E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */,
-				E88170972D3EB497003F5207 /* DefaultBookCover.swift */,
+				E8A222302F4B0B2F00B1E7BF /* Book */,
 				E88FF5B52C3E6E5000AEA2BE /* QButton.swift */,
 				E83481692C3FB75D00A74FC4 /* QDivider.swift */,
 				E8D267D12C4D9E7800A19EB6 /* QText.swift */,
 				E87369DF2C9C1EE8000D527C /* QInput.swift */,
-				E89242D42D6289A600F8A420 /* BookListView.swift */,
-				E83481732C45095800A74FC4 /* BookListRowView.swift */,
 				8874837A2E434D86001EF39D /* QSpinner.swift */,
 				E8A2222E2F49CAE700B1E7BF /* QBanner.swift */,
 			);
@@ -640,12 +637,15 @@
 			path = WhatsNewScreen;
 			sourceTree = "<group>";
 		};
-		E8D511A62F4A29D1009A1111 /* RemoteConfig */ = {
+		E8A222302F4B0B2F00B1E7BF /* Book */ = {
 			isa = PBXGroup;
 			children = (
-				E8D511A52F4A29D1009A1111 /* RemoteConfigManager.swift */,
+				E89242D42D6289A600F8A420 /* BookListView.swift */,
+				E83481732C45095800A74FC4 /* BookListRowView.swift */,
+				E88170972D3EB497003F5207 /* DefaultBookCover.swift */,
+				E8E3CCC92D8B721A00406F89 /* SwipeableRow.swift */,
 			);
-			path = RemoteConfig;
+			path = Book;
 			sourceTree = "<group>";
 		};
 		E8A9DF1E2C565CFB00C9AB6D /* RootScreen */ = {
@@ -706,6 +706,14 @@
 				E8D267D52C4EE96E00A19EB6 /* Merriweather-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E8D511A62F4A29D1009A1111 /* RemoteConfig */ = {
+			isa = PBXGroup;
+			children = (
+				E8D511A52F4A29D1009A1111 /* RemoteConfigManager.swift */,
+			);
+			path = RemoteConfig;
 			sourceTree = "<group>";
 		};
 		E8E3CCC42D84B57300406F89 /* QuoteDetailsScreen */ = {
@@ -1491,11 +1499,6 @@
 			package = E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
 		};
-		E8D511A72F4A29D1009A1111 /* FirebaseRemoteConfig */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
-		};
 		E86436532C5FA5E20029858F /* DependencyInjection */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DependencyInjection;
@@ -1503,6 +1506,11 @@
 		E86436582C625DEF0029858F /* DependencyInjection */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DependencyInjection;
+		};
+		E8D511A72F4A29D1009A1111 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E80DAA952DCD433F00AD2C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
 		};
 /* End XCSwiftPackageProductDependency section */
 

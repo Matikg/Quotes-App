@@ -52,7 +52,7 @@ struct MainScreenView: View {
     }
 
     private func buildLoadedListView(books: [Domain.BookItem]) -> some View {
-        VStack {
+        VStack(spacing: 0) {
             QBanner(
                 title: "banner_update_title",
                 description: "banner_update_description",
@@ -60,11 +60,12 @@ struct MainScreenView: View {
             )
             .padding(.horizontal, 16)
             .padding(.top, 20)
-            .padding(.bottom, -20)
+            .padding(.bottom, 20)
 
             BookListView(
                 books: books,
-                showQuotesNumber: true
+                showQuotesNumber: true,
+                topInset: 0
             ) { selectedBook in
                 viewModel.selectBook(selectedBook)
             } onBookDeleted: { book in

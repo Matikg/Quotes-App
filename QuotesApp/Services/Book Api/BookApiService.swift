@@ -43,7 +43,7 @@ final class BookApiService {
         }
 
         var request = URLRequest(url: url)
-        request.setValue("QuoteSaver (grudzien.mateusz00@gmail.com)", forHTTPHeaderField: "User-Agent")
+        request.setValue("QuoteSaver (\(Constants.contactMail))", forHTTPHeaderField: "User-Agent")
 
         do {
             let (data, _) = try await session.data(for: request)
@@ -59,7 +59,7 @@ final class BookApiService {
 
     func fetchBookCover(from url: URL) async throws -> Data {
         var request = URLRequest(url: url)
-        request.setValue("QuoteSaver (grudzien.mateusz00@gmail.com)", forHTTPHeaderField: "User-Agent")
+        request.setValue("QuoteSaver (\(Constants.contactMail))", forHTTPHeaderField: "User-Agent")
 
         let (data, response) = try await session.data(for: request)
 
