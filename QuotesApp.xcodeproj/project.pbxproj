@@ -63,7 +63,6 @@
 		E88FF5822C35924F00AEA2BE /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5812C35924F00AEA2BE /* MainScreenView.swift */; };
 		E88FF5842C35925300AEA2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E88FF5832C35925300AEA2BE /* Assets.xcassets */; };
 		E88FF5872C35925300AEA2BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E88FF5862C35925300AEA2BE /* Preview Assets.xcassets */; };
-		E88FF5912C35925300AEA2BE /* QuotesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5902C35925300AEA2BE /* QuotesAppTests.swift */; };
 		E88FF59B2C35925300AEA2BE /* QuotesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF59A2C35925300AEA2BE /* QuotesAppUITests.swift */; };
 		E88FF59D2C35925300AEA2BE /* QuotesAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF59C2C35925300AEA2BE /* QuotesAppUITestsLaunchTests.swift */; };
 		E88FF5B02C3DA5C300AEA2BE /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88FF5AF2C3DA5C300AEA2BE /* WelcomeScreenView.swift */; };
@@ -75,6 +74,8 @@
 		E89242D52D6289A600F8A420 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89242D42D6289A600F8A420 /* BookListView.swift */; };
 		E8A2222D2F468C5800B1E7BF /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2222C2F468C4F00B1E7BF /* WhatsNewView.swift */; };
 		E8A2222F2F49CAF300B1E7BF /* QBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A2222E2F49CAE700B1E7BF /* QBanner.swift */; };
+		E8A222322F4B9B1200B1E7BF /* MockRemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A222312F4B9B0F00B1E7BF /* MockRemoteConfigManager.swift */; };
+		E8A222342F4B9BE800B1E7BF /* WhatsNewViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A222332F4B9BE600B1E7BF /* WhatsNewViewModelTests.swift */; };
 		E8A9DF202C565D4500C9AB6D /* RootScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */; };
 		E8A9DF222C565D5400C9AB6D /* RootScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */; };
 		E8A9DF242C56B9F100C9AB6D /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A9DF232C56B9F100C9AB6D /* Route.swift */; };
@@ -184,7 +185,6 @@
 		E88FF5832C35925300AEA2BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E88FF5862C35925300AEA2BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E88FF58C2C35925300AEA2BE /* QuotesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuotesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E88FF5902C35925300AEA2BE /* QuotesAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesAppTests.swift; sourceTree = "<group>"; };
 		E88FF5962C35925300AEA2BE /* QuotesAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuotesAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E88FF59A2C35925300AEA2BE /* QuotesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesAppUITests.swift; sourceTree = "<group>"; };
 		E88FF59C2C35925300AEA2BE /* QuotesAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -197,6 +197,8 @@
 		E89242D42D6289A600F8A420 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		E8A2222C2F468C4F00B1E7BF /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		E8A2222E2F49CAE700B1E7BF /* QBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QBanner.swift; sourceTree = "<group>"; };
+		E8A222312F4B9B0F00B1E7BF /* MockRemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRemoteConfigManager.swift; sourceTree = "<group>"; };
+		E8A222332F4B9BE600B1E7BF /* WhatsNewViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewModelTests.swift; sourceTree = "<group>"; };
 		E8A9DF1F2C565D4500C9AB6D /* RootScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenView.swift; sourceTree = "<group>"; };
 		E8A9DF212C565D5400C9AB6D /* RootScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreenViewModel.swift; sourceTree = "<group>"; };
 		E8A9DF232C56B9F100C9AB6D /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				E854E08B2E1E95670037657C /* MockNavigationRouter.swift */,
 				E854E0892E1E947C0037657C /* MockCoreDataManager.swift */,
 				887181372D42A45E00F25668 /* MockNetworkSession.swift */,
+				E8A222312F4B9B0F00B1E7BF /* MockRemoteConfigManager.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				8894693F2E04145D0086A652 /* SelectBookScreenViewModelTests.swift */,
+				E8A222332F4B9BE600B1E7BF /* WhatsNewViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -521,7 +525,6 @@
 		E88FF58F2C35925300AEA2BE /* QuotesAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				E88FF5902C35925300AEA2BE /* QuotesAppTests.swift */,
 				887181362D42A44E00F25668 /* Mocks */,
 				887181392D42A54700F25668 /* Models */,
 				E854E08F2E1EE6B60037657C /* Stubs */,
@@ -1051,12 +1054,13 @@
 				E854E08A2E1E947E0037657C /* MockCoreDataManager.swift in Sources */,
 				887181352D42A42D00F25668 /* ApiServiceTests.swift in Sources */,
 				8871813B2D42A55300F25668 /* Models+Extensions.swift in Sources */,
+				E8A222322F4B9B1200B1E7BF /* MockRemoteConfigManager.swift in Sources */,
 				E854E0912E1EE6E00037657C /* BookItemStub.swift in Sources */,
 				887181382D42A45E00F25668 /* MockNetworkSession.swift in Sources */,
 				E854E08C2E1E95670037657C /* MockNavigationRouter.swift in Sources */,
 				889469402E04145D0086A652 /* SelectBookScreenViewModelTests.swift in Sources */,
 				E854E0932E1EEB330037657C /* BookEntityStub.swift in Sources */,
-				E88FF5912C35925300AEA2BE /* QuotesAppTests.swift in Sources */,
+				E8A222342F4B9BE800B1E7BF /* WhatsNewViewModelTests.swift in Sources */,
 				E854E08E2E1E95EF0037657C /* MockSaveQuoteRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
