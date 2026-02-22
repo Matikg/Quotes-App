@@ -25,7 +25,8 @@ final class RemoteConfigManager: RemoteConfigManagerInterface {
 
         remoteConfig.setDefaults([
             Constants.whatsNewRemoteConfigTitleKey: Constants.whatsNewDefaultTitle as NSObject,
-            Constants.whatsNewRemoteConfigDescriptionKey: Constants.whatsNewDefaultDescription as NSObject
+            Constants.whatsNewRemoteConfigDescriptionKey: Constants.whatsNewDefaultDescription as NSObject,
+            Constants.whatsNewRemoteConfigAppVersionKey: Constants.whatsNewDefaultAppVersion as NSObject
         ])
     }
 

@@ -53,14 +53,17 @@ struct MainScreenView: View {
 
     private func buildLoadedListView(books: [Domain.BookItem]) -> some View {
         VStack(spacing: 0) {
-            QBanner(
-                title: "banner_update_title",
-                description: "banner_update_description",
-                action: viewModel.openWhatsNew
-            )
-            .padding(.horizontal, 16)
-            .padding(.top, 20)
-            .padding(.bottom, 20)
+            if viewModel.shouldShowUpdateBanner {
+                QBanner(
+                    title: "banner_update_title",
+                    description: "banner_update_description",
+                    action: viewModel.openWhatsNew,
+                    onClose: viewModel.dismissUpdateBanner
+                )
+                .padding(.horizontal, 16)
+                .padding(.top, 20)
+                .padding(.bottom, 20)
+            }
 
             BookListView(
                 books: books,

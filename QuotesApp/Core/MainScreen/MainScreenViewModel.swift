@@ -11,10 +11,12 @@ final class MainScreenViewModel: ObservableObject {
     @Injected private var coreDataManager: CoreDataManagerInterface
     @Injected private var purchaseManager: PurchaseManagerInterface
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
+    @Injected private var remoteConfigManager: RemoteConfigManagerInterface
 
     @Published var state: BookListState = .empty
     @Published var bookToDelete: Domain.BookItem?
     @Published var buttonState: QButton.ButtonState = .idle
+    @Published private(set) var shouldShowUpdateBanner = false
 
     // MARK: - Methods
 
@@ -37,6 +39,10 @@ final class MainScreenViewModel: ObservableObject {
         let fetchedBooks = coreDataManager.fetchBooks()
         let bookItems = fetchedBooks.compactMap(Domain.BookItem.init)
         state = bookItems.isEmpty ? .empty : .loaded(bookItems)
+
+        Task { [weak self] in
+            await self?.updateBannerVisibility()
+        }
     }
 
     func selectBook(_ book: Domain.BookItem) {
@@ -72,5 +78,29 @@ final class MainScreenViewModel: ObservableObject {
 
     func openWhatsNew() {
         navigationRouter.present(sheet: .whatsNew)
+    }
+
+    func dismissUpdateBanner() {
+        UserDefaults.standard.set(
+            Constants.appVersion,
+            forKey: UserDefaultsConstants.WhatsNewBannerDismissedVersionKey
+        )
+        shouldShowUpdateBanner = false
+    }
+
+    @MainActor
+    private func updateBannerVisibility() async {
+        await remoteConfigManager.fetchAndActivate()
+
+        let configVersion = remoteConfigManager
+            .stringValue(for: Constants.whatsNewRemoteConfigAppVersionKey)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        let dismissedVersion = UserDefaults.standard.string(
+            forKey: UserDefaultsConstants.WhatsNewBannerDismissedVersionKey
+        )
+
+        shouldShowUpdateBanner = !configVersion.isEmpty &&
+            configVersion == Constants.appVersion &&
+            dismissedVersion != Constants.appVersion
     }
 }

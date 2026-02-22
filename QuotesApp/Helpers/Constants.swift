@@ -8,8 +8,10 @@ enum Constants {
     static let pushNotificationsTopic = "general"
     static let whatsNewRemoteConfigTitleKey = "whats_new_title"
     static let whatsNewRemoteConfigDescriptionKey = "whats_new_description"
+    static let whatsNewRemoteConfigAppVersionKey = "whats_new_app_version"
     static let whatsNewDefaultTitle = "What's new"
     static let whatsNewDefaultDescription = "This is a mock description for the latest update. More details will be added soon."
+    static let whatsNewDefaultAppVersion = ""
 
     static var appVersion: String {
         Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "-"
