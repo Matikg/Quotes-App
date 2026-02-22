@@ -24,7 +24,7 @@ final class SettingsViewModel: ObservableObject {
     private var notificationsPermissionTask: Task<Void, Never>?
 
     var appVersion: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "-"
+        Constants.appVersion
     }
 
     deinit {

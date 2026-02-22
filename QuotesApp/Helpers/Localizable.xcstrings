@@ -140,6 +140,40 @@
         }
       }
     },
+    "banner_update_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check out what we’ve prepared for you!"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprawdź co nowego przygotowaliśmy dla Ciebie!"
+          }
+        }
+      }
+    },
+    "banner_update_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New update!"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nowa aktualizacja!"
+          }
+        }
+      }
+    },
     "bartson_description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -952,6 +986,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tytuł"
+          }
+        }
+      }
+    },
+    "update_info_app_version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version:"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wersja:"
           }
         }
       }
