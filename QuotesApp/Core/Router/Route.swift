@@ -13,9 +13,10 @@ enum Route: Hashable, Identifiable, View {
     case settings
     case aboutUs
 
-    var id: Int { hashValue }
+    var id: Int {
+        hashValue
+    }
 
-    @ViewBuilder
     var body: some View {
         switch self {
         case let .quotes(book):

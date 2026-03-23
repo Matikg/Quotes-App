@@ -4,7 +4,9 @@ import Vision
 import VisionKit
 
 struct LiveScannerView: UIViewControllerRepresentable {
-    func makeCoordinator() -> Coordinator { Coordinator(self) }
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
 
     func makeUIViewController(context: Context) -> DataScannerViewController {
         let scanner = DataScannerViewController(

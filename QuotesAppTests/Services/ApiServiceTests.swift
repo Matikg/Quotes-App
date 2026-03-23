@@ -33,8 +33,8 @@ final class ApiServiceTests: XCTestCase {
         let responseData = try JSONEncoder().encode(mockResponse)
 
         mockSession.data = responseData
-        mockSession.response = HTTPURLResponse(
-            url: URL(string: "https://openlibrary.org")!,
+        mockSession.response = try HTTPURLResponse(
+            url: XCTUnwrap(URL(string: "https://openlibrary.org")),
             statusCode: 200,
             httpVersion: nil,
             headerFields: nil
@@ -57,8 +57,8 @@ final class ApiServiceTests: XCTestCase {
         let responseData = try JSONEncoder().encode(mockResponse)
 
         mockSession.data = responseData
-        mockSession.response = HTTPURLResponse(
-            url: URL(string: "https://openlibrary.org")!,
+        mockSession.response = try HTTPURLResponse(
+            url: XCTUnwrap(URL(string: "https://openlibrary.org")),
             statusCode: 404,
             httpVersion: nil,
             headerFields: nil

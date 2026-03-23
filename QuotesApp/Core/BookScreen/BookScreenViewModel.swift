@@ -1,6 +1,8 @@
 import Combine
 import DependencyInjection
 import Foundation
+import PhotosUI
+import SwiftUI
 
 @MainActor
 final class BookScreenViewModel: ObservableObject {
@@ -68,6 +70,31 @@ final class BookScreenViewModel: ObservableObject {
 
     func resetCover() {
         coverImage = .default
+        if var selectedBook {
+            selectedBook.coverImageData = nil
+            self.selectedBook = selectedBook
+        }
+    }
+
+    func setManualCover(data: Data) {
+        coverImage = .image(data)
+        if var selectedBook {
+            selectedBook.coverImageData = data
+            self.selectedBook = selectedBook
+        }
+    }
+
+    func handleCoverSelection(_ item: PhotosPickerItem?) async {
+        guard let item else { return }
+        await handleCoverSelectionLoad {
+            try await item.loadTransferable(type: Data.self)
+        }
+    }
+
+    func handleCoverSelectionLoad(_ loadData: @escaping @Sendable () async throws -> Data?) async {
+        if let data = try? await loadData() {
+            setManualCover(data: data)
+        }
     }
 
     func selectBook(_ book: Domain.SuggestedBookItem) {
@@ -119,7 +146,7 @@ final class BookScreenViewModel: ObservableObject {
         let id = selectedBook?.id ?? UUID()
         let title = selectedBook?.title ?? titleInput
         let author = selectedBook?.author ?? authorInput
-        let coverData = selectedBook?.coverImageData ?? coverImage.imageData
+        let coverData = coverImage.imageData ?? selectedBook?.coverImageData
         let book = Domain.BookItem(
             id: id,
             title: title,
