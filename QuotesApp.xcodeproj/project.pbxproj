@@ -16,6 +16,7 @@
 		8874837B2E434D86001EF39D /* QSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874837A2E434D86001EF39D /* QSpinner.swift */; };
 		889469402E04145D0086A652 /* SelectBookScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8894693F2E04145D0086A652 /* SelectBookScreenViewModelTests.swift */; };
 		88999BE12DE0BF9400877F72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88999BE02DE0BF9400877F72 /* LaunchScreen.storyboard */; };
+		88D4F0A12F79D10100AC8A11 /* BookScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D4F0A02F79D10100AC8A11 /* BookScreenViewModelTests.swift */; };
 		E80DAA6E2DBDAC0200AD2C19 /* RecognizedTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA6D2DBDAC0100AD2C19 /* RecognizedTextItem.swift */; };
 		E80DAA722DBDAC8900AD2C19 /* LiveScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA712DBDAC8900AD2C19 /* LiveScannerView.swift */; };
 		E80DAA742DBDACD700AD2C19 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80DAA732DBDACD700AD2C19 /* ReviewView.swift */; };
@@ -133,6 +134,7 @@
 		8874837A2E434D86001EF39D /* QSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSpinner.swift; sourceTree = "<group>"; };
 		8894693F2E04145D0086A652 /* SelectBookScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBookScreenViewModelTests.swift; sourceTree = "<group>"; };
 		88999BE02DE0BF9400877F72 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88D4F0A02F79D10100AC8A11 /* BookScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScreenViewModelTests.swift; sourceTree = "<group>"; };
 		E80DAA6D2DBDAC0100AD2C19 /* RecognizedTextItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedTextItem.swift; sourceTree = "<group>"; };
 		E80DAA712DBDAC8900AD2C19 /* LiveScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveScannerView.swift; sourceTree = "<group>"; };
 		E80DAA732DBDACD700AD2C19 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 		8894693E2E0414390086A652 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				88D4F0A02F79D10100AC8A11 /* BookScreenViewModelTests.swift */,
 				8894693F2E04145D0086A652 /* SelectBookScreenViewModelTests.swift */,
 			);
 			path = ViewModels;
@@ -1003,6 +1006,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D4F0A12F79D10100AC8A11 /* BookScreenViewModelTests.swift in Sources */,
 				E8C85DC92EEF76F400F6C6B9 /* MockPurchaseManager.swift in Sources */,
 				E8C85DCB2EF0ACE100F6C6B9 /* MockCrashlyticsManager.swift in Sources */,
 				E854E08A2E1E947E0037657C /* MockCoreDataManager.swift in Sources */,
@@ -1179,7 +1183,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 10;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"QuotesApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -1202,7 +1206,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1222,7 +1226,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"QuotesApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = K72F7V883D;
@@ -1244,7 +1248,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.asthc.BookQuoteSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

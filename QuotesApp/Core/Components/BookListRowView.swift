@@ -40,7 +40,6 @@ struct BookListRowView: View {
         book.coverImage ?? Image(.defaultBookCover)
     }
 
-    @ViewBuilder
     private var bookRowView: some View {
         VStack {
             HStack {
