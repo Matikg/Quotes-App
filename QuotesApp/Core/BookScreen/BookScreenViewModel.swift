@@ -7,8 +7,8 @@ import SwiftUI
 @MainActor
 final class BookScreenViewModel: ObservableObject {
     enum InputError: String, CaseIterable {
-        case title = "Title_empty_dialog"
-        case author = "Author_empty_dialog"
+        case title = "form_error_title_empty"
+        case author = "form_error_author_empty"
     }
 
     enum CoverImageState {
@@ -28,16 +28,17 @@ final class BookScreenViewModel: ObservableObject {
     @Injected private var apiService: BookApiService
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
 
+    @Published private(set) var errors = [InputError: String]()
+    @Published private(set) var foundBooks = [Domain.SuggestedBookItem]()
+    @Published private(set) var didSelectSuggestion = false
+    @Published private(set) var selectedBook: Domain.SuggestedBookItem?
+    @Published private(set) var coverImage: CoverImageState = .default
+    @Published private(set) var isSearching = false
     @Published var titleInput = ""
     @Published var authorInput = ""
-    @Published var errors = [InputError: String]()
-    @Published var foundBooks = [Domain.SuggestedBookItem]()
-    @Published var didSelectSuggestion = false
-    @Published var selectedBook: Domain.SuggestedBookItem?
-    @Published var coverImage: CoverImageState = .default
-    @Published var isSearching = false
 
     private var cancellables = Set<AnyCancellable>()
+    private var coverTask: Task<Void, Never>?
 
     init() {
         $authorInput
@@ -61,9 +62,13 @@ final class BookScreenViewModel: ObservableObject {
                     didSelectSuggestion = false
                     return
                 }
-                searchBooks()
+                Task { await self.searchBooks() }
             }
             .store(in: &cancellables)
+    }
+
+    deinit {
+        coverTask?.cancel()
     }
 
     // MARK: - Methods
@@ -118,18 +123,21 @@ final class BookScreenViewModel: ObservableObject {
         case let .remote(url):
             coverImage = .loading
 
-            Task {
+            coverTask?.cancel()
+            coverTask = Task { [weak self] in
+                guard let self else { return }
+
                 do {
-                    let data = try await self.apiService.fetchBookCover(from: url)
-                    await MainActor.run {
-                        var updatedBook = book
-                        updatedBook.coverImageData = data
-                        self.selectedBook = updatedBook
-                        self.coverImage = .image(data)
-                    }
+                    let data = try await apiService.fetchBookCover(from: url)
+                    try Task.checkCancellation()
+                    var updatedBook = book
+                    updatedBook.coverImageData = data
+                    selectedBook = updatedBook
+                    coverImage = .image(data)
+
                 } catch {
-                    await MainActor.run {
-                        self.coverImage = .default
+                    if !Task.isCancelled {
+                        coverImage = .default
                     }
                 }
             }
@@ -161,14 +169,15 @@ final class BookScreenViewModel: ObservableObject {
         navigationRouter.pop()
     }
 
-    private func searchBooks() {
+    private func searchBooks() async {
         isSearching = true
-        Task {
+        defer { isSearching = false }
+
+        do {
             let books = try await apiService.fetchBooks(for: titleInput)
             foundBooks = books.compactMap { Domain.SuggestedBookItem(model: $0) }
-            await MainActor.run {
-                self.isSearching = false
-            }
+        } catch {
+            foundBooks = []
         }
     }
 

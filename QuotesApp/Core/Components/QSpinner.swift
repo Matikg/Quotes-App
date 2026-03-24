@@ -46,7 +46,10 @@ struct MaterialSpinner: View {
             .rotationEffect(.degrees(rotation))
             .onAppear {
                 animateRotation()
-                animateHeadTail()
+            }
+            .task(id: isLoading) {
+                guard isLoading else { return }
+                await animateHeadTail()
             }
     }
 
@@ -56,12 +59,10 @@ struct MaterialSpinner: View {
         }
     }
 
-    private func animateHeadTail() {
-        Task {
-            while isLoading {
-                await animate { start += 0.75 }
-                await animate { end += 0.75 }
-            }
+    private func animateHeadTail() async {
+        while isLoading {
+            await animate { start += 0.75 }
+            await animate { end += 0.75 }
         }
     }
 

@@ -14,7 +14,7 @@ struct BookScreenView: View {
                     VStack(alignment: .leading, spacing: 30) {
                         VStack(spacing: 0) {
                             QInput(
-                                label: "Title_label",
+                                label: "input_label_title",
                                 text: $viewModel.titleInput,
                                 type: .oneLine,
                                 isLoading: viewModel.isSearching,
@@ -26,7 +26,7 @@ struct BookScreenView: View {
                         }
 
                         QInput(
-                            label: "Author_label",
+                            label: "input_label_author",
                             text: $viewModel.authorInput,
                             type: .oneLine,
                             error: viewModel.errors[.author]
@@ -40,12 +40,12 @@ struct BookScreenView: View {
             .scrollDismissesKeyboard(.interactively)
         }
         .navBar(center: {
-            QText("BookScreen_title", type: .bold, size: .medium)
+            QText("book_screen_navigation_title", type: .bold, size: .medium)
         }, trailing: {
             Button {
                 viewModel.saveBook()
             } label: {
-                QText("Save", type: .regular, size: .small)
+                QText("nav_bar_button_save", type: .regular, size: .small)
             }
         })
     }

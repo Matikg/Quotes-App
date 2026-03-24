@@ -44,7 +44,7 @@ struct QuoteDetailsView: View {
             Button {
                 viewModel.editQuote()
             } label: {
-                QText("Edit", type: .regular, size: .small)
+                QText("nav_bar_button_edit", type: .regular, size: .small)
             }
         })
     }
@@ -73,7 +73,7 @@ struct QuoteDetailsView: View {
 
     private var quotePage: some View {
         HStack {
-            QText("Quote_page_label", type: .italic, size: .vsmall)
+            QText("quote_page_label", type: .italic, size: .vsmall)
             QText(String(viewModel.quote.page), type: .italic, size: .vsmall)
         }
         .frame(maxWidth: .infinity, alignment: .center)
@@ -91,7 +91,7 @@ struct QuoteDetailsView: View {
     private var personalNote: some View {
         if !viewModel.quote.note.isEmpty {
             VStack(alignment: .leading, spacing: 15) {
-                QText("Note_label", type: .bold, size: .vsmall)
+                QText("quote_details_section_note", type: .bold, size: .vsmall)
 
                 QText(viewModel.quote.note, type: .regular, size: .vsmall)
                     .lineSpacing(10)

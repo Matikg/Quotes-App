@@ -28,8 +28,8 @@ struct BookQuotesView: View {
 
             Spacer()
 
-            QButton(label: "Button_add_quote", state: viewModel.buttonState) {
-                viewModel.addQuote()
+            QButton(label: "button_add_quote", state: viewModel.buttonState) {
+                Task { await viewModel.addQuote() }
             }
         }
         .navBar {

@@ -62,7 +62,7 @@ struct ReviewView: View {
                             imageFrame: imageFrame,
                             onGestureEnded: {
                                 let region = normalized(rect: cropRect, in: size)
-                                viewModel.recognizeText(in: region)
+                                Task { await viewModel.recognizeText(in: region) }
                             }
                         )
                         .gesture(
@@ -92,14 +92,17 @@ struct ReviewView: View {
                 recognizedTextBox
             }
             .padding(.top, 30)
+            .task {
+                await viewModel.recognizeText()
+            }
         }
         .navBar(center: {
-            QText("ScanReview_title", type: .bold, size: .medium)
+            QText("scan_review_screen_navigation_title", type: .bold, size: .medium)
         }, trailing: {
             Button {
                 viewModel.acceptPhoto()
             } label: {
-                QText("Save", type: .regular, size: .small)
+                QText("nav_bar_button_save", type: .regular, size: .small)
             }
         })
     }

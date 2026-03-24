@@ -20,7 +20,7 @@ struct MainScreenView: View {
         }
         .navBar(
             center: {
-                QText("Books_title", type: .bold, size: .medium)
+                QText("books_screen_navigation_title", type: .bold, size: .medium)
             },
             trailing: {
                 Button {
@@ -41,10 +41,10 @@ struct MainScreenView: View {
             Image(.bookshelf)
                 .padding(.bottom, 30)
 
-            QText("MainScreen_empty_quote", type: .bold, size: .medium)
+            QText("main_screen_empty_quotes_dialog", type: .bold, size: .medium)
 
-            QButton(label: "Button_add_quote", state: viewModel.buttonState) {
-                viewModel.addQuote()
+            QButton(label: "button_add_quote", state: viewModel.buttonState) {
+                Task { await viewModel.addQuote() }
             }
 
             Spacer()
@@ -65,15 +65,15 @@ struct MainScreenView: View {
                 viewModel.getBooks()
             }
 
-            QButton(label: "Button_add_quote", state: viewModel.buttonState) {
-                viewModel.addQuote()
+            QButton(label: "button_add_quote", state: viewModel.buttonState) {
+                Task { await viewModel.addQuote() }
             }
         }
         .alert(item: $viewModel.bookToDelete) { book in
             Alert(
-                title: Text("Book_delete_alert"),
-                message: Text("Book_delete_message_alert"),
-                primaryButton: .destructive(Text("Book_delete_alert"), action: {
+                title: Text("alert_book_delete_title"),
+                message: Text("alert_book_delete_message"),
+                primaryButton: .destructive(Text("alert_action_delete"), action: {
                     viewModel.deleteBook(book)
                 }),
                 secondaryButton: .cancel {

@@ -1,6 +1,7 @@
 import DependencyInjection
 import SwiftUI
 
+@MainActor
 final class MainScreenViewModel: ObservableObject {
     enum BookListState {
         case empty
@@ -12,24 +13,21 @@ final class MainScreenViewModel: ObservableObject {
     @Injected private var purchaseManager: PurchaseManagerInterface
     @Injected private var saveQuoteRepository: SaveQuoteRepositoryInterface
 
-    @Published var state: BookListState = .empty
+    @Published private(set) var state: BookListState = .empty
+    @Published private(set) var buttonState: QButton.ButtonState = .idle
     @Published var bookToDelete: Domain.BookItem?
-    @Published var buttonState: QButton.ButtonState = .idle
 
     // MARK: - Methods
 
-    @MainActor
-    func addQuote() {
-        Task {
-            buttonState = .loading
-            let canAddQuote = await purchaseManager.checkPremiumAction()
-            buttonState = .idle
+    func addQuote() async {
+        buttonState = .loading
+        let canAddQuote = await purchaseManager.checkPremiumAction()
+        buttonState = .idle
 
-            if canAddQuote {
-                navigationRouter.push(route: .edit(existingQuote: nil))
-            } else {
-                navigationRouter.present(sheet: .paywall)
-            }
+        if canAddQuote {
+            navigationRouter.push(route: .edit(existingQuote: nil))
+        } else {
+            navigationRouter.present(sheet: .paywall)
         }
     }
 
