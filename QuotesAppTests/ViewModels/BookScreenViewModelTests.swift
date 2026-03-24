@@ -40,12 +40,14 @@ final class BookScreenViewModelTests: XCTestCase {
         // Given
         let previousCover = Data([9, 8, 7])
         let loadedCover = Data([1, 2, 3])
-        sut.selectedBook = Domain.SuggestedBookItem(
+        let book = Domain.SuggestedBookItem(
             title: "Book",
             author: "Author",
             cover: .default,
             coverImageData: previousCover
         )
+
+        sut.selectBook(book)
 
         // When
         await sut.handleCoverSelectionLoad {
@@ -74,12 +76,14 @@ final class BookScreenViewModelTests: XCTestCase {
     func test_resetCover_clearsSelectedBookCoverData() {
         // Given
         let existingCover = Data([4, 5, 6])
-        sut.selectedBook = Domain.SuggestedBookItem(
+        let book = Domain.SuggestedBookItem(
             title: "Book",
             author: "Author",
             cover: .default,
             coverImageData: existingCover
         )
+
+        sut.selectBook(book)
         sut.setManualCover(data: existingCover)
 
         // When
@@ -96,12 +100,14 @@ final class BookScreenViewModelTests: XCTestCase {
         let manualCover = Data([1, 1, 1])
         sut.titleInput = "Book"
         sut.authorInput = "Author"
-        sut.selectedBook = Domain.SuggestedBookItem(
+        let book = Domain.SuggestedBookItem(
             title: "Book",
             author: "Author",
             cover: .default,
             coverImageData: suggestedCover
         )
+
+        sut.selectBook(book)
         sut.setManualCover(data: manualCover)
 
         // When
