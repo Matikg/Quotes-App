@@ -12,6 +12,7 @@ enum Route: Hashable, Identifiable, View {
     case paywall
     case settings
     case aboutUs
+    case whatsNew
 
     var id: Int {
         hashValue
@@ -40,6 +41,8 @@ enum Route: Hashable, Identifiable, View {
             SettingsView()
         case .aboutUs:
             AboutUsView()
+        case .whatsNew:
+            WhatsNewView()
         }
     }
 }

@@ -3,6 +3,7 @@ import SwiftUI
 struct BookListView: View {
     private let books: [Domain.BookItem]
     private let showQuotesNumber: Bool
+    private let topInset: CGFloat
     private let onBookSelected: (Domain.BookItem) -> Void
     private let onBookDeleted: (Domain.BookItem) -> Void
 
@@ -11,11 +12,13 @@ struct BookListView: View {
     init(
         books: [Domain.BookItem],
         showQuotesNumber: Bool,
+        topInset: CGFloat = 30,
         onBookSelected: @escaping (Domain.BookItem) -> Void,
         onBookDeleted: @escaping (Domain.BookItem) -> Void
     ) {
         self.books = books
         self.showQuotesNumber = showQuotesNumber
+        self.topInset = topInset
         self.onBookSelected = onBookSelected
         self.onBookDeleted = onBookDeleted
     }
@@ -37,7 +40,7 @@ struct BookListView: View {
             }
         }
         .safeAreaInset(edge: .top) {
-            Color.clear.frame(height: 30)
+            Color.clear.frame(height: topInset)
         }
     }
 }
