@@ -2,17 +2,17 @@ import DependencyInjection
 import UIKit
 import Vision
 
+@MainActor
 final class ReviewViewModel: ObservableObject {
-    @Published var image: UIImage
-    @Published var items: [Domain.RecognizedTextItem] = []
-    @Published var isLoading = false
-
     @Injected private var navigationRouter: any NavigationRouting
     @Injected private var saveScannedQuoteRepository: SaveScannedQuoteRepositoryInterface
 
+    @Published private(set) var image: UIImage
+    @Published private(set) var items: [Domain.RecognizedTextItem] = []
+    @Published private(set) var isLoading = false
+
     init(image: UIImage) {
         self.image = image
-        recognizeText()
     }
 
     func acceptPhoto() {
@@ -22,15 +22,11 @@ final class ReviewViewModel: ObservableObject {
         navigationRouter.pop()
     }
 
-    func recognizeText(in region: CGRect? = nil) {
+    func recognizeText(in region: CGRect? = nil) async {
         isLoading = true
-        Task {
-            let results = await performRecognition(on: image, region: region)
-            await MainActor.run {
-                items = results
-                isLoading = false
-            }
-        }
+        defer { isLoading = false }
+
+        items = await performRecognition(on: image, region: region)
     }
 
     private func performRecognition(on image: UIImage, region: CGRect?) async -> [Domain.RecognizedTextItem] {

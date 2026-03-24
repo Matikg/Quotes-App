@@ -8,10 +8,10 @@ struct WelcomeScreenView: View {
             VStack {
                 Image(.book)
 
-                QText("WelcomeScreen_title", type: .bold, size: .large)
+                QText("welcome_screen_title", type: .bold, size: .large)
                     .padding(.bottom)
 
-                QText("WelcomeScreen_subtitle", type: .regular, size: .medium)
+                QText("welcome_screen_subtitle", type: .regular, size: .medium)
 
                 QDivider()
 
@@ -19,11 +19,11 @@ struct WelcomeScreenView: View {
 
                 Spacer()
 
-                QText("WelcomeScreen_cta", type: .bold, size: .small)
+                QText("welcome_screen_cta", type: .bold, size: .small)
                     .multilineTextAlignment(.center)
                     .lineSpacing(10)
 
-                QButton(label: "Button_let's_go", action: {
+                QButton(label: "button_let's_go", action: {
                     viewModel.ctaButtonTapped()
                 })
             }
@@ -33,16 +33,16 @@ struct WelcomeScreenView: View {
 
     private func buildDescriptionView() -> some View {
         VStack(spacing: 30) {
-            QText("WelcomeScreen_description", type: .regular, size: .small)
+            QText("welcome_screen_describtion", type: .regular, size: .small)
                 .multilineTextAlignment(.center)
                 .lineSpacing(10)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.horizontal)
 
             VStack(alignment: .leading, spacing: 15) {
-                QText("WelcomeScreen_detail1", type: .regular, size: .small)
-                QText("WelcomeScreen_detail2", type: .regular, size: .small)
-                QText("WelcomeScreen_detail3", type: .regular, size: .small)
+                QText("welcome_screen_detail1", type: .regular, size: .small)
+                QText("welcome_screen_detail2", type: .regular, size: .small)
+                QText("welcome_screen_detail3", type: .regular, size: .small)
             }
         }
     }

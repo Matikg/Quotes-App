@@ -40,7 +40,7 @@ struct BaseView<Content: View>: View {
                                         Image(systemName: "chevron.left")
                                             .foregroundColor(.accent)
                                             .padding(.leading, 16)
-                                        QText("Back", type: .regular, size: .small)
+                                        QText("nav_bar_button_back", type: .regular, size: .small)
                                             .font(.subheadline)
                                             .foregroundColor(.blue)
                                     }

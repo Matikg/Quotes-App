@@ -4,6 +4,23 @@
     "" : {
       "shouldTranslate" : false
     },
+    "about_us_bartson_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I’m passionate about creating digital products. My specialty is iOS app development, which is my main career path. I see reading books as an important part of my personal growth, which is why I’m proud to be part of this project."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pasjonuję się tworzeniem produktów cyfrowych. Moją specjalizacją jest programowanie aplikacji iOS, co jest moją główną ścieżką kariery. Czytanie książek traktuję jako ważną część mojego rozwoju osobistego, dlatego jestem dumny, że jestem częścią tego projektu."
+          }
+        }
+      }
+    },
     "about_us_header1" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -38,6 +55,23 @@
         }
       }
     },
+    "about_us_matikg_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My main specialty is iOS app development, and I’m especially interested in combining it with automation to create solutions that make life easier. Books are my way to relax and have fun — they’re a source of inspiration and help me unwind."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moją główną specjalizacją jest programowanie aplikacji iOS, a szczególnie interesuje mnie łączenie go z automatyzacją, by tworzyć rozwiązania ułatwiające życie. Książki są dla mnie formą relaksu i rozrywki — stanowią źródło inspiracji i pozwalają mi się odprężyć."
+          }
+        }
+      }
+    },
     "about_us_mission" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -51,6 +85,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nasza misja"
+          }
+        }
+      }
+    },
+    "about_us_screen_navigation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About Us"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Nas"
           }
         }
       }
@@ -72,313 +123,7 @@
         }
       }
     },
-    "about_us_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About Us"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O Nas"
-          }
-        }
-      }
-    },
-    "Author_empty_dialog" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Author name cannot be empty"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pole autor nie może być puste"
-          }
-        }
-      }
-    },
-    "Author_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Author"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Autor"
-          }
-        }
-      }
-    },
-    "Back" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Back"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wróć"
-          }
-        }
-      }
-    },
-    "banner_update_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Check out what we’ve prepared for you!"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sprawdź co nowego przygotowaliśmy dla Ciebie!"
-          }
-        }
-      }
-    },
-    "banner_update_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "New update!"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nowa aktualizacja!"
-          }
-        }
-      }
-    },
-    "bartson_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "I’m passionate about creating digital products. My specialty is iOS app development, which is my main career path. I see reading books as an important part of my personal growth, which is why I’m proud to be part of this project."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pasjonuję się tworzeniem produktów cyfrowych. Moją specjalizacją jest programowanie aplikacji iOS, co jest moją główną ścieżką kariery. Czytanie książek traktuję jako ważną część mojego rozwoju osobistego, dlatego jestem dumny, że jestem częścią tego projektu."
-          }
-        }
-      }
-    },
-    "Book_delete_alert" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usuń"
-          }
-        }
-      }
-    },
-    "Book_delete_message_alert" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deleting the book will remove all quotes assigned to it."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usunięcie książki spowoduje usunięcie wszystkich przypisanych do niej cytatów."
-          }
-        }
-      }
-    },
-    "Book_empty_dialog" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Book cannot be empty"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pole książki nie może być puste"
-          }
-        }
-      }
-    },
-    "Book_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Book"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Książka"
-          }
-        }
-      }
-    },
-    "Books_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Books"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Książki"
-          }
-        }
-      }
-    },
-    "BookScreen_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Book"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Książka"
-          }
-        }
-      }
-    },
-    "BookSelect_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select Book"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wybierz Książkę"
-          }
-        }
-      }
-    },
-    "Button_add_quote" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add quote"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dodaj cytat"
-          }
-        }
-      }
-    },
-    "Button_let's_go" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Let's go!"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zaczynamy!"
-          }
-        }
-      }
-    },
-    "Camera_access_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The app needs camera access to scan text from books."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aplikacja potrzebuje dostępu do aparatu, aby skanować tekst z książek."
-          }
-        }
-      }
-    },
-    "Camera_access_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Camera access required"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wymagany dostęp do Aparatu"
-          }
-        }
-      }
-    },
-    "Cancel" : {
+    "alert_action_cancel" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -395,313 +140,24 @@
         }
       }
     },
-    "Category_empty_dialog" : {
+    "alert_action_delete" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You must specify the category"
+            "value" : "Delete"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Musisz podać kategorię"
+            "value" : "Usuń"
           }
         }
       }
     },
-    "Category_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Category"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kategoria"
-          }
-        }
-      }
-    },
-    "Create" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Create"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Utwórz"
-          }
-        }
-      }
-    },
-    "Edit" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Edit"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Edytuj"
-          }
-        }
-      }
-    },
-    "MainScreen_empty_quote" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You don't have any quotes yet"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nie masz jeszcze żadnych cytatów"
-          }
-        }
-      }
-    },
-    "MainScreen_quotes_count" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quotes"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cytaty"
-          }
-        }
-      }
-    },
-    "matikg_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "My main specialty is iOS app development, and I’m especially interested in combining it with automation to create solutions that make life easier. Books are my way to relax and have fun — they’re a source of inspiration and help me unwind."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Moją główną specjalizacją jest programowanie aplikacji iOS, a szczególnie interesuje mnie łączenie go z automatyzacją, by tworzyć rozwiązania ułatwiające życie. Książki są dla mnie formą relaksu i rozrywki — stanowią źródło inspiracji i pozwalają mi się odprężyć."
-          }
-        }
-      }
-    },
-    "Note_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personal note"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notatka osobista"
-          }
-        }
-      }
-    },
-    "Page_empty_dialog" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Page must be a valid number"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Strona musi być liczbą"
-          }
-        }
-      }
-    },
-    "Page_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Page"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Strona"
-          }
-        }
-      }
-    },
-    "Page_range_dialog" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Page number is out of range"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Numer strony jest poza zakresem"
-          }
-        }
-      }
-    },
-    "Quote_empty_dialog" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quote cannot be empty"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pole cytatu nie może być puste"
-          }
-        }
-      }
-    },
-    "Quote_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quote"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cytat"
-          }
-        }
-      }
-    },
-    "Quote_page_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "page"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "strona"
-          }
-        }
-      }
-    },
-    "QuoteEdit_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quote"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cytat"
-          }
-        }
-      }
-    },
-    "Save" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Save"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zapisz"
-          }
-        }
-      }
-    },
-    "Scan_button_label" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scan quote"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zeskanuj cytat"
-          }
-        }
-      }
-    },
-    "ScanReview_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Review"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Podgląd"
-          }
-        }
-      }
-    },
-    "Settings" : {
+    "alert_action_settings" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -718,7 +174,143 @@
         }
       }
     },
-    "Settings_about_us" : {
+    "alert_book_delete_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deleting the book will remove all quotes assigned to it."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usunięcie książki spowoduje usunięcie wszystkich przypisanych do niej cytatów."
+          }
+        }
+      }
+    },
+    "alert_book_delete_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usuń"
+          }
+        }
+      }
+    },
+    "alert_camera_access_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The app needs camera access to scan text from books."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplikacja potrzebuje dostępu do aparatu, aby skanować tekst z książek."
+          }
+        }
+      }
+    },
+    "alert_camera_access_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camera access required"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wymagany dostęp do Aparatu"
+          }
+        }
+      }
+    },
+    "book_screen_navigation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Książka"
+          }
+        }
+      }
+    },
+    "book_select_screen_navigation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Book"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybierz Książkę"
+          }
+        }
+      }
+    },
+    "books_screen_navigation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Books"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Książki"
+          }
+        }
+      }
+    },
+    "books_screen_quotes_count" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quotes"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cytaty"
+          }
+        }
+      }
+    },
+    "button_about_us" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -735,228 +327,160 @@
         }
       }
     },
-    "Settings_analytics" : {
+    "button_add_quote" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analytics"
+            "value" : "Add quote"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analityka"
+            "value" : "Dodaj cytat"
           }
         }
       }
     },
-    "Settings_app_version" : {
+    "button_let's_go" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App version:"
+            "value" : "Let's go!"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wersja aplikacji:"
+            "value" : "Zaczynamy!"
           }
         }
       }
     },
-    "Settings_notifications" : {
+    "button_scan_quote" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Notifications"
+            "value" : "Scan quote"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Powiadomienia"
+            "value" : "Zeskanuj cytat"
           }
         }
       }
     },
-    "Settings_notifications_info" : {
+    "form_error_author_empty" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enable notifications for the app so you never miss new future updates and promos"
+            "value" : "Author name cannot be empty"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Włącz powiadomienia dla aplikacji, aby nie przegapić nowych aktualizacji i promocji"
+            "value" : "Pole autor nie może być puste"
           }
         }
       }
     },
-    "Settings_padlock1" : {
+    "form_error_book_empty" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add unlimited books"
+            "value" : "Book cannot be empty"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dodaj nieograniczoną liczbę książek"
+            "value" : "Pole książki nie może być puste"
           }
         }
       }
     },
-    "Settings_padlock2" : {
+    "form_error_category_empty" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Save unlimited quotes"
+            "value" : "You must specify the category"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zapisuj nieograniczoną liczbę cytatów"
+            "value" : "Musisz podać kategorię"
           }
         }
       }
     },
-    "Settings_padlock3" : {
+    "form_error_page_invalid" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Get access to all future in best price ever"
+            "value" : "Page must be a valid number"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Uzyskaj dostęp do wszystkiego w przyszłości w najlepszej cenie"
+            "value" : "Strona musi być liczbą"
           }
         }
       }
     },
-    "Settings_policy" : {
+    "form_error_page_range" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Privacy Policy"
+            "value" : "Page number is out of range"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Polityka prywatności"
+            "value" : "Numer strony jest poza zakresem"
           }
         }
       }
     },
-    "Settings_thanks" : {
+    "form_error_quote_empty" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Thank you for your support!"
+            "value" : "Quote cannot be empty"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dziękujemy za Twoje wsparcie!"
+            "value" : "Pole cytatu nie może być puste"
           }
         }
       }
     },
-    "Settings_unlocked_header" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All Features Unlocked"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wszystkie funkcje odblokowane"
-          }
-        }
-      }
-    },
-    "Settings_upgrade_header" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Upgrade to enjoy unlimited access"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ulepsz, aby cieszyć się nieograniczonym dostępem"
-          }
-        }
-      }
-    },
-    "Settings_upgrade_now" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Upgrade now"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ulepsz teraz"
-          }
-        }
-      }
-    },
-    "Settings_write_to_us" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Write to us"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Napisz do nas"
-          }
-        }
-      }
-    },
-    "Title_empty_dialog" : {
+    "form_error_title_empty" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -973,7 +497,109 @@
         }
       }
     },
-    "Title_label" : {
+    "input_label_author" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Author"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autor"
+          }
+        }
+      }
+    },
+    "input_label_book" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Książka"
+          }
+        }
+      }
+    },
+    "input_label_category" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Category"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kategoria"
+          }
+        }
+      }
+    },
+    "input_label_page" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Page"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strona"
+          }
+        }
+      }
+    },
+    "input_label_personal_note" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personal note"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notatka osobista"
+          }
+        }
+      }
+    },
+    "input_label_quote" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quote"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cytat"
+          }
+        }
+      }
+    },
+    "input_label_title" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -990,24 +616,415 @@
         }
       }
     },
-    "update_info_app_version" : {
+    "main_screen_empty_quotes_dialog" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version:"
+            "value" : "You don't have any quotes yet"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wersja:"
+            "value" : "Nie masz jeszcze żadnych cytatów"
           }
         }
       }
     },
-    "WelcomeScreen_cta" : {
+    "nav_bar_button_back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wróć"
+          }
+        }
+      }
+    },
+    "nav_bar_button_create" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utwórz"
+          }
+        }
+      }
+    },
+    "nav_bar_button_edit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edytuj"
+          }
+        }
+      }
+    },
+    "nav_bar_button_save" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisz"
+          }
+        }
+      }
+    },
+    "quote_details_section_note" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personal note"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notatka osobista"
+          }
+        }
+      }
+    },
+    "quote_edit_screen_navigation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quote"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cytat"
+          }
+        }
+      }
+    },
+    "quote_page_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "page"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "strona"
+          }
+        }
+      }
+    },
+    "scan_review_screen_navigation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Review"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podgląd"
+          }
+        }
+      }
+    },
+    "settings_app_version" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App version:"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wersja aplikacji:"
+          }
+        }
+      }
+    },
+    "settings_link_privacy_policy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Polityka prywatności"
+          }
+        }
+      }
+    },
+    "settings_link_settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Settings"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz Ustawienia"
+          }
+        }
+      }
+    },
+    "settings_link_write_to_us" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Write to us"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Napisz do nas"
+          }
+        }
+      }
+    },
+    "settings_non_premium_enjoy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade to enjoy unlimited access"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ulepsz, aby cieszyć się nieograniczonym dostępem"
+          }
+        }
+      }
+    },
+    "settings_non_premium_padlock1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add unlimited books"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dodaj nieograniczoną liczbę książek"
+          }
+        }
+      }
+    },
+    "settings_non_premium_padlock2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save unlimited quotes"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisuj nieograniczoną liczbę cytatów"
+          }
+        }
+      }
+    },
+    "settings_non_premium_padlock3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get access to all future in best price ever"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uzyskaj dostęp do wszystkiego w przyszłości w najlepszej cenie"
+          }
+        }
+      }
+    },
+    "settings_non_premium_upgrade_now" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade now"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ulepsz teraz"
+          }
+        }
+      }
+    },
+    "settings_notifications_info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable notifications for the app so you never miss new future updates and promos"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Włącz powiadomienia dla aplikacji, aby nie przegapić nowych aktualizacji i promocji"
+          }
+        }
+      }
+    },
+    "settings_premium_features_unlocked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Features Unlocked"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wszystkie funkcje odblokowane"
+          }
+        }
+      }
+    },
+    "settings_premium_thanks" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thank you for your support!"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dziękujemy za Twoje wsparcie!"
+          }
+        }
+      }
+    },
+    "settings_screen_navigation_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ustawienia"
+          }
+        }
+      }
+    },
+    "settings_toggle_analytics" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analytics"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analityka"
+          }
+        }
+      }
+    },
+    "settings_toggle_notifications" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powiadomienia"
+          }
+        }
+      }
+    },
+    "welcome_screen_cta" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1024,7 +1041,7 @@
         }
       }
     },
-    "WelcomeScreen_description" : {
+    "welcome_screen_describtion" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1041,7 +1058,7 @@
         }
       }
     },
-    "WelcomeScreen_detail1" : {
+    "welcome_screen_detail1" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1058,7 +1075,7 @@
         }
       }
     },
-    "WelcomeScreen_detail2" : {
+    "welcome_screen_detail2" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1075,7 +1092,7 @@
         }
       }
     },
-    "WelcomeScreen_detail3" : {
+    "welcome_screen_detail3" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1092,7 +1109,7 @@
         }
       }
     },
-    "WelcomeScreen_subtitle" : {
+    "welcome_screen_subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -1109,7 +1126,7 @@
         }
       }
     },
-    "WelcomeScreen_title" : {
+    "welcome_screen_title" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {

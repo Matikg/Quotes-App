@@ -1,6 +1,7 @@
 import DependencyInjection
 import SwiftUI
 
+@MainActor
 final class RootScreenViewModel: ObservableObject {
     @Injected private var notificationsManager: PushNotificationsManagerInterface
 

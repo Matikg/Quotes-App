@@ -15,8 +15,8 @@ struct AboutUsView: View {
                         QText("about_us_team", type: .bold, size: .medium)
 
                         VStack(spacing: 24) {
-                            TeamMemberView(avatarName: "bartsonAvatar", name: "Bartek", description: "bartson_description")
-                            TeamMemberView(avatarName: "matikgAvatar", name: "Mateusz", description: "matikg_description")
+                            TeamMemberView(avatarName: "bartsonAvatar", name: "Bartek", description: "about_us_bartson_description")
+                            TeamMemberView(avatarName: "matikgAvatar", name: "Mateusz", description: "about_us_matikg_description")
                         }
                     }
                 }
@@ -26,7 +26,7 @@ struct AboutUsView: View {
             }
         }
         .navBar {
-            QText("about_us_title", type: .bold, size: .medium)
+            QText("about_us_screen_navigation_title", type: .bold, size: .medium)
         }
     }
 

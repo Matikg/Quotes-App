@@ -5,11 +5,11 @@ import SwiftUI
 
 final class QuoteEditViewModel: ObservableObject {
     enum InputError: String, CaseIterable {
-        case quote = "Quote_empty_dialog"
-        case page = "Page_empty_dialog"
-        case pageRange = "Page_range_dialog"
-        case category = "Category_empty_dialog"
-        case book = "Book_empty_dialog"
+        case quote = "form_error_quote_empty"
+        case page = "form_error_page_invalid"
+        case pageRange = "form_error_page_range"
+        case category = "form_error_category_empty"
+        case book = "form_error_book_empty"
     }
 
     @Injected private var coreDataManager: CoreDataManagerInterface
@@ -20,14 +20,14 @@ final class QuoteEditViewModel: ObservableObject {
     @Injected private var cameraAccessManager: CameraAccessManagerInterface
     @Injected private var purchaseManager: PurchaseManagerInterface
 
+    @Published private(set) var bookButtonLabel = ""
+    @Published private(set) var errors = [InputError: String]()
+    @Published private(set) var categoriesHint: [String] = []
     @Published var quoteInput = ""
     @Published var categoryInput = ""
     @Published var pageInput = ""
     @Published var noteInput = ""
-    @Published var bookButtonLabel = ""
-    @Published var errors = [InputError: String]()
     @Published var showCameraAccessAlert = false
-    @Published var categoriesHint: [String] = []
     @Published var isCategoryFocused = false
 
     private let quoteId: UUID?
@@ -56,14 +56,12 @@ final class QuoteEditViewModel: ObservableObject {
     // MARK: - Methods
 
     @MainActor
-    func saveQuote() {
-        Task {
-            let canAddQuote = await purchaseManager.checkPremiumAction()
-            if canAddQuote {
-                performSave()
-            } else {
-                navigationRouter.present(sheet: .paywall)
-            }
+    func saveQuote() async {
+        let canAddQuote = await purchaseManager.checkPremiumAction()
+        if canAddQuote {
+            performSave()
+        } else {
+            navigationRouter.present(sheet: .paywall)
         }
     }
 
