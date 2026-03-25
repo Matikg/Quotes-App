@@ -1,27 +1,12 @@
-import DependencyInjection
 import SwiftUI
 
 struct BaseView<Content: View>: View {
-    @StateObject private var viewModel = BaseViewModel()
-
     private let backgroundColor = Color.background
     private let content: () -> Content
-    private var navbar: AnyView?
-    private var navbarTrailing: AnyView?
 
     init(
         @ViewBuilder content: @escaping () -> Content
     ) {
-        self.content = content
-    }
-
-    private init(
-        navbar: AnyView?,
-        navbarTrailing: AnyView?,
-        @ViewBuilder content: @escaping () -> Content
-    ) {
-        self.navbar = navbar
-        self.navbarTrailing = navbarTrailing
         self.content = content
     }
 
@@ -31,62 +16,132 @@ struct BaseView<Content: View>: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {
-                if let navbar {
-                    ZStack(alignment: .top) {
-                        HStack {
-                            if viewModel.showBackButton {
-                                Button(action: { viewModel.navigateBack() }) {
-                                    HStack(spacing: 2) {
-                                        Image(systemName: "chevron.left")
-                                            .foregroundColor(.accent)
-                                            .padding(.leading, 16)
-                                        QText("nav_bar_button_back", type: .regular, size: .small)
-                                            .font(.subheadline)
-                                            .foregroundColor(.blue)
-                                    }
-                                }
-                            }
-
-                            Spacer()
-
-                            navbarTrailing
-                                .padding(.trailing, 16)
-                        }
-
-                        navbar
-                            .frame(maxWidth: .infinity, alignment: .center)
-                            .padding(.horizontal, 100)
-                    }
-                    .background(Color.background)
-                    .padding(.vertical, 8)
-                }
-
                 content()
-
                 Spacer()
             }
         }
-        .toolbar(.hidden)
     }
 }
 
 extension BaseView {
-    func navBar(_ navbar: @escaping () -> some View) -> BaseView {
-        BaseView(
-            navbar: AnyView(navbar()),
-            navbarTrailing: nil,
-            content: content
+    func navBar() -> some View {
+        modifier(NativeNavigationBarModifier())
+    }
+
+    func navBar(
+        leading navbarLeading: @escaping () -> some View
+    ) -> some View {
+        modifier(
+            NativeNavigationBarModifier(
+                leading: AnyView(navbarLeading())
+            )
         )
     }
 
     func navBar(
-        center navbar: @escaping () -> some View,
         trailing navbarTrailing: @escaping () -> some View
-    ) -> BaseView {
-        BaseView(
-            navbar: AnyView(navbar()),
-            navbarTrailing: AnyView(navbarTrailing()),
-            content: content
+    ) -> some View {
+        modifier(
+            NativeNavigationBarModifier(
+                trailing: AnyView(navbarTrailing())
+            )
         )
+    }
+
+    func navBarTitle(_ titleKey: String) -> some View {
+        modifier(NativeNavigationBarModifier(titleKey: titleKey))
+    }
+
+    func navBarTitle(
+        _ titleKey: String,
+        leading navbarLeading: @escaping () -> some View
+    ) -> some View {
+        modifier(
+            NativeNavigationBarModifier(
+                titleKey: titleKey,
+                leading: AnyView(navbarLeading())
+            )
+        )
+    }
+
+    func navBarTitle(
+        _ titleKey: String,
+        trailing navbarTrailing: @escaping () -> some View
+    ) -> some View {
+        modifier(
+            NativeNavigationBarModifier(
+                titleKey: titleKey,
+                trailing: AnyView(navbarTrailing())
+            )
+        )
+    }
+
+    func navBarTitle(
+        _ titleKey: String,
+        leading navbarLeading: @escaping () -> some View,
+        trailing navbarTrailing: @escaping () -> some View
+    ) -> some View {
+        modifier(
+            NativeNavigationBarModifier(
+                titleKey: titleKey,
+                leading: AnyView(navbarLeading()),
+                trailing: AnyView(navbarTrailing())
+            )
+        )
+    }
+}
+
+private struct NativeNavigationBarModifier: ViewModifier {
+    let titleKey: String?
+    let leading: AnyView?
+    let trailing: AnyView?
+
+    init(
+        titleKey: String? = nil,
+        leading: AnyView? = nil,
+        trailing: AnyView? = nil
+    ) {
+        self.titleKey = titleKey
+        self.leading = leading
+        self.trailing = trailing
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .navigationBarBackButtonHidden(leading != nil)
+            .navigationBarTitleDisplayMode(.inline)
+            .modifier(NavigationTitleModifier(titleKey: titleKey))
+            .toolbar {
+                if let titleKey {
+                    ToolbarItem(placement: .principal) {
+                        QText(titleKey, type: .bold, size: .medium)
+                            .lineLimit(1)
+                    }
+                }
+
+                if let leading {
+                    ToolbarItem(placement: .topBarLeading) {
+                        leading
+                    }
+                }
+
+                if let trailing {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        trailing
+                    }
+                }
+            }
+    }
+}
+
+private struct NavigationTitleModifier: ViewModifier {
+    let titleKey: String?
+
+    func body(content: Content) -> some View {
+        if let titleKey {
+            content.navigationTitle(LocalizedStringKey(titleKey))
+        } else {
+            content
+        }
     }
 }

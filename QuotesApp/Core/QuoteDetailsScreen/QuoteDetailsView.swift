@@ -34,17 +34,11 @@ struct QuoteDetailsView: View {
                 Color.clear.frame(height: 30)
             }
         }
-        .navBar(center: {
-            VStack(spacing: 8) {
-                QText(viewModel.book?.title ?? "", type: .bold, size: .medium)
-                    .lineLimit(1)
-                QText(viewModel.book?.author ?? "", type: .regular, size: .vsmall)
-            }
-        }, trailing: {
+        .navBar(trailing: {
             Button {
                 viewModel.editQuote()
             } label: {
-                QText("nav_bar_button_edit", type: .regular, size: .small)
+                Text("nav_bar_button_edit")
             }
         })
     }

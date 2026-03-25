@@ -115,6 +115,7 @@ final class BookScreenViewModelTests: XCTestCase {
 
         // Then
         XCTAssertEqual(mockSaveQuoteRepo.selectBookCalledWith?.coverImageData, manualCover)
-        XCTAssertEqual(mockNavigationRouter.popCallCount, 1)
+        XCTAssertEqual(mockNavigationRouter.dismissSheetCallCount, 1)
+        XCTAssertEqual(mockNavigationRouter.popCallCount, 0)
     }
 }

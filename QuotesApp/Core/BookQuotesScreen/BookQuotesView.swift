@@ -32,13 +32,7 @@ struct BookQuotesView: View {
                 Task { await viewModel.addQuote() }
             }
         }
-        .navBar {
-            VStack(spacing: 8) {
-                QText(viewModel.book.title, type: .bold, size: .medium)
-                    .lineLimit(1)
-                QText(viewModel.book.author, type: .regular, size: .vsmall)
-            }
-        }
+        .navBar()
         .onAppear {
             viewModel.onAppear()
         }

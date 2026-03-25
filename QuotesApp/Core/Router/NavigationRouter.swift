@@ -3,24 +3,40 @@ import SwiftUI
 final class NavigationRouter: ObservableObject, NavigationRouting {
     @Published var path = NavigationPath()
     @Published var presentedSheet: Route?
+    @Published var sheetPath = NavigationPath()
 
     func push(route: Route) {
-        path.append(route)
+        if presentedSheet != nil {
+            sheetPath.append(route)
+        } else {
+            path.append(route)
+        }
     }
 
     func pop() {
-        path.removeLast()
+        if presentedSheet != nil, !sheetPath.isEmpty {
+            sheetPath.removeLast()
+        } else {
+            guard !path.isEmpty else { return }
+            path.removeLast()
+        }
     }
 
     func popAll() {
-        path = NavigationPath()
-    }
-
-    func set(navigationStack: NavigationPath) {
-        path = navigationStack
+        if presentedSheet != nil {
+            sheetPath = NavigationPath()
+        } else {
+            path = NavigationPath()
+        }
     }
 
     func present(sheet: Route) {
         presentedSheet = sheet
+        sheetPath = NavigationPath()
+    }
+
+    func dismissSheet() {
+        presentedSheet = nil
+        sheetPath = NavigationPath()
     }
 }

@@ -39,13 +39,17 @@ struct BookScreenView: View {
             }
             .scrollDismissesKeyboard(.interactively)
         }
-        .navBar(center: {
-            QText("book_screen_navigation_title", type: .bold, size: .medium)
+        .navBarTitle("book_screen_navigation_title", leading: {
+            Button {
+                viewModel.dismissBookScreen()
+            } label: {
+                Image(systemName: "xmark")
+            }
         }, trailing: {
             Button {
                 viewModel.saveBook()
             } label: {
-                QText("nav_bar_button_save", type: .regular, size: .small)
+                Text("nav_bar_button_save")
             }
         })
     }

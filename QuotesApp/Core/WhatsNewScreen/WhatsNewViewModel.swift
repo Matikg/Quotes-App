@@ -3,6 +3,7 @@ import Foundation
 
 @MainActor
 final class WhatsNewViewModel: ObservableObject {
+    @Injected private var navigationRouter: any NavigationRouting
     @Injected private var remoteConfigManager: RemoteConfigManagerInterface
 
     @Published private(set) var title = Constants.whatsNewDefaultTitle
@@ -11,6 +12,10 @@ final class WhatsNewViewModel: ObservableObject {
 
     var appVersion: String {
         Constants.appVersion
+    }
+
+    func dismissWhatsNew() {
+        navigationRouter.dismissSheet()
     }
 
     func onAppear() async {

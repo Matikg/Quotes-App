@@ -96,13 +96,11 @@ struct ReviewView: View {
                 await viewModel.recognizeText()
             }
         }
-        .navBar(center: {
-            QText("scan_review_screen_navigation_title", type: .bold, size: .medium)
-        }, trailing: {
+        .navBarTitle("scan_review_screen_navigation_title", trailing: {
             Button {
                 viewModel.acceptPhoto()
             } label: {
-                QText("nav_bar_button_save", type: .regular, size: .small)
+                Text("nav_bar_button_save")
             }
         })
     }

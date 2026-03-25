@@ -15,7 +15,8 @@ final class SelectBookScreenViewModel: ObservableObject {
     func createBook() async {
         let canAddQuote = await purchaseManager.checkPremiumAction()
         if canAddQuote {
-            navigationRouter.push(route: .book)
+            saveQuoteRepository.setShouldReturnToQuoteEditAfterBookSave(true)
+            navigationRouter.present(sheet: .book)
         } else {
             navigationRouter.present(sheet: .paywall)
         }

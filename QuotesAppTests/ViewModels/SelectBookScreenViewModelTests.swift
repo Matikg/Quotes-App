@@ -45,14 +45,16 @@ final class SelectBookScreenViewModelTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_createBook_pushesBookRoute() async {
+    func test_createBook_presentsBookSheet() async {
         // When
         await sut.createBook()
 
         try? await Task.sleep(nanoseconds: 50_000_000)
 
         // Then
-        XCTAssertEqual(mockNavigationRouter.lastPushedRoute, .book)
+        XCTAssertEqual(mockNavigationRouter.lastPresentedSheet, .book)
+        XCTAssertEqual(mockNavigationRouter.presentSheetCallCount, 1)
+        XCTAssertTrue(mockSaveQuoteRepo.shouldReturnToQuoteEditAfterBookSave)
     }
 
     func test_selectBook_callsSaveQuoteAndPops() {

@@ -16,9 +16,6 @@ struct WhatsNewView: View {
                 } else {
                     ScrollView(showsIndicators: false) {
                         VStack(alignment: .leading, spacing: 20) {
-                            QText(viewModel.title, type: .bold, size: .large)
-                                .frame(maxWidth: .infinity, alignment: .center)
-
                             HStack(spacing: 4) {
                                 QText("update_info_app_version", type: .regular, size: .medium)
                                 QText(viewModel.appVersion, type: .bold, size: .medium)
@@ -35,6 +32,13 @@ struct WhatsNewView: View {
                 }
             }
         }
+        .navBar(leading: {
+            Button {
+                viewModel.dismissWhatsNew()
+            } label: {
+                Image(systemName: "xmark")
+            }
+        })
         .task {
             await viewModel.onAppear()
         }

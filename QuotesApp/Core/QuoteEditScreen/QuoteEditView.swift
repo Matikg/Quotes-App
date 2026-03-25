@@ -1,8 +1,12 @@
 import SwiftUI
 
 struct QuoteEditView: View {
-    @ObservedObject var viewModel: QuoteEditViewModel
+    @StateObject private var viewModel: QuoteEditViewModel
     @FocusState private var isCategoryFocused: Bool
+
+    init(viewModel: QuoteEditViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
 
     var body: some View {
         BaseView {
@@ -60,18 +64,13 @@ struct QuoteEditView: View {
             }
             .scrollDismissesKeyboard(.interactively)
         }
-        .navBar(
-            center: {
-                QText("quote_edit_screen_navigation_title", type: .bold, size: .medium)
-            },
-            trailing: {
-                Button {
-                    Task { await viewModel.saveQuote() }
-                } label: {
-                    QText("nav_bar_button_save", type: .regular, size: .small)
-                }
+        .navBarTitle("quote_edit_screen_navigation_title", trailing: {
+            Button {
+                Task { await viewModel.saveQuote() }
+            } label: {
+                Text("nav_bar_button_save")
             }
-        )
+        })
         .alert("alert_camera_access_title",
                isPresented: $viewModel.showCameraAccessAlert)
         {

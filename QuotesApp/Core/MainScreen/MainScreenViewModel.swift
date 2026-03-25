@@ -71,7 +71,7 @@ final class MainScreenViewModel: ObservableObject {
     }
 
     func openSettings() {
-        navigationRouter.push(route: .settings)
+        navigationRouter.present(sheet: .settings)
     }
 
     func openWhatsNew() {
