@@ -39,9 +39,13 @@ struct SettingsView: View {
                 .padding(.horizontal, 24)
             }
         }
-        .navBar {
-            QText("settings_screen_navigation_title", type: .bold, size: .medium)
-        }
+        .navBarTitle("settings_screen_navigation_title", leading: {
+            Button {
+                viewModel.dismissSettings()
+            } label: {
+                Image(systemName: "xmark")
+            }
+        })
         .task {
             await viewModel.onAppear()
         }

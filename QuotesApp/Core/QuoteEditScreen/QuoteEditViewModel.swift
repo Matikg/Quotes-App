@@ -45,6 +45,7 @@ final class QuoteEditViewModel: ObservableObject {
             pageInput = String(page)
         }
         categories = coreDataManager.fetchCategories()
+        observeSelectedBook()
         observeCategory()
     }
 
@@ -90,9 +91,7 @@ final class QuoteEditViewModel: ObservableObject {
     }
 
     func onAppear() {
-        if let savedBook = saveQuoteRepository.selectedBook {
-            bookButtonLabel = "\(savedBook.title), \(savedBook.author)"
-        }
+        updateBookButtonLabel(with: saveQuoteRepository.selectedBook)
 
         if let scannedQuote = saveScannedQuoteRepository.scannedQuote {
             quoteInput = scannedQuote
@@ -106,8 +105,11 @@ final class QuoteEditViewModel: ObservableObject {
     }
 
     func addBook() {
-        let route: Route = coreDataManager.fetchBooks().isEmpty ? .book : .select
-        navigationRouter.push(route: route)
+        if coreDataManager.fetchBooks().isEmpty {
+            navigationRouter.present(sheet: .book)
+        } else {
+            navigationRouter.push(route: .select)
+        }
     }
 
     func openAppSettings() {
@@ -199,5 +201,22 @@ final class QuoteEditViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+    }
+
+    private func observeSelectedBook() {
+        saveQuoteRepository.selectedBookPublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] book in
+                self?.updateBookButtonLabel(with: book)
+            }
+            .store(in: &cancellables)
+    }
+
+    private func updateBookButtonLabel(with book: Domain.BookItem?) {
+        if let book {
+            bookButtonLabel = "\(book.title), \(book.author)"
+        } else {
+            bookButtonLabel = ""
+        }
     }
 }

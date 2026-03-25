@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MainScreenView: View {
     @ObservedObject var viewModel: MainScreenViewModel
+    @State private var settingsFeedbackTrigger = false
 
     var body: some View {
         BaseView {
@@ -18,19 +19,15 @@ struct MainScreenView: View {
                 viewModel.getBooks()
             }
         }
-        .navBar(
-            center: {
-                QText("books_screen_navigation_title", type: .bold, size: .medium)
-            },
-            trailing: {
-                Button {
-                    viewModel.openSettings()
-                } label: {
-                    Image(systemName: "gearshape.fill")
-                        .font(.title2)
-                }
+        .navBarTitle("books_screen_navigation_title", trailing: {
+            Button {
+                settingsFeedbackTrigger.toggle()
+                viewModel.openSettings()
+            } label: {
+                Image(systemName: "gearshape.fill")
             }
-        )
+        })
+        .sensoryFeedback(.selection, trigger: settingsFeedbackTrigger)
     }
 
     // MARK: - View Builders

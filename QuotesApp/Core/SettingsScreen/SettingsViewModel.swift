@@ -73,6 +73,10 @@ final class SettingsViewModel: ObservableObject {
         navigationRouter.push(route: .aboutUs)
     }
 
+    func dismissSettings() {
+        navigationRouter.dismissSheet()
+    }
+
     private func setNotifications() {
         Task {
             if isNotificationsOn {

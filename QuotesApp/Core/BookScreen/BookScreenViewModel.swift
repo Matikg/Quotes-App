@@ -166,7 +166,16 @@ final class BookScreenViewModel: ObservableObject {
         saveQuoteRepository.selectBook(book)
         saveQuoteRepository.saveBook(book)
 
-        navigationRouter.pop()
+        let shouldReturnToQuoteEdit = saveQuoteRepository.shouldReturnToQuoteEditAfterBookSave
+        saveQuoteRepository.setShouldReturnToQuoteEditAfterBookSave(false)
+        navigationRouter.dismissSheet()
+        if shouldReturnToQuoteEdit {
+            navigationRouter.pop()
+        }
+    }
+
+    func dismissBookScreen() {
+        navigationRouter.dismissSheet()
     }
 
     private func searchBooks() async {

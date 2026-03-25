@@ -25,9 +25,7 @@ struct AboutUsView: View {
                 .padding(.top, 30)
             }
         }
-        .navBar {
-            QText("about_us_screen_navigation_title", type: .bold, size: .medium)
-        }
+        .navBarTitle("about_us_screen_navigation_title")
     }
 
     // MARK: - View Builders
